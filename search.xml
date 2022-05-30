@@ -381,8 +381,8 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/05/30/docker_config/</url>
+    <title>docker config</title>
+    <url>/2022/05/31/docker_config/</url>
     <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Docker Engine中配置：</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://itobyt5q.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
