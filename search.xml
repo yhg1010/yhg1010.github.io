@@ -448,4 +448,22 @@ baseline（混合损失）+baseline权重finetune</p>
 <p>执行<strong>docker build -t [镜像名称] .</strong> 完成进行制作。</p>
 <h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2>]]></content>
   </entry>
+  <entry>
+    <title>动手学深度学习1</title>
+    <url>/2022/06/02/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01/</url>
+    <content><![CDATA[<h1 id="线性神经网络"><a href="#线性神经网络" class="headerlink" title="线性神经网络"></a>线性神经网络</h1><h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>$$<br>log \frac{1}{P (j)} &#x3D; − log P(j)<br>$$</p>
+<h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h3><p>$$<br>H(P)&#x3D;\sum-P(j)logP(j)<br>$$</p>
+<p>熵定义为当分配的概率真正匹配数据生成过程时的信息量的期望</p>
+<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>$$<br>交叉熵从P到Q，记作：H(P,Q），用于衡量两个分布之间的差异<br>$$</p>
+<p>$$<br>多分类下的交叉熵损失：L&#x3D;\frac{1}{N}\sum_iL_i&#x3D;-\frac{1}{N}\sum_i\sum_{c&#x3D;1}^My_{ic}log(p_{ic})<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>M为类别的数量</li>
+<li>y_ic是符号函数，样本i的真实取值是c则为1，否则为0</li>
+<li>p_ic观测样本i属于类别c的预测概率</li>
+</ul>
+<h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
+<p>softmax运算获取一个向量并将其映射为概率<br>$$<br>softmax(X)<em>{ij}&#x3D;\frac{exp(X</em>{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
+]]></content>
+  </entry>
 </search>
