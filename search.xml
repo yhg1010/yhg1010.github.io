@@ -465,6 +465,20 @@ baseline（混合损失）+baseline权重finetune</p>
 <h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
 <p>softmax运算获取一个向量并将其映射为概率</p>
 <p>$$<br>\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
+<h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="常用的激活函数"><a href="#常用的激活函数" class="headerlink" title="常用的激活函数"></a>常用的激活函数</h2><ul>
+<li>Relu</li>
+</ul>
+<p>$$<br>f(x)&#x3D; \begin{cases}<br>\ 0, &amp; x&lt;&#x3D;0 \<br>\ x, &amp; x&gt;0<br>\end{cases}<br>$$</p>
+<ul>
+<li>sigmoid</li>
+</ul>
+<p>$$<br>f(x) &#x3D; \frac{1}{1+e^{-x}}<br>$$</p>
+<p>$$<br>y&#x3D;sigmoid(x) \<br>y^{‘}&#x3D; y(1-y)<br>$$</p>
+<ul>
+<li>tanh</li>
+</ul>
+<p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
+<p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
 ]]></content>
   </entry>
 </search>

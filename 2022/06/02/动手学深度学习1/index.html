@@ -201,6 +201,20 @@
 <h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
 <p>softmax运算获取一个向量并将其映射为概率</p>
 <p>$$<br>\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
+<h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="常用的激活函数"><a href="#常用的激活函数" class="headerlink" title="常用的激活函数"></a>常用的激活函数</h2><ul>
+<li>Relu</li>
+</ul>
+<p>$$<br>f(x)&#x3D; \begin{cases}<br>\ 0, &amp; x&lt;&#x3D;0 \<br>\ x, &amp; x&gt;0<br>\end{cases}<br>$$</p>
+<ul>
+<li>sigmoid</li>
+</ul>
+<p>$$<br>f(x) &#x3D; \frac{1}{1+e^{-x}}<br>$$</p>
+<p>$$<br>y&#x3D;sigmoid(x) \<br>y^{‘}&#x3D; y(1-y)<br>$$</p>
+<ul>
+<li>tanh</li>
+</ul>
+<p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
+<p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
 
         </div>
 
@@ -353,7 +367,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">线性神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E8%AE%BA"><span class="nav-text">信息论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%86%B5"><span class="nav-text">熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-text">softmax</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">线性神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E8%AE%BA"><span class="nav-text">信息论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%86%B5"><span class="nav-text">熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-text">softmax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-text">感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">常用的激活函数</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
