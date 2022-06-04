@@ -464,7 +464,7 @@ baseline（混合损失）+baseline权重finetune</p>
 </ul>
 <h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
 <p>softmax运算获取一个向量并将其映射为概率</p>
-<p>$$<br>softmax(X)<em>{ij}&#x3D;\frac{exp(X</em>{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
+<p>$$<br>\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
 ]]></content>
   </entry>
 </search>
