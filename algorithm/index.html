@@ -30,12 +30,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-9;
 
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--pjax-progress-bar-color);
+      visibility: hidden;
+      opacity: 0;
+      z-index: $z-index-8;
+      transition-t("width", "0", "0.1", "linear");
+
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: $z-index-8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 6px 0 0;
+      visibility: hidden;
+      font-size: 1.1rem;
+      color: var(--default-text-color);
+
+      +keep-tablet() {
+        padding: 6px 5px 0 0;
+        font-size: 1rem;
+      }
+
+      &.show {
+        visibility: visible;
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: $scroll-progress-bar-height;
+      visibility: hidden;
+      z-index: $z-index-7;
+      background: var(--primary-color);
+      transition-t("width", "0", "0.1", "linear");
+
+      &.hide {
+        display: none !important;
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -266,6 +334,9 @@
 <p>这道题最初的想法也是递归做，记录两个结点的深度，根据深度来回溯到最近一个公共结点，后来发现做不下去。仔细想想这道题确实应该是用递归来做，首先是想好公共结点的定义是什么，判断一个节点是不是公共结点只需判断<strong>该结点下是否同时存在两个结点或者该结点就是两个结点之一并且左子树或右子树存在另一个结点</strong>。而且最关键的一点是这道题必须得用后序遍历，只有通过后序遍历之前的结点才能都走一遍。</p>
 <h4 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h4><p>有时候不要死板地从一个方向去考虑，换个方向可能问题更简单</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> index1 = m<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> index2 = n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> index = m+n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> res;</span><br><span class="line">        <span class="keyword">while</span>(index1&gt;=<span class="number">0</span> || index2&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(index1==<span class="number">-1</span>) &#123;</span><br><span class="line">                res = nums2[index2--];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(index2==<span class="number">-1</span>) &#123;</span><br><span class="line">                res = nums1[index1--];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(nums1[index1]&gt;nums2[index2]) &#123;</span><br><span class="line">                res = nums1[index1--];</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                res = nums2[index2--];</span><br><span class="line">            &#125;</span><br><span class="line">            nums1[index--] = res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h4><p>这里有一个注意点，就是vector的clear方法是将vector的size设置为0，capacity不变，而size是vector当前存储的元素个数，capacity指容器在内存中申请的这片区域所能容纳的元素个数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tem;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> index, vector&lt;<span class="type">int</span>&gt;&amp; visited)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&gt;=nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(tem);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(visited[i]==<span class="number">0</span>) &#123;</span><br><span class="line">                tem.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">                visited[i] = <span class="number">1</span>;</span><br><span class="line">                index++;</span><br><span class="line">                <span class="built_in">solve</span>(nums, index, visited);</span><br><span class="line">                visited[i] = <span class="number">0</span>;</span><br><span class="line">                tem.<span class="built_in">pop_back</span>();</span><br><span class="line">                index--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">visited</span><span class="params">(nums.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="built_in">solve</span>(nums, <span class="number">0</span>, visited);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
             
