@@ -529,11 +529,80 @@ baseline（混合损失）+baseline权重finetune</p>
 
     
         <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-3-31"><span class="nav-text">2022.3.31</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-1"><span class="nav-text">2022.4.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-2-2022-4-7"><span class="nav-text">2022.4.2-2022.4.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-8"><span class="nav-text">2022.4.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-10"><span class="nav-text">2022.4.10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-11"><span class="nav-text">2022.4.11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-12%EF%BC%9A"><span class="nav-text">2022.4.12：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-13"><span class="nav-text">2022.4.13:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-14%EF%BC%9A"><span class="nav-text">2022.4.14：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-15%EF%BC%9A"><span class="nav-text">2022.4.15：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-18"><span class="nav-text">2022.4.18:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-19%EF%BC%9A"><span class="nav-text">2022.4.19：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-21%EF%BC%9A"><span class="nav-text">2022.4.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-22%EF%BC%9A"><span class="nav-text">2022.4.22：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-23%EF%BC%9A"><span class="nav-text">2022.4.23：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-24%EF%BC%9A"><span class="nav-text">2022.4.24：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-4-25%EF%BC%9A"><span class="nav-text">2022.4.25：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-4"><span class="nav-text">2022.5.4:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-5"><span class="nav-text">2022.5.5:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-6"><span class="nav-text">2022.5.6:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-9%EF%BC%9A"><span class="nav-text">2022.5.9：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-10"><span class="nav-text">2022.5.10:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-11%EF%BC%9A"><span class="nav-text">2022.5.11：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-16%EF%BC%9A"><span class="nav-text">2022.5.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-21%EF%BC%9A"><span class="nav-text">2022.5.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-5-25%EF%BC%9A"><span class="nav-text">2022.5.25：</span></a></li></ol>
-    </div>
-</div>
+            .post-toc-wrap {
+  width: 100%;
+  font-size: 0.92rem;
+  box-sizing: border-box;
+
+  .post-toc {
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0 2px 12px 10px;
+      text-align: left;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      > ol {
+        padding-left: 0;
+      }
+
+      a {
+        transition-property: all;
+        transition();
+      }
+    }
+
+
+    .nav-item {
+      line-height: 1.8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+
+    .nav {
+      .nav-child {
+        display: hexo-config('toc.expand_all') ? block : none;
+      }
+
+      .active > .nav-child {
+        display: block;
+      }
+
+      .active-current > .nav-child {
+        display: block;
+
+        > .nav-item {
+          display: block;
+        }
+      }
+
+
+      .nav-number, .nav-text {
+        color: var(--default-text-color);
+      }
+
+      .active > a {
+        .nav-number, .nav-text {
+          color: var(--primary-color);
+        }
+      }
+
+      .active-current > a {
+        .nav-number, .nav-text {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
+
+
         </aside>
     
 
