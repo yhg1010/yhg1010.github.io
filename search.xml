@@ -371,6 +371,130 @@
 ]]></content>
   </entry>
   <entry>
+    <title>deeplearning</title>
+    <url>/2022/09/02/deeplearning/</url>
+    <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
+
+<h2 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h2><h3 id="人工智能发展历程"><a href="#人工智能发展历程" class="headerlink" title="人工智能发展历程"></a>人工智能发展历程</h3><p><img src="/../pic/deeplearning1.png"></p>
+<h3 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h3><h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><p>搜索问题的元素包括：</p>
+<ul>
+<li>状态空间</li>
+<li>初始状态和目标测试</li>
+<li>后继函数</li>
+</ul>
+<p>目标就是得到后继函数（从初始状态到目标状态的每一步行动）</p>
+<p>考虑搜索算法的两个出发点：</p>
+<ul>
+<li>完备性</li>
+<li>一致性</li>
+</ul>
+<h3 id="路径搜索"><a href="#路径搜索" class="headerlink" title="路径搜索"></a>路径搜索</h3><h4 id="无信息搜索"><a href="#无信息搜索" class="headerlink" title="无信息搜索"></a>无信息搜索</h4><p>无信息搜索指的是除了问题定义中提供的状态信息外没有其他附加信息，有信息搜索知道一个非目标状态是否比其他状态更有希望接近目标</p>
+<p>搜索：</p>
+<ul>
+<li>扩展出潜在的行动</li>
+<li>维护所考虑的行动的边缘节点</li>
+<li>试图扩展尽可能少的树节点</li>
+</ul>
+<p>重要的点：</p>
+<ul>
+<li>边缘节点</li>
+<li>扩展新的结点</li>
+<li>探索的策略</li>
+</ul>
+<p>考虑的主要问题是选取哪些边缘节点来进行探索</p>
+<p>搜索算法的特性：</p>
+<ul>
+<li>完备性（当有解时保证能找到一个解）</li>
+<li>最优性（保证能找到最优解）</li>
+<li>时间复杂度</li>
+<li>空间复杂度</li>
+</ul>
+<hr>
+<p>状态空间图</p>
+<h5 id="树搜索"><a href="#树搜索" class="headerlink" title="树搜索"></a>树搜索</h5><p>不同搜索算法的区别在于对于边缘的处理策略</p>
+<ul>
+<li><p>DFS</p>
+</li>
+<li><p>BFS</p>
+</li>
+<li><p>迭代深入搜索</p>
+<ul>
+<li>迭代深度的DFS，结合了DFS和BFS的优点</li>
+<li>对DFS进行深度限制，搜索完限制深度后必须开始新的搜索路径</li>
+</ul>
+</li>
+<li><p>代价一致搜索</p>
+<ul>
+<li>在BFS基础上进行扩展</li>
+<li>基本原理：<strong>一致代价搜索总是扩展路径消耗最小的节点N。N点的路径消耗等于前一节点N-1的路径消耗加上N-1到N节点的路径消耗</strong></li>
+<li>UCS是完备的（不存在零代价），是最优的</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<img src="../pic/deeplearning2_1.png" style="zoom:25%;" />
+
+<p>Solution:</p>
+<p><img src="/../pic/deeplearning2_2.png"></p>
+<h5 id="图搜索"><a href="#图搜索" class="headerlink" title="图搜索"></a>图搜索</h5><ul>
+<li>A*图搜索</li>
+</ul>
+<h4 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h4><p>启发策略：</p>
+<ul>
+<li>估计一个状态到目标距离的函数</li>
+<li>问题给予算法的额外信息，为特定搜索问题而设计</li>
+</ul>
+<p>启发式函数：</p>
+<p>h(n)&#x3D;节点n到目标节点的最小代价路径的代价估计值</p>
+<p>启发式搜索：</p>
+<p>采用了启发式函数的搜索策略</p>
+<hr>
+<ul>
+<li>贪婪搜索<ul>
+<li>扩展距离目标最近的结点</li>
+<li>启发式：对每个状态估计到最近目标的距离（h(n)）</li>
+</ul>
+</li>
+<li>A*搜索<ul>
+<li>启发式：同时结合了g(n)（到达此结点已经花费的代价）和h(n)</li>
+</ul>
+</li>
+</ul>
+<h4 id="局部搜索"><a href="#局部搜索" class="headerlink" title="局部搜索"></a>局部搜索</h4><p>不关心路径，从单个当前结点出发，通常只移动到他的邻近状态，一般情况下不保留搜索路径</p>
+<p>有两个优点：</p>
+<ul>
+<li>通常只用常数级内存</li>
+<li>通常能在系统化算法不适用的很大或无限的状态空间中找到合理的解</li>
+</ul>
+<p><strong>如果存在解，最优的局部搜索算法总能找到全局最大&#x2F;最小值</strong></p>
+<ul>
+<li>爬山法搜索</li>
+<li>模拟退火搜索</li>
+<li>遗传算法</li>
+</ul>
+<hr>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="人工神经网络和深度学习基础"><a href="#人工神经网络和深度学习基础" class="headerlink" title="人工神经网络和深度学习基础"></a>人工神经网络和深度学习基础</h3><ol>
+<li>人工神经网络部分–多层感知机，BP算法</li>
+</ol>
+<p><img src="/../pic/deeplearning3_1.png"></p>
+<ol start="2">
+<li>深度学习</li>
+</ol>
+<ul>
+<li>深度神经网络</li>
+<li>自编码器</li>
+<li>栈式自编码器</li>
+<li>深度置信网络（DBN）</li>
+<li>深度玻尔兹曼机（DBM）</li>
+</ul>
+<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><ul>
+<li>dropout</li>
+<li>局部对比归一</li>
+<li>Inception</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>article</title>
     <url>/2022/10/10/article/</url>
     <content><![CDATA[<h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
@@ -816,130 +940,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>deeplearning</title>
-    <url>/2022/09/02/deeplearning/</url>
-    <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
-
-<h2 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h2><h3 id="人工智能发展历程"><a href="#人工智能发展历程" class="headerlink" title="人工智能发展历程"></a>人工智能发展历程</h3><p><img src="/../pic/deeplearning1.png"></p>
-<h3 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h3><h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><p>搜索问题的元素包括：</p>
-<ul>
-<li>状态空间</li>
-<li>初始状态和目标测试</li>
-<li>后继函数</li>
-</ul>
-<p>目标就是得到后继函数（从初始状态到目标状态的每一步行动）</p>
-<p>考虑搜索算法的两个出发点：</p>
-<ul>
-<li>完备性</li>
-<li>一致性</li>
-</ul>
-<h3 id="路径搜索"><a href="#路径搜索" class="headerlink" title="路径搜索"></a>路径搜索</h3><h4 id="无信息搜索"><a href="#无信息搜索" class="headerlink" title="无信息搜索"></a>无信息搜索</h4><p>无信息搜索指的是除了问题定义中提供的状态信息外没有其他附加信息，有信息搜索知道一个非目标状态是否比其他状态更有希望接近目标</p>
-<p>搜索：</p>
-<ul>
-<li>扩展出潜在的行动</li>
-<li>维护所考虑的行动的边缘节点</li>
-<li>试图扩展尽可能少的树节点</li>
-</ul>
-<p>重要的点：</p>
-<ul>
-<li>边缘节点</li>
-<li>扩展新的结点</li>
-<li>探索的策略</li>
-</ul>
-<p>考虑的主要问题是选取哪些边缘节点来进行探索</p>
-<p>搜索算法的特性：</p>
-<ul>
-<li>完备性（当有解时保证能找到一个解）</li>
-<li>最优性（保证能找到最优解）</li>
-<li>时间复杂度</li>
-<li>空间复杂度</li>
-</ul>
-<hr>
-<p>状态空间图</p>
-<h5 id="树搜索"><a href="#树搜索" class="headerlink" title="树搜索"></a>树搜索</h5><p>不同搜索算法的区别在于对于边缘的处理策略</p>
-<ul>
-<li><p>DFS</p>
-</li>
-<li><p>BFS</p>
-</li>
-<li><p>迭代深入搜索</p>
-<ul>
-<li>迭代深度的DFS，结合了DFS和BFS的优点</li>
-<li>对DFS进行深度限制，搜索完限制深度后必须开始新的搜索路径</li>
-</ul>
-</li>
-<li><p>代价一致搜索</p>
-<ul>
-<li>在BFS基础上进行扩展</li>
-<li>基本原理：<strong>一致代价搜索总是扩展路径消耗最小的节点N。N点的路径消耗等于前一节点N-1的路径消耗加上N-1到N节点的路径消耗</strong></li>
-<li>UCS是完备的（不存在零代价），是最优的</li>
-</ul>
-</li>
-</ul>
-<p>Example:</p>
-<img src="../pic/deeplearning2_1.png" style="zoom:25%;" />
-
-<p>Solution:</p>
-<p><img src="/../pic/deeplearning2_2.png"></p>
-<h5 id="图搜索"><a href="#图搜索" class="headerlink" title="图搜索"></a>图搜索</h5><ul>
-<li>A*图搜索</li>
-</ul>
-<h4 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h4><p>启发策略：</p>
-<ul>
-<li>估计一个状态到目标距离的函数</li>
-<li>问题给予算法的额外信息，为特定搜索问题而设计</li>
-</ul>
-<p>启发式函数：</p>
-<p>h(n)&#x3D;节点n到目标节点的最小代价路径的代价估计值</p>
-<p>启发式搜索：</p>
-<p>采用了启发式函数的搜索策略</p>
-<hr>
-<ul>
-<li>贪婪搜索<ul>
-<li>扩展距离目标最近的结点</li>
-<li>启发式：对每个状态估计到最近目标的距离（h(n)）</li>
-</ul>
-</li>
-<li>A*搜索<ul>
-<li>启发式：同时结合了g(n)（到达此结点已经花费的代价）和h(n)</li>
-</ul>
-</li>
-</ul>
-<h4 id="局部搜索"><a href="#局部搜索" class="headerlink" title="局部搜索"></a>局部搜索</h4><p>不关心路径，从单个当前结点出发，通常只移动到他的邻近状态，一般情况下不保留搜索路径</p>
-<p>有两个优点：</p>
-<ul>
-<li>通常只用常数级内存</li>
-<li>通常能在系统化算法不适用的很大或无限的状态空间中找到合理的解</li>
-</ul>
-<p><strong>如果存在解，最优的局部搜索算法总能找到全局最大&#x2F;最小值</strong></p>
-<ul>
-<li>爬山法搜索</li>
-<li>模拟退火搜索</li>
-<li>遗传算法</li>
-</ul>
-<hr>
-<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="人工神经网络和深度学习基础"><a href="#人工神经网络和深度学习基础" class="headerlink" title="人工神经网络和深度学习基础"></a>人工神经网络和深度学习基础</h3><ol>
-<li>人工神经网络部分–多层感知机，BP算法</li>
-</ol>
-<p><img src="/../pic/deeplearning3_1.png"></p>
-<ol start="2">
-<li>深度学习</li>
-</ol>
-<ul>
-<li>深度神经网络</li>
-<li>自编码器</li>
-<li>栈式自编码器</li>
-<li>深度置信网络（DBN）</li>
-<li>深度玻尔兹曼机（DBM）</li>
-</ul>
-<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><ul>
-<li>dropout</li>
-<li>局部对比归一</li>
-<li>Inception</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>docker config</title>
     <url>/2022/05/31/docker_config/</url>
     <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
@@ -1211,67 +1211,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>machinelearning.md</title>
-    <url>/2022/09/02/machinelearning-md/</url>
-    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p>机器学习：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 绪论 3学时</span><br><span class="line">第1节 机器学习研究背景</span><br><span class="line">第2节 机器学习研究的问题</span><br><span class="line">第3节 课程主要内容</span><br><span class="line">第4节 课程安排</span><br><span class="line">第二章 贝叶斯方法 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 贝叶斯决策论</span><br><span class="line">第3节 贝叶斯分类器</span><br><span class="line">第4节 贝叶斯学习与参数估计问题</span><br><span class="line">第三章 线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 基础知识</span><br><span class="line">第3节 感知机</span><br><span class="line">第4节 Fisher鉴别</span><br><span class="line">第5节 Logistic回归</span><br><span class="line">第四章 非线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 决策树</span><br><span class="line">第3节 集成学习</span><br><span class="line">第4节 最近邻方法</span><br><span class="line">第5节 支持向量机与核函数</span><br><span class="line">第五章 回归分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 最小二乘估计</span><br><span class="line">第3节 最大似然估计</span><br><span class="line">第4节 扩展的非线性模型</span><br><span class="line">第5节 误差分析</span><br><span class="line">第六章 聚类分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 序贯方法</span><br><span class="line">第3节 层次聚类</span><br><span class="line">第4节 K均值聚类</span><br><span class="line">第七章 特征降维 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 特征降维</span><br><span class="line">第八章 信息论模型 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 熵、最大熵</span><br><span class="line">第3节 互信息</span><br><span class="line">第4节 信息论优化模型</span><br><span class="line">第九章 概率图模型 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 有向图模型：贝叶斯网络</span><br><span class="line">第3节 无向图模型：马尔可夫随机场</span><br><span class="line">第4节 学习与推断</span><br><span class="line">第5节 隐马尔可夫模型</span><br><span class="line">第十章 神经网络与深度学习 12学时</span><br><span class="line">第1节 前馈网络</span><br><span class="line">第2节 卷积网络</span><br><span class="line">第3节 Recurrent网络</span><br><span class="line">第4节 神经网络与深度学习前沿概述</span><br></pre></td></tr></table></figure>
-
-<p>模式识别与机器学习：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 概述 3学时 黄庆明</span><br><span class="line">第1节 课程主要内容和规划</span><br><span class="line">第2节 模式识别的基本概念</span><br><span class="line">第3节 模式识别简史和应用</span><br><span class="line">第4节 模式识别的方法</span><br><span class="line">第5节 模式识别系统</span><br><span class="line">第6节 相关数学基础</span><br><span class="line">第二章 统计判别 3学时 黄庆明</span><br><span class="line">第1节 贝叶斯判别准则</span><br><span class="line">第2节 最小风险判别</span><br><span class="line">第3节 正态分布模式的贝叶斯分类器</span><br><span class="line">第4节 均值向量和协方差矩阵的参数估计</span><br><span class="line">第三章 判别函数 6学时 黄庆明</span><br><span class="line">第1节 线性判别函数</span><br><span class="line">第2节 广义线性判别函数</span><br><span class="line">第3节 分段线性判别函数</span><br><span class="line">第4节 模式空间和权空间</span><br><span class="line">第5节 Fisher线性判别</span><br><span class="line">第6节 感知器算法</span><br><span class="line">第7节 多模式分类</span><br><span class="line">第8节 迭代训练算法</span><br><span class="line">第9节 势函数法</span><br><span class="line">第10节 决策树</span><br><span class="line">第四章 特征选择和提取 3学时 黄庆明</span><br><span class="line">第1节 模式类别可分性</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 K-L变换</span><br><span class="line">第五章 统计学习理论基础 3学时 常虹</span><br><span class="line">第1节 机器学习简史和应用</span><br><span class="line">第2节 机器学习任务分类</span><br><span class="line">第3节 参数学习</span><br><span class="line">第4节 过拟合</span><br><span class="line">第5节 偏差方差分析</span><br><span class="line">第6节 正则化方法和泛化理论分析</span><br><span class="line">第六章 监督学习 3学时 常虹</span><br><span class="line">第1节 线性回归模型</span><br><span class="line">第2节 判别式分类模型和逻辑回归</span><br><span class="line">第3节 生成式分类模型和贝叶斯模型</span><br><span class="line">第七章 支持向量机 6学时 常虹</span><br><span class="line">第1节 支持向量机基础理论</span><br><span class="line">第2节 拉格朗日乘子法和对偶问题</span><br><span class="line">第3节 线性支持向量机</span><br><span class="line">第4节 软间隔的支持向量机</span><br><span class="line">第5节 核方法支持向量机</span><br><span class="line">第6节 支持向量回归</span><br><span class="line">第7节 SMO求解方法</span><br><span class="line">第八章 聚类 3学时 郭嘉丰</span><br><span class="line">第1节 无监督学习与有监督学习对比</span><br><span class="line">第2节 距离计算</span><br><span class="line">第3节 聚类算法的评价方法</span><br><span class="line">第4节 经典聚类方法</span><br><span class="line">第九章 降维 3学时</span><br><span class="line">第1节 维度的选择和抽取</span><br><span class="line">第2节 线性降维</span><br><span class="line">第3节 非线性降维和流形模型</span><br><span class="line">第十章 半监督学习 3学时 郭嘉丰</span><br><span class="line">第1节 自我训练</span><br><span class="line">第2节 多视角学习</span><br><span class="line">第3节 生成模型</span><br><span class="line">第4节 S3VMs</span><br><span class="line">第5节 基于图的算法</span><br><span class="line">第6节 半监督聚类</span><br><span class="line">第十一章 概率图模型 3学时 郭嘉丰</span><br><span class="line">第1节 有向概率图模型</span><br><span class="line">第2节 无向概率图模型</span><br><span class="line">第3节 学习和推断</span><br><span class="line">第4节 典型的概率图模型</span><br><span class="line">第十二章 集成学习 3学时 山世光</span><br><span class="line">第1节 机器学习中的哲学思想</span><br><span class="line">第2节 分类器设计中的重采样技术</span><br><span class="line">第3节 模型性能评估</span><br><span class="line">第十三章 深度学习及应用 12学时 山世光</span><br><span class="line">第1节 人工神经网络的生物原型</span><br><span class="line">第2节 生物视觉系统简介</span><br><span class="line">第3节 卷积神经网络CNN源起与概述</span><br><span class="line">第4节 典型卷积神经网络结构</span><br><span class="line">第5节 循环神经网络</span><br><span class="line">第6节 反向传播算法介绍</span><br><span class="line">第7节 深度模型训练技巧</span><br><span class="line">第8节 深度模型应用</span><br><span class="line">第9节 深度学习未来发展趋势</span><br><span class="line">第十四章 课程复习 3学时 常虹</span><br><span class="line">第1节 课程复习</span><br><span class="line">第十五章 期末考试 3学时 郭嘉丰</span><br><span class="line">第1节 期末考试</span><br></pre></td></tr></table></figure>
-
-<h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><p><img src="/../pic/machine_list.png"></p>
-<h3 id="课程时间"><a href="#课程时间" class="headerlink" title="课程时间"></a>课程时间</h3><p><img src="/../pic/machine_time.png"></p>
-<h2 id="第二章-贝叶斯学习"><a href="#第二章-贝叶斯学习" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><p><img src="/../pic/machine2_1.png"></p>
-<ul>
-<li>似然：关于样本的分布</li>
-<li>先验：关于类别的分布</li>
-<li>后验：类别关于样本的分布</li>
-</ul>
-<p><img src="/../pic/machine2_3.png"></p>
-<p><img src="/../pic/machine2_2.png"></p>
-<h3 id="MLE和MAP"><a href="#MLE和MAP" class="headerlink" title="MLE和MAP"></a>MLE和MAP</h3><p>概率和统计：</p>
-<ul>
-<li>概率是已知模型和参数的情况下预测结果的方差、均值等情况</li>
-<li>统计是已知结果预测模型和参数</li>
-</ul>
-<p>MLE是最大似然估计，在已知结果的情况下估计参数使得似然函数达到最大</p>
-<p>MAP是最大后验概率估计，在MLE的基础上加入了先验概率的『惩罚』</p>
-<hr>
-<p>多维正态分布概率密度</p>
-<p><img src="/../pic/machine_gaosi.png"></p>
-<h3 id="贝叶斯学习与参数估计问题"><a href="#贝叶斯学习与参数估计问题" class="headerlink" title="贝叶斯学习与参数估计问题"></a>贝叶斯学习与参数估计问题</h3><p>在不同分布下的ML、MAP参数估计</p>
-<h2 id="第三章-线性分类"><a href="#第三章-线性分类" class="headerlink" title="第三章 线性分类"></a>第三章 线性分类</h2><p>常用的统计量：</p>
-<img src="../pic/machine3_3.png" style="zoom:50%;" />
-
-
-
-<img src="../pic/machine3_4.png" style="zoom:50%;" />
-
-
-
-<h1 id="模式识别与机器学习"><a href="#模式识别与机器学习" class="headerlink" title="模式识别与机器学习"></a>模式识别与机器学习</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h2 id="第二章-贝叶斯学习-1"><a href="#第二章-贝叶斯学习-1" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><h2 id="第三章-判别函数"><a href="#第三章-判别函数" class="headerlink" title="第三章 判别函数"></a>第三章 判别函数</h2><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ol>
-<li>多类情况1和多类情况2的比较：</li>
-</ol>
-<p>M类进行分类，多类情况1需要M类判别函数，多类情况2需要M(M-1)&#x2F;2类判别函数</p>
-<h3 id="广义线性判别函数"><a href="#广义线性判别函数" class="headerlink" title="广义线性判别函数"></a>广义线性判别函数</h3><p>判别函数将每个常数项、一次项、二次项…都作为一个维度，将低维映射到高维</p>
-<h3 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h3><ul>
-<li>最小距离分类（类别中心点连线的中垂线）</li>
-</ul>
-<h3 id="模式空间和权空间"><a href="#模式空间和权空间" class="headerlink" title="模式空间和权空间"></a>模式空间和权空间</h3><h3 id="Fisher线性判别"><a href="#Fisher线性判别" class="headerlink" title="Fisher线性判别"></a>Fisher线性判别</h3><p>如何根据实际情况找到一条最好的、最易于分类的投影线就是Fisher线性判别方法要解决的基本问题</p>
-<p>最重要的是投影线的方向，大小不是很重要</p>
-<p>一些参数：</p>
-<ul>
-<li>样本均值</li>
-<li>样本类内离散度矩阵和总样本类内离散度矩阵</li>
-<li>样本类间离散度矩阵</li>
-</ul>
-<p>Fisher准则函数：</p>
-<img src="../pic/machine3_1.png" style="zoom: 50%;" />
-
-<img src="../pic/machine3_2.png" style="zoom:50%;" />
-]]></content>
-  </entry>
-  <entry>
     <title>network</title>
     <url>/2022/09/02/network/</url>
     <content><![CDATA[<h1 id="network"><a href="#network" class="headerlink" title="network"></a>network</h1><h1 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h1><p><img src="/../pic/network1.png"></p>
@@ -1426,9 +1365,83 @@
 <h3 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h3><h4 id="域内路由协议RIP-OSPF"><a href="#域内路由协议RIP-OSPF" class="headerlink" title="域内路由协议RIP OSPF"></a>域内路由协议RIP OSPF</h4><h4 id="域间路由协议BGP"><a href="#域间路由协议BGP" class="headerlink" title="域间路由协议BGP"></a>域间路由协议BGP</h4><h2 id="考虑主机移动的路由机制"><a href="#考虑主机移动的路由机制" class="headerlink" title="考虑主机移动的路由机制"></a>考虑主机移动的路由机制</h2>]]></content>
   </entry>
   <entry>
+    <title>machinelearning.md</title>
+    <url>/2022/09/02/machinelearning-md/</url>
+    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p>机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 绪论 3学时</span><br><span class="line">第1节 机器学习研究背景</span><br><span class="line">第2节 机器学习研究的问题</span><br><span class="line">第3节 课程主要内容</span><br><span class="line">第4节 课程安排</span><br><span class="line">第二章 贝叶斯方法 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 贝叶斯决策论</span><br><span class="line">第3节 贝叶斯分类器</span><br><span class="line">第4节 贝叶斯学习与参数估计问题</span><br><span class="line">第三章 线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 基础知识</span><br><span class="line">第3节 感知机</span><br><span class="line">第4节 Fisher鉴别</span><br><span class="line">第5节 Logistic回归</span><br><span class="line">第四章 非线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 决策树</span><br><span class="line">第3节 集成学习</span><br><span class="line">第4节 最近邻方法</span><br><span class="line">第5节 支持向量机与核函数</span><br><span class="line">第五章 回归分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 最小二乘估计</span><br><span class="line">第3节 最大似然估计</span><br><span class="line">第4节 扩展的非线性模型</span><br><span class="line">第5节 误差分析</span><br><span class="line">第六章 聚类分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 序贯方法</span><br><span class="line">第3节 层次聚类</span><br><span class="line">第4节 K均值聚类</span><br><span class="line">第七章 特征降维 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 特征降维</span><br><span class="line">第八章 信息论模型 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 熵、最大熵</span><br><span class="line">第3节 互信息</span><br><span class="line">第4节 信息论优化模型</span><br><span class="line">第九章 概率图模型 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 有向图模型：贝叶斯网络</span><br><span class="line">第3节 无向图模型：马尔可夫随机场</span><br><span class="line">第4节 学习与推断</span><br><span class="line">第5节 隐马尔可夫模型</span><br><span class="line">第十章 神经网络与深度学习 12学时</span><br><span class="line">第1节 前馈网络</span><br><span class="line">第2节 卷积网络</span><br><span class="line">第3节 Recurrent网络</span><br><span class="line">第4节 神经网络与深度学习前沿概述</span><br></pre></td></tr></table></figure>
+
+<p>模式识别与机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 概述 3学时 黄庆明</span><br><span class="line">第1节 课程主要内容和规划</span><br><span class="line">第2节 模式识别的基本概念</span><br><span class="line">第3节 模式识别简史和应用</span><br><span class="line">第4节 模式识别的方法</span><br><span class="line">第5节 模式识别系统</span><br><span class="line">第6节 相关数学基础</span><br><span class="line">第二章 统计判别 3学时 黄庆明</span><br><span class="line">第1节 贝叶斯判别准则</span><br><span class="line">第2节 最小风险判别</span><br><span class="line">第3节 正态分布模式的贝叶斯分类器</span><br><span class="line">第4节 均值向量和协方差矩阵的参数估计</span><br><span class="line">第三章 判别函数 6学时 黄庆明</span><br><span class="line">第1节 线性判别函数</span><br><span class="line">第2节 广义线性判别函数</span><br><span class="line">第3节 分段线性判别函数</span><br><span class="line">第4节 模式空间和权空间</span><br><span class="line">第5节 Fisher线性判别</span><br><span class="line">第6节 感知器算法</span><br><span class="line">第7节 多模式分类</span><br><span class="line">第8节 迭代训练算法</span><br><span class="line">第9节 势函数法</span><br><span class="line">第10节 决策树</span><br><span class="line">第四章 特征选择和提取 3学时 黄庆明</span><br><span class="line">第1节 模式类别可分性</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 K-L变换</span><br><span class="line">第五章 统计学习理论基础 3学时 常虹</span><br><span class="line">第1节 机器学习简史和应用</span><br><span class="line">第2节 机器学习任务分类</span><br><span class="line">第3节 参数学习</span><br><span class="line">第4节 过拟合</span><br><span class="line">第5节 偏差方差分析</span><br><span class="line">第6节 正则化方法和泛化理论分析</span><br><span class="line">第六章 监督学习 3学时 常虹</span><br><span class="line">第1节 线性回归模型</span><br><span class="line">第2节 判别式分类模型和逻辑回归</span><br><span class="line">第3节 生成式分类模型和贝叶斯模型</span><br><span class="line">第七章 支持向量机 6学时 常虹</span><br><span class="line">第1节 支持向量机基础理论</span><br><span class="line">第2节 拉格朗日乘子法和对偶问题</span><br><span class="line">第3节 线性支持向量机</span><br><span class="line">第4节 软间隔的支持向量机</span><br><span class="line">第5节 核方法支持向量机</span><br><span class="line">第6节 支持向量回归</span><br><span class="line">第7节 SMO求解方法</span><br><span class="line">第八章 聚类 3学时 郭嘉丰</span><br><span class="line">第1节 无监督学习与有监督学习对比</span><br><span class="line">第2节 距离计算</span><br><span class="line">第3节 聚类算法的评价方法</span><br><span class="line">第4节 经典聚类方法</span><br><span class="line">第九章 降维 3学时</span><br><span class="line">第1节 维度的选择和抽取</span><br><span class="line">第2节 线性降维</span><br><span class="line">第3节 非线性降维和流形模型</span><br><span class="line">第十章 半监督学习 3学时 郭嘉丰</span><br><span class="line">第1节 自我训练</span><br><span class="line">第2节 多视角学习</span><br><span class="line">第3节 生成模型</span><br><span class="line">第4节 S3VMs</span><br><span class="line">第5节 基于图的算法</span><br><span class="line">第6节 半监督聚类</span><br><span class="line">第十一章 概率图模型 3学时 郭嘉丰</span><br><span class="line">第1节 有向概率图模型</span><br><span class="line">第2节 无向概率图模型</span><br><span class="line">第3节 学习和推断</span><br><span class="line">第4节 典型的概率图模型</span><br><span class="line">第十二章 集成学习 3学时 山世光</span><br><span class="line">第1节 机器学习中的哲学思想</span><br><span class="line">第2节 分类器设计中的重采样技术</span><br><span class="line">第3节 模型性能评估</span><br><span class="line">第十三章 深度学习及应用 12学时 山世光</span><br><span class="line">第1节 人工神经网络的生物原型</span><br><span class="line">第2节 生物视觉系统简介</span><br><span class="line">第3节 卷积神经网络CNN源起与概述</span><br><span class="line">第4节 典型卷积神经网络结构</span><br><span class="line">第5节 循环神经网络</span><br><span class="line">第6节 反向传播算法介绍</span><br><span class="line">第7节 深度模型训练技巧</span><br><span class="line">第8节 深度模型应用</span><br><span class="line">第9节 深度学习未来发展趋势</span><br><span class="line">第十四章 课程复习 3学时 常虹</span><br><span class="line">第1节 课程复习</span><br><span class="line">第十五章 期末考试 3学时 郭嘉丰</span><br><span class="line">第1节 期末考试</span><br></pre></td></tr></table></figure>
+
+<h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><p><img src="/../pic/machine_list.png"></p>
+<h3 id="课程时间"><a href="#课程时间" class="headerlink" title="课程时间"></a>课程时间</h3><p><img src="/../pic/machine_time.png"></p>
+<h2 id="第二章-贝叶斯学习"><a href="#第二章-贝叶斯学习" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><p><img src="/../pic/machine2_1.png"></p>
+<ul>
+<li>似然：关于样本的分布</li>
+<li>先验：关于类别的分布</li>
+<li>后验：类别关于样本的分布</li>
+</ul>
+<p><img src="/../pic/machine2_3.png"></p>
+<p><img src="/../pic/machine2_2.png"></p>
+<h3 id="MLE和MAP"><a href="#MLE和MAP" class="headerlink" title="MLE和MAP"></a>MLE和MAP</h3><p>概率和统计：</p>
+<ul>
+<li>概率是已知模型和参数的情况下预测结果的方差、均值等情况</li>
+<li>统计是已知结果预测模型和参数</li>
+</ul>
+<p>MLE是最大似然估计，在已知结果的情况下估计参数使得似然函数达到最大</p>
+<p>MAP是最大后验概率估计，在MLE的基础上加入了先验概率的『惩罚』</p>
+<hr>
+<p>多维正态分布概率密度</p>
+<p><img src="/../pic/machine_gaosi.png"></p>
+<h3 id="贝叶斯学习与参数估计问题"><a href="#贝叶斯学习与参数估计问题" class="headerlink" title="贝叶斯学习与参数估计问题"></a>贝叶斯学习与参数估计问题</h3><p>在不同分布下的ML、MAP参数估计</p>
+<h2 id="第三章-线性分类"><a href="#第三章-线性分类" class="headerlink" title="第三章 线性分类"></a>第三章 线性分类</h2><p>常用的统计量：</p>
+<img src="../pic/machine3_3.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/machine3_4.png" style="zoom:50%;" />
+
+
+
+<h1 id="模式识别与机器学习"><a href="#模式识别与机器学习" class="headerlink" title="模式识别与机器学习"></a>模式识别与机器学习</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h2 id="第二章-贝叶斯学习-1"><a href="#第二章-贝叶斯学习-1" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><h2 id="第三章-判别函数"><a href="#第三章-判别函数" class="headerlink" title="第三章 判别函数"></a>第三章 判别函数</h2><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ol>
+<li>多类情况1和多类情况2的比较：</li>
+</ol>
+<p>M类进行分类，多类情况1需要M类判别函数，多类情况2需要M(M-1)&#x2F;2类判别函数</p>
+<h3 id="广义线性判别函数"><a href="#广义线性判别函数" class="headerlink" title="广义线性判别函数"></a>广义线性判别函数</h3><p>判别函数将每个常数项、一次项、二次项…都作为一个维度，将低维映射到高维</p>
+<h3 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h3><ul>
+<li>最小距离分类（类别中心点连线的中垂线）</li>
+</ul>
+<h3 id="模式空间和权空间"><a href="#模式空间和权空间" class="headerlink" title="模式空间和权空间"></a>模式空间和权空间</h3><h3 id="Fisher线性判别"><a href="#Fisher线性判别" class="headerlink" title="Fisher线性判别"></a>Fisher线性判别</h3><p>如何根据实际情况找到一条最好的、最易于分类的投影线就是Fisher线性判别方法要解决的基本问题</p>
+<p>最重要的是投影线的方向，大小不是很重要</p>
+<p>一些参数：</p>
+<ul>
+<li>样本均值</li>
+<li>样本类内离散度矩阵和总样本类内离散度矩阵</li>
+<li>样本类间离散度矩阵</li>
+</ul>
+<p>Fisher准则函数：</p>
+<img src="../pic/machine3_1.png" style="zoom: 50%;" />
+
+<img src="../pic/machine3_2.png" style="zoom:50%;" />
+]]></content>
+  </entry>
+  <entry>
     <title>nginx_config</title>
     <url>/2022/09/07/nginx-config/</url>
     <content><![CDATA[<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><p><a class="link"   href="https://zhuanlan.zhihu.com/p/451825018" >nginx配置<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>pytorch_mmseg</title>
+    <url>/2022/10/06/pytorch-mmseg/</url>
+    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
 ]]></content>
   </entry>
   <entry>
@@ -1629,19 +1642,6 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title>pytorch_mmseg</title>
-    <url>/2022/10/06/pytorch-mmseg/</url>
-    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-]]></content>
-  </entry>
-  <entry>
     <title>multi-ml</title>
     <url>/2022/10/06/multi-ml/</url>
     <content><![CDATA[<h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><ol>
@@ -1794,29 +1794,6 @@ baseline（混合损失）+baseline权重finetune</p>
 <h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2>]]></content>
   </entry>
   <entry>
-    <title>roadmap</title>
-    <url>/2022/09/01/roadmap/</url>
-    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-]]></content>
-  </entry>
-  <entry>
     <title>ucas important items</title>
     <url>/2022/08/08/ucas_items/</url>
     <content><![CDATA[<h3 id="国科大学生处联系方式："><a href="#国科大学生处联系方式：" class="headerlink" title="国科大学生处联系方式："></a>国科大学生处联系方式：</h3><ul>
@@ -1942,6 +1919,38 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
+    <title>roadmap</title>
+    <url>/2022/09/01/roadmap/</url>
+    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
+    <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
+<h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
+<h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
+<h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>动手学深度学习1</title>
     <url>/2022/08/30/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01/</url>
     <content><![CDATA[<h1 id="线性神经网络"><a href="#线性神经网络" class="headerlink" title="线性神经网络"></a>线性神经网络</h1><h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>$$<br>log \frac{1}{P (j)} &#x3D; − log P(j)<br>$$</p>
@@ -1973,15 +1982,6 @@ baseline（混合损失）+baseline权重finetune</p>
 <p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
 <p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
 <p>梯度裁剪可以快速修复梯度爆炸：<br>$$<br>g &lt;&#x3D;min(1,\frac{\theta}{||g||})g<br>$$</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
-    <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
-<h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
-<h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
-<h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
 ]]></content>
   </entry>
 </search>
