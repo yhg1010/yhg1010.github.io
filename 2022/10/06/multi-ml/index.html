@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="calcium_oxide">
+    
+    <title>
+        
+            multi-ml |
+        
+        calcium_oxide&#39;s blogs
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/image1.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yhg1010.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#006699","avatar":"/images/image2.svg","favicon":"/images/image1.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"爱你所爱 行你所行 听从你心 无问西东"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                calcium_oxide&#39;s blogs
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/algorithm"
+                            >
+                                ALGORITHM
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/plan"
+                            >
+                                PLAN
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/algorithm">ALGORITHM</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/plan">PLAN</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">multi-ml</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/image2.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">calcium_oxide</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-06 23:55:02</span>
+        <span class="mobile">2022-10-06 23:55</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><ol>
+<li>训练数据不足时带来的问题以及如何缓解？</li>
+</ol>
+<p><strong>一个模型能够提供的信息一般来源于两个方面：</strong></p>
+<ul>
+<li>训练数据中蕴含的信息</li>
+<li>在模型的形成过程中人提供的先验信息</li>
+</ul>
+<p>当训练数据不足时，模型从原始数据中获得的信息比较少，模型容易过拟合，在这种情况下就需要更多的先验信息。先验信息可以作用于模型，对模型进行简化、添加正则项、dropout等进行约束，也可以作用于数据，在保持特定信息的前提下，对原始数据进行适当变换以扩充数据集，在图像任务中有以下一些操作：</p>
+<ul>
+<li><p>一定程度内的随机旋转、平移、缩放、裁剪、填充、左右翻转等</p>
+</li>
+<li><p>对图像中的像素添加噪声扰动（高斯、椒盐噪声）</p>
+</li>
+<li><p>颜色变换（在图像的RGB颜色空间上进行主成分分析，得到3个</p>
+<p>主成分的特征向量p<del>1</del>、p<del>2</del>、p<del>3</del> 及其对应的特征值 λ<del>1</del>,λ<del>2</del>,λ<del>3</del>，然后在每个像素的RGB值上 添加增量[<em>p<del>1</del></em> ,<em>p<del>2</del></em> ,<em>p<del>3</del></em> ]•[<em>α<del>1</del> λ<del>1</del></em> ,<em>α<del>2</del> λ<del>2</del></em> ,<em>α<del>3</del> λ<del>3</del></em> ]T，其中 <em>α<del>1</del></em> ,<em>α<del>2</del></em> ,<em>α<del>3</del></em> 是均值为0、方差较小的高斯分布随机数）</p>
+</li>
+<li><p>改变图像的亮度、清晰度、对比度、锐度等</p>
+</li>
+</ul>
+<p>除了直接在图像空间上进行变换，还可以先对图像进行特征提取，然后在图像的特征空间内进行变换，利用一些通用的数据扩充或上采样技术，例如 SMOTE(Synthetic Minority Over-sampling Technique)算法。还可以使用生成模型合成一些新样本。</p>
+<p>迁移学习也是一种常用的策略（微调）。</p>
+<hr>
+<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><ol>
+<li>一些常用的指标：</li>
+</ol>
+<ul>
+<li>准确率</li>
+</ul>
+<p>$$<br>Accuracy &#x3D; \frac{n_{correct}}{n_{total}}<br>$$</p>
+<p>其中n<del>correct</del>为被正确分类的样本个数，n<del>total</del>为总样本的个数。</p>
+<p>准确率往往会收到不同类别样本不均衡带来的问题，占比大的类别往往成为影响准确率的主要因素。</p>
+<ul>
+<li>精确率</li>
+</ul>
+<p>$$<br>precision &#x3D; \frac{n_{分类正确的正样本}}{n_{分类器判定为正样本}}<br>$$</p>
+<ul>
+<li>召回率</li>
+</ul>
+<p>$$<br>recall &#x3D; \frac{n_{分类正确的正样本}}{n_{真正的正样本}}<br>$$</p>
+<ul>
+<li>P-R曲线（横轴是召回率，纵轴是精确率）</li>
+<li>F1 score</li>
+</ul>
+<p>$$<br>F1 &#x3D; \frac{2<em>precision</em>recall}{precision+recall}<br>$$</p>
+<ul>
+<li>MAPE（平均绝对百分比误差）</li>
+</ul>
+<p>$$<br>MAPE &#x3D; \sum_{i&#x3D;1}^{n}|\frac{y_i-\hat{y_i}}{y_i}|*\frac{100}{n}<br>$$</p>
+<p>比RMSE鲁棒性更好。</p>
+<ul>
+<li>ROC曲线（横坐标为假阳性率，纵坐标为真阳性率）</li>
+</ul>
+<p>$$<br>FPR &#x3D; \frac{FP}{N}\<br>TPR &#x3D; \frac{TP}{P}<br>$$</p>
+<p><img src="/../pic/ml_1.png"></p>
+<ul>
+<li>AUC（ROC曲线下的面积，可以量化地反应基于ROC曲线衡量的模型性能），AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好。</li>
+<li>当正负样本的分布发生巨大变化时，ROC曲线的形状能够基本保持不变，而PR曲线的形状一般会发生较剧烈的变化。ROC曲线能够避免测试集带来的影响而专注于模型本身的性能，而PR曲线则可以看到在特定数据集上的表现。</li>
+<li>除了对模型的评估外，也需要评估样本间的距离，在机器学习问题中，通常将特征表示为向量的形式，所以在分析两个特征向量之间的相似性时，常使用余弦相似度来表示。余弦距离则是用1减去余弦相似度来表示。因为余弦相似度在高维情况下仍然可以保持相同为1，正交为0，相反为-1的性质，而欧式距离的数值则会受到维度的影响，范围不固定并且含义也比较模糊。</li>
+<li>关于距离的定义：正定性、对称性、三角不等式，余弦距离不满足距离的定义，另外KL距离也不满足对称性和三角不等式</li>
+</ul>
+<ol start="2">
+<li>模型评估的方法</li>
+</ol>
+<ul>
+<li>holdout检验（训练测试七三开）</li>
+<li>交叉检验</li>
+<li>自助法（对于总数为n的样本集合进行n次有放回的随机抽样，得到大小为n的训练集，n次采样过程中没有被抽出过的样本作为验证集）（在n趋于无穷大时，大约有36.8%的样本从未被选择过）</li>
+</ul>
+<ol start="3">
+<li>超参数调优</li>
+</ol>
+<ul>
+<li>网格搜索</li>
+<li>随机搜索</li>
+<li>贝叶斯优化算法</li>
+</ul>
+<p>贝叶斯优化算法首先根据先验分布假设一个搜集函数，每一次使用新的采样点来测试目标函数时，利用这个信息来更新目标函数的先验分布，最后算法测试由后验分布给出的全局最值最可能出现的位置的点。主要就是引入了先验分布，通过不断采集数据得到后验来预测最值。</p>
+<ol start="4">
+<li>过拟合与欠拟合</li>
+</ol>
+<ul>
+<li><p>过拟合</p>
+<ul>
+<li>通过数据增强获得更多数据</li>
+<li>降低模型复杂度，减少网络层数、神经元个数等</li>
+<li>正则化方法，将权重加入到损失函数中</li>
+<li>集成学习方法，将多个模型集成到一起</li>
+</ul>
+</li>
+<li><p>欠拟合</p>
+<ul>
+<li>添加新特征，通过特征组合、挖掘上下文特征</li>
+<li>增加模型复杂度，在神经网络模型中增加网络层数或神经元个数等</li>
+<li>减小正则化系数</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><ol>
+<li>支持向量机</li>
+</ol>
+<h4 id="问题1：-在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？"><a href="#问题1：-在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？" class="headerlink" title="问题1： 在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？"></a>问题1： 在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？</h4><p>&#x3D;&#x3D;优化问题：&#x3D;&#x3D;</p>
+<ul>
+<li>无约束条件<ul>
+<li>函数对变量进行求导求极值点</li>
+</ul>
+</li>
+<li>等式约束条件<ul>
+<li>拉格朗日乘子法，在目标函数中加入等式约束</li>
+<li>对拉格朗日法的理解：等式约束可以看做是曲面上的一条等高线，而目标函数则是随机一条约束，在等式约束下的目标函数的极值就是等高线和约束的相切点，两者的梯度在一条直线上</li>
+</ul>
+</li>
+<li>不等式约束条件<ul>
+<li>对于一般问题，KKT条件是使一组解成为最优解的必要条件，当原问题是凸问题时，也是充分条件</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../pic/multi_ml1018_1.png"></p>
+<p>&#x3D;&#x3D;超平面分离定理&#x3D;&#x3D;：</p>
+<p>对于不相交的两个凸集，存在一个超平面，将两个凸集分离</p>
+<p>根据超平面分离定理，可以求两个凸集的凸包，SVM求得的超平面就是两个凸包上距离最短的两点连线的中垂线</p>
+<h4 id="问题2：是否存在一组参数使SVM训练误差为0？"><a href="#问题2：是否存在一组参数使SVM训练误差为0？" class="headerlink" title="问题2：是否存在一组参数使SVM训练误差为0？"></a>问题2：是否存在一组参数使SVM训练误差为0？</h4><p>存在，可以通过构造一个高斯核函数以及相应的参数控制预测值和真实值的误差在0-1之间，因为gt只有1和-1，则无论何种情况都可以全部正确分类（高斯核占主导）</p>
+<h4 id="问题3：训练误差为0的SVM分类器一定存在吗？"><a href="#问题3：训练误差为0的SVM分类器一定存在吗？" class="headerlink" title="问题3：训练误差为0的SVM分类器一定存在吗？"></a>问题3：训练误差为0的SVM分类器一定存在吗？</h4><p>可以找到一组参数满足训练误差为0，且是SVM模型的一个解（超参数占主导）</p>
+<h4 id="问题4：加入松弛变量的SVM的训练误差可以为0吗？"><a href="#问题4：加入松弛变量的SVM的训练误差可以为0吗？" class="headerlink" title="问题4：加入松弛变量的SVM的训练误差可以为0吗？"></a>问题4：加入松弛变量的SVM的训练误差可以为0吗？</h4><p>因为优化的目标改变了，优化的目标函数里面包含松弛变量的正则项和间隔，所以训练误差不一定能达到0</p>
+<ol start="2">
+<li>逻辑回归</li>
+</ol>
+<h4 id="问题1：逻辑回归相比于线性回归，有何异同？"><a href="#问题1：逻辑回归相比于线性回归，有何异同？" class="headerlink" title="问题1：逻辑回归相比于线性回归，有何异同？"></a>问题1：逻辑回归相比于线性回归，有何异同？</h4><ul>
+<li>逻辑回归处理的是分类问题，线性回归处理的是回归问题</li>
+<li>逻辑回归中的『回归』来源：在逻辑回归的推导过程中存在以下形式：$log\frac{p}{1-p}&#x3D;\theta^Tx$，其中$p$是『$y&#x3D;1|x$』这一事件的对数几率的线性回归</li>
+<li>在线性回归中因变量$y$是连续的，而在逻辑回归中因变量$y$的离散的，逻辑回归中的$y$服从二元分布，而线性回归中的$y$服从正态分布</li>
+</ul>
+<ol start="3">
+<li>决策树</li>
+</ol>
+<hr>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><hr>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><hr>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><hr>
+<h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><hr>
+<h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><hr>
+<h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><hr>
+<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><hr>
+<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><hr>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><hr>
+<h2 id="生成式对抗"><a href="#生成式对抗" class="headerlink" title="生成式对抗"></a>生成式对抗</h2><hr>
+<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：multi-ml</li>
+        <li>Post author：calcium_oxide</li>
+        <li>Create time：2022-10-06 23:55:02</li>
+        <li>
+            Post link：https://yhg1010.github.io/2022/10/06/multi-ml/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/10/article/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">article</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/06/pytorch-mmseg/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytorch_mmseg</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">百面机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="nav-text">特征工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-text">模型评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="nav-text">经典算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A-%E5%9C%A8%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E7%9A%84%E4%B8%A4%E7%B1%BB%E7%82%B9%EF%BC%8C%E5%88%86%E5%88%AB%E5%90%91SVM%E5%88%86%E7%B1%BB%E7%9A%84%E8%B6%85%E5%B9%B3%E9%9D%A2%E4%B8%8A%E5%81%9A%E6%8A%95%E5%BD%B1%EF%BC%8C%E8%BF%99%E4%BA%9B%E7%82%B9%E5%9C%A8%E8%B6%85%E5%B9%B3%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%8A%95%E5%BD%B1%E4%BB%8D%E7%84%B6%E6%98%AF%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-text">问题1： 在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%982%EF%BC%9A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E4%B8%80%E7%BB%84%E5%8F%82%E6%95%B0%E4%BD%BFSVM%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E4%B8%BA0%EF%BC%9F"><span class="nav-text">问题2：是否存在一组参数使SVM训练误差为0？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%983%EF%BC%9A%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E4%B8%BA0%E7%9A%84SVM%E5%88%86%E7%B1%BB%E5%99%A8%E4%B8%80%E5%AE%9A%E5%AD%98%E5%9C%A8%E5%90%97%EF%BC%9F"><span class="nav-text">问题3：训练误差为0的SVM分类器一定存在吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%984%EF%BC%9A%E5%8A%A0%E5%85%A5%E6%9D%BE%E5%BC%9B%E5%8F%98%E9%87%8F%E7%9A%84SVM%E7%9A%84%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E5%8F%AF%E4%BB%A5%E4%B8%BA0%E5%90%97%EF%BC%9F"><span class="nav-text">问题4：加入松弛变量的SVM的训练误差可以为0吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E7%9B%B8%E6%AF%94%E4%BA%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%89%E4%BD%95%E5%BC%82%E5%90%8C%EF%BC%9F"><span class="nav-text">问题1：逻辑回归相比于线性回归，有何异同？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-text">降维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-text">非监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-text">概率图模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-text">优化算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E6%A0%B7"><span class="nav-text">采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">前向神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-text">强化学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-text">集成学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97"><span class="nav-text">生成式对抗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="nav-text">人工智能</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

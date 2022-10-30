@@ -1,0 +1,1987 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>algorithm_bu</title>
+    <url>/2022/08/30/algorithm_bu/</url>
+    <content><![CDATA[<h1 id="卜东波——计算机算法设计与分析"><a href="#卜东波——计算机算法设计与分析" class="headerlink" title="卜东波——计算机算法设计与分析"></a>卜东波——计算机算法设计与分析</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 建模、算法设计、分析完整流程 10学时 卜东波</span><br><span class="line">第1节 掌握从问题出发的算法建模方法</span><br><span class="line">第2节 掌握算法设计的基本思路和流程图</span><br><span class="line">第3节 掌握算法的时间复杂度和空间复杂度分析的方法</span><br><span class="line">第4节 理解GCD问题和TSP问题中不同算法的应用</span><br><span class="line">第二章 分而治之 10学时 卜东波</span><br><span class="line">第1节 掌握分而治之算法的基本思路</span><br><span class="line">第2节 掌握分而治之算法的正确证明</span><br><span class="line">第3节 掌握递归算法的时间复杂度分析</span><br><span class="line">第4节 掌握MergerSort、CountingInversion、ClosetPair、Multipliacation、FFT等使用分而治之思路算法</span><br><span class="line">第5节 掌握分而治之算法和随机化的结合，例如QuickSort、QuickSelect等</span><br><span class="line">第三章 动态规划部分 10学时 卜东波</span><br><span class="line">第1节 掌握动态规划算法的基本思路</span><br><span class="line">第2节 掌握如何定义子问题，如何发现最优子结构的性质</span><br><span class="line">第3节 掌握动态规划算法的应用实例，包括矩阵链式乘法、字符串匹配、最短路径、IntervalScheduling</span><br><span class="line">第4节 理解高级动态规划的优化方法和思路</span><br><span class="line">第四章 贪心算法 10学时 卜东波</span><br><span class="line">第1节 掌握贪心算法的思路</span><br><span class="line">第2节 掌握贪心算法中贪心规则的设计原则和方法等</span><br><span class="line">第3节 掌握动态规划和贪心算法的关系</span><br><span class="line">第4节 掌握BELLMAN_FORD算法和DIJKSTRA算法解决Single Source Shortest Paths问题</span><br><span class="line">第5节 掌握BinomialHeap、FibinacciHeap等数据结构</span><br><span class="line">第五章 线性规划及其对偶 10学时 卜东波</span><br><span class="line">第1节 掌握线性规划的不同形式</span><br><span class="line">第2节 掌握线性规划的建模思路和方法</span><br><span class="line">第3节 掌握线性规划的单纯形法、Interior Point算法等</span><br><span class="line">第4节 线性规划的Lagrangian对偶</span><br><span class="line">第六章 网络流及其应用 10学时 卜东波</span><br><span class="line">第1节 掌握最大流问题的Ford-Fulkerson算法和最大流最小割定理</span><br><span class="line">第2节 掌握Ford-Fulkerson算法和最大流最小割定理的对偶问题角度理解</span><br><span class="line">第3节 掌握最大流问题的有效算法</span><br><span class="line">第4节 掌握最大流问题的扩展</span><br></pre></td></tr></table></figure>
+
+<h2 id="lecture1"><a href="#lecture1" class="headerlink" title="lecture1"></a>lecture1</h2><h3 id="一些推荐的书"><a href="#一些推荐的书" class="headerlink" title="一些推荐的书"></a>一些推荐的书</h3><ul>
+<li>《怎样思维》</li>
+<li>《程序设计的艺术》</li>
+</ul>
+<h3 id="所有的算法可以归纳为三种"><a href="#所有的算法可以归纳为三种" class="headerlink" title="所有的算法可以归纳为三种"></a>所有的算法可以归纳为三种</h3><ul>
+<li>分而治之 | 一个大问题可以分成更小的子问题</li>
+<li>改进 | 一个原始的完整解，不断地逐步改进</li>
+<li>聪明地枚举 | 通过构建一个局部解的树来枚举所有可能的完全解</li>
+</ul>
+<h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><p>从最简单的情形做起，要分支、要归纳、要聪明地枚举、搜索要剪概率有力量</p>
+<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><hr>
+<p>分而治之：</p>
+<ul>
+<li>最简单的case</li>
+<li>复杂一点的case是否可以分解成小问题<ul>
+<li>是否能分解成子问题：<ul>
+<li>INPUT DS</li>
+<li>OUTPUT DS</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>改进：</p>
+<ul>
+<li>完整解通过一些扰动成为另一个解</li>
+</ul>
+<p><img src="/../pic/bu_lect_1.png"></p>
+<p>聪明地枚举</p>
+<ul>
+<li>剪枝</li>
+</ul>
+<h3 id="TAKE-HOME-MSG"><a href="#TAKE-HOME-MSG" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>手足无措时从最简单的case做起</li>
+<li>理性地探索</li>
+<li>精确值难求的时候，估计之</li>
+<li>找准难点，变形做相关问题</li>
+</ul>
+<h2 id="lecture5"><a href="#lecture5" class="headerlink" title="lecture5"></a>lecture5</h2><p>分治和复杂度分析</p>
+<hr>
+<h3 id="递归问题的复杂度分析"><a href="#递归问题的复杂度分析" class="headerlink" title="递归问题的复杂度分析"></a>递归问题的复杂度分析</h3><p><img src="/../pic/bu_lect5_1.png"></p>
+<p>for example:</p>
+<p><img src="/../pic/bu_lect5_2.png"></p>
+<p><img src="/../pic/bu_lect5_3.png"></p>
+<h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><p><img src="/../pic/bu_lect5_4.png"></p>
+<h3 id="TAKE-HOME-MSG-1"><a href="#TAKE-HOME-MSG-1" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>把大问题分解成小问题时，分得越匀越好（指数下降）</li>
+<li>如果子问题解无结构，可能会导致问题，千方百计引入结构</li>
+<li>先尝试baseline方法，看问题所在（逆序数个数中分治的齐缝元素比较）</li>
+</ul>
+<h3 id="quicksort"><a href="#quicksort" class="headerlink" title="quicksort"></a>quicksort</h3><p>$$<br>\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}&#x3D;logn<br>$$</p>
+<p>找出第k大的元素：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用分治来解决，时间复杂度可以达到O（N）。</span><br><span class="line">在快排的基础上还是分成两个集合，只不过区别在于快排是两个集合都要递归，分治只要递归其中一个集合。</span><br></pre></td></tr></table></figure>
+
+<p>Google对页面排序：</p>
+<p>重要的页面：常常被重要的页面引用的页面很重要（鸡生蛋，蛋生鸡问题）</p>
+<p>解决循环：</p>
+<ul>
+<li>跟着循环走，观察规律</li>
+<li>打破循环</li>
+</ul>
+<p>在子集中寻找第K大个元素（通过打破循环来找到pilot元素，从而在O（N）复杂度内实现）</p>
+<p>关键：-》找到A中第n&#x2F;4，n&#x2F;4+1，3n&#x2F;4个大的-》找A的采样中的第r&#x2F;4，3r&#x2F;4个</p>
+<p><img src="/../pic/algorithm3_1.png"></p>
+<h3 id="TAKE-HOME-MSG-2"><a href="#TAKE-HOME-MSG-2" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>解决循环问题的两个办法</li>
+<li>快排的分析</li>
+</ul>
+<h2 id="lecture5-1"><a href="#lecture5-1" class="headerlink" title="lecture5"></a>lecture5</h2><p>FFT：已知多项式的系数、求多项式的值</p>
+<p>特定的n个点：<br>$$<br>\omega^1, \omega^2…\omega^{n-1}<br>$$<br>去掉冗余，O(n^2)-&gt;O(nlogn)</p>
+<p>IFFT</p>
+<p>实际应用：计算两个多项式的乘积</p>
+<p>先用FFT计算几个点的值，然后再计算这些点的乘积，再用IFFT计算对应的多项式的系数</p>
+<h2 id="lecture6"><a href="#lecture6" class="headerlink" title="lecture6"></a>lecture6</h2><p>DP的求解过程：多步决策过程（优化问题）</p>
+<h3 id="TAKE-HOME-MSG-3"><a href="#TAKE-HOME-MSG-3" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>何时用动态规划，一定是个最优化问题</li>
+<li>解是啥？解能否用多步决策过程一步一步构造出来</li>
+</ul>
+<h2 id="lecture1011"><a href="#lecture1011" class="headerlink" title="lecture1011"></a>lecture1011</h2><ul>
+<li>矩阵相乘的最少计算数</li>
+<li>背包问题</li>
+<li>编辑距离</li>
+</ul>
+<h3 id="TAKE-HOME-MSG-4"><a href="#TAKE-HOME-MSG-4" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>每一个多决策问题都可以表示为一个DP</li>
+<li>多选一型vs二选一型决策</li>
+<li>决策顺序怎么定</li>
+</ul>
+<h2 id="lecture1025"><a href="#lecture1025" class="headerlink" title="lecture1025"></a>lecture1025</h2><h3 id="TAKE-HOME-MSG-5"><a href="#TAKE-HOME-MSG-5" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>多步决策，第一步决策，从中间开始省内存，省时间</li>
+<li>如何计算第一步决策，最优决策项？最优决策项有递归关系</li>
+<li>DP也可以用NN近似，不精确不要紧</li>
+<li>label不好算？让NN满足Bellman方程</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>article_learning</title>
+    <url>/2022/09/09/article-learning/</url>
+    <content><![CDATA[<h1 id="学术写作"><a href="#学术写作" class="headerlink" title="学术写作"></a>学术写作</h1><h2 id="论文结构"><a href="#论文结构" class="headerlink" title="论文结构"></a>论文结构</h2><ul>
+<li>前置<ul>
+<li>题目（一句话文摘，反映论文特点的词语的逻辑组合，目的、方法、结果，或精髓或悬疑、具体准确简练，首字母大写，名词短语）</li>
+<li>署名</li>
+<li>摘要</li>
+<li>关键词（目的是编制索引，分配评阅人，反映学科方向，标识同行，通用性、学术性）</li>
+</ul>
+</li>
+<li>主体<ul>
+<li>引言</li>
+<li>方法</li>
+<li>结果</li>
+<li>结论</li>
+</ul>
+</li>
+<li>结尾<ul>
+<li>致谢</li>
+<li>参考文献</li>
+<li>附录</li>
+</ul>
+</li>
+</ul>
+<h2 id="总体流程"><a href="#总体流程" class="headerlink" title="总体流程"></a>总体流程</h2><ol>
+<li>整理结果</li>
+<li>筛选结果、确定卖点</li>
+<li>搭建框架（规划章节、选择标题、简单展开）</li>
+<li>撰写主体部分</li>
+<li>反复修改（重写引言）</li>
+<li>撰写其他部分</li>
+</ol>
+<hr>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>充分反映研究的亮点，拥有与论文等量的主要信息</li>
+<li>陈述问题，弱化背景、意义</li>
+<li>方法：思路和诀窍，弱化</li>
+<li>结果：是重点部分</li>
+<li>讨论：结论和价值</li>
+<li>简明扼要<ul>
+<li>侧重陈述问题与重要结果</li>
+<li>忘掉方法细节</li>
+<li>避免一般性陈述和细节性问题</li>
+</ul>
+</li>
+<li>建议使用纯文本</li>
+</ul>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
+<li>目的：让人明白你解决了一个重要问题，定位是大同行能懂</li>
+<li>核心任务：定义问题（清晰、必要）<ul>
+<li>领域背景：语境、代入</li>
+<li>领域现状：提共性需求</li>
+<li>问题凝练</li>
+<li>挑战（△）</li>
+</ul>
+</li>
+<li>思路（△）</li>
+<li>贡献（结果、结论、技术创新（△））</li>
+<li>文章结构（△）</li>
+</ul>
+<h3 id="引言清单"><a href="#引言清单" class="headerlink" title="引言清单"></a>引言清单</h3><ul>
+<li><strong>问题</strong>（重点）</li>
+<li>方法（△）</li>
+<li>结果</li>
+<li>结论</li>
+</ul>
+<h3 id="提问题的常见思路"><a href="#提问题的常见思路" class="headerlink" title="提问题的常见思路"></a>提问题的常见思路</h3><ul>
+<li>破：质疑现有工作的基本假设，釜底抽薪</li>
+<li>立：研究别人忽略的方面，提新问题</li>
+<li>补：揭示现有工作的Gap，逐步改良<ul>
+<li>前后呼应</li>
+</ul>
+</li>
+</ul>
+<h3 id="文章范例"><a href="#文章范例" class="headerlink" title="文章范例"></a>文章范例</h3>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/article_example.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h3 id="引言写作小窍门"><a href="#引言写作小窍门" class="headerlink" title="引言写作小窍门"></a>引言写作小窍门</h3><ul>
+<li>自成体系</li>
+<li>精雕细琢：评阅人重点看的部分</li>
+<li>用准确而直观的陈述（使用行业术语，避免公式）</li>
+<li>不介绍常识，不提及细节</li>
+<li>背景简洁、问题清晰</li>
+<li>客观委婉地分析现有工作</li>
+<li>有时候领域现状在introduction外自成一章</li>
+</ul>
+<hr>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>怎么做的</li>
+<li>主要表现形式<ul>
+<li>系统</li>
+<li>算法</li>
+<li>证明</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><ul>
+<li>发现了什么</li>
+<li>实验性结果：细分成两个部分<ul>
+<li>报告实验结果：客观、详细、完整</li>
+<li>点评实验数据（也可以放在讨论部分）</li>
+</ul>
+</li>
+<li>理论性结果<ul>
+<li>算法分析</li>
+<li>定理、推论</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法和结果总体规范"><a href="#方法和结果总体规范" class="headerlink" title="方法和结果总体规范"></a>方法和结果总体规范</h3><ul>
+<li>自上而下，主线清晰</li>
+<li>划分章节、有层次感</li>
+<li>图文并茂、直观明了</li>
+<li>隔离细节、重点突出<ul>
+<li>繁琐的证明或陈述之前，提供梗概或基本思路，辅助理解</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ul>
+<li>意味着什么</li>
+<li>是对整个文章的总结</li>
+<li>内容清单<ul>
+<li>目标完成情况（首尾呼应）</li>
+<li>对结果做出解释、并进行综合、推理和归纳，反映事物内在联系</li>
+<li>与其他研究结果比较，提出导致新结果的可能原因</li>
+<li>分析本次研究的不足，提出开放问题和未来研究方向</li>
+<li>讨论应用价值和影响</li>
+</ul>
+</li>
+<li>只有这里才可以有主观性的话</li>
+</ul>
+<hr>
+<h2 id="论文的沙漏模型"><a href="#论文的沙漏模型" class="headerlink" title="论文的沙漏模型"></a>论文的沙漏模型</h2><ul>
+<li>由广泛性陈述开始</li>
+<li>逐渐集中到主题</li>
+<li>以概括性结论结尾</li>
+</ul>
+<h2 id="插图"><a href="#插图" class="headerlink" title="插图"></a>插图</h2><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>目的是准确表达概念或关系</li>
+<li>建议慎用</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li>描述</li>
+<li>解释</li>
+<li>分析、验证<ul>
+<li>对不对</li>
+<li>快不快</li>
+<li>好不好</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
+<li>文本：适用于描述简单算法</li>
+<li>流程图：适用于表达算法逻辑<ul>
+<li>单独描述细节</li>
+</ul>
+</li>
+<li>伪代码</li>
+</ul>
+<img src="../pic/code1.png" style="zoom:50%;" />
+
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><ul>
+<li>目的：数据汇总</li>
+<li>组成<ul>
+<li>表格：2维，呈现数据</li>
+<li>标题</li>
+<li>注释</li>
+</ul>
+</li>
+<li>必要性（如果文字更适合未必用表格，数据量小、规律明显、冗余太多）</li>
+<li>优化（简洁、清晰（自己的结果放在最后，特殊字体）、自明（在标题&#x2F;附注中提供足够信息）、美观（同类同列，多留空白，允许缩写、三线表））</li>
+</ul>
+<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
+<li>组成<ul>
+<li>图形</li>
+<li>图例</li>
+<li>标题</li>
+</ul>
+</li>
+<li>必要性（用文字表达更合适，未必用图）</li>
+<li>优化</li>
+</ul>
+<p>图表规范：</p>
+<ul>
+<li><p>X轴是自变量</p>
+</li>
+<li><p>Y轴是函数</p>
+</li>
+<li><p>标明轴的含义</p>
+</li>
+<li><p>选择刻度</p>
+<ul>
+<li>起始刻度</li>
+<li>二级刻度</li>
+</ul>
+</li>
+<li><p>一图多线</p>
+<ul>
+<li>采用不同线型</li>
+<li>适宜黑白打印</li>
+</ul>
+</li>
+<li><p>在曲线上直接标出重要位置</p>
+</li>
+</ul>
+<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><ul>
+<li>时序、逻辑关系的示意图</li>
+<li>刻画体系结构、算法、网络等</li>
+<li>原则：抓住关键、屏蔽细节</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
+<li>展示结果</li>
+<li>增加可信度</li>
+<li>结合定量分析</li>
+</ul>
+<h3 id="图或表？"><a href="#图或表？" class="headerlink" title="图或表？"></a>图或表？</h3><ul>
+<li>表：严格数值</li>
+<li>图：变化趋势</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>尽量不使用别人的图和表（PS也不可以）</li>
+<li>不要堆砌插图</li>
+<li>只要能清楚、友好的表达，就是好方法</li>
+</ul>
+<h2 id="引证与署名"><a href="#引证与署名" class="headerlink" title="引证与署名"></a>引证与署名</h2><h3 id="引证的方式"><a href="#引证的方式" class="headerlink" title="引证的方式"></a>引证的方式</h3><ul>
+<li>主要出现在引言中，有时单独成节（related work）<ul>
+<li>问题相关、方法相关、结果相关</li>
+</ul>
+</li>
+<li>转述：用自己的话陈述被引文献中的内容<ul>
+<li>是最主要的方式</li>
+<li>注明偏差</li>
+</ul>
+</li>
+<li>直引：使用文献中的原始语句<ul>
+<li>极力避免，即使是自己以前的文章也不好</li>
+<li>直引规范：当直接引用的文字较少时，使用双引号</li>
+<li>当直引的文字太长，则不用双引号，而独立成段落，将文段左缩进5个字符</li>
+<li>无论哪种，都可以使用省略号省去部分内容</li>
+</ul>
+</li>
+<li>原则：<ul>
+<li>相关</li>
+<li>公开（未经同行评议的文献不行）</li>
+<li>全面</li>
+<li>统一</li>
+</ul>
+</li>
+</ul>
+<h3 id="some-cases"><a href="#some-cases" class="headerlink" title="some cases"></a>some cases</h3><p><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711278.png"></p>
+<p>注意事项：</p>
+<ul>
+<li>防止隐性抄袭</li>
+<li>Excluding references之惑</li>
+<li>双盲评审</li>
+<li>高度重视，经常是大坑</li>
+</ul>
+<h3 id="署名"><a href="#署名" class="headerlink" title="署名"></a>署名</h3><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711279.png" style="zoom: 33%;" />
+]]></content>
+  </entry>
+  <entry>
+    <title>article</title>
+    <url>/2022/10/10/article/</url>
+    <content><![CDATA[<h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
+<h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>ImageNet数据集提出推动了计算机视觉各个任务、各个领域的发展，但是农业领域发展比较缓慢，主要是由于农业领域缺少相关的数据集。</p>
+<p>在农业视觉识别领域一个大的方向是航空图像语义分割，因为解决这个问题可以带来巨大的经济价值。对航空图像进行语义分割可以更好地监测土地的状况，发掘播种器的土地潜力，但是相比与传统的语义分割任务，遥感图像语义分割同样存在很多问题。土地状况模式往往是多样的、不规则的，类别之间尺度差异大，遥感图像往往尺寸很大，缺少精细的细节例如纹理等，对于端到端的分割会需要很大的算力以及内存消耗。</p>
+<p>Agriculture-Vision数据集相比其他数据集有以下优点：</p>
+<ul>
+<li>分辨率很高，10cm&#x2F;pixel</li>
+<li>除了RGB三通道外还有NIR通道</li>
+<li>包括多个关于农业异常情况的具有挑战性的标注</li>
+<li>来自专家严格把控的图像标注</li>
+<li>标注的尺寸和形状的巨大变化</li>
+</ul>
+<p>本篇文章的贡献：</p>
+<ul>
+<li>提出了Agriculture-Vision数据集</li>
+<li>在数据集上做了扩展实验，提出了一个baseline</li>
+</ul>
+<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><p>主要提及了计算机视觉领域内一些比较出名的数据集，介绍了一些航空遥感图像数据集。讨论了在遥感图像数据集上的一些任务，对遥感图像进行一些谱分析，通过一些地理颜色获得一些地理信息，介绍了一些之前的在遥感图像上的相关工作。</p>
+<h3 id="Agriculture-Vision-dataset"><a href="#Agriculture-Vision-dataset" class="headerlink" title="Agriculture-Vision dataset"></a>Agriculture-Vision dataset</h3><p>关于如何构建Agriculture-Vision数据集，包括图像获取、预处理、模式标注以及最终图像采样生成。</p>
+<h4 id="图像获取"><a href="#图像获取" class="headerlink" title="图像获取"></a>图像获取</h4><h4 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h4><p><img src="/../pic/article1010_1.png"></p>
+<h4 id="图像标注"><a href="#图像标注" class="headerlink" title="图像标注"></a>图像标注</h4><h4 id="图像采样生成"><a href="#图像采样生成" class="headerlink" title="图像采样生成"></a>图像采样生成</h4><h3 id="数据集统计数据"><a href="#数据集统计数据" class="headerlink" title="数据集统计数据"></a>数据集统计数据</h3><p>即使下游数据和预训练数据只有微弱的关联，迁移学习仍然是最佳选择</p>
+<h2 id="ConvNeXt"><a href="#ConvNeXt" class="headerlink" title="ConvNeXt"></a>ConvNeXt</h2><p><a class="link"   href="https://zhuanlan.zhihu.com/p/459163188" >convnext详解<i class="fas fa-external-link-alt"></i></a></p>
+<p>改进：</p>
+<ol>
+<li>Macro design</li>
+</ol>
+<ul>
+<li>改变每个layer的block的数量比例，改成1：1：3：1，对于更大的模型，采用1：1：9：1</li>
+<li>Stem patch化。用一个stride等于4的4x4卷积来进行stem，使得滑动窗口不再相交，每次只处理一个patch的信息</li>
+</ul>
+<ol start="2">
+<li>ResNeXt-ify</li>
+</ol>
+<p>depthwise conv</p>
+<ol start="3">
+<li>反瓶颈结构</li>
+<li>大卷积核</li>
+<li>微观设计</li>
+</ol>
+<h2 id="swin-transformer"><a href="#swin-transformer" class="headerlink" title="swin-transformer"></a>swin-transformer</h2><p><img src="/../pic/article1011_1.png"></p>
+<h2 id="vision-transformer"><a href="#vision-transformer" class="headerlink" title="vision transformer"></a>vision transformer</h2><p>&#x3D;&#x3D;ViT原论文中最核心的结论是，当拥有足够多的数据进行预训练的时候，ViT的表现就会超过CNN，突破transformer缺少归纳偏置的限制，可以在下游任务中获得较好的迁移效果&#x3D;&#x3D;。</p>
+<p>但是当训练数据比较少时ViT通常要比大小相当的resnet要差一些，因为缺少CNN的归纳偏置，即一种先验知识，提前做好的假设。CNN具有两种归纳偏置，一种是局部性，即图片上相邻的区域具有相似的特征；一种是平移不变形， f(g(x))&#x3D;g(f(x)) ，其中g代表卷积操作，f代表平移操作。当CNN具有以上两种归纳偏置，就有了很多先验信息，需要相对少的数据就可以学习一个比较好的模型。</p>
+<p>模型结构：</p>
+<p><img src="/../pic/article1011_5.webp"></p>
+<h2 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h2><p>反卷积上采样</p>
+<p>跳层连接可以融合浅层和深层的特征</p>
+<h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><p>间隙补零进行反卷积上采样</p>
+<h1 id="面试八股"><a href="#面试八股" class="headerlink" title="面试八股"></a>面试八股</h1><ol>
+<li>卷积、BN、relu、dropout的顺序？</li>
+</ol>
+<p>一般而言，卷积之后进行BN为激活层提供一个合适的分布，接着进行relu激活，最后进行dropout</p>
+<ol start="2">
+<li>1x1卷积的作用</li>
+</ol>
+<ul>
+<li>调整维度</li>
+<li>减少参数</li>
+<li>对不同维度的特征进行融合</li>
+</ul>
+<ol start="3">
+<li>self attention</li>
+</ol>
+<p>Self-attention可以输入一个sequence,输出一个sequence，每个输出都考虑了整个sequence的信息，且输出可以同时计算（大大提升了计算效率），所有计算都可以用矩阵进行，适合GPU加速</p>
+<p>Self attention公式：</p>
+<img src="../pic/article1011_3.png" style="zoom:50%;" />
+
+<p>为什么要除以根号d_k?</p>
+<ul>
+<li>使得q*k的结果满足期望为0，方差为1的分布，类似于归一化</li>
+<li>防止softmax值过大，梯度趋于0</li>
+</ul>
+<p>位置编码：</p>
+<p>self-attention中的位置编码是手动设置的：</p>
+<p><img src="/../pic/article1011_4.png"></p>
+<p>其中为什么选择正余弦函数作为编码函数，因为正余弦函数随相位的变化是和二进制编码的变化频率相似的，可以间接来表示位置。</p>
+<ol start="4">
+<li>Multi-head self attention</li>
+</ol>
+<img src="../pic/article1011_2.png" style="zoom:50%;" />
+
+<p>为什么需要multi-head？有可能是不同的query(head)关注的点不同，比如有的query想看的是全局的信息，有的query想看的是局部的信息，因此使用multi-head可以获取更多类型，更全面的信息</p>
+<ol start="5">
+<li>熵、交叉熵、交叉熵损失</li>
+</ol>
+<p>随着估计的概率分布偏离实际&#x2F;期望的概率分布，交叉熵增加，反之亦然。因此，我们可以说，最小化交叉熵将使我们更接近实际&#x2F;期望的分布，这就是我们想要的。这就是为什么我们尝试降低交叉熵，以使我们的预测概率分布最终接近实际分布的原因。</p>
+<p>交叉熵损失：</p>
+<img src="../pic/article1011_6.png" style="zoom:50%;" />
+
+<ol start="6">
+<li>模型参数量计算</li>
+</ol>
+<p><img src="/../pic/article1025_1.png"></p>
+<h1 id="一些预想的问题"><a href="#一些预想的问题" class="headerlink" title="一些预想的问题"></a>一些预想的问题</h1><ol>
+<li>为什么baseline会选择convnext&#x2F;swin-transformer？</li>
+<li>lovasz损失？</li>
+</ol>
+<p>采用lovasz extension这个数学工具将离散的Jaccard loss变光滑，从而可以直接求导。</p>
+<ol start="3">
+<li>Dice loss?</li>
+</ol>
+<img src="../pic/article1011_7.png" style="zoom:50%;" />
+
+<ol start="4">
+<li>常见的损失函数？</li>
+</ol>
+<ul>
+<li><p>Focal loss</p>
+<ul>
+<li>多了一个调制因子，降低易分样本的损失贡献</li>
+</ul>
+</li>
+<li><p>Lovasz loss</p>
+<ul>
+<li>Lovasz loss基于子模损失(submodular losses)的凸Lovasz扩展，对神经网络的mean IoU损失进行优化</li>
+<li>对Jaccard loss的lovasz extension</li>
+</ul>
+<img src="../pic/article1020_2.png" style="zoom:50%;" />
+</li>
+<li><p>dice loss</p>
+<ul>
+<li>缺点是可能导致训练不稳定</li>
+</ul>
+</li>
+<li><p>Crossentropy loss</p>
+</li>
+</ul>
+<ol start="5">
+<li>FCN上采样的方式？</li>
+</ol>
+<ul>
+<li>双线性插值</li>
+<li>反卷积上采样</li>
+</ul>
+<p><img src="/../pic/article1020_1.png"></p>
+<ol start="6">
+<li>deeplab系列</li>
+</ol>
+<ul>
+<li>deeplab v1：<ul>
+<li>vgg</li>
+<li>atrous convolution</li>
+<li>CRF</li>
+</ul>
+</li>
+<li>deeplab v2<ul>
+<li>resnet</li>
+<li>ASPP</li>
+<li>CRF</li>
+</ul>
+</li>
+<li>deeplab v3<ul>
+<li>串联不同膨胀率的空洞卷积或者并行不同膨胀率的空洞卷积</li>
+<li>Modified ASPP</li>
+<li>移除CRF</li>
+</ul>
+</li>
+<li>deeplab v3+</li>
+</ul>
+<ol start="7">
+<li>降采样对于分割的意义</li>
+</ol>
+<ul>
+<li>降低过拟合风险</li>
+<li>减少参数量</li>
+<li>增加对输入微小改变的鲁棒性</li>
+</ul>
+<ol start="8">
+<li>unet和FCN的区别</li>
+</ol>
+<ul>
+<li>FCN特征融合是逐点相加，UNet是通道维度上拼接融合</li>
+</ul>
+<ol start="9">
+<li>unet的缺点</li>
+</ol>
+<ul>
+<li>主要是直接对浅层特征和深层特征进行跳层连接可能会导致语义gap</li>
+<li>针对这个缺点，unet++的出发点就是reduce&#x2F;bridge这个gap</li>
+</ul>
+<ol start="10">
+<li>梯度消失 梯度爆炸</li>
+</ol>
+<ul>
+<li>梯度连乘导致</li>
+<li>BN、正则化、dropout、梯度裁切、激活函数</li>
+</ul>
+<ol start="11">
+<li>dropout</li>
+</ol>
+<ul>
+<li>解决过拟合问题</li>
+</ul>
+<ol start="12">
+<li>BN LN</li>
+</ol>
+<ul>
+<li>BN是在通道维度上进行归一化</li>
+<li>LN是在batch维度上进行归一化</li>
+</ul>
+<ol start="13">
+<li>空洞卷积</li>
+</ol>
+<ul>
+<li>优点是可以任意扩大感受野且不需要引入额外的参数</li>
+<li>缺点是局部信息的丢失以及远距离获取的信息没有相关性</li>
+</ul>
+<ol start="14">
+<li>深度分离卷积</li>
+</ol>
+<p>可以减少计算损失和参数数量同时保持相似的性能，在特征图的每个深度维度应用一个filter，本文在每个深度维度应用一个空洞卷积</p>
+<p>深度分离卷积操作分两步，假设原来是3x3卷积，深度分离卷积就是先用M个3x3卷积核一对一卷积输入的M个特征图，不求和，生成M个结果，然后用N个1x1卷积核正常卷积前面生成的M个结果，求和，最后生成N个结果</p>
+<ol start="15">
+<li>卷积的底层实现（im2col）</li>
+</ol>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>比赛内容：对八种农业异常模式进行分割</p>
+<p>比赛数据集：Agriculture-Vision，九万多张遥感图像，NRGB四通道，512x512</p>
+<p>比赛结果：一共有83个参加队伍，最终排名第9</p>
+<p>Baseline: convnext+upernet，损失函数：交叉熵（mIoU:44.10）</p>
+<p>Batchsize:8</p>
+<p>GPU:8x3090</p>
+<p>模型参数量：82M</p>
+<p>根据Agriculture-Vision数据集的长尾、类别不均衡、边界难以分割等特点提出了混合损失、损失加权fine-tune、细化分割OCR模块和专家网络四个改进点:</p>
+<ul>
+<li>提出混合损失，结合交叉熵损失和lovasz损失作为最终的损失函数（比例1：0.4）（mIoU:46.57），之前在paddle文档上看到单独使用lovasz loss不一定有用，需要和交叉熵加权结合使用</li>
+<li>解码头增加OCR模块，在语义分割任务中，上下文的信息对于像素级别的分类起着重要的作用，通过提取上下文信息可以更好地利用空间信息进行像素级分类。（mIoU:47.57）</li>
+<li>损失加权finetune，Agriculture-Vision数据集存在长尾的特点，不同类别之间的数据量差异很大，对于少数类别的分割效果比较差。改进策略：根据训练数据中各个类别样本的比例进行类别加权，最终的类别权重和类别频度成负相关。（48.53）</li>
+<li>专家网络，在convnext网络之外增加一个unet，对少数类样本(planter skip and standing water)进行单独训练，再和convnext分割结果进行融合。</li>
+</ul>
+<h2 id="ocr"><a href="#ocr" class="headerlink" title="ocr"></a>ocr</h2><p>UPerNet 输出的中间分割结果和骨干网络生成的最后一个层级特征输入到 OCR 模块中进行细化处理。根据中间的分割结果和骨干网络最深层的特征表示计算出 K 组向量，即物体区域表示(Object Region Representations)，其中每一个向 量对应一个语义类别的特征表示。计算网络最深层输出像素特征表示(pixel representations)与计算得到的物体区域表示之间的关系矩阵，然后根据每个 像素和物体区域表示在关系矩阵中的数值将物体区域表示进行加权求和得到最 终的物体上下文特征表示(Object Contextual Representations)，将物体上 下文特征表示和骨干网络最深层特征进行拼接后作为上下文信息增强的特征表 示(Augmented Representations)，基于增强后的特征表示预测每个像素的语义类别。</p>
+<h1 id="语言八股"><a href="#语言八股" class="headerlink" title="语言八股"></a>语言八股</h1><h2 id="python（python基础和pytorch）"><a href="#python（python基础和pytorch）" class="headerlink" title="python（python基础和pytorch）"></a>python（python基础和pytorch）</h2><ol>
+<li>python浅拷贝和深拷贝</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">对于不可变对象，由于python是采用引用计数的特性，所以浅拷贝和深拷贝的作用一致。</span><br><span class="line">对于可变对象，由于浅拷贝拷贝的可变对象的引用，所以原变量的可变对象改变时会影响到浅拷贝的对象，对于深拷贝则不会收到影响。</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>python是动态强类型（由于是动态语言，所以很多问题只有在运行的时候才能发现）</li>
+<li>什么是duck type?</li>
+</ol>
+<p>duck type更关注对象的行为，只要实现了接口就行，而不在乎是什么类型</p>
+<ol start="4">
+<li>什么是monkey patch?</li>
+</ol>
+<p>monkey patch就是运行时替换对象，本质上是对象的重新赋值</p>
+<ol start="5">
+<li>py3和py2的区别？</li>
+</ol>
+<ul>
+<li>print在py3中是函数，在py2中是关键字</li>
+<li>py3的range()返回一个可迭代对象，py2的 range()返回一个列表</li>
+<li>py3的除法返回float，py2的除法返回int</li>
+<li>py3默认编码是utf-8，py2默认编码是ascii</li>
+<li>py3的str是unicode字符串，而py2的str是bytes</li>
+</ul>
+<ol start="6">
+<li>map(function, iter)</li>
+<li>生成器</li>
+</ol>
+<p>生成器类似于返回值为数组的一个函数，这个函数可以接受参数，可以被调用，但是，不同于一般的函数会一次性返回包括了所有数值的数组，生成器一次只能产生一个值，这样消耗的内存数量将大大减小，而且允许调用函数可以很快的处理前几个返回值，因此生成器看起来像是一个函数，但是表现得却像是迭代器</p>
+<p>生成器本质上就是根据一个给定的规则可以不断推算出之后出现的元素，可以通过next()函数不断得到下一个元素，同时生成器本身是一个可迭代对象，遇到yield则返回</p>
+<p>send()和next()的区别就在于send可传递参数给yield表达式，这时候传递的参数就会作为yield表达式的值，而yield的参数是返回给调用者的值，也就是说send可以强行修改上一个yield表达式值</p>
+<p>send()和next()都有返回值，他们的返回值是当前迭代遇到的yield的时候，yield后面表达式的值，其实就是当前迭代yield后面的参数</p>
+<ol start="8">
+<li>迭代器</li>
+</ol>
+<p><strong>一个实现了iter方法的对象是可迭代的，一个实现next方法并且是可迭代的对象是迭代器</strong></p>
+<p><a class="link"   href="https://www.cnblogs.com/wj-1314/p/8490822.html" >生成器和迭代器<i class="fas fa-external-link-alt"></i></a></p>
+<ol start="9">
+<li>内置数据类型的底层结构</li>
+</ol>
+<p>dict的底层结构是哈希表，list的底层结构是可变数组，存的是对象的指针，tuple的底层结构是顺序表，set的底层结构是哈希表，其中key为元素，val都为空</p>
+<ol start="10">
+<li>装饰器</li>
+</ol>
+<p>装饰器是一个接收函数作为参数的闭包函数，可以在不修改函数源代码的情况下给函数增加功能</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fucB</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test1&quot;</span>)</span><br><span class="line">        func()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test3&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@fucB</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test2&quot;</span>)</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>@<strong>staticmethod</strong></li>
+</ol>
+<p><strong>这时将对象方法转化成静态方法，可以被类直接调用</strong></p>
+<ol start="12">
+<li><strong>@classmethod</strong></li>
+</ol>
+<p>将对象方法转化成类方法，并注意类方法函数参数写法上需要加上cls作为参数，但调用的时候不用加参数</p>
+<ol start="13">
+<li>@property</li>
+</ol>
+<p>可以使类方法转化成属性，直接通过方法名来访问方法</p>
+<h2 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h2><ol>
+<li>智能指针（动态内存管理）</li>
+</ol>
+<p>动态内存管理常常会出现两种问题：</p>
+<ul>
+<li>忘记释放内存，造成内存泄漏</li>
+<li>尚有指针使用内存的情况下就释放了内存，就会产生引用非法内存的指针</li>
+</ul>
+<p>标准库提供的两种智能指针的区别在于管理底层指针的方法不同，shared_ptr允许多个指针指向同一个对象，unique_ptr则“独占”所指向的对象。标准库还定义了一种名为weak_ptr的伴随类，它是一种弱引用，指向shared_ptr所管理的对象，这三种智能指针都定义在memory头文件中。</p>
+<p><a class="link"   href="https://blog.csdn.net/flowing_wind/article/details/81301001" >智能指针<i class="fas fa-external-link-alt"></i></a></p>
+<ol start="2">
+<li>多态（接口重用）</li>
+</ol>
+<p>多态是指同一对象收到不同的消息时或不同对象收到相同消息时产生不同的实现动作</p>
+<ul>
+<li>编译时多态（静态多态）：通过重载函数实现</li>
+<li>运行时多态（动态多态）：通过虚函数实现</li>
+</ul>
+<p>参数相同，有virtual关键字的是多态重写</p>
+<p>根据指针或者引用指向哪种类型的对象来决定调用哪个虚函数，从而决定具体的实现动作</p>
+<h1 id="机器学习八股"><a href="#机器学习八股" class="headerlink" title="机器学习八股"></a>机器学习八股</h1><ol>
+<li><p>SVM</p>
+</li>
+<li><p>随机森林、决策树</p>
+</li>
+<li><p>1 决策树</p>
+</li>
+</ol>
+<ul>
+<li>信息增益</li>
+</ul>
+<p><img src="/../pic/article1025_3.png"></p>
+<ul>
+<li>信息增益率</li>
+</ul>
+<p><img src="/../pic/article1025_4.png"></p>
+<ul>
+<li>基尼系数</li>
+</ul>
+<p><img src="/../pic/article1025_2.png"></p>
+<ol start="2">
+<li>2 随机森林</li>
+</ol>
+<p>随机森林属于bagging集成方法（CART决策树）</p>
+<p><strong>随机森林中的树一般会比较深，以尽可能地降低偏差，由于随机性，随机森林对于降低模型方法效果显著；而GBDT树的深度会比较浅，通过减少模型复杂度来降低方差</strong></p>
+<ol start="3">
+<li>聚类如果不清楚有多少类，有什么办法</li>
+</ol>
+<ul>
+<li>肘方法</li>
+</ul>
+<p>肘方法就是随机初始化多个k值对应的kmeans，计算聚类误差，选取下降转折点对应的k值作为最佳聚类数</p>
+<ul>
+<li>轮廓系数法</li>
+</ul>
+<p>轮廓系数法的本质就是类间距离越大越好，类内距离越小越好</p>
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="旷视面试"><a href="#旷视面试" class="headerlink" title="旷视面试"></a>旷视面试</h2><ol>
+<li>手写iou,nms</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iou</span>(<span class="params">box1, box2</span>):</span><br><span class="line">    x1 = <span class="built_in">max</span>(box1[<span class="number">0</span>], box2[<span class="number">0</span>])</span><br><span class="line">    y1 = <span class="built_in">max</span>(box1[<span class="number">1</span>], box2[<span class="number">1</span>])</span><br><span class="line">    x2 = <span class="built_in">min</span>(box1[<span class="number">2</span>], box2[<span class="number">2</span>])</span><br><span class="line">    y2 = <span class="built_in">min</span>(box1[<span class="number">3</span>], box2[<span class="number">3</span>])</span><br><span class="line">    h = <span class="built_in">max</span>(<span class="number">0</span>, x2-x1)</span><br><span class="line">    w = <span class="built_in">max</span>(<span class="number">0</span>, y2-y1)</span><br><span class="line">    area1 = (box1[<span class="number">2</span>]-box1[<span class="number">0</span>])*(box1[<span class="number">3</span>]-box1[<span class="number">1</span>])</span><br><span class="line">    area2 = (box2[<span class="number">2</span>]-box2[<span class="number">0</span>])*(box2[<span class="number">3</span>]-box2[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> (w*h)/(area1+area2-w*h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nms</span>(<span class="params">boxes, thres</span>):</span><br><span class="line">    x1 = boxes[:, <span class="number">0</span>]</span><br><span class="line">    y1 = boxes[:, <span class="number">1</span>]</span><br><span class="line">    x2 = boxes[:, <span class="number">2</span>]</span><br><span class="line">    y2 = boxes[:, <span class="number">3</span>]</span><br><span class="line">    scores = boxes[:, <span class="number">4</span>]</span><br><span class="line">    orders = scores.argsort()[::-<span class="number">1</span>]</span><br><span class="line">    keep = []</span><br><span class="line">    areas = (x2-x1)*(y2-y1)</span><br><span class="line">    <span class="keyword">while</span>(orders.size()&gt;<span class="number">0</span>):</span><br><span class="line">        index1 = orders[<span class="number">0</span>]</span><br><span class="line">        keep.append(index1)</span><br><span class="line">        xx1 = np.maximum(x1[index1], x1[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[index1], y1[orders[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[index1], x2[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[index1], y2[orders[<span class="number">1</span>:]])</span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2-xx1+<span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2-yy1+<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">iter</span> = w*h</span><br><span class="line">        ious = <span class="built_in">iter</span>/areas[index1]+areas[orders[<span class="number">1</span>:]]-<span class="built_in">iter</span></span><br><span class="line">        ids = np.where(ious&lt;=thres)[<span class="number">0</span>]</span><br><span class="line">        orders = orders[ids+<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>跳台阶</li>
+<li>跳台阶进阶</li>
+<li>缓解过拟合的方法</li>
+<li>C++多态</li>
+<li>dropout</li>
+<li>BN</li>
+</ol>
+<h2 id="京东面试"><a href="#京东面试" class="headerlink" title="京东面试"></a>京东面试</h2><ol>
+<li><p>动态规划的转移方程</p>
+</li>
+<li><p>resnet的神经元的细节，数学表达</p>
+<ol>
+<li>shortcut</li>
+<li>F(x)+x</li>
+</ol>
+</li>
+<li><p>聚类算法</p>
+<ol>
+<li><p>kmeans过程</p>
+</li>
+<li><p>kmeans有哪些缺点</p>
+<ol>
+<li>k值难以估计</li>
+</ol>
+<p>一开始确定一个合适的k值，通过一次kmeans聚类得到k个聚类中心，根据k个聚类中心之间的距离情况合并距离近的类别，直到达到阈值收敛</p>
+<ol start="2">
+<li>对噪声和离群点敏感</li>
+</ol>
+<p>去除离群点后再进行聚类</p>
+<ol start="3">
+<li>对初始聚类中心敏感</li>
+</ol>
+<p>已经选取了若干聚类中心，距离这些聚类中心越远的点越有可能被选为新的聚类中心</p>
+</li>
+<li><p>其他的一些聚类算法（密度）</p>
+</li>
+</ol>
+</li>
+<li><p>SVM</p>
+<ol>
+<li>过程</li>
+<li>除了软间隔之外，线性不可分怎么解决</li>
+<li>软间隔中对偶问题怎么解决<ol>
+<li>拉格朗日乘子法</li>
+</ol>
+</li>
+<li>对偶问题转换需要满足的条件<ol>
+<li>KKT条件</li>
+</ol>
+</li>
+<li>KKT条件<ol>
+<li>拉格朗日函数取极值的的一个必要条件</li>
+<li>拉格朗日系数约束</li>
+<li>不等式约束</li>
+<li>互补松弛条件</li>
+<li>原约束</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>解决过拟合的一些方法</p>
+</li>
+<li><p>transformer</p>
+<ol>
+<li>模型过程</li>
+<li>讲一下注意力机制</li>
+</ol>
+</li>
+<li><p>项目内容</p>
+</li>
+<li><p>两道算法</p>
+<ol>
+<li>一个数组里面有一个数出现的次数大于等于数组长度的一半，找出这个数（空间复杂度O（1），时间复杂度O（n））</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> val: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>) &#123;</span><br><span class="line">                ans = val;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans==val)</span><br><span class="line">                    cnt++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>全排列</li>
+</ol>
+</li>
+</ol>
+<h2 id="蔚来"><a href="#蔚来" class="headerlink" title="蔚来"></a>蔚来</h2><ol>
+<li>attention和全连接的区别</li>
+<li>Vision transformer的位置编码具体实现</li>
+<li>注意力机制</li>
+<li>注意力机制为什么要除以d</li>
+<li>最新的前沿进展</li>
+<li>为什么注意力机制要生成q,k,v，单独一个不行吗</li>
+<li>项目中数据均衡是怎么做的</li>
+<li>算法题：马走遍所有的点有几种不同的途径</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>deeplearning</title>
+    <url>/2022/09/02/deeplearning/</url>
+    <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
+
+<h2 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h2><h3 id="人工智能发展历程"><a href="#人工智能发展历程" class="headerlink" title="人工智能发展历程"></a>人工智能发展历程</h3><p><img src="/../pic/deeplearning1.png"></p>
+<h3 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h3><h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><p>搜索问题的元素包括：</p>
+<ul>
+<li>状态空间</li>
+<li>初始状态和目标测试</li>
+<li>后继函数</li>
+</ul>
+<p>目标就是得到后继函数（从初始状态到目标状态的每一步行动）</p>
+<p>考虑搜索算法的两个出发点：</p>
+<ul>
+<li>完备性</li>
+<li>一致性</li>
+</ul>
+<h3 id="路径搜索"><a href="#路径搜索" class="headerlink" title="路径搜索"></a>路径搜索</h3><h4 id="无信息搜索"><a href="#无信息搜索" class="headerlink" title="无信息搜索"></a>无信息搜索</h4><p>无信息搜索指的是除了问题定义中提供的状态信息外没有其他附加信息，有信息搜索知道一个非目标状态是否比其他状态更有希望接近目标</p>
+<p>搜索：</p>
+<ul>
+<li>扩展出潜在的行动</li>
+<li>维护所考虑的行动的边缘节点</li>
+<li>试图扩展尽可能少的树节点</li>
+</ul>
+<p>重要的点：</p>
+<ul>
+<li>边缘节点</li>
+<li>扩展新的结点</li>
+<li>探索的策略</li>
+</ul>
+<p>考虑的主要问题是选取哪些边缘节点来进行探索</p>
+<p>搜索算法的特性：</p>
+<ul>
+<li>完备性（当有解时保证能找到一个解）</li>
+<li>最优性（保证能找到最优解）</li>
+<li>时间复杂度</li>
+<li>空间复杂度</li>
+</ul>
+<hr>
+<p>状态空间图</p>
+<h5 id="树搜索"><a href="#树搜索" class="headerlink" title="树搜索"></a>树搜索</h5><p>不同搜索算法的区别在于对于边缘的处理策略</p>
+<ul>
+<li><p>DFS</p>
+</li>
+<li><p>BFS</p>
+</li>
+<li><p>迭代深入搜索</p>
+<ul>
+<li>迭代深度的DFS，结合了DFS和BFS的优点</li>
+<li>对DFS进行深度限制，搜索完限制深度后必须开始新的搜索路径</li>
+</ul>
+</li>
+<li><p>代价一致搜索</p>
+<ul>
+<li>在BFS基础上进行扩展</li>
+<li>基本原理：<strong>一致代价搜索总是扩展路径消耗最小的节点N。N点的路径消耗等于前一节点N-1的路径消耗加上N-1到N节点的路径消耗</strong></li>
+<li>UCS是完备的（不存在零代价），是最优的</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<img src="../pic/deeplearning2_1.png" style="zoom:25%;" />
+
+<p>Solution:</p>
+<p><img src="/../pic/deeplearning2_2.png"></p>
+<h5 id="图搜索"><a href="#图搜索" class="headerlink" title="图搜索"></a>图搜索</h5><ul>
+<li>A*图搜索</li>
+</ul>
+<h4 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h4><p>启发策略：</p>
+<ul>
+<li>估计一个状态到目标距离的函数</li>
+<li>问题给予算法的额外信息，为特定搜索问题而设计</li>
+</ul>
+<p>启发式函数：</p>
+<p>h(n)&#x3D;节点n到目标节点的最小代价路径的代价估计值</p>
+<p>启发式搜索：</p>
+<p>采用了启发式函数的搜索策略</p>
+<hr>
+<ul>
+<li>贪婪搜索<ul>
+<li>扩展距离目标最近的结点</li>
+<li>启发式：对每个状态估计到最近目标的距离（h(n)）</li>
+</ul>
+</li>
+<li>A*搜索<ul>
+<li>启发式：同时结合了g(n)（到达此结点已经花费的代价）和h(n)</li>
+</ul>
+</li>
+</ul>
+<h4 id="局部搜索"><a href="#局部搜索" class="headerlink" title="局部搜索"></a>局部搜索</h4><p>不关心路径，从单个当前结点出发，通常只移动到他的邻近状态，一般情况下不保留搜索路径</p>
+<p>有两个优点：</p>
+<ul>
+<li>通常只用常数级内存</li>
+<li>通常能在系统化算法不适用的很大或无限的状态空间中找到合理的解</li>
+</ul>
+<p><strong>如果存在解，最优的局部搜索算法总能找到全局最大&#x2F;最小值</strong></p>
+<ul>
+<li>爬山法搜索</li>
+<li>模拟退火搜索</li>
+<li>遗传算法</li>
+</ul>
+<hr>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="人工神经网络和深度学习基础"><a href="#人工神经网络和深度学习基础" class="headerlink" title="人工神经网络和深度学习基础"></a>人工神经网络和深度学习基础</h3><ol>
+<li>人工神经网络部分–多层感知机，BP算法</li>
+</ol>
+<p><img src="/../pic/deeplearning3_1.png"></p>
+<ol start="2">
+<li>深度学习</li>
+</ol>
+<ul>
+<li>深度神经网络</li>
+<li>自编码器</li>
+<li>栈式自编码器</li>
+<li>深度置信网络（DBN）</li>
+<li>深度玻尔兹曼机（DBM）</li>
+</ul>
+<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><ul>
+<li>dropout</li>
+<li>局部对比归一</li>
+<li>Inception</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>docker config</title>
+    <url>/2022/05/31/docker_config/</url>
+    <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Docker Engine中配置：</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://itobyt5q.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常用的docker指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment">#删除镜像</span></span><br><span class="line">docker image <span class="built_in">rm</span> [镜像<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#查看容器</span></span><br><span class="line">docker container <span class="built_in">ls</span> --all</span><br><span class="line"><span class="comment">#查看运行着的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment">#停止容器运行</span></span><br><span class="line">docker <span class="built_in">kill</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#启动容器</span></span><br><span class="line">docker start [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#删除容器</span></span><br><span class="line">docker <span class="built_in">rm</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#进入运行着的容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it [容器<span class="built_in">id</span>] bash</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h3><ul>
+<li>拉取官方镜像</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull mysql:8.0.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行容器</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -v /home/docker/mysql/data:/var/lib/mysql --name mysql mysql:8.0.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查容器是否运行成功</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入容器</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql bash</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em>如果容器运行正常，但无法访问到mysql：</em></p>
+<ol>
+<li>防火墙阻拦</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开放端口：</span></span><br><span class="line">$ systemctl status firewalld</span><br><span class="line">$ firewall-cmd  --zone=public --add-port=3306/tcp -permanent</span><br><span class="line">$ firewall-cmd  --reload</span><br><span class="line"><span class="comment"># 关闭防火墙：</span></span><br><span class="line">$ sudo systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>未开启mysql远程访问权限</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Mysql为了安全考虑，初始的时候并没有开启Root用户（解释：mysql的root用户和我们云服务器的root用户是两个不同的，分开的）的远程访问权限，Root（解释：这里是指mysql的root用户，而不是云服务器的root用户）只能本地localhost，127.0.0.1访问</span><br><span class="line"></span><br><span class="line"># mysql使用mysql数据库中的user表来管理权限，修改user表就可以修改权限（只有root账号可以修改）</span><br><span class="line"> </span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">| 192.168.1.1            | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; grant all privileges  on *.* to root@&#x27;%&#x27; identified by &quot;password&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| 192.168.1.1            | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| %                       | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>python代码测试mysql是否配置成功</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line"> host=<span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line"> user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line"> password=<span class="string">&#x27;Jiangshu123&#x27;</span>,</span><br><span class="line"> database=<span class="string">&#x27;customer&#x27;</span>,</span><br><span class="line"> port=<span class="number">8083</span>,</span><br><span class="line"> charset=<span class="string">&#x27;utf8&#x27;</span>,</span><br><span class="line"> autocommit = <span class="literal">False</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line"></span><br><span class="line">cur = conn.cursor()</span><br><span class="line">cur.execute(<span class="string">&quot;show databases&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(cur.fetchall())</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Vue前端项目打包"><a href="#Vue前端项目打包" class="headerlink" title="Vue前端项目打包"></a>Vue前端项目打包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">一般情况下执行npm run build进行打包</span><br><span class="line">特殊情况下执行npm run build:prod才能正常打包</span><br><span class="line"></span><br><span class="line">此外还有一个问题，打包完成添加到SprringBoot项目启动运行，静态文件抛404，最后发现还需要对vue.config.js修改。</span><br><span class="line">添加 publicPath: <span class="string">&#x27;./&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>前端项目打包后保存在dist目录下，然后将dist目录下的所有文件目录拷贝到spring-boot后端项目的<strong>resourse&gt;static</strong>目录下。</p>
+<p>以上配置完成之后先在本地运行，然后通过maven进行打包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">maven下的Lifecycle下的package</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./img/img1.png"></p>
+<h3 id="镜像制作"><a href="#镜像制作" class="headerlink" title="镜像制作"></a>镜像制作</h3><p>得到打包后的jar包之后就可以制作镜像，首先在jar包相同的目录下新建Dockerfile文件，加入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Docker image for springboot file run</span></span><br><span class="line"><span class="comment"># VERSION 0.0.1</span></span><br><span class="line"><span class="comment"># Author: jeremy</span></span><br><span class="line"><span class="comment"># 基础镜像使用java</span></span><br><span class="line">FROM java:8</span><br><span class="line"><span class="comment"># 作者</span></span><br><span class="line">MAINTAINER jeremy &lt;jeremyCoding@163.com&gt;</span><br><span class="line"><span class="comment"># VOLUME 指定了临时文件目录为/tmp。</span></span><br><span class="line"><span class="comment"># 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp</span></span><br><span class="line">VOLUME /tmp</span><br><span class="line"><span class="comment"># 将jar包添加到容器中并更名为app.jar</span></span><br><span class="line">ADD demo-01.jar app.jar</span><br><span class="line"><span class="comment"># 运行jar包</span></span><br><span class="line">RUN bash -c <span class="string">&#x27;touch /app.jar&#x27;</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-Djava.security.egd=file:/dev/./urandom&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>执行<strong>docker build -t [镜像名称] .</strong> 完成进行制作。</p>
+<h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2>]]></content>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2022/09/09/git/</url>
+    <content><![CDATA[<p><a class="link"   href="https://git-scm.com/book/en/v2" >git文档<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>go学习笔记</title>
+    <url>/2022/06/23/go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="go简要教程"><a href="#go简要教程" class="headerlink" title="go简要教程"></a>go简要教程</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb" >go简要教程<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="go生态拓展介绍"><a href="#go生态拓展介绍" class="headerlink" title="go生态拓展介绍"></a>go生态拓展介绍</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb/zwukev?inner=mgqJ1" >go生态扩展<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="go中的反射机制"><a href="#go中的反射机制" class="headerlink" title="go中的反射机制"></a>go中的反射机制</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb/cwur9v" >go中的反射机制<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ict share</title>
+    <url>/2022/05/28/ict-share/</url>
+    <content><![CDATA[<h2 id="面试前"><a href="#面试前" class="headerlink" title="面试前"></a>面试前</h2><ul>
+<li>越早投递约好</li>
+<li>确定目标<ul>
+<li>确定城市</li>
+<li>确定投递岗位</li>
+<li>核心部门</li>
+</ul>
+</li>
+<li>尽早实习、尽早参加提前批</li>
+<li>高质量的实习和项目经历很重要</li>
+<li>大厂和创业公司侧重点不同（大厂综合考量、创业公司细节）</li>
+<li>不相关的项目细节少一点，量化指标</li>
+</ul>
+<h3 id="实习经验"><a href="#实习经验" class="headerlink" title="实习经验"></a>实习经验</h3><ul>
+<li>明确自身定位（是否适合互联网，是否有前途，职业规划）</li>
+<li>了解公司技术架构（部门职权划分、规模，技术架构、自己负责部分所处的位置）</li>
+<li>了解行业、友商（业界主流技术方案、友商间的横向对比）</li>
+<li>结识前辈</li>
+</ul>
+<h3 id="秋招流程"><a href="#秋招流程" class="headerlink" title="秋招流程"></a>秋招流程</h3><ul>
+<li>2-4暑期实习</li>
+<li>4-5算法秋招面试准备、信息收集、面经</li>
+<li>5-7提前批（免笔试）</li>
+<li>8常规批</li>
+<li>9-10国企、外企开始秋招</li>
+<li>12所里发三方、秋招结束</li>
+</ul>
+<hr>
+<ul>
+<li>4月之前，定好求职目标，投实习面试试水，注意设置冷冻期的公司、部门</li>
+<li>5-6月刷题、复盘之前做过的相关项目</li>
+<li>7-9月上高强度面试、外企一般比较晚</li>
+<li>10月中之后谈薪、签三方、写毕设</li>
+</ul>
+<hr>
+<ul>
+<li>金三银四春招暑期实习招聘</li>
+<li>金七银八实习转正、互联网提前批（一定要参加）</li>
+<li>九月互联网秋招</li>
+</ul>
+<hr>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p><strong>简历：</strong><br>STAR原则<br>situation-task-action-result</p>
+<p><strong>八股：</strong></p>
+<ul>
+<li>牛客网-》找面试经验-》筛选职位-》筛选公司</li>
+<li>面试前把同公司面经刷一遍</li>
+<li>如果有同部门的分享，有概率相同</li>
+</ul>
+<p><strong>刷题：</strong><br><strong>Leetcode:</strong></p>
+<ul>
+<li>入门时按照题目类型刷</li>
+<li>精力有限多刷几次高频题</li>
+<li>注意变量命名等代码规范性（内存释放等）</li>
+<li>考虑各种特例</li>
+<li>leetcode hot100、剑指offer（第二版）</li>
+<li>刷题常态化</li>
+<li>leetcode前四百、剑指offer反复刷2-3次</li>
+<li>提前几个月就开始准备</li>
+<li>训练算法思维能力，简单方法-》triky方法渐进式掌握</li>
+<li>Hot100+剑指offer</li>
+<li>不match的情况下，考算法题</li>
+</ul>
+<hr>
+<p>1.确认题意<br>2.判断考察类型，展开思路<br>3.向面试官简介思路（确认）<br>4.编写代码（clean code）<br>5.调试运行</p>
+<p><strong>codetop.cc:</strong></p>
+<ul>
+<li>国内互联网公司频次</li>
+</ul>
+<h3 id="公司流程"><a href="#公司流程" class="headerlink" title="公司流程"></a>公司流程</h3><p>互联网：</p>
+<ul>
+<li>阿里：流程比较慢</li>
+<li>腾讯：必须走系统，可以被多次捞，每轮流程不能超过两周</li>
+<li>字节：直接联系部门，可以不走系统，系统可以被多次捞</li>
+<li>统一招聘：拼多多、虾皮、京东、pony.ai、微软（面试完才确定部门）</li>
+</ul>
+<hr>
+<p>外企：</p>
+<ul>
+<li>一二面工程师面</li>
+<li>三面小组长面</li>
+<li>四面技术总监面</li>
+<li>项目+基础知识+手撕代码（中等）</li>
+</ul>
+<hr>
+<p><strong>微软：</strong><br>北京：</p>
+<ul>
+<li>MSRA</li>
+<li>STCA（Bing\Ads）</li>
+<li>Cloud+AI:Azure<br>上海：</li>
+<li>MSRA上分</li>
+<li>Cloud+AI:Azure&#x2F;DevDiv<br>苏州：</li>
+<li>STCA:M365</li>
+<li>SOX&#x2F;MSAI</li>
+<li>CMD<br>暑期实习转正：<br>3月初（1：1转正HC）（组内转正AA面通过即可）<br>秋招：<br>9月下旬-10月初投递简历</li>
+</ul>
+<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>论文、实习、竞赛、开源</p>
+<p>基础版流程</p>
+<ul>
+<li>自我介绍（时长2m），外企准备英文版</li>
+<li>基础知识：语言知识、数据结构、计算机网络、操作系统</li>
+<li>算法题：1-2</li>
+<li>系统设计题：与部门工作相关</li>
+</ul>
+<p>不同岗位区别</p>
+<ul>
+<li>基础架构相关：并发数据结构，并发队列、哈希表</li>
+<li>业务相关：redis\mysql</li>
+<li>游戏开发相关：C++问的很深</li>
+</ul>
+<p>特殊版流程</p>
+<ul>
+<li>刷题版：自我介绍+全程刷题（小马智行、微软）</li>
+<li>聊天版：全程聊项目+聊天</li>
+</ul>
+<h3 id="开放题（4S分析法）"><a href="#开放题（4S分析法）" class="headerlink" title="开放题（4S分析法）"></a>开放题（4S分析法）</h3><ul>
+<li>如果让你设计一个协程，会考虑哪些方面</li>
+<li>学会迁移，系统可用性、可扩展性、稳定性等</li>
+</ul>
+<p><strong>4S分析法：</strong></p>
+<ul>
+<li>业务场景分析：并发度、峰值、读写比例</li>
+<li>系统拆分：如何分模块</li>
+<li>存储：数据库，文件系统</li>
+<li>扩展：鲁棒性、流量暴增</li>
+</ul>
+<h3 id="基础知识-后台开发"><a href="#基础知识-后台开发" class="headerlink" title="基础知识-后台开发"></a>基础知识-后台开发</h3><ul>
+<li>C++基础+STL源码剖析</li>
+<li>计算机网络-计算机网络自顶向下、TCP\IP卷二</li>
+<li>操作系统-现代操作系统（陈海波）</li>
+<li>数据库等</li>
+</ul>
+<h3 id="项目经历"><a href="#项目经历" class="headerlink" title="项目经历"></a>项目经历</h3><ul>
+<li>性价比最高</li>
+<li>可以进行一定的修饰</li>
+<li>熟练掌握</li>
+<li>注意引导面试官</li>
+</ul>
+<h3 id="算法（20-30m）"><a href="#算法（20-30m）" class="headerlink" title="算法（20-30m）"></a>算法（20-30m）</h3><ul>
+<li>反复确认分析题意，说出自己的思路再写</li>
+<li>展现思考，从简单的解法入手</li>
+<li>不会的题目可以跟面试官互动</li>
+<li>5min没有思路先暴力，再优化</li>
+<li>变量名、鲁棒性要注意</li>
+</ul>
+<h3 id="面试注意事项"><a href="#面试注意事项" class="headerlink" title="面试注意事项"></a>面试注意事项</h3><ul>
+<li>一二面注重考察基础和算法、三四面侧重项目</li>
+<li>遇到不会的要坦诚相待</li>
+<li>注意引导面试官</li>
+<li>算法题循序渐进，简单-》复杂</li>
+<li>面试完多复盘总结</li>
+</ul>
+<h2 id="面试后"><a href="#面试后" class="headerlink" title="面试后"></a>面试后</h2><h3 id="offer选择"><a href="#offer选择" class="headerlink" title="offer选择"></a>offer选择</h3><ul>
+<li>工作地点、户口、工作氛围、工作内容、薪资</li>
+<li>谈薪小技巧<ul>
+<li>死锁前保持慎重</li>
+<li>循环谈薪</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../pic/exercise1.png"></p>
+<p><img src="/../pic/exercise2.png"></p>
+<h2 id="外企"><a href="#外企" class="headerlink" title="外企"></a>外企</h2><p><strong>外企和互联网区别：</strong><br><img src="/../pic/exercise3.png"></p>
+<p><img src="/../pic/exercise4.png"></p>
+<p><img src="/../pic/exercise5.png"></p>
+<p><img src="/../pic/exercise6.png"></p>
+<h3 id="HULU"><a href="#HULU" class="headerlink" title="HULU"></a>HULU</h3><p><img src="/../pic/exercise7.png"></p>
+<p><img src="/../pic/exercise8.png"></p>
+<p><img src="/../pic/exercise9.png"></p>
+<p><img src="/../pic/exercise10.png"></p>
+<p><img src="/../pic/exercise11.png"></p>
+<p><img src="/../pic/exercise12.png"></p>
+<p><img src="/../pic/exercise13.png"></p>
+<p><img src="/../pic/exercise14.png"></p>
+<p><img src="/../pic/exercise15.png"></p>
+<p><img src="/../pic/exercise16.png"></p>
+<p><img src="/../pic/exercise17.png"></p>
+<p><img src="/../pic/exercise18.png"></p>
+<p><img src="/../pic/exercise19.png"></p>
+<p><img src="/../pic/exercise20.png"></p>
+<h2 id="一些面试题"><a href="#一些面试题" class="headerlink" title="一些面试题"></a>一些面试题</h2><p>1.数学证明L1的稀疏性</p>
+<p>2.删除链表的重复结点（释放空间）</p>
+<p>3.一根木棒分成三段，形成三角形的概率</p>
+<p>4.优先队列（堆）的各种复杂度</p>
+<p>5.机器学习的一些基本代码</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>machinelearning.md</title>
+    <url>/2022/09/02/machinelearning-md/</url>
+    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p>机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 绪论 3学时</span><br><span class="line">第1节 机器学习研究背景</span><br><span class="line">第2节 机器学习研究的问题</span><br><span class="line">第3节 课程主要内容</span><br><span class="line">第4节 课程安排</span><br><span class="line">第二章 贝叶斯方法 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 贝叶斯决策论</span><br><span class="line">第3节 贝叶斯分类器</span><br><span class="line">第4节 贝叶斯学习与参数估计问题</span><br><span class="line">第三章 线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 基础知识</span><br><span class="line">第3节 感知机</span><br><span class="line">第4节 Fisher鉴别</span><br><span class="line">第5节 Logistic回归</span><br><span class="line">第四章 非线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 决策树</span><br><span class="line">第3节 集成学习</span><br><span class="line">第4节 最近邻方法</span><br><span class="line">第5节 支持向量机与核函数</span><br><span class="line">第五章 回归分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 最小二乘估计</span><br><span class="line">第3节 最大似然估计</span><br><span class="line">第4节 扩展的非线性模型</span><br><span class="line">第5节 误差分析</span><br><span class="line">第六章 聚类分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 序贯方法</span><br><span class="line">第3节 层次聚类</span><br><span class="line">第4节 K均值聚类</span><br><span class="line">第七章 特征降维 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 特征降维</span><br><span class="line">第八章 信息论模型 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 熵、最大熵</span><br><span class="line">第3节 互信息</span><br><span class="line">第4节 信息论优化模型</span><br><span class="line">第九章 概率图模型 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 有向图模型：贝叶斯网络</span><br><span class="line">第3节 无向图模型：马尔可夫随机场</span><br><span class="line">第4节 学习与推断</span><br><span class="line">第5节 隐马尔可夫模型</span><br><span class="line">第十章 神经网络与深度学习 12学时</span><br><span class="line">第1节 前馈网络</span><br><span class="line">第2节 卷积网络</span><br><span class="line">第3节 Recurrent网络</span><br><span class="line">第4节 神经网络与深度学习前沿概述</span><br></pre></td></tr></table></figure>
+
+<p>模式识别与机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 概述 3学时 黄庆明</span><br><span class="line">第1节 课程主要内容和规划</span><br><span class="line">第2节 模式识别的基本概念</span><br><span class="line">第3节 模式识别简史和应用</span><br><span class="line">第4节 模式识别的方法</span><br><span class="line">第5节 模式识别系统</span><br><span class="line">第6节 相关数学基础</span><br><span class="line">第二章 统计判别 3学时 黄庆明</span><br><span class="line">第1节 贝叶斯判别准则</span><br><span class="line">第2节 最小风险判别</span><br><span class="line">第3节 正态分布模式的贝叶斯分类器</span><br><span class="line">第4节 均值向量和协方差矩阵的参数估计</span><br><span class="line">第三章 判别函数 6学时 黄庆明</span><br><span class="line">第1节 线性判别函数</span><br><span class="line">第2节 广义线性判别函数</span><br><span class="line">第3节 分段线性判别函数</span><br><span class="line">第4节 模式空间和权空间</span><br><span class="line">第5节 Fisher线性判别</span><br><span class="line">第6节 感知器算法</span><br><span class="line">第7节 多模式分类</span><br><span class="line">第8节 迭代训练算法</span><br><span class="line">第9节 势函数法</span><br><span class="line">第10节 决策树</span><br><span class="line">第四章 特征选择和提取 3学时 黄庆明</span><br><span class="line">第1节 模式类别可分性</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 K-L变换</span><br><span class="line">第五章 统计学习理论基础 3学时 常虹</span><br><span class="line">第1节 机器学习简史和应用</span><br><span class="line">第2节 机器学习任务分类</span><br><span class="line">第3节 参数学习</span><br><span class="line">第4节 过拟合</span><br><span class="line">第5节 偏差方差分析</span><br><span class="line">第6节 正则化方法和泛化理论分析</span><br><span class="line">第六章 监督学习 3学时 常虹</span><br><span class="line">第1节 线性回归模型</span><br><span class="line">第2节 判别式分类模型和逻辑回归</span><br><span class="line">第3节 生成式分类模型和贝叶斯模型</span><br><span class="line">第七章 支持向量机 6学时 常虹</span><br><span class="line">第1节 支持向量机基础理论</span><br><span class="line">第2节 拉格朗日乘子法和对偶问题</span><br><span class="line">第3节 线性支持向量机</span><br><span class="line">第4节 软间隔的支持向量机</span><br><span class="line">第5节 核方法支持向量机</span><br><span class="line">第6节 支持向量回归</span><br><span class="line">第7节 SMO求解方法</span><br><span class="line">第八章 聚类 3学时 郭嘉丰</span><br><span class="line">第1节 无监督学习与有监督学习对比</span><br><span class="line">第2节 距离计算</span><br><span class="line">第3节 聚类算法的评价方法</span><br><span class="line">第4节 经典聚类方法</span><br><span class="line">第九章 降维 3学时</span><br><span class="line">第1节 维度的选择和抽取</span><br><span class="line">第2节 线性降维</span><br><span class="line">第3节 非线性降维和流形模型</span><br><span class="line">第十章 半监督学习 3学时 郭嘉丰</span><br><span class="line">第1节 自我训练</span><br><span class="line">第2节 多视角学习</span><br><span class="line">第3节 生成模型</span><br><span class="line">第4节 S3VMs</span><br><span class="line">第5节 基于图的算法</span><br><span class="line">第6节 半监督聚类</span><br><span class="line">第十一章 概率图模型 3学时 郭嘉丰</span><br><span class="line">第1节 有向概率图模型</span><br><span class="line">第2节 无向概率图模型</span><br><span class="line">第3节 学习和推断</span><br><span class="line">第4节 典型的概率图模型</span><br><span class="line">第十二章 集成学习 3学时 山世光</span><br><span class="line">第1节 机器学习中的哲学思想</span><br><span class="line">第2节 分类器设计中的重采样技术</span><br><span class="line">第3节 模型性能评估</span><br><span class="line">第十三章 深度学习及应用 12学时 山世光</span><br><span class="line">第1节 人工神经网络的生物原型</span><br><span class="line">第2节 生物视觉系统简介</span><br><span class="line">第3节 卷积神经网络CNN源起与概述</span><br><span class="line">第4节 典型卷积神经网络结构</span><br><span class="line">第5节 循环神经网络</span><br><span class="line">第6节 反向传播算法介绍</span><br><span class="line">第7节 深度模型训练技巧</span><br><span class="line">第8节 深度模型应用</span><br><span class="line">第9节 深度学习未来发展趋势</span><br><span class="line">第十四章 课程复习 3学时 常虹</span><br><span class="line">第1节 课程复习</span><br><span class="line">第十五章 期末考试 3学时 郭嘉丰</span><br><span class="line">第1节 期末考试</span><br></pre></td></tr></table></figure>
+
+<h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><p><img src="/../pic/machine_list.png"></p>
+<h3 id="课程时间"><a href="#课程时间" class="headerlink" title="课程时间"></a>课程时间</h3><p><img src="/../pic/machine_time.png"></p>
+<h2 id="第二章-贝叶斯学习"><a href="#第二章-贝叶斯学习" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><p><img src="/../pic/machine2_1.png"></p>
+<ul>
+<li>似然：关于样本的分布</li>
+<li>先验：关于类别的分布</li>
+<li>后验：类别关于样本的分布</li>
+</ul>
+<p><img src="/../pic/machine2_3.png"></p>
+<p><img src="/../pic/machine2_2.png"></p>
+<h3 id="MLE和MAP"><a href="#MLE和MAP" class="headerlink" title="MLE和MAP"></a>MLE和MAP</h3><p>概率和统计：</p>
+<ul>
+<li>概率是已知模型和参数的情况下预测结果的方差、均值等情况</li>
+<li>统计是已知结果预测模型和参数</li>
+</ul>
+<p>MLE是最大似然估计，在已知结果的情况下估计参数使得似然函数达到最大</p>
+<p>MAP是最大后验概率估计，在MLE的基础上加入了先验概率的『惩罚』</p>
+<hr>
+<p>多维正态分布概率密度</p>
+<p><img src="/../pic/machine_gaosi.png"></p>
+<h3 id="贝叶斯学习与参数估计问题"><a href="#贝叶斯学习与参数估计问题" class="headerlink" title="贝叶斯学习与参数估计问题"></a>贝叶斯学习与参数估计问题</h3><p>在不同分布下的ML、MAP参数估计</p>
+<h2 id="第三章-线性分类"><a href="#第三章-线性分类" class="headerlink" title="第三章 线性分类"></a>第三章 线性分类</h2><p>常用的统计量：</p>
+<img src="../pic/machine3_3.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/machine3_4.png" style="zoom:50%;" />
+
+
+
+<h1 id="模式识别与机器学习"><a href="#模式识别与机器学习" class="headerlink" title="模式识别与机器学习"></a>模式识别与机器学习</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h2 id="第二章-贝叶斯学习-1"><a href="#第二章-贝叶斯学习-1" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><h2 id="第三章-判别函数"><a href="#第三章-判别函数" class="headerlink" title="第三章 判别函数"></a>第三章 判别函数</h2><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ol>
+<li>多类情况1和多类情况2的比较：</li>
+</ol>
+<p>M类进行分类，多类情况1需要M类判别函数，多类情况2需要M(M-1)&#x2F;2类判别函数</p>
+<h3 id="广义线性判别函数"><a href="#广义线性判别函数" class="headerlink" title="广义线性判别函数"></a>广义线性判别函数</h3><p>判别函数将每个常数项、一次项、二次项…都作为一个维度，将低维映射到高维</p>
+<h3 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h3><ul>
+<li>最小距离分类（类别中心点连线的中垂线）</li>
+</ul>
+<h3 id="模式空间和权空间"><a href="#模式空间和权空间" class="headerlink" title="模式空间和权空间"></a>模式空间和权空间</h3><h3 id="Fisher线性判别"><a href="#Fisher线性判别" class="headerlink" title="Fisher线性判别"></a>Fisher线性判别</h3><p>如何根据实际情况找到一条最好的、最易于分类的投影线就是Fisher线性判别方法要解决的基本问题</p>
+<p>最重要的是投影线的方向，大小不是很重要</p>
+<p>一些参数：</p>
+<ul>
+<li>样本均值</li>
+<li>样本类内离散度矩阵和总样本类内离散度矩阵</li>
+<li>样本类间离散度矩阵</li>
+</ul>
+<p>Fisher准则函数：</p>
+<img src="../pic/machine3_1.png" style="zoom: 50%;" />
+
+<img src="../pic/machine3_2.png" style="zoom:50%;" />
+]]></content>
+  </entry>
+  <entry>
+    <title>network</title>
+    <url>/2022/09/02/network/</url>
+    <content><![CDATA[<h1 id="network"><a href="#network" class="headerlink" title="network"></a>network</h1><h1 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h1><p><img src="/../pic/network1.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 网络基础：网络概述 3学时 谢高岗</span><br><span class="line">第1节 课程介绍</span><br><span class="line">第2节 计算机网络概述</span><br><span class="line">第二章 直连网络 3学时 武庆华</span><br><span class="line">第1节 计算机网络体系结构模型</span><br><span class="line">第2节 数据包发送</span><br><span class="line">第3节 链路共享</span><br><span class="line">第4节 不同网络接入方式</span><br><span class="line">第三章 网络互连 3学时 武庆华</span><br><span class="line">第1节 交换网络</span><br><span class="line">第2节 网络互连</span><br><span class="line">第3节 数据包队列</span><br><span class="line">第四章 网络路由 3学时 武庆华</span><br><span class="line">第1节 网络路由机制</span><br><span class="line">第2节 主机移动的路由机制</span><br><span class="line">第五章 网络传输 3学时 武庆华</span><br><span class="line">第1节 可靠传输机制</span><br><span class="line">第2节 多路径传输</span><br><span class="line">第六章 网络应用 2学时 武庆华</span><br><span class="line">第1节 网络应用协议</span><br><span class="line">第七章 网络实验 1学时 武庆华</span><br><span class="line">第1节 网络实验介绍</span><br><span class="line">第八章 内容分发网络 3学时 李振宇</span><br><span class="line">第1节 CDN网络</span><br><span class="line">第2节 P2P网络</span><br><span class="line">第九章 未来互联网体系结构 3学时 李振宇</span><br><span class="line">第1节 设计理念</span><br><span class="line">第2节 代表性体系结构</span><br><span class="line">第3节 实现和试验环境</span><br><span class="line">第十章 网络服务质量 3学时 孙毅</span><br><span class="line">第1节 QoS的基本概念</span><br><span class="line">第2节 QoS的三种服务模型</span><br><span class="line">第3节 典型的QoS机制</span><br><span class="line">第十一章 网络传输机制与优化 3学时 李振宇</span><br><span class="line">第1节 TCP进阶</span><br><span class="line">第2节 TCP的实现及其可能瓶颈</span><br><span class="line">第3节 代表性优化工作</span><br><span class="line">第4节 新型传输控制协议</span><br><span class="line">第十二章 路由器设计与实现 3学时 谢高岗</span><br><span class="line">第1节 路由器基本概念</span><br><span class="line">第2节 路由器结构</span><br><span class="line">第3节 队列管理</span><br><span class="line">第4节 路由查找算法</span><br><span class="line">第十三章 软件定义网络与网络功能虚拟化 3学时 谢高岗</span><br><span class="line">第1节 软件定义网络/网络功能虚拟化概述</span><br><span class="line">第2节 数据包处理转发算法与实现机制</span><br><span class="line">第十四章 区块链技术 3学时 孙毅</span><br><span class="line">第1节 区块链技术</span><br><span class="line">第2节 区块链应用</span><br><span class="line">第3节 区块链挑战与趋势</span><br><span class="line">第十五章 数据中心网络 3学时 李振宇</span><br><span class="line">第1节 数据中心网络概览</span><br><span class="line">第2节 拓扑结构</span><br><span class="line">第3节 流量模式</span><br><span class="line">第4节 传输控制协议</span><br><span class="line">第5节 基于INT的故障定位介绍</span><br><span class="line">第十六章 网络安全 3学时 孙毅</span><br><span class="line">第1节 网络安全概述</span><br><span class="line">第2节 密码技术</span><br><span class="line">第3节 网络攻击</span><br><span class="line">第4节 移动互联网安全</span><br><span class="line">第5节 未来互联网安全</span><br><span class="line">第十七章 网络测量 3学时 孙毅</span><br><span class="line">第1节 网络测量方法</span><br><span class="line">第2节 可用带宽测量</span><br><span class="line">第3节 网络拓扑探测</span><br><span class="line">第4节 基于网络测量分析的QoS优化技术</span><br><span class="line">第十八章 前沿学术讨论</span><br><span class="line">第1节 前沿学术讨论 3学时 谢高岗</span><br><span class="line">第2节 前沿学术讨论 3学时 孙毅</span><br><span class="line">第3节 前沿学术讨论 3学时 李振宇</span><br></pre></td></tr></table></figure>
+
+<h1 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h1><p>OSI七层模型</p>
+<p><img src="/../pic/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png"></p>
+<p>细腰结构</p>
+<p><img src="/../pic/%E7%BB%86%E8%85%B0%E7%BB%93%E6%9E%84.png"></p>
+<h1 id="直连网络"><a href="#直连网络" class="headerlink" title="直连网络"></a>直连网络</h1><p><img src="/../pic/%E7%9B%B4%E8%BF%9E%E7%BD%91%E7%BB%9C.png"></p>
+<h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><p>点线模型</p>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><ul>
+<li>带宽</li>
+<li>时延（传播时延+处理时延+排队时延），大多数关注往返时延（RTT）最主要影响的就是排队时延</li>
+</ul>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>透明传输（加入转义字符）</li>
+<li>差错检测（加入冗余信息）</li>
+<li>可靠传输（超时、重传）<ul>
+<li>停等协议（带宽利用率低）</li>
+<li>滑动窗口算法（回退N机制恢复丢包），是高效可靠的、按需传送、流控功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="链路模型"><a href="#链路模型" class="headerlink" title="链路模型"></a>链路模型</h2><ul>
+<li>全双工</li>
+<li>半双工</li>
+<li>星型（节点收发受其他节点影响）</li>
+</ul>
+<h2 id="面向固定带宽分配的多路复用机制"><a href="#面向固定带宽分配的多路复用机制" class="headerlink" title="面向固定带宽分配的多路复用机制"></a>面向固定带宽分配的多路复用机制</h2><ul>
+<li>频分复用</li>
+<li>时分复用</li>
+<li>统计时分复用</li>
+<li>码分复用</li>
+</ul>
+<h2 id="争用式多路复用机制"><a href="#争用式多路复用机制" class="headerlink" title="争用式多路复用机制"></a>争用式多路复用机制</h2><ul>
+<li><p>载波侦听多路访问（CSMA）</p>
+<ul>
+<li>核心思想：先侦听，后发送</li>
+</ul>
+</li>
+<li><p>带碰撞检测的CSMA（CSMA&#x2F;CD）</p>
+<ul>
+<li><p>核心思想：1-持续CSMA+碰撞检测</p>
+</li>
+<li><p>用于半双工和星型</p>
+</li>
+</ul>
+</li>
+<li><p>带碰撞避免的CSMA（CSMA&#x2F;CA）</p>
+<ul>
+<li><p>用于无线</p>
+</li>
+<li><p>核心思想：p-CSMA+碰撞避免</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><p>以太网地址（网卡的物理地址、MAC地址）</p>
+<h2 id="WIFI"><a href="#WIFI" class="headerlink" title="WIFI"></a>WIFI</h2><p>接入WIFI热点</p>
+<p><img src="/../pic/wifi%E7%83%AD%E7%82%B9.png"></p>
+<h2 id="蜂窝通信技术"><a href="#蜂窝通信技术" class="headerlink" title="蜂窝通信技术"></a>蜂窝通信技术</h2><h1 id="组网与网络互连"><a href="#组网与网络互连" class="headerlink" title="组网与网络互连"></a>组网与网络互连</h1><h2 id="交换网络"><a href="#交换网络" class="headerlink" title="交换网络"></a>交换网络</h2><h3 id="交换机学习"><a href="#交换机学习" class="headerlink" title="交换机学习"></a>交换机学习</h3><ol>
+<li>直连网络的局限性：</li>
+</ol>
+<ul>
+<li>广播网络，带宽利用率低</li>
+<li>广播风暴</li>
+</ul>
+<ol start="2">
+<li>解决方法：</li>
+</ol>
+<ul>
+<li>网络分割</li>
+<li>广播-&gt;单播</li>
+</ul>
+<ol start="3">
+<li>交换网络</li>
+</ol>
+<p>设计目标：</p>
+<ul>
+<li>数据只向目的结点传送</li>
+<li>转发规则自己学习</li>
+<li>两个部分<ul>
+<li>数据帧转发<ul>
+<li>交换机存储目的MAC地址到出端口的映射关系</li>
+<li>FDB中的MAC地址通过老化机制来更新</li>
+</ul>
+</li>
+<li>学习节点位置<ul>
+<li>FDB条目生成：每收到一个新的数据帧，记录其源MAC地址和入端口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="生成树学习"><a href="#生成树学习" class="headerlink" title="生成树学习"></a>生成树学习</h3><p>消除广播风暴：</p>
+<p>原因：由于网络中存在冗余线路，因此在数据转发的过程中会形成广播风暴</p>
+<p>解决方法：为网络中每对源目结点分配唯一确定的一条路径，这些路径形成一个树</p>
+<p>生成树协议：选一个根节点，其他每个结点计算确定到根节点的最短路径，保证是最小生成树</p>
+<hr>
+<p>生成树算法：</p>
+<p><img src="/../pic/network3_1.png"></p>
+<h3 id="交换网络总结"><a href="#交换网络总结" class="headerlink" title="交换网络总结"></a>交换网络总结</h3><p><img src="/../pic/network3_2.png"></p>
+<h2 id="网络互连"><a href="#网络互连" class="headerlink" title="网络互连"></a>网络互连</h2><h3 id="IPv4协议、数据包转发"><a href="#IPv4协议、数据包转发" class="headerlink" title="IPv4协议、数据包转发"></a>IPv4协议、数据包转发</h3><p>IP数据包头格式</p>
+<p><img src="/../pic/network3_3.png"></p>
+<p>IP报文转发规则</p>
+<p><img src="/../pic/network3_4.png"></p>
+<p>地址解析协议（ARP）</p>
+<p><img src="/../pic/network3_5.png"></p>
+<p>IP分片以及缺点</p>
+<p><img src="/../pic/network3_6.png"></p>
+<p><img src="/../pic/network3_7.png"></p>
+<p>ICMP协议</p>
+<p>NAT协议</p>
+<p><img src="/../pic/network3_8.png"></p>
+<ul>
+<li>NAT设备作为两端的代理</li>
+</ul>
+<p><img src="/../pic/network3_9.png"></p>
+<ul>
+<li>将内网主机作为服务器</li>
+</ul>
+<p><img src="/../pic/network3_10.png"></p>
+<h3 id="IPv6协议"><a href="#IPv6协议" class="headerlink" title="IPv6协议"></a>IPv6协议</h3><p>出现的原因：</p>
+<p>CIDR、NAT缓解了ipv4地址紧张，但是无法根本解决地址问题</p>
+<p>IPv6地址&#x3D;前缀+接口标识</p>
+<p>IPv6地址解析：</p>
+<p><img src="/../pic/network3_11.png"></p>
+<h3 id="IPv6过渡机制"><a href="#IPv6过渡机制" class="headerlink" title="IPv6过渡机制"></a>IPv6过渡机制</h3><p><img src="/../pic/network3_12.png"></p>
+<h2 id="数据包队列"><a href="#数据包队列" class="headerlink" title="数据包队列"></a>数据包队列</h2><ul>
+<li>队列应该设置成多大：</li>
+</ul>
+<p><img src="/../pic/network3_13.png"></p>
+<ul>
+<li><p>TCP Incast（队列过小）</p>
+</li>
+<li><p>BufferBloat（队列过大）</p>
+</li>
+<li><p>队列管理方法：</p>
+<ul>
+<li>Tail Drop</li>
+<li>RED（队列满之前主动丢包）</li>
+<li>CoDel（控制数据包在队列中的时间）</li>
+</ul>
+</li>
+<li><p>总结</p>
+</li>
+</ul>
+<p><img src="/../pic/network3_14.png"></p>
+<h1 id="网络路由"><a href="#网络路由" class="headerlink" title="网络路由"></a>网络路由</h1><h2 id="网络路由-1"><a href="#网络路由-1" class="headerlink" title="网络路由"></a>网络路由</h2><h3 id="路由路径计算"><a href="#路由路径计算" class="headerlink" title="路由路径计算"></a>路由路径计算</h3><h4 id="距离向量方法"><a href="#距离向量方法" class="headerlink" title="距离向量方法"></a>距离向量方法</h4><p>对应了RIP协议</p>
+<h4 id="链路状态方法"><a href="#链路状态方法" class="headerlink" title="链路状态方法"></a>链路状态方法</h4><p>对应了OSPF协议</p>
+<h3 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h3><h4 id="域内路由协议RIP-OSPF"><a href="#域内路由协议RIP-OSPF" class="headerlink" title="域内路由协议RIP OSPF"></a>域内路由协议RIP OSPF</h4><h4 id="域间路由协议BGP"><a href="#域间路由协议BGP" class="headerlink" title="域间路由协议BGP"></a>域间路由协议BGP</h4><h2 id="考虑主机移动的路由机制"><a href="#考虑主机移动的路由机制" class="headerlink" title="考虑主机移动的路由机制"></a>考虑主机移动的路由机制</h2>]]></content>
+  </entry>
+  <entry>
+    <title>nginx_config</title>
+    <url>/2022/09/07/nginx-config/</url>
+    <content><![CDATA[<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><p><a class="link"   href="https://zhuanlan.zhihu.com/p/451825018" >nginx配置<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>pre plan items</title>
+    <url>/2022/05/27/pre-plan-items/</url>
+    <content><![CDATA[<h3 id="2022-3-31"><a href="#2022-3-31" class="headerlink" title="2022.3.31"></a>2022.3.31</h3><p><strong>从今天开始使用md做计划，前一天做好下一天的计划，下一天结束进行该天总结并做之后一天的计划</strong></p>
+<h3 id="2022-4-1"><a href="#2022-4-1" class="headerlink" title="2022.4.1"></a>2022.4.1</h3><ul>
+<li>整理出PPT的思路框架</li>
+<li>看一下swim-transformer</li>
+<li>修改OCR+UPerNet</li>
+<li>一道题（清明假期前写完）</li>
+</ul>
+<p><a class="link"   href="https://click.endnote.com/viewer?doi=10.48550/arxiv.2103.14030&route=6" >swim transformer<i class="fas fa-external-link-alt"></i></a></p>
+<p>早上早点到，争取早上刷一道题、看完swim-transformer、整理出PPT思路框架</p>
+<p><strong>总结：</strong></p>
+<ul>
+<li>一道题</li>
+<li>准备组会</li>
+</ul>
+<h3 id="2022-4-2-2022-4-7"><a href="#2022-4-2-2022-4-7" class="headerlink" title="2022.4.2-2022.4.7"></a>2022.4.2-2022.4.7</h3><ul>
+<li>准备组会</li>
+<li>计划下一阶段的事情</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>组会结束</li>
+<li>安排下一阶段的任务</li>
+</ul>
+<p><strong>下一阶段任务：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">总共就两件事：</span><br><span class="line">佳的毕设</span><br><span class="line">我的毕设</span><br><span class="line"></span><br><span class="line">佳的毕设：尽快先将前端页面写好，和后端的交互先放一放</span><br><span class="line">我的毕设：继续在之前的基础上做一些改进，跑跑实验</span><br><span class="line"></span><br><span class="line">刷题不能放下，每天还要坚持刷题，现在开始刷codeTop</span><br><span class="line">如果还有时间，就把《动手学深度学习》看完</span><br><span class="line">总体任务就是这些，从现在开始继续每天做计划，做总结</span><br></pre></td></tr></table></figure>
+<p>今晚任务：</p>
+<ul>
+<li>从codeTop上开始刷题<br><a class="link"   href="https://codetop.cc/home" >codeTop<i class="fas fa-external-link-alt"></i></a></li>
+<li>修改OCR模块</li>
+<li>完成注册登录功能</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>刷题完成</li>
+</ul>
+<h3 id="2022-4-8"><a href="#2022-4-8" class="headerlink" title="2022.4.8"></a>2022.4.8</h3><p>今日任务：</p>
+<ul>
+<li>刷题</li>
+<li>写完注册登录页面</li>
+<li>改好OCR部分</li>
+</ul>
+<h3 id="2022-4-10"><a href="#2022-4-10" class="headerlink" title="2022.4.10"></a>2022.4.10</h3><p>学校任务：</p>
+<ul>
+<li>优秀毕业生材料准备（周一搞完上交）</li>
+<li>高雅艺术进校园</li>
+<li>中期报告提交网站</li>
+</ul>
+<p>今日任务：</p>
+<ul>
+<li>招商银行专场竞赛（17：00）</li>
+<li>晚上七点经验分享</li>
+<li>OCR改好</li>
+<li>主页做好</li>
+<li>指定到五月份详细计划</li>
+</ul>
+<h3 id="2022-4-11"><a href="#2022-4-11" class="headerlink" title="2022.4.11"></a>2022.4.11</h3><p>接下来到五月之前的三周，主要精力还是以下3+1项：<br>1.我的毕设<br>2.佳的毕设<br>3.刷题<br>x.待学习内容</p>
+<hr>
+<p><strong>我的毕设：</strong><br>毕设论文框架：(农业遥感图像分析关键技术研究)<br>（论文第一次查重在5.30，答辩在6.1之后，6.18之前）</p>
+<ul>
+<li><p>中文摘要</p>
+</li>
+<li><p>英文摘要</p>
+</li>
+<li><p>第1章绪论（已完成）（6000）（5660）</p>
+<ul>
+<li>研究背景</li>
+<li>研究现状</li>
+<li>当前工作</li>
+</ul>
+</li>
+<li><p>第2章介绍baseline和数据集（ConvNeXt）（三天）（3000）（3022）</p>
+</li>
+<li><p>第3章模型与实验（模型框架、模型算法流程、创新点或改进点介绍、实验设置、数据集、实验结果）（一周）（6000）(5200)<br>模型框架、模型算法流程（2000）<br>创新点介绍（1000）（3010）<br>实验设置（1000）<br>数据集（1000）<br>实验结果（1000）(2200)</p>
+</li>
+</ul>
+<hr>
+<p>对比实验：<br>1.baseline（ConvNeXt+UPerHead+CrossEntropyLoss）batchsize:8，GPU:1，iterations:240k<br>2.baseline+损失函数修改成混合损失<br>3.baseline+解码头加入OCR模块（损失函数为交叉熵）<br>4.损失函数为混合损失+损失函数为混合损失、解码头加上OCR模块<br>5.baseline+权重finetune<br>6.baseline+FFT（椒盐损失）<br>7.baseline+segFix</p>
+<p>已经做了的对比实验：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> baseline+损失函数换成混合损失</li>
+<li><input checked="" disabled="" type="checkbox"> baseline+解码头加上OCR（混合损失）</li>
+<li><input disabled="" type="checkbox"> baseline+解码头加上OCR（交叉熵）</li>
+<li><input disabled="" type="checkbox"> baseline+数据增强</li>
+<li><input disabled="" type="checkbox"> baseline（混合损失）+baseline权重finetune</li>
+</ul>
+<hr>
+<ul>
+<li>第4章分析与讨论（实验结果分析与讨论）（两天）（3000）</li>
+<li>第5章结束语（一天）（1000）（848）</li>
+<li>参考文献</li>
+<li>附录</li>
+<li>致谢</li>
+</ul>
+<p>本周要完成毕设的绪论部分（计划）</p>
+<hr>
+<p><strong>佳的毕设：</strong><br>不需要花太多时间，以练习为主，在有空的时候可以写一写<br>一周开发两个模块</p>
+<hr>
+<p><strong>刷题：</strong><br>我感觉刷题还是不能随便刷，即使是每日一题也要有计划地刷，需要好好规划一下<br>从现在开始，每天刷完一道之后要总结一下，总结其中的技巧和一些思考，坚持和总结<br>就是两点：1.坚持刷 2.总结</p>
+<hr>
+<p>今日任务：<br>1.梳理好毕设论文的框架，大体每部分该写的内容<br>2.看完《学位论文的共性问题》（写完最后润色再结合看）<br>3.开始着手写绪论<br>4.刷题<br>5.改进OCR decoder<br>x.继续写网页</p>
+<p>今日总结：<br>1.OCR decoder改好在测试<br>2.刷了LRU<br>3.完成论文框架初步设计<br>4.明天正式开始写绪论<br>5.《学位》写完最后润色再结合看</p>
+<h3 id="2022-4-12："><a href="#2022-4-12：" class="headerlink" title="2022.4.12："></a>2022.4.12：</h3><p>今日任务：<br>1.开始写绪论（农业遥感图像的研究背景与发展概况）<br>1.1看完四篇综述<br>2.刷题<br>3.继续改进OCR，破50就再提交一次<br>x.继续写网页</p>
+<p>今日总结：<br>1.刷题<br>2.绪论写了一部分<br>3.综述看了一篇<br>4.OCR效果还是没有体现出来</p>
+<h3 id="2022-4-13"><a href="#2022-4-13" class="headerlink" title="2022.4.13:"></a>2022.4.13:</h3><p>今日任务：<br>1.继续写绪论<br>2.刷题<br>3.做一个对比实验，看看OCR效果怎么样<br>x.继续写网页</p>
+<h3 id="2022-4-14："><a href="#2022-4-14：" class="headerlink" title="2022.4.14："></a>2022.4.14：</h3><p>昨日总结：<br>1.绪论又写了一部分<br>2.没刷题<br>3.OCR效果感觉是要比不加好，得做一个对比实验看一下</p>
+<hr>
+<p>今日任务：<br>1.刷题<br>2.绪论写完<br>3.看一下OCR效果天花板<br>4.看看segfix是否可以加上<br>x.写网页</p>
+<h3 id="2022-4-15："><a href="#2022-4-15：" class="headerlink" title="2022.4.15："></a>2022.4.15：</h3><p>昨日总结：<br>1.绪论部分写完<br>2.刷题<br>3.OCR效果感觉没有很突出</p>
+<p>今日任务：<br>1.刷题<br>2.看一下ISA，尝试再加上ISA试试<br>3.论文部分先写一下ConvNeXt，等实验全部做完再写实验部分<br>实验部分对比实验一个一个做，记录配置、结果、最终的pth文件<br>x.写网页</p>
+<p>今日总结：<br>1.刷题（三数之和）<br>2.Interlaced Sparse Self-Attention for Semantic Segmentation<br>3.做了对比实验（baseline、加不加OCR）</p>
+<h3 id="2022-4-18"><a href="#2022-4-18" class="headerlink" title="2022.4.18:"></a>2022.4.18:</h3><p>周一、周二、周三写完第二章，实验部分<br>今日任务：<br>1.刷题<br>2.加一个SegFix尝试一下<br>3.写网页<br>4.论文开始写ConvNeXt部分</p>
+<p>今日总结：<br>1.刷题<br>2.今天写完了第二部分ConvNeXt的ResNet部分（800），周二写完主干网络部分，周三写完解码头部分<br>3.今晚写网页<br>x.今晚调试SegFix</p>
+<h3 id="2022-4-19："><a href="#2022-4-19：" class="headerlink" title="2022.4.19："></a>2022.4.19：</h3><p>今日任务：<br>1.刷题<br>2.论文写完主干网络部分（2600）<br>3.写网页<br>4.调试SegFix</p>
+<p>今日总结：<br>1.论文写完主干网络部分（2600）<br>2.刷题</p>
+<h3 id="2022-4-21："><a href="#2022-4-21：" class="headerlink" title="2022.4.21："></a>2022.4.21：</h3><p>今日总结：<br>1.明天开始写网页<br>2.明天开始写论文<br>3.有时间调一下segfix<br>4.刷题</p>
+<h3 id="2022-4-22："><a href="#2022-4-22：" class="headerlink" title="2022.4.22："></a>2022.4.22：</h3><p>今日任务：<br>1.刷题<br>2.论文第二部分写完<br>3.数据库部分设计一下，登录部分数据库交互完成<br>4.有时间调一下SegFix</p>
+<p>今日总结：<br>1.刷题<br>2.论文第二部分写完<br>争取五一之前写完论文</p>
+<h3 id="2022-4-23："><a href="#2022-4-23：" class="headerlink" title="2022.4.23："></a>2022.4.23：</h3><p>今日任务：<br>1.刷题<br>2.论文第三章</p>
+<h3 id="2022-4-24："><a href="#2022-4-24：" class="headerlink" title="2022.4.24："></a>2022.4.24：</h3><p>今日任务：<br>1.刷题<br>2.论文第三部分（模型框架、模型算法流程、数据集）<br>3.写网页</p>
+<h3 id="2022-4-25："><a href="#2022-4-25：" class="headerlink" title="2022.4.25："></a>2022.4.25：</h3><p>已经做了的对比实验：</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+baseline+损失函数换成混合损失</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+baseline+解码头加上OCR（混合损失）</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+baseline+解码头加上OCR（交叉熵）</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+baseline+数据增强</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+baseline（混合损失）+baseline权重finetune</p>
+</li>
+<li><p>baseline+损失函数换成混合损失</p>
+</li>
+<li><p>baseline+noise</p>
+</li>
+<li><p>baseline_hybrid+noise</p>
+</li>
+<li><p>baseline_ocr_hybridloss+baseline_ocr_hybridloss_noise</p>
+</li>
+<li><p>baseline+ocr_交叉熵</p>
+</li>
+<li><p>baseline_hybrid+ocr_hybrid</p>
+</li>
+<li><p>baseline（混合损失）+baseline（混合损失）_权重finetune</p>
+</li>
+</ul>
+<hr>
+<p>从今天到五一之前的任务规划：<br>4.25：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 营销管理模块（营销机会）</li>
+<li><input checked="" disabled="" type="checkbox"> 论文第三部分（模型框架、模型算法流程、数据集）</li>
+<li><input checked="" disabled="" type="checkbox"> 晚饭后跑上实验</li>
+</ul>
+<p>4.26：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 论文第三部分（创新点或改进点介绍、实验设置）</li>
+</ul>
+<p>4.27：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 营销管理模块（营销机会）</li>
+</ul>
+<p>4.28：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 营销管理（客户开发）</li>
+<li><input checked="" disabled="" type="checkbox"> 论文实验结果部分</li>
+<li><input checked="" disabled="" type="checkbox"> 论文第五部分</li>
+</ul>
+<p>4.29：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 客户管理（客户信息管理）</li>
+<li><input checked="" disabled="" type="checkbox"> 论文第四部分（分析与讨论）</li>
+<li><input checked="" disabled="" type="checkbox"> 论文参考文献部分、致谢<br>4.30：</li>
+<li><input checked="" disabled="" type="checkbox"> 实验结果部分写完、参考文献 </li>
+<li><input disabled="" type="checkbox"> 客户管理（商机管理）</li>
+</ul>
+<h3 id="2022-5-4"><a href="#2022-5-4" class="headerlink" title="2022.5.4:"></a>2022.5.4:</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 写完论文</li>
+</ul>
+<h3 id="2022-5-5"><a href="#2022-5-5" class="headerlink" title="2022.5.5:"></a>2022.5.5:</h3><p>论文写完，就剩下致谢部分。<br>接下来的任务就是写网页。</p>
+<h3 id="2022-5-6"><a href="#2022-5-6" class="headerlink" title="2022.5.6:"></a>2022.5.6:</h3><p>-客户管理-客户信息管理-联系人管理-删除、编辑、单个删除没做<br>-查看订单部分没做<br>明天早上做完没做的部分<br>明天一天做完订单管理部分</p>
+<h3 id="2022-5-9："><a href="#2022-5-9：" class="headerlink" title="2022.5.9："></a>2022.5.9：</h3><p>务必把数据看板部分写完<br>（写完了）<br>用户管理写完</p>
+<h3 id="2022-5-10"><a href="#2022-5-10" class="headerlink" title="2022.5.10:"></a>2022.5.10:</h3><p>角色权限管理写完</p>
+<h3 id="2022-5-11："><a href="#2022-5-11：" class="headerlink" title="2022.5.11："></a>2022.5.11：</h3><p>还剩删除、编辑、权限配置没写</p>
+<h3 id="2022-5-16："><a href="#2022-5-16：" class="headerlink" title="2022.5.16："></a>2022.5.16：</h3><p>毕设的事都搞完了，接下来就是比赛和找实习，晚上好好安排一下接下来的具体事项。</p>
+<p>CUDA_VISIBLE_DEVICES&#x3D;4,5,6,7,9 nohup python -m torch.distributed.launch –nproc_per_node&#x3D;5 –master_port&#x3D;29400 train.py configs&#x2F; –launcher pytorch &gt;&gt;zzzzz1.out 2&gt;&amp;1 &amp;</p>
+<h3 id="2022-5-21："><a href="#2022-5-21：" class="headerlink" title="2022.5.21："></a>2022.5.21：</h3><p>眼下最重要的任务就是把排名搞上去</p>
+<h3 id="2022-5-25："><a href="#2022-5-25：" class="headerlink" title="2022.5.25："></a>2022.5.25：</h3><p>论文的格式修改好了、附加材料也都搞好了，剩下的就是准备答辩。<br>接下来的任务就是比赛剩余部分。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>pytorch_mmseg</title>
+    <url>/2022/10/06/pytorch-mmseg/</url>
+    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>multi-ml</title>
+    <url>/2022/10/06/multi-ml/</url>
+    <content><![CDATA[<h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><ol>
+<li>训练数据不足时带来的问题以及如何缓解？</li>
+</ol>
+<p><strong>一个模型能够提供的信息一般来源于两个方面：</strong></p>
+<ul>
+<li>训练数据中蕴含的信息</li>
+<li>在模型的形成过程中人提供的先验信息</li>
+</ul>
+<p>当训练数据不足时，模型从原始数据中获得的信息比较少，模型容易过拟合，在这种情况下就需要更多的先验信息。先验信息可以作用于模型，对模型进行简化、添加正则项、dropout等进行约束，也可以作用于数据，在保持特定信息的前提下，对原始数据进行适当变换以扩充数据集，在图像任务中有以下一些操作：</p>
+<ul>
+<li><p>一定程度内的随机旋转、平移、缩放、裁剪、填充、左右翻转等</p>
+</li>
+<li><p>对图像中的像素添加噪声扰动（高斯、椒盐噪声）</p>
+</li>
+<li><p>颜色变换（在图像的RGB颜色空间上进行主成分分析，得到3个</p>
+<p>主成分的特征向量p<del>1</del>、p<del>2</del>、p<del>3</del> 及其对应的特征值 λ<del>1</del>,λ<del>2</del>,λ<del>3</del>，然后在每个像素的RGB值上 添加增量[<em>p<del>1</del></em> ,<em>p<del>2</del></em> ,<em>p<del>3</del></em> ]•[<em>α<del>1</del> λ<del>1</del></em> ,<em>α<del>2</del> λ<del>2</del></em> ,<em>α<del>3</del> λ<del>3</del></em> ]T，其中 <em>α<del>1</del></em> ,<em>α<del>2</del></em> ,<em>α<del>3</del></em> 是均值为0、方差较小的高斯分布随机数）</p>
+</li>
+<li><p>改变图像的亮度、清晰度、对比度、锐度等</p>
+</li>
+</ul>
+<p>除了直接在图像空间上进行变换，还可以先对图像进行特征提取，然后在图像的特征空间内进行变换，利用一些通用的数据扩充或上采样技术，例如 SMOTE(Synthetic Minority Over-sampling Technique)算法。还可以使用生成模型合成一些新样本。</p>
+<p>迁移学习也是一种常用的策略（微调）。</p>
+<hr>
+<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><ol>
+<li>一些常用的指标：</li>
+</ol>
+<ul>
+<li>准确率</li>
+</ul>
+<p>$$<br>Accuracy &#x3D; \frac{n_{correct}}{n_{total}}<br>$$</p>
+<p>其中n<del>correct</del>为被正确分类的样本个数，n<del>total</del>为总样本的个数。</p>
+<p>准确率往往会收到不同类别样本不均衡带来的问题，占比大的类别往往成为影响准确率的主要因素。</p>
+<ul>
+<li>精确率</li>
+</ul>
+<p>$$<br>precision &#x3D; \frac{n_{分类正确的正样本}}{n_{分类器判定为正样本}}<br>$$</p>
+<ul>
+<li>召回率</li>
+</ul>
+<p>$$<br>recall &#x3D; \frac{n_{分类正确的正样本}}{n_{真正的正样本}}<br>$$</p>
+<ul>
+<li>P-R曲线（横轴是召回率，纵轴是精确率）</li>
+<li>F1 score</li>
+</ul>
+<p>$$<br>F1 &#x3D; \frac{2<em>precision</em>recall}{precision+recall}<br>$$</p>
+<ul>
+<li>MAPE（平均绝对百分比误差）</li>
+</ul>
+<p>$$<br>MAPE &#x3D; \sum_{i&#x3D;1}^{n}|\frac{y_i-\hat{y_i}}{y_i}|*\frac{100}{n}<br>$$</p>
+<p>比RMSE鲁棒性更好。</p>
+<ul>
+<li>ROC曲线（横坐标为假阳性率，纵坐标为真阳性率）</li>
+</ul>
+<p>$$<br>FPR &#x3D; \frac{FP}{N}\<br>TPR &#x3D; \frac{TP}{P}<br>$$</p>
+<p><img src="/../pic/ml_1.png"></p>
+<ul>
+<li>AUC（ROC曲线下的面积，可以量化地反应基于ROC曲线衡量的模型性能），AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好。</li>
+<li>当正负样本的分布发生巨大变化时，ROC曲线的形状能够基本保持不变，而PR曲线的形状一般会发生较剧烈的变化。ROC曲线能够避免测试集带来的影响而专注于模型本身的性能，而PR曲线则可以看到在特定数据集上的表现。</li>
+<li>除了对模型的评估外，也需要评估样本间的距离，在机器学习问题中，通常将特征表示为向量的形式，所以在分析两个特征向量之间的相似性时，常使用余弦相似度来表示。余弦距离则是用1减去余弦相似度来表示。因为余弦相似度在高维情况下仍然可以保持相同为1，正交为0，相反为-1的性质，而欧式距离的数值则会受到维度的影响，范围不固定并且含义也比较模糊。</li>
+<li>关于距离的定义：正定性、对称性、三角不等式，余弦距离不满足距离的定义，另外KL距离也不满足对称性和三角不等式</li>
+</ul>
+<ol start="2">
+<li>模型评估的方法</li>
+</ol>
+<ul>
+<li>holdout检验（训练测试七三开）</li>
+<li>交叉检验</li>
+<li>自助法（对于总数为n的样本集合进行n次有放回的随机抽样，得到大小为n的训练集，n次采样过程中没有被抽出过的样本作为验证集）（在n趋于无穷大时，大约有36.8%的样本从未被选择过）</li>
+</ul>
+<ol start="3">
+<li>超参数调优</li>
+</ol>
+<ul>
+<li>网格搜索</li>
+<li>随机搜索</li>
+<li>贝叶斯优化算法</li>
+</ul>
+<p>贝叶斯优化算法首先根据先验分布假设一个搜集函数，每一次使用新的采样点来测试目标函数时，利用这个信息来更新目标函数的先验分布，最后算法测试由后验分布给出的全局最值最可能出现的位置的点。主要就是引入了先验分布，通过不断采集数据得到后验来预测最值。</p>
+<ol start="4">
+<li>过拟合与欠拟合</li>
+</ol>
+<ul>
+<li><p>过拟合</p>
+<ul>
+<li>通过数据增强获得更多数据</li>
+<li>降低模型复杂度，减少网络层数、神经元个数等</li>
+<li>正则化方法，将权重加入到损失函数中</li>
+<li>集成学习方法，将多个模型集成到一起</li>
+</ul>
+</li>
+<li><p>欠拟合</p>
+<ul>
+<li>添加新特征，通过特征组合、挖掘上下文特征</li>
+<li>增加模型复杂度，在神经网络模型中增加网络层数或神经元个数等</li>
+<li>减小正则化系数</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><ol>
+<li>支持向量机</li>
+</ol>
+<h4 id="问题1：-在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？"><a href="#问题1：-在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？" class="headerlink" title="问题1： 在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？"></a>问题1： 在空间上线性可分的两类点，分别向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗？</h4><p>&#x3D;&#x3D;优化问题：&#x3D;&#x3D;</p>
+<ul>
+<li>无约束条件<ul>
+<li>函数对变量进行求导求极值点</li>
+</ul>
+</li>
+<li>等式约束条件<ul>
+<li>拉格朗日乘子法，在目标函数中加入等式约束</li>
+<li>对拉格朗日法的理解：等式约束可以看做是曲面上的一条等高线，而目标函数则是随机一条约束，在等式约束下的目标函数的极值就是等高线和约束的相切点，两者的梯度在一条直线上</li>
+</ul>
+</li>
+<li>不等式约束条件<ul>
+<li>对于一般问题，KKT条件是使一组解成为最优解的必要条件，当原问题是凸问题时，也是充分条件</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../pic/multi_ml1018_1.png"></p>
+<p>&#x3D;&#x3D;超平面分离定理&#x3D;&#x3D;：</p>
+<p>对于不相交的两个凸集，存在一个超平面，将两个凸集分离</p>
+<p>根据超平面分离定理，可以求两个凸集的凸包，SVM求得的超平面就是两个凸包上距离最短的两点连线的中垂线</p>
+<h4 id="问题2：是否存在一组参数使SVM训练误差为0？"><a href="#问题2：是否存在一组参数使SVM训练误差为0？" class="headerlink" title="问题2：是否存在一组参数使SVM训练误差为0？"></a>问题2：是否存在一组参数使SVM训练误差为0？</h4><p>存在，可以通过构造一个高斯核函数以及相应的参数控制预测值和真实值的误差在0-1之间，因为gt只有1和-1，则无论何种情况都可以全部正确分类（高斯核占主导）</p>
+<h4 id="问题3：训练误差为0的SVM分类器一定存在吗？"><a href="#问题3：训练误差为0的SVM分类器一定存在吗？" class="headerlink" title="问题3：训练误差为0的SVM分类器一定存在吗？"></a>问题3：训练误差为0的SVM分类器一定存在吗？</h4><p>可以找到一组参数满足训练误差为0，且是SVM模型的一个解（超参数占主导）</p>
+<h4 id="问题4：加入松弛变量的SVM的训练误差可以为0吗？"><a href="#问题4：加入松弛变量的SVM的训练误差可以为0吗？" class="headerlink" title="问题4：加入松弛变量的SVM的训练误差可以为0吗？"></a>问题4：加入松弛变量的SVM的训练误差可以为0吗？</h4><p>因为优化的目标改变了，优化的目标函数里面包含松弛变量的正则项和间隔，所以训练误差不一定能达到0</p>
+<ol start="2">
+<li>逻辑回归</li>
+</ol>
+<h4 id="问题1：逻辑回归相比于线性回归，有何异同？"><a href="#问题1：逻辑回归相比于线性回归，有何异同？" class="headerlink" title="问题1：逻辑回归相比于线性回归，有何异同？"></a>问题1：逻辑回归相比于线性回归，有何异同？</h4><ul>
+<li>逻辑回归处理的是分类问题，线性回归处理的是回归问题</li>
+<li>逻辑回归中的『回归』来源：在逻辑回归的推导过程中存在以下形式：$log\frac{p}{1-p}&#x3D;\theta^Tx$，其中$p$是『$y&#x3D;1|x$』这一事件的对数几率的线性回归</li>
+<li>在线性回归中因变量$y$是连续的，而在逻辑回归中因变量$y$的离散的，逻辑回归中的$y$服从二元分布，而线性回归中的$y$服从正态分布</li>
+</ul>
+<ol start="3">
+<li>决策树</li>
+</ol>
+<hr>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><hr>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><hr>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><hr>
+<h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><hr>
+<h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><hr>
+<h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><hr>
+<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><hr>
+<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><hr>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><hr>
+<h2 id="生成式对抗"><a href="#生成式对抗" class="headerlink" title="生成式对抗"></a>生成式对抗</h2><hr>
+<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2>]]></content>
+  </entry>
+  <entry>
+    <title>roadmap</title>
+    <url>/2022/09/01/roadmap/</url>
+    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>ucas important items</title>
+    <url>/2022/08/08/ucas_items/</url>
+    <content><![CDATA[<h3 id="国科大学生处联系方式："><a href="#国科大学生处联系方式：" class="headerlink" title="国科大学生处联系方式："></a>国科大学生处联系方式：</h3><ul>
+<li>联系邮箱：<a class="link"   href="mailto:xsc@ucas.edu.cn" >xsc@ucas.edu.cn<i class="fas fa-external-link-alt"></i></a></li>
+<li>联系地址：北京市玉泉路19号甲</li>
+<li>邮政编码：100040</li>
+</ul>
+<h3 id="常用校园网络资源"><a href="#常用校园网络资源" class="headerlink" title="常用校园网络资源"></a>常用校园网络资源</h3><ul>
+<li><p><a class="link"   href="https://welcome.ucas.edu.cn/index.php/zh-cn/" >迎新网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://www.ucas.ac.cn/" >国科大主页<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://sep.ucas.ac.cn/" >教育云平台<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://admission.ucas.ac.cn/" >招生信息网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://job.ucas.ac.cn/" >就业服务信息网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://onestop.ucas.ac.cn/" >综合信息网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://hqfw.ucas.edu.cn/" >校园服务网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="http://inc.ucas.ac.cn/" >IT服务网<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ul>
+<h3 id="一些常用的电话"><a href="#一些常用的电话" class="headerlink" title="一些常用的电话"></a>一些常用的电话</h3><p><img src="/../pic/ucas_phone.jpg"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>vps_config.md</title>
+    <url>/2022/09/03/vps-config-md/</url>
+    <content><![CDATA[<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
+
+<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
+<p>ubuntu安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装时腾讯云和阿里云要开启相应的端口</p>
+<p>选择安装LNMP套件</p>
+<p>宝塔找回账号密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
+
+<p>查看账号并修改密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
+
+<p>宝塔面板特色功能：</p>
+<p><img src="/../pic/baota_config1.png"></p>
+<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
+<ul>
+<li><p>域名：calciumoxide.xyz</p>
+</li>
+<li><p>博客地址：<a class="link"   href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>alist直链：alist.calciumoxide.xyz</p>
+</li>
+</ul>
+<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
+<p><img src="/../pic/cloudflare.png"></p>
+<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
+
+<p><a class="link"   href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>update apt and install some necessary packages</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
+
+<p>add docker’s official GPG key</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
+
+<p>set up the repository</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>install docker engine</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<p>Verify successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
+<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config2.png"></p>
+<p>增加这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config3.png"></p>
+<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
+<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
+<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
+<p><img src="/../pic/aliyun_config1.jpg"></p>
+<p>按键盘上的“F12”键</p>
+<p><img src="/../pic/aliyun_config2.jpg"></p>
+<p>同时按键盘“Ctrl”+“R”两个键</p>
+<p><img src="/../pic/aliyun_config3.jpg"></p>
+<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
+<p><img src="/../pic/aliyun_config4.jpg"></p>
+<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
+<p><img src="/../pic/baidu_config1.jpg"></p>
+<p>通过<a class="link"   href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
+<p><img src="/../pic/baidu_config2.jpg"></p>
+<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>动手学深度学习1</title>
+    <url>/2022/08/30/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01/</url>
+    <content><![CDATA[<h1 id="线性神经网络"><a href="#线性神经网络" class="headerlink" title="线性神经网络"></a>线性神经网络</h1><h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>$$<br>log \frac{1}{P (j)} &#x3D; − log P(j)<br>$$</p>
+<h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h3><p>$$<br>H(P)&#x3D;\sum-P(j)logP(j)<br>$$</p>
+<p>熵定义为当分配的概率真正匹配数据生成过程时的信息量的期望</p>
+<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>$$<br>交叉熵从P到Q，记作：H(P,Q），用于衡量两个分布之间的差异<br>$$</p>
+<p>$$<br>多分类下的交叉熵损失：L&#x3D;\frac{1}{N}\sum_iL_i&#x3D;-\frac{1}{N}\sum_i\sum_{c&#x3D;1}^My_{ic}log(p_{ic})<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>M为类别的数量</li>
+<li>y_ic是符号函数，样本i的真实取值是c则为1，否则为0</li>
+<li>p_ic观测样本i属于类别c的预测概率</li>
+</ul>
+<h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
+<p>softmax运算获取一个向量并将其映射为概率</p>
+<p>$$<br>\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
+<h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="常用的激活函数"><a href="#常用的激活函数" class="headerlink" title="常用的激活函数"></a>常用的激活函数</h2><ul>
+<li>Relu</li>
+</ul>
+<p>$$<br>f(x)&#x3D; \begin{cases}<br>\ 0, &amp; x&lt;&#x3D;0 \<br>\ x, &amp; x&gt;0<br>\end{cases}<br>$$</p>
+<ul>
+<li>sigmoid</li>
+</ul>
+<p>$$<br>f(x) &#x3D; \frac{1}{1+e^{-x}}<br>$$</p>
+<p>$$<br>y&#x3D;sigmoid(x) \<br>y^{‘}&#x3D; y(1-y)<br>$$</p>
+<ul>
+<li>tanh</li>
+</ul>
+<p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
+<p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
+<p>梯度裁剪可以快速修复梯度爆炸：<br>$$<br>g &lt;&#x3D;min(1,\frac{\theta}{||g||})g<br>$$</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
+    <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
+<h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
+<h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
+<h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
+]]></content>
+  </entry>
+</search>
