@@ -38,94 +38,73 @@
 <main class="page-container">
 
     
-        <div class="first-screen-container flex-center fade-in-down-animation">
-    <div class="content flex-center">
-        <div class="description">
-            爱你所爱 行你所行 听从你心 无问西东
-        </div>
-        
-            <div class="s-icon-list">
-                
-                    
-                        
-                            <span class="s-icon-item github">
-                                <a target="_blank" href="https://github.com/yhg1010">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item weixin">
-                                <a target="_blank" href="/images/wechat.png">
-                                    <i class="fab fa-weixin"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item qq">
-                                <a target="_blank" href="/images/QQ.png">
-                                    <i class="fab fa-qq"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                
-                    
-                        
-                            <span class="s-icon-item zhihu">
-                                <a target="_blank" href="https://www.zhihu.com/people/dreamer-76-8">
-                                    <i class="fab fa-zhihu"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                
-                    
-                
-                    
-                        
-                            <span class="s-icon-item email">
-                                <a href="mailto:18360725582@163.com">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item chrome">
-                                <a target="_blank" href="https://codetop.cc/home">
-                                    <i class="fab fa-chrome"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item square-terminal">
-                                <a target="_blank" href="https://codetop.cc/home">
-                                    <i class="fab fa-square-terminal"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-            </div>
-        
-    </div>
-</div>
+        $first-screen-font-size = 2rem;
+$first-screen-icon-size = 1.6rem;
+
+$temp-img = hexo-config('style.first_screen.background_img');
+$first-screen-img = $temp-img ? $temp-img:'/images/bg.svg';
+
+.first-screen-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  background: url($first-screen-img) center center / cover no-repeat;
+  background-position-y: $header-height;
+
+
+  +keep-tablet() {
+    background-position-y: $header-height * 0.9;
+  }
+
+  +keep-mobile() {
+    background-position-y: $header-height * 0.8;
+  }
+
+  .content {
+    position: relative;
+    box-sizing: border-box;
+    width: 80%;
+    height: 90%;
+
+    .description {
+      font-weight: bold;
+      font-size: $first-screen-font-size;
+      line-height: 1.8;
+      text-align: center;
+      color: var(--default-text-color);
+
+
+      +keep-tablet() {
+        font-size: $first-screen-font-size * 0.9;
+      }
+    }
+
+
+    .s-icon-list {
+      position: absolute;
+      bottom: 0;
+      font-size: $first-screen-icon-size;
+      text-align: center;
+
+      +keep-tablet() {
+        font-size: $first-screen-icon-size * 0.9;
+      }
+
+      .s-icon-item {
+        margin-right: 20px;
+        cursor: pointer;
+        line-height: 2;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+      }
+
+    }
+  }
+}
 
     
 
@@ -236,6 +215,36 @@
                 
                     <div class="home-content-container fade-in-down-animation">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/11/01/megvii/">
+                        megvii
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Megvii实习一些常用工具1公司邮箱：caohongliang@megvii.com
+
+1【旷视科技】您的内部账户用户名为：caohongliang，初始密码为：ih3k9z*9gn6，请妥善保管密码，并尽快修改。修改方式请查看电脑桌面上的IT帮助...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Nov 01 2022 21:14:06 GMT+0800">2022-11-01</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/11/01/megvii/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
@@ -521,34 +530,6 @@
     </div>
 
     <a href="/2022/09/02/machinelearning-md/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/09/02/deeplearning/">
-                        deeplearning
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        deep learning课程大纲12345678910111213141516171819202122232425第一章 人工智能概述 9学时 沈华伟第1节 人工智能发展历程第2节 人工智能基础第3节 搜索问题第二章 深度学习 15学时 吴高巍第1...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Sep 02 2022 10:22:25 GMT+0800">2022-09-02</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/09/02/deeplearning/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

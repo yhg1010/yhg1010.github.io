@@ -99,6 +99,10 @@
 <li>DP也可以用NN近似，不精确不要紧</li>
 <li>label不好算？让NN满足Bellman方程</li>
 </ul>
+<h2 id="lecture1101"><a href="#lecture1101" class="headerlink" title="lecture1101"></a>lecture1101</h2><h3 id="TAKE-HOME-MSG-6"><a href="#TAKE-HOME-MSG-6" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>直接根据子问题的解设计子问题的一般形式</li>
+<li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1982,6 +1986,40 @@ baseline（混合损失）+baseline权重finetune</p>
 <p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
 <p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
 <p>梯度裁剪可以快速修复梯度爆炸：<br>$$<br>g &lt;&#x3D;min(1,\frac{\theta}{||g||})g<br>$$</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>megvii</title>
+    <url>/2022/11/01/megvii/</url>
+    <content><![CDATA[<h1 id="Megvii实习"><a href="#Megvii实习" class="headerlink" title="Megvii实习"></a>Megvii实习</h1><h2 id="一些常用工具"><a href="#一些常用工具" class="headerlink" title="一些常用工具"></a>一些常用工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">公司邮箱：caohongliang@megvii.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">【旷视科技】您的内部账户用户名为：caohongliang，初始密码为：ih3k9z*9gn6，请妥善保管密码，并尽快修改。修改方式请查看电脑桌面上的IT帮助文档，同时请认真阅读《IT入职引导》文件以获取更多帮助。(Megvii-IT)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">旷视门户：  https://myhome.megvii-inc.com/<span class="comment">#/home</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
+<li><p>入职上手</p>
+<p>- </p>
+<p>  hh-d workspace环境配置</p>
+<ul>
+<li><p>oss <a class="link"   href="https://discourse.brainpp.cn/t/topic/848" >brainpp论坛帖<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>megbrain+meghair+megskull</p>
+</li>
+<li><p><a class="link"   href="https://git-core.megvii-inc.com/base-detection/basedet/-/tree/master/" >basedet<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="https://git-core.megvii-inc.com/FaceTeam/snapx/snapdet" >snapdet<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>建数据bucket</p>
+</li>
+<li><p>复现实验</p>
+<ul>
+<li>人体检测<a class="link"   href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=388970644" >snapdet<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
   </entry>
 </search>
