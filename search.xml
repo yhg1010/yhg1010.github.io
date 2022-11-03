@@ -2074,6 +2074,29 @@ baseline（混合损失）+baseline权重finetune</p>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://www.brainpp.cn/wh-a/console/storage?<span class="built_in">type</span>=oss</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="16">
+<li>申请GPU资源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/60162</span><br></pre></td></tr></table></figure>
+
+<ol start="17">
+<li>snapdet相关</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">http://faceteam.pages-git-core.megvii-inc.com/snapx/snapdet/cmd.html</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/FaceTeam/snapx/snapdet</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="18">
+<li>basedet相关</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/base-detection/basedet/-/tree/master</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2081,20 +2104,20 @@ baseline（混合损失）+baseline权重finetune</p>
 <p>- </p>
 <p>  hh-d workspace环境配置</p>
 <ul>
-<li><p><input disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 oss <a class="link"   href="https://discourse.brainpp.cn/t/topic/848" >brainpp论坛帖<i class="fas fa-external-link-alt"></i></a></p>
 </li>
-<li><p><input disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 megbrain+meghair+megskull</p>
 </li>
-<li><p><input disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 <a class="link"   href="https://git-core.megvii-inc.com/base-detection/basedet/-/tree/master/" >basedet<i class="fas fa-external-link-alt"></i></a></p>
 </li>
-<li><p><input disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 <a class="link"   href="https://git-core.megvii-inc.com/FaceTeam/snapx/snapdet" >snapdet<i class="fas fa-external-link-alt"></i></a></p>
 </li>
 <li><ul>
-<li><input disabled="" type="checkbox"> 建数据bucket</li>
+<li><input checked="" disabled="" type="checkbox"> 建数据bucket</li>
 </ul>
 </li>
 <li><ul>
