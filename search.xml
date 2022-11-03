@@ -2090,8 +2090,7 @@ baseline（混合损失）+baseline权重finetune</p>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/FaceTeam/snapx/snapdet</span><br></pre></td></tr></table></figure>
 
-
-
+<p><a class="link"   href="http://faceteam.pages-git-core.megvii-inc.com/snapx/snapdet/index.html" >snapdet文档<i class="fas fa-external-link-alt"></i></a></p>
 <ol start="18">
 <li>basedet相关</li>
 </ol>
@@ -2136,6 +2135,10 @@ megbrain+meghair+megskull</p>
 <h3 id="2022-11-02："><a href="#2022-11-02：" class="headerlink" title="2022.11.02："></a>2022.11.02：</h3><p>配置了brain++环境，解决了本地ssh的问题，安装了megbrain、megskull、meghair</p>
 <h3 id="2022-11-03："><a href="#2022-11-03：" class="headerlink" title="2022.11.03："></a>2022.11.03：</h3><p>邮寄协议</p>
 <p>处理<a class="link"   href="https://discourse.brainpp.cn/t/topic/848" >对象存储OSS<i class="fas fa-external-link-alt"></i></a></p>
+<p>配置OSS</p>
+<p>配置basedet和snapdet环境</p>
+<p>建数据bucket</p>
+<p>测试一下snapdet环境</p>
 ]]></content>
   </entry>
 </search>
