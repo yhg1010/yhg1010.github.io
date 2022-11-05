@@ -2096,6 +2096,13 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/base-detection/basedet/-/tree/master</span><br></pre></td></tr></table></figure>
 
+<ol start="19">
+<li>sds数据格式文档</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/FaceTeam/snapx/snapclf/-/blob/release/v0.2.3/docs/sds_format.md</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://git-core.megvii-inc.com/FaceTeam/snapx/snapdet/-/blob/release/v0.9.3/docs/own-data.md</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2139,6 +2146,21 @@ megbrain+meghair+megskull</p>
 <p>配置basedet和snapdet环境</p>
 <p>建数据bucket</p>
 <p>测试一下snapdet环境</p>
+<h3 id="2022-11-04："><a href="#2022-11-04：" class="headerlink" title="2022.11.04："></a>2022.11.04：</h3><p>算法量产</p>
+<p>开发模型，提供算法模型</p>
+<p>AIT</p>
+<p>给出比较成熟的solution</p>
+<p>basenet方便实验</p>
+<p>snapdet基于basenet，快速的启动一个服务</p>
+<p>提一些新的solution，和之前进行对标</p>
+<p>四套数据，旧的和新的solution实验并整理结果</p>
+<p>rlaunch</p>
+<p>AIS</p>
+<p>nori</p>
+<p>nori加速</p>
+<p>每周三组会、日报周报</p>
+<p>暂时想到的一些方案：</p>
+<p>抽取出r通道的值，对0-255进行像素点的个数计算，去像素值阈值选取相应的区间</p>
 ]]></content>
   </entry>
 </search>
