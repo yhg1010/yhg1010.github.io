@@ -228,6 +228,41 @@
 </li>
 </ol>
 <p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
+<hr>
+<ol start="6">
+<li>modified gaussian elimination</li>
+</ol>
+<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
+<ol start="7">
+<li>矩阵的秩的定义</li>
+</ol>
+<ul>
+<li>主元的个数</li>
+<li>消元后的非零行的个数</li>
+<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
+</ul>
+<ol start="8">
+<li>reduced row echelon form</li>
+</ol>
+<ul>
+<li>首先是row echelon form</li>
+<li>每一行第一个非零元素是1</li>
+<li>主元所在列除了主元其他都是0</li>
+</ul>
+<ol start="9">
+<li>basic columns可以用来表示nonbasic columns</li>
+<li>线性系统的一致性</li>
+</ol>
+<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
+<p><img src="/../pic/matrix_2.png"></p>
+<ol start="11">
+<li>Homogeneous Systems(齐次系统)</li>
+</ol>
+<p>齐次系统和非齐次系统的解的情况：</p>
+<img src="../pic/matrix_3.png" style="zoom:50%;" />
+
+
+
 <h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2>
         </div>
 
@@ -254,6 +289,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/07/ever/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ever</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -286,35 +336,30 @@
         </div>
 
         <div class="page-main-content-bottom">
-            .footer {
-  font-size: 1rem;
-  color: var(--third-text-color);
-
-
-  a {
-    color: var(--third-text-color);
-
-
-    &:hover {
-      color: var(--primary-color);
-
-    }
-  }
-
-  .info-container {
-    padding-bottom: 10px;
-    text-align: center;
-  }
-
-  .info-item {
-    margin: 5px 0;
-  }
-
-  .icon-animate {
-    animation: icon-animate 1.2s ease-in-out infinite;
-  }
-
-}
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
 
         </div>
     </div>
