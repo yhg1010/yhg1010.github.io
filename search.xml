@@ -883,6 +883,9 @@
 <li>对初始聚类中心敏感</li>
 </ol>
 <p>已经选取了若干聚类中心，距离这些聚类中心越远的点越有可能被选为新的聚类中心</p>
+<ol start="4">
+<li>假定簇是圆</li>
+</ol>
 </li>
 <li><p>其他的一些聚类算法（密度）</p>
 </li>
@@ -892,7 +895,7 @@
 <ol>
 <li>过程</li>
 <li>除了软间隔之外，线性不可分怎么解决</li>
-<li>软间隔中对偶问题怎么解决<ol>
+<li>软间隔中对偶问题怎<ol>
 <li>拉格朗日乘子法</li>
 </ol>
 </li>
@@ -2161,6 +2164,9 @@ megbrain+meghair+megskull</p>
 <p>每周三组会、日报周报</p>
 <p>暂时想到的一些方案：</p>
 <p>抽取出r通道的值，对0-255进行像素点的个数计算，去像素值阈值选取相应的区间</p>
+<h3 id="2022-11-07"><a href="#2022-11-07" class="headerlink" title="2022.11.07:"></a>2022.11.07:</h3><p>检测框去除方案：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://codimd.mcd.megvii-inc.com/ZU8RPqVQRtmznLR6DxJRgw</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
@@ -2188,6 +2194,25 @@ megbrain+meghair+megskull</p>
 <li>除了主元其他元素都为0</li>
 </ul>
 <p>复杂度和标准Gaussian消元法相同</p>
+<ol start="4">
+<li><p>部分主元法和完全主元法</p>
+<ol>
+<li>部分主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列的最大的一个值</li>
+</ul>
+<ol start="2">
+<li>完全主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
+</ul>
+</li>
+<li><p>病态系统</p>
+</li>
+</ol>
+<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
 <h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2>]]></content>
   </entry>
 </search>
