@@ -2178,9 +2178,13 @@ megbrain+meghair+megskull</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://codimd.mcd.megvii-inc.com/ZU8RPqVQRtmznLR6DxJRgw</span><br></pre></td></tr></table></figure>
 
 <h3 id="2022-11-08："><a href="#2022-11-08：" class="headerlink" title="2022.11.08："></a>2022.11.08：</h3><ul>
-<li><input disabled="" type="checkbox"> 论文paper reading</li>
-<li><input disabled="" type="checkbox"> snapdet问题看一下</li>
+<li><input checked="" disabled="" type="checkbox"> 论文paper reading</li>
+<li><input checked="" disabled="" type="checkbox"> snapdet问题看一下</li>
 <li><input disabled="" type="checkbox"> 数据看一下情况</li>
+</ul>
+<h3 id="2022-11-09"><a href="#2022-11-09" class="headerlink" title="2022.11.09:"></a>2022.11.09:</h3><ul>
+<li><input disabled="" type="checkbox"> 搞一下数据集</li>
+<li><input disabled="" type="checkbox"> 搞一下检测方案</li>
 </ul>
 ]]></content>
   </entry>
