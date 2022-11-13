@@ -2324,7 +2324,225 @@ megbrain+meghair+megskull</p>
 
 
 
-<h2 id="向量空间（周五白天）"><a href="#向量空间（周五白天）" class="headerlink" title="向量空间（周五白天）"></a>向量空间（周五白天）</h2><h2 id="线性变换（周五白天）"><a href="#线性变换（周五白天）" class="headerlink" title="线性变换（周五白天）"></a>线性变换（周五白天）</h2><h2 id="模和内积（周末两天）"><a href="#模和内积（周末两天）" class="headerlink" title="模和内积（周末两天）"></a>模和内积（周末两天）</h2><h2 id="行列式（周五晚）"><a href="#行列式（周五晚）" class="headerlink" title="行列式（周五晚）"></a>行列式（周五晚）</h2><h2 id="特征值和特征向量（周五晚）"><a href="#特征值和特征向量（周五晚）" class="headerlink" title="特征值和特征向量（周五晚）"></a>特征值和特征向量（周五晚）</h2>]]></content>
+<h2 id="向量空间（周五白天）"><a href="#向量空间（周五白天）" class="headerlink" title="向量空间（周五白天）"></a>向量空间（周五白天）</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix_rank.png" style="zoom:50%;" />
+
+<ul>
+<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
+</ul>
+<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_4.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix5_5.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_6.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_7.png" style="zoom:50%;" />
+
+
+
+<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
+<li>Induced matrix norms</li>
+</ol>
+<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
+
+<p><img src="/../pic/matrix77_2.png"></p>
+<ol start="2">
+<li>2-Norm</li>
+</ol>
+<p><img src="/../pic/matrix77_3.jpeg"></p>
+<p><img src="/../pic/matrix77_4.jpeg"></p>
+<ol start="3">
+<li>1-norm</li>
+</ol>
+<p><img src="/../pic/matrix77_5.jpeg"></p>
+<ol start="4">
+<li>内积空间</li>
+</ol>
+<p><img src="/../pic/matrix77_6.png"></p>
+<ol start="5">
+<li>general inner product</li>
+</ol>
+<p><img src="/../pic/matrix77_6.jpeg"></p>
+<p><img src="/../pic/matrix77_7.jpeg"></p>
+<p><img src="/../pic/matrix77_8.jpeg"></p>
+<ol start="6">
+<li>正交向量</li>
+</ol>
+<p><img src="/../pic/matrix77_9.jpeg"></p>
+<p><img src="/../pic/matrix77_10.jpeg"></p>
+<ol start="7">
+<li>Gram-Schmidt Procedure</li>
+</ol>
+<p><img src="/../pic/matrix77_11.png"></p>
+<p><img src="/../pic/matrix77_12.png"></p>
+<p><img src="/../pic/matrix77_13.png"></p>
+<p><img src="/../pic/matrix77_14.png"></p>
+<ol start="8">
+<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
+</ol>
+<p><img src="/../pic/matrix77_15.png"></p>
+<p><img src="/../pic/matrix77_16.png"></p>
+<p><img src="/../pic/matrix77_17.png"></p>
+<p><img src="/../pic/matrix77_18.png"></p>
+<p><img src="/../pic/matrix77_19.png"></p>
+<ol start="9">
+<li>Orthogonal Reduction</li>
+</ol>
+<p><img src="/../pic/matrix77_20.png"></p>
+<p><img src="/../pic/matrix77_21.png"></p>
+<ol start="10">
+<li><p>DFT</p>
+</li>
+<li><p>余子空间</p>
+</li>
+</ol>
+<p><img src="/../pic/matrix77_22.png"></p>
+<p><img src="/../pic/matrix77_23.png"></p>
+<ol start="12">
+<li>RN分解</li>
+</ol>
+<p><img src="/../pic/matrix77_24.png"></p>
+<p><img src="/../pic/matrix77_25.png"></p>
+<p><img src="/../pic/matrix77_26.png"></p>
+<p><img src="/../pic/matrix77_27.png"></p>
+<p><img src="/../pic/matrix77_28.png"></p>
+<ol start="13">
+<li>正交分解</li>
+</ol>
+<p><img src="/../pic/matrix77_29.png"></p>
+<p><img src="/../pic/matrix77_30.png"></p>
+<p><img src="/../pic/matrix77_31.png"></p>
+<p><img src="/../pic/matrix77_32.png"></p>
+<ol start="14">
+<li>奇异值分解</li>
+</ol>
+<p><img src="/../pic/matrix77_33.png"></p>
+<p><img src="/../pic/matrix77_34.png"></p>
+<p><img src="/../pic/matrix77_35.png"></p>
+<p><img src="/../pic/matrix77_36.png"></p>
+<ol start="15">
+<li>正交投影</li>
+</ol>
+<p><img src="/../pic/matrix77_37.png"></p>
+<p><img src="/../pic/matrix77_38.png"></p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
+<li>只有方阵才有行列式</li>
+<li>转置不影响行列式的结果</li>
+</ol>
+<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
+<ol start="3">
+<li>矩阵内积的行列式（方阵）</li>
+</ol>
+<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
+<p><img src="/../pic/matrix7_2.png"></p>
+<p><img src="/../pic/matrix7_3.png"></p>
+<p>行列式的求导</p>
+<p><img src="/../pic/matrix7_4.png"></p>
+<p><img src="/../pic/matrix7_5.png"></p>
+<ol start="4">
+<li>分块行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_6.png"></p>
+<ol start="5">
+<li>Rank-1行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_7.png"></p>
+<ol start="6">
+<li>利用cofactor计算行列式和逆</li>
+</ol>
+<p><img src="/../pic/matrix7_8.png"></p>
+<p><img src="/../pic/matrix7_9.png"></p>
+<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
+<li>关于特征值和特征向量</li>
+</ol>
+<p><img src="/../pic/matrix8_1.png"></p>
+<ol start="2">
+<li>特征式的系数</li>
+</ol>
+<p><img src="/../pic/matrix8_2.png"></p>
+<ol start="3">
+<li>对角化</li>
+</ol>
+<p><img src="/../pic/matrix8_3.png"></p>
+<ol start="4">
+<li>Multiplicty</li>
+</ol>
+<p><img src="/../pic/matrix8_4.png"></p>
+<ol start="5">
+<li>diagonalizability</li>
+</ol>
+<p><img src="/../pic/matrix8_5.png"></p>
+<ol start="6">
+<li>对角化的必要条件及谱分解</li>
+</ol>
+<p><img src="/../pic/matrix8_6.png"></p>
+<p><img src="/../pic/matrix8_7.png"></p>
+<p><img src="/../pic/matrix8_8.png"></p>
+<ol start="7">
+<li>normal matrix</li>
+</ol>
+<p><img src="/../pic/matrix8_9.png"></p>
+<p><img src="/../pic/matrix8_10.png"></p>
+<p><img src="/../pic/matrix8_11.png"></p>
+<ol start="8">
+<li>positive definite matrices</li>
+</ol>
+<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
+
+<p> 正定矩阵的定义：</p>
+<p><img src="/../pic/matrix8_13.png"></p>
+<p>半正定：</p>
+<p><img src="/../pic/matrix8_14.png"></p>
+<p>二次型:</p>
+<p><img src="/../pic/matrix8_15.png"></p>
+<p>合同变换</p>
+<p><img src="/../pic/matrix8_16.jpeg"></p>
+]]></content>
   </entry>
   <entry>
     <title>ever</title>
