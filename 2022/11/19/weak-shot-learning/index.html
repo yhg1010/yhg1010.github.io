@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="calcium_oxide">
+    
+    <title>
+        
+            weak-shot-learning |
+        
+        calcium_oxide&#39;s blogs
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/image1.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yhg1010.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#006699","avatar":"/images/image2.svg","favicon":"/images/image1.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"爱你所爱 行你所行 听从你心 无问西东"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                calcium_oxide&#39;s blogs
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/algorithm"
+                            >
+                                ALGORITHM
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/plan"
+                            >
+                                PLAN
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/algorithm">ALGORITHM</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/plan">PLAN</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">weak-shot-learning</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/image2.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">calcium_oxide</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-11-19 13:12:09</span>
+        <span class="mobile">2022-11-19 13:12</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="weak-shot-learning"><a href="#weak-shot-learning" class="headerlink" title="weak-shot learning"></a>weak-shot learning</h1><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/bcmi/Awesome-Weak-Shot-Learning" >代码<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="zero-shot-learning"><a href="#zero-shot-learning" class="headerlink" title="zero-shot learning"></a>zero-shot learning</h2><h3 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h3><p>zero-shot learning requires category-level semantic representation word vector or human annotated attributes for all categories</p>
+<h3 id="requirements"><a href="#requirements" class="headerlink" title="requirements"></a>requirements</h3><p>both base categories and novel categories need category-level semantic representations</p>
+<h2 id="few-shot-learning"><a href="#few-shot-learning" class="headerlink" title="few-shot learning"></a>few-shot learning</h2><h3 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h3><p>few-shot learning requires a few clean examples for new categories</p>
+<h3 id="types"><a href="#types" class="headerlink" title="types"></a>types</h3><ul>
+<li>基于优化的方法：在大量的学习任务上优化分类器然后可以用少量的新类别图片学习新的学习任务</li>
+<li>基于内存的方法：探索内存架构来存储关键的训练数据或者直接编码快速适应的算法</li>
+<li>基于尺度的方法：用一个相似度度量来学习特征空间中的一个深层表示，然后用最近邻方式来分类测试图片</li>
+</ul>
+<h2 id="comparison-between-zero-shot-x2F-few-shot-x2F-weak-shot-learning"><a href="#comparison-between-zero-shot-x2F-few-shot-x2F-weak-shot-learning" class="headerlink" title="comparison between zero-shot&#x2F;few-shot&#x2F;weak-shot learning"></a>comparison between zero-shot&#x2F;few-shot&#x2F;weak-shot learning</h2><p><img src="/../pic/weak-shot1.png"></p>
+<h2 id="weakly-supervised-learning"><a href="#weakly-supervised-learning" class="headerlink" title="weakly supervised learning"></a>weakly supervised learning</h2><ol>
+<li>弱监督学习和半监督学习的区别？</li>
+</ol>
+<p>弱监督学习：bridge the gap between weak annotations and full annotations</p>
+<p>半监督学习：impose prior regularzation on weakly-annoted data or transfer knowledge from fully-annotated data to weakly-annotated data</p>
+<p>弱监督学习涉及到跨类别的知识迁移，而半监督学习并没有</p>
+<h2 id="weak-shot-learning-1"><a href="#weak-shot-learning-1" class="headerlink" title="weak-shot learning"></a>weak-shot learning</h2><h3 id="tyepes"><a href="#tyepes" class="headerlink" title="tyepes"></a>tyepes</h3><p>弱监督学习中将基础种类的信息迁移到新种类中来弥补新种类中的弱标注和全标注之间的间隙，大概的方法有三种：</p>
+<ul>
+<li>迁移从基础类别到新类别的种类-不变性目标</li>
+<li>迁移从弱标注到全标注的映射关系</li>
+<li>将整个任务进行分解，分解成一个弱监督子任务和全监督子任务</li>
+</ul>
+<h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><ol>
+<li>迁移种类-不变性目标</li>
+</ol>
+<ul>
+<li>相似度：语义相似度可以表明两个实例是否属于同一个类别，从基础类别学习到的相似度预测器可以应用到新的类别上来预测成对的相似度，进而可以用来对训练样本降噪以及对新类别的特征学习进行正则</li>
+<li>objectness：从基础类别学到的objectness可以应用在新类别上来定位category-agnostic目标</li>
+<li>边界：从基础类别中学习到的边界预测器可以用来预测新类别的语义边界，获得的边界可以用来分辨新类别的不确定的像素点或者分割目标</li>
+<li>saliency：可以从基础类别向新类别迁移实例显著性来帮助分割新类别的目标</li>
+<li>Shape：基础类别的目标形状可以作为一个形状先验的字典来帮助推理新类别的实例mask</li>
+</ul>
+<ol start="2">
+<li>迁移从弱标注到全标注的映射关系</li>
+</ol>
+<ul>
+<li>标注迁移：首先从弱标注中学习到semantic masks，然后学习从粗略的semantic masks到全标注的特征图之间的映射关系</li>
+<li>权重映射：学习基于弱标注的模型权重到基于全标注的模型权重之间的映射关系</li>
+</ul>
+<ol start="3">
+<li>任务分解</li>
+</ol>
+<p><strong>定义：</strong></p>
+<p>将整个任务分解成一个弱监督子任务和一个全监督子任务，弱监督子任务由基础类别和新类别的标注进行监督，而全监督子任务由基础类别的全监督进行监督，另外在全监督子任务中学到的知识可以跨类别进行迁移</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p><strong>弱样本语义分割：</strong></p>
+<p>RETAB，两种种类不变性类别信息：semantic affinities，semantic boundries从基础类别迁移到新类别</p>
+<p>RETAB包括一个affinity学习步骤以及一个基于affinity的传播步骤，在affinity学习步骤，主要是从基础类别的gt学习到semantic affinities以及新类别样本的CAMs</p>
+<p>在传播步骤中，一个新型两阶段传播策略被用来传播和修正CAMs通过利用semantic affinities和semantic boundries信息</p>
+<h2 id="semantic-segmentation"><a href="#semantic-segmentation" class="headerlink" title="semantic segmentation"></a>semantic segmentation</h2><ol>
+<li>Zero-shot learning</li>
+</ol>
+<p>[5, 21, 62]</p>
+<ol start="2">
+<li>Few-shot learning</li>
+</ol>
+<p>[16, 67, 13, 25, 59]</p>
+<ol start="3">
+<li>Weak-shot learning</li>
+</ol>
+<ul>
+<li>simformer(<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39575835/article/details/102635684" >https://blog.csdn.net/qq_39575835/article/details/102635684<i class="fas fa-external-link-alt"></i></a>)</li>
+<li>Maskformer</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：weak-shot-learning</li>
+        <li>Post author：calcium_oxide</li>
+        <li>Create time：2022-11-19 13:12:09</li>
+        <li>
+            Post link：https://yhg1010.github.io/2022/11/19/weak-shot-learning/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/11/07/ever/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ever</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#weak-shot-learning"><span class="nav-text">weak-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-shot-learning"><span class="nav-text">zero-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#definition"><span class="nav-text">definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#requirements"><span class="nav-text">requirements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#few-shot-learning"><span class="nav-text">few-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#definition-1"><span class="nav-text">definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#types"><span class="nav-text">types</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparison-between-zero-shot-x2F-few-shot-x2F-weak-shot-learning"><span class="nav-text">comparison between zero-shot&#x2F;few-shot&#x2F;weak-shot learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weakly-supervised-learning"><span class="nav-text">weakly supervised learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weak-shot-learning-1"><span class="nav-text">weak-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tyepes"><span class="nav-text">tyepes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methods"><span class="nav-text">methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#semantic-segmentation"><span class="nav-text">semantic segmentation</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
