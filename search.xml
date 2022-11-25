@@ -2126,6 +2126,11 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://wiki.megvii-inc.com/spaces/viewspace.action?key=~caohongliang</span><br></pre></td></tr></table></figure>
 
+<ol start="24">
+<li>批量删除进程</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep google | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2651,6 +2656,110 @@ megbrain+meghair+megskull</p>
 <li>simformer(<a class="link"   href="https://blog.csdn.net/qq_39575835/article/details/102635684" >https://blog.csdn.net/qq_39575835/article/details/102635684<i class="fas fa-external-link-alt"></i></a>)</li>
 <li>Maskformer</li>
 </ul>
+<h1 id="maskformer"><a href="#maskformer" class="headerlink" title="maskformer"></a>maskformer</h1><p><img src="/../pic/maskformer1.png"></p>
+<h1 id="simformer"><a href="#simformer" class="headerlink" title="simformer"></a>simformer</h1><p>为了解决逐像素标注带来的巨大代价，将研究重点放在了弱样本语义分割任务上，借助基础类别的逐像素标注的帮助以及新类别的图片级标注学习新类别，为了解决这个问题提出了基于maskformer进行双相似度迁移的simformer，将语义分割任务分解成两个子任务：</p>
+<ul>
+<li>Proposal classification</li>
+<li>Proposal segmentation for each proposal</li>
+</ul>
+<p>Proposal segmentation可以实现从基础类别到新类别的proposal-pixel迁移。另外，可以从基础类别学习到pixel-pixel相似度并且在新类别上的语义mask上使用这种类别无关的语义相似度。除此之外，提出了一种互补损失促进新类别的学习。</p>
+<h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><p>本文做出的贡献：</p>
+<ul>
+<li>提出了一个基于maskformer的双相似度迁移框架simformer，其中maskformer本身可以实现proposal-pixel相似度迁移</li>
+<li>提出了pixel-pixel相似度迁移，并且提出了一个互补损失</li>
+</ul>
+<h2 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h2><ol>
+<li>弱监督语义分割</li>
+</ol>
+<p>弱监督语义分割只依赖图片级标签来训练分割模型，大部分弱监督语义分割模型先训练一个分类器来得到类激活图（CAM）以得到伪掩膜，利用这个伪掩膜可以训练一个标准的分割模型。但由于缺乏像素级的标注，因此expanded CAM很难覆盖完整的语义区域。</p>
+<ol start="2">
+<li>弱样本学习</li>
+</ol>
+<p>任务是借助新类别的图像级标注和基础类别的像素级标注来分割新类别。</p>
+<ol start="3">
+<li>相似度迁移</li>
+</ol>
+<p>相似度迁移被广泛应用在各种迁移学习任务中，语义相似度是类无关的，因此可以跨类别迁移</p>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><ol>
+<li>问题定义</li>
+</ol>
+<p>给定一个包含基础类别的标准分割数据集，希望能够进一步分割包含新类别的集合，拥有包含新类别的图片级标注。</p>
+<ol start="2">
+<li><p>maskformer</p>
+</li>
+<li><p>在maskformer上的proposal-pixel相似度迁移</p>
+</li>
+</ol>
+<p>首先通过从base classes得到的proposal-pixel相似度迁移产生novel classes的mask。</p>
+<p>对于proposal classify任务来说，将base和novel类别的proposal embeddings作为监督：</p>
+<img src="../pic/simformer2.png" style="zoom:50%;" />
+
+<p>对于segmentation子任务来说，只有base类别的mask作为监督：</p>
+<img src="../pic/simformer3.png" style="zoom:50%;" />
+
+<p>在mask损失的监督下，会产生base proposal embedding和所有的pixel embedding的二值相似度关系，这种相似度关系是类无关的，可以跨类别迁移。可以计算novel类别的proposal embedding和pixel embedding来产生novel masks。</p>
+<ol start="4">
+<li>通过pixel simnet进行pixel-pixel相似度迁移</li>
+</ol>
+<p>由于缺少novel 类别的语义监督，novel masks很难在所有训练样本中达到语义一致性，所以这里提出一种新策略来从base pixel中学习成对的语义相似度，并且在novel pixel上应用这种类别无关的语义相似度。</p>
+<p><strong>实现方式：</strong></p>
+<p>对每张输入图像，随机采样另一张图像作为其参考图像，根据图片级标注以确保这两张图像包含共同的base类别和novel类别。训练一个pixel-pixel相似度网络simnet，网络的输入是从从两张图像中各采样的J个base pixels构成的JxJ的pixel对，将配对的两个pixel embeddings进行concat得到pixel-pair embedding：$\mathbf{R^{(C+C)\times J\times J}}$，用base pixel的label作为监督，输出一个相似度score：$\mathbf{R^{J\times J}}$</p>
+<p>得到了base pixel的相似度，如何迁移到novel pixel？</p>
+<p>同样是从输入图像和参考图像中的not-base区域各采样J个像素点构成$\mathbf{R^{(C+C)\times J\times J}}$，使用simnet得到语义相似度$\mathbf{R^{J\times J}}$作为蒸馏源，计算novel类别的分割score，得到采样的JxJ个分割score对，从base类别到novel类别的pixel-pixel相似度迁移根据以下损失实现：</p>
+<img src="../pic/simformer4.png" style="zoom:50%;" />
+
+<ol start="5">
+<li>互补损失</li>
+</ol>
+<p>尽管没有novel类别的像素级标注，但是有一个先验知识就是一张图像中的novel&#x2F;ignore像素集合和base像素集合是互补的，因此可以引入这个先验损失：</p>
+<img src="../pic/simformer5.png" style="zoom:50%;" />
+
+<ol start="6">
+<li>训练和推理</li>
+</ol>
+<p>整体的训练损失是：</p>
+<img src="../pic/simformer6.png" style="zoom:50%;" />
+
+<h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p><img src="/../pic/simformer7.png"></p>
+<p><img src="/../pic/simformer8.png"></p>
+<p><img src="/../pic/simformer9.png"></p>
+<p><img src="/../pic/simformer10.png"></p>
+<h2 id="不足之处以及待改进"><a href="#不足之处以及待改进" class="headerlink" title="不足之处以及待改进"></a>不足之处以及待改进</h2><p><img src="/../pic/simformer11.png"></p>
+<p>在实验过程中发现两个比较大的问题：</p>
+<ul>
+<li>如果novel类别中存在粒度比较细的类别，proposal classify任务会出现问题，如果分类错误，就算proposal segmentation子任务做的很好，最终的分割结果也会被proposal classification子任务影响。</li>
+<li>Proposal segmentation子任务可能会失败，尽管两种novel类别都被成功分类，如果其中一个目标相对来说比较小，对应的二值mask相对来说也会更weak，在最终的分割结果中可能会被覆盖掉。</li>
+</ul>
+<h2 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h2><ul>
+<li>可以挖掘更多跨类别的迁移目标，除了本文提出的两种相似度迁移外。</li>
+<li>遥感领域的可用数据集不多，标注所花费的成本也比较大，因此将weak-shot用在遥感领域对一些难分的新类别或许有帮助。</li>
+</ul>
+<h1 id="任务辨析"><a href="#任务辨析" class="headerlink" title="任务辨析"></a>任务辨析</h1><ol>
+<li>弱监督学习</li>
+</ol>
+<p>已知数据和其一一对应的弱标签，训练一个智能算法，将输入数据映射到一组更强的标签的过程。</p>
+<p>在额外的全标注的base category的帮助下，weak-shot学习可以视作弱监督学习。</p>
+<ol start="2">
+<li>zero-shot</li>
+</ol>
+<p>zero-shot学习应用category级别语义表示弥合base category和novel category之间的差别。zero-shot学习需要base category和novel category的category级别语义表示。</p>
+<ol start="3">
+<li>few-shot</li>
+</ol>
+<p>few-shot需要novel category一些完全标注的样本。</p>
+<ol start="4">
+<li><p>weak-shot</p>
+</li>
+<li><p>半监督学习</p>
+</li>
+</ol>
+<p>半监督学习使用一组完全注释的样本和一组未注释或弱标注的样本训练采样。半监督学习通常对弱注释的样本施加先验正则化或将知识从全注释样本迁移到弱注释样本。和weak-shot学习相比，weak-shot学习涉及跨类别的知识迁移。</p>
+<ol start="6">
+<li><p>对比学习</p>
+</li>
+<li><p>知识蒸馏</p>
+</li>
+</ol>
 ]]></content>
   </entry>
 </search>
