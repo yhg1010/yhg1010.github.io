@@ -332,11 +332,17 @@
 <li>弱监督学习</li>
 </ol>
 <p>已知数据和其一一对应的弱标签，训练一个智能算法，将输入数据映射到一组更强的标签的过程。</p>
-<p>在额外的全标注的base category的帮助下，weak-shot学习可以视作弱监督学习。</p>
+<p>弱监督学习可以分为三种：</p>
+<ul>
+<li>不完全监督：部分数据有标注，部分数据没有标注</li>
+<li>不确切监督：部分数据只有比较粗略的标注</li>
+<li>不精确监督：部分数据的标注不精确</li>
+</ul>
+<p>在额外的全标注的base category的帮助下，weak-shot学习可以视作弱监督学习（不确切监督）。</p>
 <ol start="2">
 <li>zero-shot</li>
 </ol>
-<p>zero-shot学习应用category级别语义表示弥合base category和novel category之间的差别。zero-shot学习需要base category和novel category的category级别语义表示。</p>
+<p>zero-shot学习应用category级别语义表示弥合base category和novel category之间的差别。zero-shot学习需要base category和novel category的category级别语义表示。zero-shot学习需要提供base category和novel category的语义表示，训练集的标注是完整的，测试集包含未标注的novel category</p>
 <ol start="3">
 <li>few-shot</li>
 </ol>
@@ -380,6 +386,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/26/paper-reading02/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">paper-reading02</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

@@ -2741,11 +2741,17 @@ megbrain+meghair+megskull</p>
 <li>弱监督学习</li>
 </ol>
 <p>已知数据和其一一对应的弱标签，训练一个智能算法，将输入数据映射到一组更强的标签的过程。</p>
-<p>在额外的全标注的base category的帮助下，weak-shot学习可以视作弱监督学习。</p>
+<p>弱监督学习可以分为三种：</p>
+<ul>
+<li>不完全监督：部分数据有标注，部分数据没有标注</li>
+<li>不确切监督：部分数据只有比较粗略的标注</li>
+<li>不精确监督：部分数据的标注不精确</li>
+</ul>
+<p>在额外的全标注的base category的帮助下，weak-shot学习可以视作弱监督学习（不确切监督）。</p>
 <ol start="2">
 <li>zero-shot</li>
 </ol>
-<p>zero-shot学习应用category级别语义表示弥合base category和novel category之间的差别。zero-shot学习需要base category和novel category的category级别语义表示。</p>
+<p>zero-shot学习应用category级别语义表示弥合base category和novel category之间的差别。zero-shot学习需要base category和novel category的category级别语义表示。zero-shot学习需要提供base category和novel category的语义表示，训练集的标注是完整的，测试集包含未标注的novel category</p>
 <ol start="3">
 <li>few-shot</li>
 </ol>
@@ -2763,6 +2769,27 @@ megbrain+meghair+megskull</p>
 <li><p>知识蒸馏</p>
 </li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>paper-reading02</title>
+    <url>/2022/11/26/paper-reading02/</url>
+    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
+<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
+<center>模型框架
+  
+</center>
+
+<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
+<p><img src="/../pic/paper-reading2_2.png"></p>
+<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
+<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
+<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
+<p><img src="/../pic/paper-reading2_4.png"></p>
+<p><img src="/../pic/paper-reading2_3.png"></p>
 ]]></content>
   </entry>
 </search>
