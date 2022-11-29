@@ -2228,7 +2228,12 @@ megbrain+meghair+megskull</p>
 <li><input checked="" disabled="" type="checkbox"> 看一下新的任务具体情况</li>
 </ul>
 <h3 id="2022-11-22："><a href="#2022-11-22：" class="headerlink" title="2022.11.22："></a>2022.11.22：</h3><ul>
-<li><input disabled="" type="checkbox"> 看一下T41芯片适配问题</li>
+<li><input checked="" disabled="" type="checkbox"> 看一下T41芯片适配问题</li>
+</ul>
+<h3 id="2022-11-29："><a href="#2022-11-29：" class="headerlink" title="2022.11.29："></a>2022.11.29：</h3><ul>
+<li><input disabled="" type="checkbox"> 比较一下人脸检测的三个proposal结果</li>
+<li><input disabled="" type="checkbox"> 人脸检测pointhead修改拉个分支提交一下</li>
+<li><input disabled="" type="checkbox"> <a class="link"   href="https://ais.brainpp.cn/ais/megvii/AIS-AIT/automaticLearning/version/142403416787810/145798499789117?taskName=ipc-catdog&versionName=1122_shiyan1_pet_24hours" >猫狗检测<i class="fas fa-external-link-alt"></i></a>跑上实验</li>
 </ul>
 ]]></content>
   </entry>
