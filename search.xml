@@ -2134,6 +2134,14 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep google | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
 
+<ol start="25">
+<li>megengine开源文档</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://www.megengine.org.cn/doc/1.11/zh/reference/api/megengine.data.DataLoader.html<span class="comment">#megengine.data.DataLoader</span></span><br></pre></td></tr></table></figure>
+
+<p>​		内部文档</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://megengine.megvii-inc.com/user-guide/install/index-internal.html</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2231,9 +2239,21 @@ megbrain+meghair+megskull</p>
 <li><input checked="" disabled="" type="checkbox"> 看一下T41芯片适配问题</li>
 </ul>
 <h3 id="2022-11-29："><a href="#2022-11-29：" class="headerlink" title="2022.11.29："></a>2022.11.29：</h3><ul>
-<li><input disabled="" type="checkbox"> 比较一下人脸检测的三个proposal结果</li>
-<li><input disabled="" type="checkbox"> 人脸检测pointhead修改拉个分支提交一下</li>
-<li><input disabled="" type="checkbox"> <a class="link"   href="https://ais.brainpp.cn/ais/megvii/AIS-AIT/automaticLearning/version/142403416787810/145798499789117?taskName=ipc-catdog&versionName=1122_shiyan1_pet_24hours" >猫狗检测<i class="fas fa-external-link-alt"></i></a>跑上实验</li>
+<li><input checked="" disabled="" type="checkbox"> 比较一下人脸检测的三个proposal结果（十一点半）</li>
+<li><input checked="" disabled="" type="checkbox"> 人脸检测pointhead修改拉个分支提交一下（十一点半之前）</li>
+<li><input checked="" disabled="" type="checkbox"> <a class="link"   href="https://ais.brainpp.cn/ais/megvii/AIS-AIT/automaticLearning/version/142403416787810/145798499789117?taskName=ipc-catdog&versionName=1122_shiyan1_pet_24hours" >猫狗检测<i class="fas fa-external-link-alt"></i></a>跑上实验（十二点）</li>
+</ul>
+<h3 id="2022-11-30"><a href="#2022-11-30" class="headerlink" title="2022.11.30:"></a>2022.11.30:</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 人脸实验结果汇总</li>
+<li><input checked="" disabled="" type="checkbox"> 宠物实验结果跑完</li>
+</ul>
+<h3 id="2022-12-06"><a href="#2022-12-06" class="headerlink" title="2022.12.06:"></a>2022.12.06:</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> data.yaml的问题</li>
+<li><input checked="" disabled="" type="checkbox"> 转换后的数据集不是data.yaml中的全部？</li>
+<li><input checked="" disabled="" type="checkbox"> config文件里面backbone是哪个？</li>
+</ul>
+<h3 id="2022-12-08："><a href="#2022-12-08：" class="headerlink" title="2022.12.08："></a>2022.12.08：</h3><ul>
+<li><input disabled="" type="checkbox"> 扩展实验跑上</li>
 </ul>
 ]]></content>
   </entry>
@@ -2674,7 +2694,8 @@ megbrain+meghair+megskull</p>
 <h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><p>本文做出的贡献：</p>
 <ul>
 <li>提出了一个基于maskformer的双相似度迁移框架simformer，其中maskformer本身可以实现proposal-pixel相似度迁移</li>
-<li>提出了pixel-pixel相似度迁移，并且提出了一个互补损失</li>
+<li>提出了pixel-pixel相似度迁移</li>
+<li>并且提出了一个互补损失</li>
 </ul>
 <h2 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h2><ol>
 <li>弱监督语义分割</li>
@@ -2774,6 +2795,74 @@ megbrain+meghair+megskull</p>
 <li><p>知识蒸馏</p>
 </li>
 </ol>
+<h1 id="弱监督语义分割"><a href="#弱监督语义分割" class="headerlink" title="弱监督语义分割"></a>弱监督语义分割</h1><p>传统意义上的弱监督语义分割分成三个阶段：</p>
+<ul>
+<li>生成类别激活图</li>
+<li>refine生成类别激活图</li>
+<li>利用pseudo GT训练传统的语义分割网络</li>
+</ul>
+<p>卷积神经网络里面的每一个卷积单元其实都扮演着一个个<strong>Object Detector</strong>的角色，本身就带有能够定位物体的能力。但是这种能力在利用全连接层进行分类的时候就丢失了。因此，像那些全卷积的神经网络，比如GoogLeNet，都在避免使用全连接层，转而使用<a class="link"   href="https://link.zhihu.com/?target=https://arxiv.org/pdf/1312.4400.pdf" >Network in network<i class="fas fa-external-link-alt"></i></a>中的全局平均池化层（Global Average Pooling，GAP），这样的话不仅可以减少参数，防止过拟合，还可以建立feature map到category之间的关联。</p>
+<h1 id="组会分享大纲"><a href="#组会分享大纲" class="headerlink" title="组会分享大纲"></a>组会分享大纲</h1><h2 id="任务定义"><a href="#任务定义" class="headerlink" title="任务定义"></a>任务定义</h2><p>这一部分主要就是来介绍弱样本语义分割任务的具体定义，什么是弱样本？什么是弱样本语义分割？</p>
+<ol>
+<li>什么是弱样本？</li>
+</ol>
+<p>弱样本就是包含弱标注的数据集，在不同任务中的弱样本也各不相同。</p>
+<p>在图像分类任务中：</p>
+<p>弱标注是具有噪声的图像级标注</p>
+<p>在目标检测任务中：</p>
+<p>弱标注是图像级标注</p>
+<p>在语义分割任务中：</p>
+<p>弱标注是图像级标注</p>
+<p>在实例分割任务中：</p>
+<p>弱标注是bounding boxes</p>
+<ol start="2">
+<li>什么是弱样本语义分割？</li>
+</ol>
+<p>base category：包含逐像素标注和图像级标注的样本</p>
+<p>novel category：只包含图像级标注的样本</p>
+<p>弱样本语义分割就是在base category和novel category的基础上对novel category进行分割</p>
+<ol start="3">
+<li>弱样本语义分割的任务背景？</li>
+</ol>
+<p>语义分割任务依赖图像的逐像素标注，因此为了训练语义分割模型需要大量逐像素标注，在面对新类别的语义分割任务时需要花费大量成本来进行数据集标注，因此考虑在已有的包含base类别的语义分割数据集和novel类别的弱标注的基础上对novel类别进行分割</p>
+<p>介绍完弱样本语义分割之后，可以叉开简单对比一下弱样本和弱监督之间的区别，提一下弱监督语义分割的主流框架</p>
+<p>再介绍一下弱样本语义分割的领域比较新，上交的牛力等人对弱样本学习的分类、检测、分割领域都做了一遍，主要工作都是由牛力等人完成</p>
+<h2 id="论文1-Weak-shot-semantic-segmentation-by-transferring-semantic-affinity-and-boundary"><a href="#论文1-Weak-shot-semantic-segmentation-by-transferring-semantic-affinity-and-boundary" class="headerlink" title="论文1 Weak-shot semantic segmentation by transferring semantic affinity and boundary"></a>论文1 Weak-shot semantic segmentation by transferring semantic affinity and boundary</h2><p>问题1：为什么类别的语义相似度是类别无关的？可以利用语义相似度进行迁移？</p>
+<h3 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h3><p>在WSSS的框架下利用base类别的像素级标注学习从base类别到novel类别的相似度迁移，因此可以获得更高质量的novel类别的CAM</p>
+<h3 id="详细过程"><a href="#详细过程" class="headerlink" title="详细过程"></a>详细过程</h3><p>在弱监督语义分割的框架下：</p>
+<ul>
+<li>生成类别激活图（CAM）</li>
+<li>refine生成类别激活图</li>
+<li>利用pseudo GT训练传统的语义分割网络</li>
+</ul>
+<p>其中CAM的缺点在于只关注类别的突出部分，因此会存在部分类别区域像素没有被正确分类，本文的出发点在于基于生成的CAM，向外扩展CAM得到更加精确的CAM</p>
+<p>因此在语义相似度和边界是类别无关的前提下，提出一种方法，Response Expansion by Transferring semantic Affinity and Boundary （RETAB），包括了相似度学习步骤和基于相似度的推理步骤：</p>
+<ol>
+<li>相似度学习步骤：</li>
+</ol>
+<p>设计相似度学习网络从base category的逐像素标注gt和novel category生成的CAM学习语义相似度。由于生成CAM在语义边界包含一定的噪声，因此这里根据base category训练一个边界网络，对包含novel category的数据预测边界，边界内是base category，边界外是novel category，在训练相似度网络时，只关注CAM边界外的区域</p>
+<ol start="2">
+<li>基于相似度的推理步骤：</li>
+</ol>
+<p>分为两阶段：</p>
+<ul>
+<li>CAM边界外区域随机游走，根据相似度进行像素膨胀</li>
+<li>CAM边界内区域随机游走，在边界外像素的正则下修正像素预测值</li>
+</ul>
+<p>通过两阶段之后得到修正的CAM，即最终的伪标签，最后再根据base category的GT和novel category的伪标签训练一个语义分割网络</p>
+<p><img src="/../pic/WSSS2.png"></p>
+<p><img src="/../pic/WSSS3.png"></p>
+<p><img src="/../pic/WSSS4.png"></p>
+<h3 id="一些细节"><a href="#一些细节" class="headerlink" title="一些细节"></a>一些细节</h3><p>base样本只包含base category，但是novel样本可能包含base category或者novel category</p>
+<h3 id="关于CAM"><a href="#关于CAM" class="headerlink" title="关于CAM"></a>关于CAM</h3><p><img src="/../pic/WSSS1.png"></p>
+<h2 id="论文2-Weak-shot-Semantic-Segmentation-via-Dual-Similarity-Transfer"><a href="#论文2-Weak-shot-Semantic-Segmentation-via-Dual-Similarity-Transfer" class="headerlink" title="论文2 Weak-shot Semantic Segmentation via Dual Similarity Transfer"></a>论文2 Weak-shot Semantic Segmentation via Dual Similarity Transfer</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p>弱样本学习中的相似度迁移对遥感图像语义分割的借鉴，遥感图像分割数据集的标注往往花费的成本要更多</p>
+</li>
+<li><p>在主流任务下增加一些限制条件就可以定义一个新的任务</p>
+</li>
+<li><p>相似度的引入，更多相似度的探索</p>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
