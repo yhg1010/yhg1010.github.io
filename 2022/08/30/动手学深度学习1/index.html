@@ -30,404 +30,96 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
-
-    
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                calcium_oxide&#39;s blogs
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/algorithm"
-                            >
-                                ALGORITHM
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/plan"
-                            >
-                                PLAN
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/algorithm">ALGORITHM</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/plan">PLAN</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">动手学深度学习1</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/image2.svg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">calcium_oxide</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-08-30 21:15:12</span>
-        <span class="mobile">2022-08-30 21:15</span>
-    </span>
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="线性神经网络"><a href="#线性神经网络" class="headerlink" title="线性神经网络"></a>线性神经网络</h1><h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>$$<br>log \frac{1}{P (j)} &#x3D; − log P(j)<br>$$</p>
-<h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h3><p>$$<br>H(P)&#x3D;\sum-P(j)logP(j)<br>$$</p>
-<p>熵定义为当分配的概率真正匹配数据生成过程时的信息量的期望</p>
-<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>$$<br>交叉熵从P到Q，记作：H(P,Q），用于衡量两个分布之间的差异<br>$$</p>
-<p>$$<br>多分类下的交叉熵损失：L&#x3D;\frac{1}{N}\sum_iL_i&#x3D;-\frac{1}{N}\sum_i\sum_{c&#x3D;1}^My_{ic}log(p_{ic})<br>$$</p>
-<p>其中：</p>
-<ul>
-<li>M为类别的数量</li>
-<li>y_ic是符号函数，样本i的真实取值是c则为1，否则为0</li>
-<li>p_ic观测样本i属于类别c的预测概率</li>
-</ul>
-<h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>交叉熵损失的导数的结果是softmax模型分配的概率与实际发⽣的情况（由独热标签向量表⽰）之间的差异</p>
-<p>softmax运算获取一个向量并将其映射为概率</p>
-<p>$$<br>\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}<br>$$</p>
-<h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="常用的激活函数"><a href="#常用的激活函数" class="headerlink" title="常用的激活函数"></a>常用的激活函数</h2><ul>
-<li>Relu</li>
-</ul>
-<p>$$<br>f(x)&#x3D; \begin{cases}<br>\ 0, &amp; x&lt;&#x3D;0 \<br>\ x, &amp; x&gt;0<br>\end{cases}<br>$$</p>
-<ul>
-<li>sigmoid</li>
-</ul>
-<p>$$<br>f(x) &#x3D; \frac{1}{1+e^{-x}}<br>$$</p>
-<p>$$<br>y&#x3D;sigmoid(x) \<br>y^{‘}&#x3D; y(1-y)<br>$$</p>
-<ul>
-<li>tanh</li>
-</ul>
-<p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
-<p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
-<p>梯度裁剪可以快速修复梯度爆炸：<br>$$<br>g &lt;&#x3D;min(1,\frac{\theta}{||g||})g<br>$$</p>
-
-        </div>
-
-        
-            <div class="post-copyright-info">
-                <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：动手学深度学习1</li>
-        <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-08-30 21:15:12</li>
-        <li>
-            Post link：https://yhg1010.github.io/2022/08/30/动手学深度学习1/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-            </div>
-        
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/09/01/roadmap/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">roadmap</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/08/30/algorithm_bu/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">algorithm_bu</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
-        </div>
-        
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">线性神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E8%AE%BA"><span class="nav-text">信息论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%86%B5"><span class="nav-text">熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-text">softmax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-text">感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">常用的激活函数</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .page-main-content {
+  padding-top: $header-height;
+  position: relative;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .page-main-content {
+  padding-top: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: $z-index-5;
+  box-sizing: border-box;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top.hide {
+  transform: translateY(-105%);
+}
+.header-shrink .page-container .page-main-content .page-main-content-top {
+  height: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $component-spacing-value 0;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle .main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: $main-content-width;
+  max-width: $content-max-width;
+  height: 100%;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-bottom {
+  width: 100%;
+}
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  z-index: $z-index-6;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .post-tools {
+  position: fixed;
+  top: $header-height$component-spacing-value;
+  right: $component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .post-tools {
+  top: $header-shrink-height$component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.page-container .right-bottom-side-tools {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
 
 
 <script src="/js/utils.js"></script>

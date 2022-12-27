@@ -30,714 +30,96 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
-
-    
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                calcium_oxide&#39;s blogs
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/algorithm"
-                            >
-                                ALGORITHM
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/plan"
-                            >
-                                PLAN
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/algorithm">ALGORITHM</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/plan">PLAN</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">matrix</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/image2.svg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">calcium_oxide</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-11-05 13:53:43</span>
-        <span class="mobile">2022-11-05 13:53</span>
-    </span>
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="矩阵分析与应用"><a href="#矩阵分析与应用" class="headerlink" title="矩阵分析与应用"></a>矩阵分析与应用</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="/../pic/matrix_1.png"></p>
-<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="高斯消元法"><a href="#高斯消元法" class="headerlink" title="高斯消元法"></a>高斯消元法</h3><ol>
-<li>三种线性变换</li>
-</ol>
-<ul>
-<li>交换两行</li>
-<li>对某一行乘上一个非零系数</li>
-<li>对某一行加上另一行乘以一个非零系数</li>
-</ul>
-<ol start="2">
-<li>对于一个nxn的矩阵进行高斯消元法（反向替换）需要的操作数</li>
-</ol>
-<p>$\frac{n^3}{3}个乘法操作和\frac{n^3}{3}个加法操作$</p>
-<ol start="3">
-<li>Gauss-Jordan方法</li>
-</ol>
-<p>与标准的Gaussian消元法的区别：</p>
-<ul>
-<li>所有的主元都为1</li>
-<li>除了主元其他元素都为0</li>
-</ul>
-<p>复杂度和标准Gaussian消元法相同</p>
-<ol start="4">
-<li><p>部分主元法和完全主元法</p>
-<ol>
-<li>部分主元法：</li>
-</ol>
-<ul>
-<li>主元位置的元素为主元所在列的最大的一个值</li>
-</ul>
-<ol start="2">
-<li>完全主元法：</li>
-</ol>
-<ul>
-<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
-</ul>
-</li>
-<li><p>病态系统</p>
-</li>
-</ol>
-<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
-<hr>
-<ol start="6">
-<li>modified gaussian elimination</li>
-</ol>
-<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
-<ol start="7">
-<li>矩阵的秩的定义</li>
-</ol>
-<ul>
-<li>主元的个数</li>
-<li>消元后的非零行的个数</li>
-<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
-</ul>
-<ol start="8">
-<li>reduced row echelon form</li>
-</ol>
-<ul>
-<li>首先是row echelon form</li>
-<li>每一行第一个非零元素是1</li>
-<li>主元所在列除了主元其他都是0</li>
-</ul>
-<ol start="9">
-<li>basic columns可以用来表示nonbasic columns</li>
-<li>线性系统的一致性</li>
-</ol>
-<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
-<p><img src="/../pic/matrix_2.png"></p>
-<ol start="11">
-<li>Homogeneous Systems(齐次系统)</li>
-</ol>
-<p>齐次系统和非齐次系统的解的情况：</p>
-<img src="../pic/matrix_3.png" style="zoom:50%;" />
-
-
-
-<h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h3 id="矩阵加法和转置"><a href="#矩阵加法和转置" class="headerlink" title="矩阵加法和转置"></a>矩阵加法和转置</h3><img src="../pic/matrix3_1.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_3.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_9.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_10.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_15.png" style="zoom:50%;" />
-
-
-
-<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix_rank.png" style="zoom:50%;" />
-
-<ul>
-<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
-</ul>
-<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_4.png" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix5_5.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_6.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_7.png" style="zoom:50%;" />
-
-
-
-<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
-<li>Induced matrix norms</li>
-</ol>
-<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
-
-<p><img src="/../pic/matrix77_2.png"></p>
-<ol start="2">
-<li>2-Norm</li>
-</ol>
-<p><img src="/../pic/matrix77_3.jpeg"></p>
-<p><img src="/../pic/matrix77_4.jpeg"></p>
-<ol start="3">
-<li>1-norm</li>
-</ol>
-<p><img src="/../pic/matrix77_5.jpeg"></p>
-<ol start="4">
-<li>内积空间</li>
-</ol>
-<p><img src="/../pic/matrix77_6.png"></p>
-<ol start="5">
-<li>general inner product</li>
-</ol>
-<p><img src="/../pic/matrix77_6.jpeg"></p>
-<p><img src="/../pic/matrix77_7.jpeg"></p>
-<p><img src="/../pic/matrix77_8.jpeg"></p>
-<ol start="6">
-<li>正交向量</li>
-</ol>
-<p><img src="/../pic/matrix77_9.jpeg"></p>
-<p><img src="/../pic/matrix77_10.jpeg"></p>
-<ol start="7">
-<li>Gram-Schmidt Procedure</li>
-</ol>
-<p><img src="/../pic/matrix77_11.png"></p>
-<p><img src="/../pic/matrix77_12.png"></p>
-<p><img src="/../pic/matrix77_13.png"></p>
-<p><img src="/../pic/matrix77_14.png"></p>
-<ol start="8">
-<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
-</ol>
-<p><img src="/../pic/matrix77_15.png"></p>
-<p><img src="/../pic/matrix77_16.png"></p>
-<p><img src="/../pic/matrix77_17.png"></p>
-<p><img src="/../pic/matrix77_18.png"></p>
-<p><img src="/../pic/matrix77_19.png"></p>
-<ol start="9">
-<li>Orthogonal Reduction</li>
-</ol>
-<p><img src="/../pic/matrix77_20.png"></p>
-<p><img src="/../pic/matrix77_21.png"></p>
-<ol start="10">
-<li><p>DFT</p>
-</li>
-<li><p>余子空间</p>
-</li>
-</ol>
-<p><img src="/../pic/matrix77_22.png"></p>
-<p><img src="/../pic/matrix77_23.png"></p>
-<ol start="12">
-<li>RN分解</li>
-</ol>
-<p><img src="/../pic/matrix77_24.png"></p>
-<p><img src="/../pic/matrix77_25.png"></p>
-<p><img src="/../pic/matrix77_26.png"></p>
-<p><img src="/../pic/matrix77_27.png"></p>
-<p><img src="/../pic/matrix77_28.png"></p>
-<ol start="13">
-<li>正交分解</li>
-</ol>
-<p><img src="/../pic/matrix77_29.png"></p>
-<p><img src="/../pic/matrix77_30.png"></p>
-<p><img src="/../pic/matrix77_31.png"></p>
-<p><img src="/../pic/matrix77_32.png"></p>
-<ol start="14">
-<li>奇异值分解</li>
-</ol>
-<p><img src="/../pic/matrix77_33.png"></p>
-<p><img src="/../pic/matrix77_34.png"></p>
-<p><img src="/../pic/matrix77_35.png"></p>
-<p><img src="/../pic/matrix77_36.png"></p>
-<ol start="15">
-<li>正交投影</li>
-</ol>
-<p><img src="/../pic/matrix77_37.png"></p>
-<p><img src="/../pic/matrix77_38.png"></p>
-<p><img src="/../pic/matrix111.png"></p>
-<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
-<li>只有方阵才有行列式</li>
-<li>转置不影响行列式的结果</li>
-</ol>
-<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
-<ol start="3">
-<li>矩阵内积的行列式（方阵）</li>
-</ol>
-<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
-<p><img src="/../pic/matrix7_2.png"></p>
-<p><img src="/../pic/matrix7_3.png"></p>
-<p>行列式的求导</p>
-<p><img src="/../pic/matrix7_4.png"></p>
-<p><img src="/../pic/matrix7_5.png"></p>
-<ol start="4">
-<li>分块行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_6.png"></p>
-<ol start="5">
-<li>Rank-1行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_7.png"></p>
-<ol start="6">
-<li>利用cofactor计算行列式和逆</li>
-</ol>
-<p><img src="/../pic/matrix7_8.png"></p>
-<p><img src="/../pic/matrix7_9.png"></p>
-<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
-<li>关于特征值和特征向量</li>
-</ol>
-<p><img src="/../pic/matrix8_1.png"></p>
-<ol start="2">
-<li>特征式的系数</li>
-</ol>
-<p><img src="/../pic/matrix8_2.png"></p>
-<ol start="3">
-<li>对角化</li>
-</ol>
-<p><img src="/../pic/matrix8_3.png"></p>
-<ol start="4">
-<li>Multiplicty</li>
-</ol>
-<p><img src="/../pic/matrix8_4.png"></p>
-<ol start="5">
-<li>diagonalizability</li>
-</ol>
-<p><img src="/../pic/matrix8_5.png"></p>
-<ol start="6">
-<li>对角化的必要条件及谱分解</li>
-</ol>
-<p><img src="/../pic/matrix8_6.png"></p>
-<p><img src="/../pic/matrix8_7.png"></p>
-<p><img src="/../pic/matrix8_8.png"></p>
-<ol start="7">
-<li>normal matrix</li>
-</ol>
-<p><img src="/../pic/matrix8_9.png"></p>
-<p><img src="/../pic/matrix8_10.png"></p>
-<p><img src="/../pic/matrix8_11.png"></p>
-<ol start="8">
-<li>positive definite matrices</li>
-</ol>
-<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
-
-<p> 正定矩阵的定义：</p>
-<p><img src="/../pic/matrix8_13.png"></p>
-<p>半正定：</p>
-<p><img src="/../pic/matrix8_14.png"></p>
-<p>二次型:</p>
-<p><img src="/../pic/matrix8_15.png"></p>
-<p>合同变换</p>
-<p><img src="/../pic/matrix8_16.jpeg"></p>
-<h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><ul>
-<li>完备空间的证明除了互补之外还要证明唯一性</li>
-</ul>
-<p><img src="/../pic/matrix_exam.jpg"></p>
-
-        </div>
-
-        
-            <div class="post-copyright-info">
-                <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：matrix</li>
-        <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-11-05 13:53:43</li>
-        <li>
-            Post link：https://yhg1010.github.io/2022/11/05/matrix/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-            </div>
-        
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/11/07/ever/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">ever</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/11/01/megvii/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">megvii</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
-        </div>
-        
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="nav-text">矩阵分析与应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2"><span class="nav-text">课程大纲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-text">线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95"><span class="nav-text">高斯消元法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%BB%A3%E6%95%B0"><span class="nav-text">矩阵代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%8A%A0%E6%B3%95%E5%92%8C%E8%BD%AC%E7%BD%AE"><span class="nav-text">矩阵加法和转置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="nav-text">向量空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%92%8C%E5%86%85%E7%A7%AF"><span class="nav-text">模和内积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-text">特征值和特征向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">一些注意点</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .page-main-content {
+  padding-top: $header-height;
+  position: relative;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .page-main-content {
+  padding-top: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: $z-index-5;
+  box-sizing: border-box;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top.hide {
+  transform: translateY(-105%);
+}
+.header-shrink .page-container .page-main-content .page-main-content-top {
+  height: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $component-spacing-value 0;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle .main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: $main-content-width;
+  max-width: $content-max-width;
+  height: 100%;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-bottom {
+  width: 100%;
+}
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  z-index: $z-index-6;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .post-tools {
+  position: fixed;
+  top: $header-height$component-spacing-value;
+  right: $component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .post-tools {
+  top: $header-shrink-height$component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.page-container .right-bottom-side-tools {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
 
 
 <script src="/js/utils.js"></script>

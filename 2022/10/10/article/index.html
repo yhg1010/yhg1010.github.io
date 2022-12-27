@@ -30,818 +30,96 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
-
-    
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                calcium_oxide&#39;s blogs
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/algorithm"
-                            >
-                                ALGORITHM
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/plan"
-                            >
-                                PLAN
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/algorithm">ALGORITHM</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/plan">PLAN</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">article</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/image2.svg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">calcium_oxide</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-10-10 20:25:23</span>
-        <span class="mobile">2022-10-10 20:25</span>
-    </span>
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
-<h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>ImageNet数据集提出推动了计算机视觉各个任务、各个领域的发展，但是农业领域发展比较缓慢，主要是由于农业领域缺少相关的数据集。</p>
-<p>在农业视觉识别领域一个大的方向是航空图像语义分割，因为解决这个问题可以带来巨大的经济价值。对航空图像进行语义分割可以更好地监测土地的状况，发掘播种器的土地潜力，但是相比与传统的语义分割任务，遥感图像语义分割同样存在很多问题。土地状况模式往往是多样的、不规则的，类别之间尺度差异大，遥感图像往往尺寸很大，缺少精细的细节例如纹理等，对于端到端的分割会需要很大的算力以及内存消耗。</p>
-<p>Agriculture-Vision数据集相比其他数据集有以下优点：</p>
-<ul>
-<li>分辨率很高，10cm&#x2F;pixel</li>
-<li>除了RGB三通道外还有NIR通道</li>
-<li>包括多个关于农业异常情况的具有挑战性的标注</li>
-<li>来自专家严格把控的图像标注</li>
-<li>标注的尺寸和形状的巨大变化</li>
-</ul>
-<p>本篇文章的贡献：</p>
-<ul>
-<li>提出了Agriculture-Vision数据集</li>
-<li>在数据集上做了扩展实验，提出了一个baseline</li>
-</ul>
-<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><p>主要提及了计算机视觉领域内一些比较出名的数据集，介绍了一些航空遥感图像数据集。讨论了在遥感图像数据集上的一些任务，对遥感图像进行一些谱分析，通过一些地理颜色获得一些地理信息，介绍了一些之前的在遥感图像上的相关工作。</p>
-<h3 id="Agriculture-Vision-dataset"><a href="#Agriculture-Vision-dataset" class="headerlink" title="Agriculture-Vision dataset"></a>Agriculture-Vision dataset</h3><p>关于如何构建Agriculture-Vision数据集，包括图像获取、预处理、模式标注以及最终图像采样生成。</p>
-<h4 id="图像获取"><a href="#图像获取" class="headerlink" title="图像获取"></a>图像获取</h4><h4 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h4><p><img src="/../pic/article1010_1.png"></p>
-<h4 id="图像标注"><a href="#图像标注" class="headerlink" title="图像标注"></a>图像标注</h4><h4 id="图像采样生成"><a href="#图像采样生成" class="headerlink" title="图像采样生成"></a>图像采样生成</h4><h3 id="数据集统计数据"><a href="#数据集统计数据" class="headerlink" title="数据集统计数据"></a>数据集统计数据</h3><p>即使下游数据和预训练数据只有微弱的关联，迁移学习仍然是最佳选择</p>
-<h2 id="ConvNeXt"><a href="#ConvNeXt" class="headerlink" title="ConvNeXt"></a>ConvNeXt</h2><p><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/459163188" >convnext详解<i class="fas fa-external-link-alt"></i></a></p>
-<p>改进：</p>
-<ol>
-<li>Macro design</li>
-</ol>
-<ul>
-<li>改变每个layer的block的数量比例，改成1：1：3：1，对于更大的模型，采用1：1：9：1</li>
-<li>Stem patch化。用一个stride等于4的4x4卷积来进行stem，使得滑动窗口不再相交，每次只处理一个patch的信息</li>
-</ul>
-<ol start="2">
-<li>ResNeXt-ify</li>
-</ol>
-<p>depthwise conv</p>
-<ol start="3">
-<li>反瓶颈结构</li>
-<li>大卷积核</li>
-<li>微观设计</li>
-</ol>
-<h2 id="swin-transformer"><a href="#swin-transformer" class="headerlink" title="swin-transformer"></a>swin-transformer</h2><p><img src="/../pic/article1011_1.png"></p>
-<h2 id="vision-transformer"><a href="#vision-transformer" class="headerlink" title="vision transformer"></a>vision transformer</h2><p>&#x3D;&#x3D;ViT原论文中最核心的结论是，当拥有足够多的数据进行预训练的时候，ViT的表现就会超过CNN，突破transformer缺少归纳偏置的限制，可以在下游任务中获得较好的迁移效果&#x3D;&#x3D;。</p>
-<p>但是当训练数据比较少时ViT通常要比大小相当的resnet要差一些，因为缺少CNN的归纳偏置，即一种先验知识，提前做好的假设。CNN具有两种归纳偏置，一种是局部性，即图片上相邻的区域具有相似的特征；一种是平移不变形， f(g(x))&#x3D;g(f(x)) ，其中g代表卷积操作，f代表平移操作。当CNN具有以上两种归纳偏置，就有了很多先验信息，需要相对少的数据就可以学习一个比较好的模型。</p>
-<p>模型结构：</p>
-<p><img src="/../pic/article1011_5.webp"></p>
-<h2 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h2><p>反卷积上采样</p>
-<p>跳层连接可以融合浅层和深层的特征</p>
-<h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><p>间隙补零进行反卷积上采样</p>
-<h1 id="面试八股"><a href="#面试八股" class="headerlink" title="面试八股"></a>面试八股</h1><ol>
-<li>卷积、BN、relu、dropout的顺序？</li>
-</ol>
-<p>一般而言，卷积之后进行BN为激活层提供一个合适的分布，接着进行relu激活，最后进行dropout</p>
-<ol start="2">
-<li>1x1卷积的作用</li>
-</ol>
-<ul>
-<li>调整维度</li>
-<li>减少参数</li>
-<li>对不同维度的特征进行融合</li>
-</ul>
-<ol start="3">
-<li>self attention</li>
-</ol>
-<p>Self-attention可以输入一个sequence,输出一个sequence，每个输出都考虑了整个sequence的信息，且输出可以同时计算（大大提升了计算效率），所有计算都可以用矩阵进行，适合GPU加速</p>
-<p>Self attention公式：</p>
-<img src="../pic/article1011_3.png" style="zoom:50%;" />
-
-<p>为什么要除以根号d_k?</p>
-<ul>
-<li>使得q*k的结果满足期望为0，方差为1的分布，类似于归一化</li>
-<li>防止softmax值过大，梯度趋于0</li>
-</ul>
-<p>位置编码：</p>
-<p>self-attention中的位置编码是手动设置的：</p>
-<p><img src="/../pic/article1011_4.png"></p>
-<p>其中为什么选择正余弦函数作为编码函数，因为正余弦函数随相位的变化是和二进制编码的变化频率相似的，可以间接来表示位置。</p>
-<ol start="4">
-<li>Multi-head self attention</li>
-</ol>
-<img src="../pic/article1011_2.png" style="zoom:50%;" />
-
-<p>为什么需要multi-head？有可能是不同的query(head)关注的点不同，比如有的query想看的是全局的信息，有的query想看的是局部的信息，因此使用multi-head可以获取更多类型，更全面的信息</p>
-<ol start="5">
-<li>熵、交叉熵、交叉熵损失</li>
-</ol>
-<p>随着估计的概率分布偏离实际&#x2F;期望的概率分布，交叉熵增加，反之亦然。因此，我们可以说，最小化交叉熵将使我们更接近实际&#x2F;期望的分布，这就是我们想要的。这就是为什么我们尝试降低交叉熵，以使我们的预测概率分布最终接近实际分布的原因。</p>
-<p>交叉熵损失：</p>
-<img src="../pic/article1011_6.png" style="zoom:50%;" />
-
-<ol start="6">
-<li>模型参数量计算</li>
-</ol>
-<p><img src="/../pic/article1025_1.png"></p>
-<h1 id="一些预想的问题"><a href="#一些预想的问题" class="headerlink" title="一些预想的问题"></a>一些预想的问题</h1><ol>
-<li>为什么baseline会选择convnext&#x2F;swin-transformer？</li>
-<li>lovasz损失？</li>
-</ol>
-<p>采用lovasz extension这个数学工具将离散的Jaccard loss变光滑，从而可以直接求导。</p>
-<ol start="3">
-<li>Dice loss?</li>
-</ol>
-<img src="../pic/article1011_7.png" style="zoom:50%;" />
-
-<ol start="4">
-<li>常见的损失函数？</li>
-</ol>
-<ul>
-<li><p>Focal loss</p>
-<ul>
-<li>多了一个调制因子，降低易分样本的损失贡献</li>
-</ul>
-</li>
-<li><p>Lovasz loss</p>
-<ul>
-<li>Lovasz loss基于子模损失(submodular losses)的凸Lovasz扩展，对神经网络的mean IoU损失进行优化</li>
-<li>对Jaccard loss的lovasz extension</li>
-</ul>
-<img src="../pic/article1020_2.png" style="zoom:50%;" />
-</li>
-<li><p>dice loss</p>
-<ul>
-<li>缺点是可能导致训练不稳定</li>
-</ul>
-</li>
-<li><p>Crossentropy loss</p>
-</li>
-</ul>
-<ol start="5">
-<li>FCN上采样的方式？</li>
-</ol>
-<ul>
-<li>双线性插值</li>
-<li>反卷积上采样</li>
-</ul>
-<p><img src="/../pic/article1020_1.png"></p>
-<ol start="6">
-<li>deeplab系列</li>
-</ol>
-<ul>
-<li>deeplab v1：<ul>
-<li>vgg</li>
-<li>atrous convolution</li>
-<li>CRF</li>
-</ul>
-</li>
-<li>deeplab v2<ul>
-<li>resnet</li>
-<li>ASPP</li>
-<li>CRF</li>
-</ul>
-</li>
-<li>deeplab v3<ul>
-<li>串联不同膨胀率的空洞卷积或者并行不同膨胀率的空洞卷积</li>
-<li>Modified ASPP</li>
-<li>移除CRF</li>
-</ul>
-</li>
-<li>deeplab v3+</li>
-</ul>
-<ol start="7">
-<li>降采样对于分割的意义</li>
-</ol>
-<ul>
-<li>降低过拟合风险</li>
-<li>减少参数量</li>
-<li>增加对输入微小改变的鲁棒性</li>
-</ul>
-<ol start="8">
-<li>unet和FCN的区别</li>
-</ol>
-<ul>
-<li>FCN特征融合是逐点相加，UNet是通道维度上拼接融合</li>
-</ul>
-<ol start="9">
-<li>unet的缺点</li>
-</ol>
-<ul>
-<li>主要是直接对浅层特征和深层特征进行跳层连接可能会导致语义gap</li>
-<li>针对这个缺点，unet++的出发点就是reduce&#x2F;bridge这个gap</li>
-</ul>
-<ol start="10">
-<li>梯度消失 梯度爆炸</li>
-</ol>
-<ul>
-<li>梯度连乘导致</li>
-<li>BN、正则化、dropout、梯度裁切、激活函数</li>
-</ul>
-<ol start="11">
-<li>dropout</li>
-</ol>
-<ul>
-<li>解决过拟合问题</li>
-</ul>
-<ol start="12">
-<li>BN LN</li>
-</ol>
-<ul>
-<li>BN是在通道维度上进行归一化</li>
-<li>LN是在batch维度上进行归一化</li>
-</ul>
-<ol start="13">
-<li>空洞卷积</li>
-</ol>
-<ul>
-<li>优点是可以任意扩大感受野且不需要引入额外的参数</li>
-<li>缺点是局部信息的丢失以及远距离获取的信息没有相关性</li>
-</ul>
-<ol start="14">
-<li>深度分离卷积</li>
-</ol>
-<p>可以减少计算损失和参数数量同时保持相似的性能，在特征图的每个深度维度应用一个filter，本文在每个深度维度应用一个空洞卷积</p>
-<p>深度分离卷积操作分两步，假设原来是3x3卷积，深度分离卷积就是先用M个3x3卷积核一对一卷积输入的M个特征图，不求和，生成M个结果，然后用N个1x1卷积核正常卷积前面生成的M个结果，求和，最后生成N个结果</p>
-<ol start="15">
-<li>卷积的底层实现（im2col）</li>
-</ol>
-<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>比赛内容：对八种农业异常模式进行分割</p>
-<p>比赛数据集：Agriculture-Vision，九万多张遥感图像，NRGB四通道，512x512</p>
-<p>比赛结果：一共有83个参加队伍，最终排名第9</p>
-<p>Baseline: convnext+upernet，损失函数：交叉熵（mIoU:44.10）</p>
-<p>Batchsize:8</p>
-<p>GPU:8x3090</p>
-<p>模型参数量：82M</p>
-<p>根据Agriculture-Vision数据集的长尾、类别不均衡、边界难以分割等特点提出了混合损失、损失加权fine-tune、细化分割OCR模块和专家网络四个改进点:</p>
-<ul>
-<li>提出混合损失，结合交叉熵损失和lovasz损失作为最终的损失函数（比例1：0.4）（mIoU:46.57），之前在paddle文档上看到单独使用lovasz loss不一定有用，需要和交叉熵加权结合使用</li>
-<li>解码头增加OCR模块，在语义分割任务中，上下文的信息对于像素级别的分类起着重要的作用，通过提取上下文信息可以更好地利用空间信息进行像素级分类。（mIoU:47.57）</li>
-<li>损失加权finetune，Agriculture-Vision数据集存在长尾的特点，不同类别之间的数据量差异很大，对于少数类别的分割效果比较差。改进策略：根据训练数据中各个类别样本的比例进行类别加权，最终的类别权重和类别频度成负相关。（48.53）</li>
-<li>专家网络，在convnext网络之外增加一个unet，对少数类样本(planter skip and standing water)进行单独训练，再和convnext分割结果进行融合。</li>
-</ul>
-<h2 id="ocr"><a href="#ocr" class="headerlink" title="ocr"></a>ocr</h2><p>UPerNet 输出的中间分割结果和骨干网络生成的最后一个层级特征输入到 OCR 模块中进行细化处理。根据中间的分割结果和骨干网络最深层的特征表示计算出 K 组向量，即物体区域表示(Object Region Representations)，其中每一个向 量对应一个语义类别的特征表示。计算网络最深层输出像素特征表示(pixel representations)与计算得到的物体区域表示之间的关系矩阵，然后根据每个 像素和物体区域表示在关系矩阵中的数值将物体区域表示进行加权求和得到最 终的物体上下文特征表示(Object Contextual Representations)，将物体上 下文特征表示和骨干网络最深层特征进行拼接后作为上下文信息增强的特征表 示(Augmented Representations)，基于增强后的特征表示预测每个像素的语义类别。</p>
-<h1 id="语言八股"><a href="#语言八股" class="headerlink" title="语言八股"></a>语言八股</h1><h2 id="python（python基础和pytorch）"><a href="#python（python基础和pytorch）" class="headerlink" title="python（python基础和pytorch）"></a>python（python基础和pytorch）</h2><ol>
-<li>python浅拷贝和深拷贝</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对于不可变对象，由于python是采用引用计数的特性，所以浅拷贝和深拷贝的作用一致。</span><br><span class="line">对于可变对象，由于浅拷贝拷贝的可变对象的引用，所以原变量的可变对象改变时会影响到浅拷贝的对象，对于深拷贝则不会收到影响。</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>python是动态强类型（由于是动态语言，所以很多问题只有在运行的时候才能发现）</li>
-<li>什么是duck type?</li>
-</ol>
-<p>duck type更关注对象的行为，只要实现了接口就行，而不在乎是什么类型</p>
-<ol start="4">
-<li>什么是monkey patch?</li>
-</ol>
-<p>monkey patch就是运行时替换对象，本质上是对象的重新赋值</p>
-<ol start="5">
-<li>py3和py2的区别？</li>
-</ol>
-<ul>
-<li>print在py3中是函数，在py2中是关键字</li>
-<li>py3的range()返回一个可迭代对象，py2的 range()返回一个列表</li>
-<li>py3的除法返回float，py2的除法返回int</li>
-<li>py3默认编码是utf-8，py2默认编码是ascii</li>
-<li>py3的str是unicode字符串，而py2的str是bytes</li>
-</ul>
-<ol start="6">
-<li>map(function, iter)</li>
-<li>生成器</li>
-</ol>
-<p>生成器类似于返回值为数组的一个函数，这个函数可以接受参数，可以被调用，但是，不同于一般的函数会一次性返回包括了所有数值的数组，生成器一次只能产生一个值，这样消耗的内存数量将大大减小，而且允许调用函数可以很快的处理前几个返回值，因此生成器看起来像是一个函数，但是表现得却像是迭代器</p>
-<p>生成器本质上就是根据一个给定的规则可以不断推算出之后出现的元素，可以通过next()函数不断得到下一个元素，同时生成器本身是一个可迭代对象，遇到yield则返回</p>
-<p>send()和next()的区别就在于send可传递参数给yield表达式，这时候传递的参数就会作为yield表达式的值，而yield的参数是返回给调用者的值，也就是说send可以强行修改上一个yield表达式值</p>
-<p>send()和next()都有返回值，他们的返回值是当前迭代遇到的yield的时候，yield后面表达式的值，其实就是当前迭代yield后面的参数</p>
-<ol start="8">
-<li>迭代器</li>
-</ol>
-<p><strong>一个实现了iter方法的对象是可迭代的，一个实现next方法并且是可迭代的对象是迭代器</strong></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wj-1314/p/8490822.html" >生成器和迭代器<i class="fas fa-external-link-alt"></i></a></p>
-<ol start="9">
-<li>内置数据类型的底层结构</li>
-</ol>
-<p>dict的底层结构是哈希表，list的底层结构是可变数组，存的是对象的指针，tuple的底层结构是顺序表，set的底层结构是哈希表，其中key为元素，val都为空</p>
-<ol start="10">
-<li>装饰器</li>
-</ol>
-<p>装饰器是一个接收函数作为参数的闭包函数，可以在不修改函数源代码的情况下给函数增加功能</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fucB</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test1&quot;</span>)</span><br><span class="line">        func()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test3&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@fucB</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test2&quot;</span>)</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
-
-<ol start="11">
-<li>@<strong>staticmethod</strong></li>
-</ol>
-<p><strong>这时将对象方法转化成静态方法，可以被类直接调用</strong></p>
-<ol start="12">
-<li><strong>@classmethod</strong></li>
-</ol>
-<p>将对象方法转化成类方法，并注意类方法函数参数写法上需要加上cls作为参数，但调用的时候不用加参数</p>
-<ol start="13">
-<li>@property</li>
-</ol>
-<p>可以使类方法转化成属性，直接通过方法名来访问方法</p>
-<h2 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h2><ol>
-<li>智能指针（动态内存管理）</li>
-</ol>
-<p>动态内存管理常常会出现两种问题：</p>
-<ul>
-<li>忘记释放内存，造成内存泄漏</li>
-<li>尚有指针使用内存的情况下就释放了内存，就会产生引用非法内存的指针</li>
-</ul>
-<p>标准库提供的两种智能指针的区别在于管理底层指针的方法不同，shared_ptr允许多个指针指向同一个对象，unique_ptr则“独占”所指向的对象。标准库还定义了一种名为weak_ptr的伴随类，它是一种弱引用，指向shared_ptr所管理的对象，这三种智能指针都定义在memory头文件中。</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/flowing_wind/article/details/81301001" >智能指针<i class="fas fa-external-link-alt"></i></a></p>
-<ol start="2">
-<li>多态（接口重用）</li>
-</ol>
-<p>多态是指同一对象收到不同的消息时或不同对象收到相同消息时产生不同的实现动作</p>
-<ul>
-<li>编译时多态（静态多态）：通过重载函数实现</li>
-<li>运行时多态（动态多态）：通过虚函数实现</li>
-</ul>
-<p>参数相同，有virtual关键字的是多态重写</p>
-<p>根据指针或者引用指向哪种类型的对象来决定调用哪个虚函数，从而决定具体的实现动作</p>
-<h1 id="机器学习八股"><a href="#机器学习八股" class="headerlink" title="机器学习八股"></a>机器学习八股</h1><ol>
-<li><p>SVM</p>
-</li>
-<li><p>随机森林、决策树</p>
-</li>
-<li><p>1 决策树</p>
-</li>
-</ol>
-<ul>
-<li>信息增益</li>
-</ul>
-<p><img src="/../pic/article1025_3.png"></p>
-<ul>
-<li>信息增益率</li>
-</ul>
-<p><img src="/../pic/article1025_4.png"></p>
-<ul>
-<li>基尼系数</li>
-</ul>
-<p><img src="/../pic/article1025_2.png"></p>
-<ol start="2">
-<li>2 随机森林</li>
-</ol>
-<p>随机森林属于bagging集成方法（CART决策树）</p>
-<p><strong>随机森林中的树一般会比较深，以尽可能地降低偏差，由于随机性，随机森林对于降低模型方法效果显著；而GBDT树的深度会比较浅，通过减少模型复杂度来降低方差</strong></p>
-<ol start="3">
-<li>聚类如果不清楚有多少类，有什么办法</li>
-</ol>
-<ul>
-<li>肘方法</li>
-</ul>
-<p>肘方法就是随机初始化多个k值对应的kmeans，计算聚类误差，选取下降转折点对应的k值作为最佳聚类数</p>
-<ul>
-<li>轮廓系数法</li>
-</ul>
-<p>轮廓系数法的本质就是类间距离越大越好，类内距离越小越好</p>
-<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="旷视面试"><a href="#旷视面试" class="headerlink" title="旷视面试"></a>旷视面试</h2><ol>
-<li>手写iou,nms</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iou</span>(<span class="params">box1, box2</span>):</span><br><span class="line">    x1 = <span class="built_in">max</span>(box1[<span class="number">0</span>], box2[<span class="number">0</span>])</span><br><span class="line">    y1 = <span class="built_in">max</span>(box1[<span class="number">1</span>], box2[<span class="number">1</span>])</span><br><span class="line">    x2 = <span class="built_in">min</span>(box1[<span class="number">2</span>], box2[<span class="number">2</span>])</span><br><span class="line">    y2 = <span class="built_in">min</span>(box1[<span class="number">3</span>], box2[<span class="number">3</span>])</span><br><span class="line">    h = <span class="built_in">max</span>(<span class="number">0</span>, x2-x1)</span><br><span class="line">    w = <span class="built_in">max</span>(<span class="number">0</span>, y2-y1)</span><br><span class="line">    area1 = (box1[<span class="number">2</span>]-box1[<span class="number">0</span>])*(box1[<span class="number">3</span>]-box1[<span class="number">1</span>])</span><br><span class="line">    area2 = (box2[<span class="number">2</span>]-box2[<span class="number">0</span>])*(box2[<span class="number">3</span>]-box2[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> (w*h)/(area1+area2-w*h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nms</span>(<span class="params">boxes, thres</span>):</span><br><span class="line">    x1 = boxes[:, <span class="number">0</span>]</span><br><span class="line">    y1 = boxes[:, <span class="number">1</span>]</span><br><span class="line">    x2 = boxes[:, <span class="number">2</span>]</span><br><span class="line">    y2 = boxes[:, <span class="number">3</span>]</span><br><span class="line">    scores = boxes[:, <span class="number">4</span>]</span><br><span class="line">    orders = scores.argsort()[::-<span class="number">1</span>]</span><br><span class="line">    keep = []</span><br><span class="line">    areas = (x2-x1)*(y2-y1)</span><br><span class="line">    <span class="keyword">while</span>(orders.size()&gt;<span class="number">0</span>):</span><br><span class="line">        index1 = orders[<span class="number">0</span>]</span><br><span class="line">        keep.append(index1)</span><br><span class="line">        xx1 = np.maximum(x1[index1], x1[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[index1], y1[orders[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[index1], x2[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[index1], y2[orders[<span class="number">1</span>:]])</span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2-xx1+<span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2-yy1+<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">iter</span> = w*h</span><br><span class="line">        ious = <span class="built_in">iter</span>/areas[index1]+areas[orders[<span class="number">1</span>:]]-<span class="built_in">iter</span></span><br><span class="line">        ids = np.where(ious&lt;=thres)[<span class="number">0</span>]</span><br><span class="line">        orders = orders[ids+<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>跳台阶</li>
-<li>跳台阶进阶</li>
-<li>缓解过拟合的方法</li>
-<li>C++多态</li>
-<li>dropout</li>
-<li>BN</li>
-</ol>
-<h2 id="京东面试"><a href="#京东面试" class="headerlink" title="京东面试"></a>京东面试</h2><ol>
-<li><p>动态规划的转移方程</p>
-</li>
-<li><p>resnet的神经元的细节，数学表达</p>
-<ol>
-<li>shortcut</li>
-<li>F(x)+x</li>
-</ol>
-</li>
-<li><p>聚类算法</p>
-<ol>
-<li><p>kmeans过程</p>
-</li>
-<li><p>kmeans有哪些缺点</p>
-<ol>
-<li>k值难以估计</li>
-</ol>
-<p>一开始确定一个合适的k值，通过一次kmeans聚类得到k个聚类中心，根据k个聚类中心之间的距离情况合并距离近的类别，直到达到阈值收敛</p>
-<ol start="2">
-<li>对噪声和离群点敏感</li>
-</ol>
-<p>去除离群点后再进行聚类</p>
-<ol start="3">
-<li>对初始聚类中心敏感</li>
-</ol>
-<p>已经选取了若干聚类中心，距离这些聚类中心越远的点越有可能被选为新的聚类中心</p>
-<ol start="4">
-<li>假定簇是圆</li>
-</ol>
-</li>
-<li><p>其他的一些聚类算法（密度）</p>
-</li>
-</ol>
-</li>
-<li><p>SVM</p>
-<ol>
-<li>过程</li>
-<li>除了软间隔之外，线性不可分怎么解决</li>
-<li>软间隔中对偶问题怎<ol>
-<li>拉格朗日乘子法</li>
-</ol>
-</li>
-<li>对偶问题转换需要满足的条件<ol>
-<li>KKT条件</li>
-</ol>
-</li>
-<li>KKT条件<ol>
-<li>拉格朗日函数取极值的的一个必要条件</li>
-<li>拉格朗日系数约束</li>
-<li>不等式约束</li>
-<li>互补松弛条件</li>
-<li>原约束</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>解决过拟合的一些方法</p>
-</li>
-<li><p>transformer</p>
-<ol>
-<li>模型过程</li>
-<li>讲一下注意力机制</li>
-</ol>
-</li>
-<li><p>项目内容</p>
-</li>
-<li><p>两道算法</p>
-<ol>
-<li>一个数组里面有一个数出现的次数大于等于数组长度的一半，找出这个数（空间复杂度O（1），时间复杂度O（n））</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> val: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>) &#123;</span><br><span class="line">                ans = val;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans==val)</span><br><span class="line">                    cnt++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>全排列</li>
-</ol>
-</li>
-</ol>
-<h2 id="蔚来"><a href="#蔚来" class="headerlink" title="蔚来"></a>蔚来</h2><ol>
-<li>attention和全连接的区别</li>
-<li>Vision transformer的位置编码具体实现</li>
-<li>注意力机制</li>
-<li>注意力机制为什么要除以d</li>
-<li>最新的前沿进展</li>
-<li>为什么注意力机制要生成q,k,v，单独一个不行吗</li>
-<li>项目中数据均衡是怎么做的</li>
-<li>算法题：马走遍所有的点有几种不同的途径</li>
-</ol>
-
-        </div>
-
-        
-            <div class="post-copyright-info">
-                <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：article</li>
-        <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-10-10 20:25:23</li>
-        <li>
-            Post link：https://yhg1010.github.io/2022/10/10/article/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-            </div>
-        
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/11/01/megvii/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">megvii</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/10/06/multi-ml/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">multi-ml</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
-        </div>
-        
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8E%86%E8%AE%BA%E6%96%87%E5%87%86%E5%A4%87"><span class="nav-text">简历论文准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><span class="nav-text">Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abstract"><span class="nav-text">abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#introduction"><span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#related-work"><span class="nav-text">related work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Agriculture-Vision-dataset"><span class="nav-text">Agriculture-Vision dataset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E8%8E%B7%E5%8F%96"><span class="nav-text">图像获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-text">图像预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%A0%87%E6%B3%A8"><span class="nav-text">图像标注</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%87%87%E6%A0%B7%E7%94%9F%E6%88%90"><span class="nav-text">图像采样生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">数据集统计数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConvNeXt"><span class="nav-text">ConvNeXt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swin-transformer"><span class="nav-text">swin-transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vision-transformer"><span class="nav-text">vision transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-Net"><span class="nav-text">U-Net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FCN"><span class="nav-text">FCN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1"><span class="nav-text">面试八股</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E9%A2%84%E6%83%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">一些预想的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-text">项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ocr"><span class="nav-text">ocr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E5%85%AB%E8%82%A1"><span class="nav-text">语言八股</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python%EF%BC%88python%E5%9F%BA%E7%A1%80%E5%92%8Cpytorch%EF%BC%89"><span class="nav-text">python（python基础和pytorch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-text">c++</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%AB%E8%82%A1"><span class="nav-text">机器学习八股</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B7%E8%A7%86%E9%9D%A2%E8%AF%95"><span class="nav-text">旷视面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%AC%E4%B8%9C%E9%9D%A2%E8%AF%95"><span class="nav-text">京东面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%94%9A%E6%9D%A5"><span class="nav-text">蔚来</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .page-main-content {
+  padding-top: $header-height;
+  position: relative;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .page-main-content {
+  padding-top: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: $z-index-5;
+  box-sizing: border-box;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top.hide {
+  transform: translateY(-105%);
+}
+.header-shrink .page-container .page-main-content .page-main-content-top {
+  height: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $component-spacing-value 0;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle .main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: $main-content-width;
+  max-width: $content-max-width;
+  height: 100%;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-bottom {
+  width: 100%;
+}
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  z-index: $z-index-6;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .post-tools {
+  position: fixed;
+  top: $header-height$component-spacing-value;
+  right: $component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .post-tools {
+  top: $header-shrink-height$component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.page-container .right-bottom-side-tools {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
 
 
 <script src="/js/utils.js"></script>

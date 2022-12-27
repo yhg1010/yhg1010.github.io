@@ -30,427 +30,96 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
-
-    
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                calcium_oxide&#39;s blogs
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/algorithm"
-                            >
-                                ALGORITHM
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/plan"
-                            >
-                                PLAN
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/algorithm">ALGORITHM</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/plan">PLAN</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">paper-reading03.md</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/image2.svg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">calcium_oxide</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-12-11 14:33:51</span>
-        <span class="mobile">2022-12-11 14:33</span>
-    </span>
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><a href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs" class="headerlink" title="Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"></a><strong>Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</strong></h1><p><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.06717" >论文地址<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/DingXiaoH/RepLKNet-pytorch" >代码地址<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="对一些传统认识的挑战"><a href="#对一些传统认识的挑战" class="headerlink" title="对一些传统认识的挑战"></a>对一些传统认识的挑战</h2><ol>
-<li>超大卷积不但不涨点，还会掉点？</li>
-</ol>
-<p>在现代CNNC设计加持下，kernel size越大越涨点</p>
-<ol start="2">
-<li>超大卷积效率很差？</li>
-</ol>
-<p>超大depth-wise卷积并不会增加多少FLOPs。如果再加点底层优化，速度会更快，31x31的计算密度最高可达3x3的70倍</p>
-<ol start="3">
-<li>imagenet点数很重要？</li>
-</ol>
-<p>下游任务的性能可能和imagenet关系不大</p>
-<ol start="4">
-<li>大卷积只能用在大feature map上？</li>
-</ol>
-<p>在7x7的feature map上用13x13的卷积都能涨点</p>
-<ol start="5">
-<li>超深CNN堆叠大量3x3，所以感受野很大？</li>
-</ol>
-<p>深层小kernel的有效感受野其实很小，反而少量超大的卷积核的有效感受野非常大</p>
-<ol start="6">
-<li>self-attention在下游任务中性能很好是因为self-attention本质更强？</li>
-</ol>
-<p>kernel size可能才是下游任务涨点的关键</p>
-<h2 id="提出在线代CNN中应用超大卷积核的五条准则"><a href="#提出在线代CNN中应用超大卷积核的五条准则" class="headerlink" title="提出在线代CNN中应用超大卷积核的五条准则"></a>提出在线代CNN中应用超大卷积核的五条准则</h2><ol>
-<li>用depth-wise超大卷积，最好再加底层优化</li>
-<li>加shortcut</li>
-<li>用小卷积核做重参数化</li>
-<li>要看下游任务的性能，不能只看ImageNet点数高低</li>
-<li>小feature map上也可以用大卷积，常规分辨率就能训大kernel模型</li>
-</ol>
-<h2 id="基于五条准则，提出一种架构RepLKNet"><a href="#基于五条准则，提出一种架构RepLKNet" class="headerlink" title="基于五条准则，提出一种架构RepLKNet"></a>基于五条准则，提出一种架构RepLKNet</h2><p>简单借鉴Swin Transformer的宏观架构，其中大量使用超大卷积，如27x27、31x31等。这一架构的其他部分非常简单，都是1x1卷积、Batch Norm等喜闻乐见的简单结构，不用任何attention。</p>
-<p><img src="/../pic/paper-reading03-1.png"></p>
-<h2 id="在各种下游任务上的效果"><a href="#在各种下游任务上的效果" class="headerlink" title="在各种下游任务上的效果"></a>在各种下游任务上的效果</h2><ol>
-<li>分类</li>
-</ol>
-<p>ImageNet上，与Swin-Base相当。在额外数据训练下，超大量级模型最高达到**87.8%**的正确率。超大卷积核本来不是为刷ImageNet设计的，这个点数也算是可以让人满意。</p>
-<p><img src="/../pic/paper-reading03-3.png"></p>
-<ol start="2">
-<li>语义分割</li>
-</ol>
-<p>Cityscapes语义分割上，仅用<strong>ImageNet-1K pretrain的RepLKNet-Base</strong>，甚至超过了<strong>ImageNet-22K pretrain的Swin-Large</strong>。这是<strong>跨模型量级、跨数据量级的超越</strong>。</p>
-<p><img src="/../pic/paper-reading03-4.png"></p>
-<p>ADE20K语义分割上，ImageNet-1K pretrain的模型大幅超过ResNet、ResNeSt等小kernel传统CNN。<strong>Base级别模型显著超过Swin</strong>，Large模型与Swin相当。超大量级模型达到<strong>56%的mIoU</strong>。</p>
-<p><img src="/../pic/paper-reading03-5.png"></p>
-<ol start="3">
-<li>目标检测</li>
-</ol>
-<p>COCO目标检测上，大幅超过同量级的传统模型ResNeXt-101（<strong>超了4.4的mAP</strong>），与Swin相当，在超大量级上达到<strong>55.5%的mAP</strong>。</p>
-<p><img src="/../pic/paper-reading03-6.png"></p>
-
-        </div>
-
-        
-            <div class="post-copyright-info">
-                <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：paper-reading03.md</li>
-        <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-12-11 14:33:51</li>
-        <li>
-            Post link：https://yhg1010.github.io/2022/12/11/paper-reading03-md/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-            </div>
-        
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/12/23/paper-reading04/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">paper-reading04</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/11/26/paper-reading02/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">paper-reading02</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
-        </div>
-        
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><span class="nav-text">Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BC%A0%E7%BB%9F%E8%AE%A4%E8%AF%86%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-text">对一些传统认识的挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%87%BA%E5%9C%A8%E7%BA%BF%E4%BB%A3CNN%E4%B8%AD%E5%BA%94%E7%94%A8%E8%B6%85%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8%E7%9A%84%E4%BA%94%E6%9D%A1%E5%87%86%E5%88%99"><span class="nav-text">提出在线代CNN中应用超大卷积核的五条准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%BA%94%E6%9D%A1%E5%87%86%E5%88%99%EF%BC%8C%E6%8F%90%E5%87%BA%E4%B8%80%E7%A7%8D%E6%9E%B6%E6%9E%84RepLKNet"><span class="nav-text">基于五条准则，提出一种架构RepLKNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%90%84%E7%A7%8D%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-text">在各种下游任务上的效果</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .page-main-content {
+  padding-top: $header-height;
+  position: relative;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .page-main-content {
+  padding-top: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: $z-index-5;
+  box-sizing: border-box;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top.hide {
+  transform: translateY(-105%);
+}
+.header-shrink .page-container .page-main-content .page-main-content-top {
+  height: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $component-spacing-value 0;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle .main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: $main-content-width;
+  max-width: $content-max-width;
+  height: 100%;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-bottom {
+  width: 100%;
+}
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  z-index: $z-index-6;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .post-tools {
+  position: fixed;
+  top: $header-height$component-spacing-value;
+  right: $component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .post-tools {
+  top: $header-shrink-height$component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.page-container .right-bottom-side-tools {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
 
 
 <script src="/js/utils.js"></script>

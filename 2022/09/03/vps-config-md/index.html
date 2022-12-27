@@ -30,485 +30,96 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
-
-    
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                calcium_oxide&#39;s blogs
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/algorithm"
-                            >
-                                ALGORITHM
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/plan"
-                            >
-                                PLAN
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/algorithm">ALGORITHM</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/plan">PLAN</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">vps_config.md</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/image2.svg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">calcium_oxide</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-09-03 10:38:02</span>
-        <span class="mobile">2022-09-03 10:38</span>
-    </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/s/">s</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-    
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   target="_blank" rel="noopener" href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
-
-<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
-<p>ubuntu安装命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
-
-<p>安装时腾讯云和阿里云要开启相应的端口</p>
-<p>选择安装LNMP套件</p>
-<p>宝塔找回账号密码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
-
-<p>查看账号并修改密码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
-
-<p>宝塔面板特色功能：</p>
-<p><img src="/../pic/baota_config1.png"></p>
-<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
-<ul>
-<li><p>域名：calciumoxide.xyz</p>
-</li>
-<li><p>博客地址：<a class="link"   target="_blank" rel="noopener" href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
-</li>
-<li><p>alist直链：alist.calciumoxide.xyz</p>
-</li>
-</ul>
-<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
-<p><img src="/../pic/cloudflare.png"></p>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
-<hr>
-<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
-
-<p><a class="link"   target="_blank" rel="noopener" href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
-
-<p>update apt and install some necessary packages</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
-
-<p>add docker’s official GPG key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
-
-<p>set up the repository</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
-
-<p>install docker engine</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<p>Verify successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
-
-<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   target="_blank" rel="noopener" href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
-<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config2.png"></p>
-<p>增加这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config3.png"></p>
-<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
-<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
-<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
-<p><img src="/../pic/aliyun_config1.jpg"></p>
-<p>按键盘上的“F12”键</p>
-<p><img src="/../pic/aliyun_config2.jpg"></p>
-<p>同时按键盘“Ctrl”+“R”两个键</p>
-<p><img src="/../pic/aliyun_config3.jpg"></p>
-<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
-<p><img src="/../pic/aliyun_config4.jpg"></p>
-<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
-<p><img src="/../pic/baidu_config1.jpg"></p>
-<p>通过<a class="link"   target="_blank" rel="noopener" href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
-<p><img src="/../pic/baidu_config2.jpg"></p>
-<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   target="_blank" rel="noopener" href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
-
-        </div>
-
-        
-            <div class="post-copyright-info">
-                <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：vps_config.md</li>
-        <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-09-03 10:38:02</li>
-        <li>
-            Post link：https://yhg1010.github.io/2022/09/03/vps-config-md/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-            </div>
-        
-
-        
-            <ul class="post-tags-box">
-                
-                    <li class="tag-item">
-                        <a href="/tags/s/">#s</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/09/07/nginx-config/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">nginx_config</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/09/02/network/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">network</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
-        </div>
-        
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-text">服务器配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%85%BE%E8%AE%AF%E4%BA%91"><span class="nav-text">腾讯云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%85%AC%E9%92%A5"><span class="nav-text">配置公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9D%E5%A1%94"><span class="nav-text">宝塔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#namesilo"><span class="nav-text">namesilo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cloudflare"><span class="nav-text">cloudflare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker"><span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alist%E9%85%8D%E7%BD%AE"><span class="nav-text">alist配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-engine%E5%AE%89%E8%A3%85"><span class="nav-text">docker engine安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose%E5%AE%89%E8%A3%85"><span class="nav-text">docker compose安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alist%E5%AE%89%E8%A3%85"><span class="nav-text">alist安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AF%86%E7%A0%81"><span class="nav-text">查看密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E8%AE%BF%E9%97%AE%E4%B8%8D%E4%BA%86%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%95%86%E5%92%8C%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BC%80%E6%94%BE%E5%AF%B9%E5%BA%94%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-text">遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8cloudflare%E4%B8%AD%E9%85%8D%E7%BD%AEDNS"><span class="nav-text">在cloudflare中配置DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%A1%B5%E9%9D%A2%E5%A2%9E%E5%8A%A0%E7%AB%99%E7%82%B9"><span class="nav-text">在宝塔页面增加站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-text">配置反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEalist"><span class="nav-text">访问alist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-text">添加本地存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0alist"><span class="nav-text">更新alist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E9%85%8D%E7%BD%AE"><span class="nav-text">阿里云盘配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E9%85%8D%E7%BD%AE"><span class="nav-text">百度网盘配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%B5%8Bping"><span class="nav-text">检测ping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ipv6-ss-config"><span class="nav-text">ipv6 ss config</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .page-main-content {
+  padding-top: $header-height;
+  position: relative;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .page-main-content {
+  padding-top: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: $z-index-5;
+  box-sizing: border-box;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-top.hide {
+  transform: translateY(-105%);
+}
+.header-shrink .page-container .page-main-content .page-main-content-top {
+  height: $header-shrink-height;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $component-spacing-value 0;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-middle .main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: $main-content-width;
+  max-width: $content-max-width;
+  height: 100%;
+keep-tablet()
+keep-mobile()
+}
+.page-container .page-main-content .page-main-content-bottom {
+  width: 100%;
+}
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  z-index: $z-index-6;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--background-color);
+keep-tablet()
+}
+.page-container .post-tools {
+  position: fixed;
+  top: $header-height$component-spacing-value;
+  right: $component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.header-shrink .page-container .post-tools {
+  top: $header-shrink-height$component-spacing-value;
+keep-tablet()
+keep-mobile()
+}
+.page-container .right-bottom-side-tools {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
 
 
 <script src="/js/utils.js"></script>
