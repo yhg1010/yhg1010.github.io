@@ -28,196 +28,477 @@
 
 
 <body>
-$temp-width = hexo-config('style.left_side_width');
-$page-aside-width = $temp-width ? convert($temp-width) : 260px;
+<div class="progress-bar-container">
+    
 
-.page-container {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  background: var(--background-color);
-  transition-t("padding-left", "0", "0.3", "ease-out");
+    
+</div>
 
 
-  +keep-tablet() {
-    padding-left: 0 !important;
-  }
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                calcium_oxide&#39;s blogs
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/algorithm"
+                            >
+                                ALGORITHM
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/plan"
+                            >
+                                PLAN
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/algorithm">ALGORITHM</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/plan">PLAN</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
 
 
-  .page-main-content {
-    padding-top: $header-height;
-    position: relative;
+        </div>
 
-    .header-shrink & {
-      padding-top: $header-shrink-height;
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/08/08/ucas_items/">
+                        ucas important items
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        国科大学生处联系方式：
+联系邮箱：xsc@ucas.edu.cn
+联系地址：北京市玉泉路19号甲
+邮政编码：100040
+
+常用校园网络资源
+迎新网
+
+国科大主页
+
+教育云平台
+
+招生信息网
+
+就业服务信息网
+
+综合信息网
+
+校园服务网
+
+IT服务网...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Aug 08 2022 16:20:18 GMT+0800">2022-08-08</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/08/08/ucas_items/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/23/go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        go学习笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        go简要教程go简要教程
+go生态拓展介绍go生态扩展
+go中的反射机制go中的反射机制
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 15:47:45 GMT+0800">2022-06-23</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/06/23/go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/">
+                        
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        道德经天地之始，万物之母道可道，非常道；名可名，非常名。所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。
+为而不恃，功成弗居故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Jun 10 2022 15:37:30 GMT+0800">2022-06-10</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/05/31/docker_config/">
+                        docker config
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        docker基础内容docker镜像制作为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器
+123456789#在Docker Engine中配置：&#123;  &quot;debug&quot;: true,  &quo...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue May 31 2022 15:38:44 GMT+0800">2022-05-31</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/05/31/docker_config/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/05/28/ict-share/">
+                        ict share
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        面试前
+越早投递约好
+确定目标
+确定城市
+确定投递岗位
+核心部门
 
 
-      +keep-tablet() {
-        padding-top: $header-shrink-height * 0.9;
-      }
+尽早实习、尽早参加提前批
+高质量的实习和项目经历很重要
+大厂和创业公司侧重点不同（大厂综合考量、创业公司细节）
+不相关的项目细节少一点，量化指标
 
-      +keep-mobile() {
-        padding-top: $header-shrink-height * 0.8;
-      }
-    }
+实习经验
+明确自身定位（是否适合...
+                    
+                </div>
 
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat May 28 2022 15:13:01 GMT+0800">2022-05-28</span></span>
+        
+        
+    </div>
 
-    +keep-tablet() {
-      padding-top: $header-height * 0.9;
-    }
+    <a href="/2022/05/28/ict-share/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
-    +keep-mobile() {
-      padding-top: $header-height * 0.8;
-    }
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/05/27/pre-plan-items/">
+                        pre plan items
+                    </a>
+                </h3>
 
-    .page-main-content-top {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: $header-height;
-      z-index: $z-index-5;
-      box-sizing: border-box;
-      transition-t("transform, padding-left, height", "0, 0, 0", "0.3, 0.2, 0.2", "ease-out, linear, ease");
+                <div class="home-article-content markdown-body">
+                    
+                        2022.3.31从今天开始使用md做计划，前一天做好下一天的计划，下一天结束进行该天总结并做之后一天的计划
+2022.4.1
+整理出PPT的思路框架
+看一下swim-transformer
+修改OCR+UPerNet
+一道题（清明假期前写完）
 
-      &.hide {
-        transform: translateY(-105%);
-      }
+s...
+                    
+                </div>
 
-      .header-shrink & {
-        height: $header-shrink-height;
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri May 27 2022 01:28:44 GMT+0800">2022-05-27</span></span>
+        
+        
+    </div>
 
-        +keep-tablet() {
-          height: $header-shrink-height * 0.9;
-        }
+    <a href="/2022/05/27/pre-plan-items/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-        +keep-mobile() {
-          height: $header-shrink-height * 0.8;
-        }
-      }
+            </li>
+        
+    </ul>
 
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/page/2/"
+        >Prev</a>
+    
 
-      +keep-tablet() {
-        height: $header-height * 0.9;
-        padding-left: 0 !important;
-      }
+    
+</div>
 
-
-      +keep-mobile() {
-        height: $header-height  * 0.8;
-      }
-
-    }
-
-
-    .page-main-content-middle {
-      box-sizing: border-box;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: $component-spacing-value 0;
-
-      +keep-tablet() {
-        padding: $component-spacing-value * 0.8 0;
-      }
-
-      +keep-mobile() {
-        padding: $component-spacing-value * 0.6 0;
-      }
-
-      .main-content {
-        position: relative;
-        box-sizing: border-box;
-        width: $main-content-width;
-        max-width: $content-max-width;
-        height: 100%;
-
-        +keep-tablet() {
-          width: $main-content-width-tablet;
-        }
-
-        +keep-mobile() {
-          width: $main-content-width-mobile;
-        }
-      }
-    }
+    </div>
+</div>
+<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
 
-    .page-main-content-bottom {
-      width: 100%;
-    }
-  }
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
 
 
-  .page-aside {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: - $page-aside-width;
-    width: $page-aside-width;
-    height: 100%;
-    z-index: $z-index-6;
-    overflow-y: auto;
-    padding: 20px;
-    box-sizing: border-box;
-    background: var(--background-color);
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
-    hover-style(false, 0, 0);
+    
 
-    transition-t("left, transform", "0, 0", "0.3, 0.2", "ease-out, linear");
-
-    +keep-tablet() {
-      left: 0 !important;
-      display: none !important;
-    }
-
-  }
-
-
-  .post-tools {
-    position: fixed;
-    top: $header-height + $component-spacing-value;
-    right: $component-spacing-value;
-    transition-t("top", "0", "0.2", "ease");
-
-    .header-shrink & {
-      top: $header-shrink-height + $component-spacing-value;
-
-      +keep-tablet() {
-        top: $header-shrink-height * 0.9 + $component-spacing-value;
-      }
-
-      +keep-mobile() {
-        top: $header-shrink-height * 0.8 + $component-spacing-value;
-      }
-    }
+</main>
 
 
-    +keep-tablet() {
-      top: $header-height * 0.9 + $component-spacing-value;
-      right: 10px;
-      transform: scale(0.82);
-      transform-origin: right top;
-    }
-
-
-    +keep-mobile() {
-      top: $header-height * 0.8 + $component-spacing-value;
-      right: 5px;
-      transform: scale(0.72);
-    }
-  }
-
-
-  .right-bottom-side-tools {
-    position: fixed;
-    bottom: 5%;
-    right: 0;
-  }
-}
 
 
 
