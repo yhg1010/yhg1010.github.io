@@ -570,6 +570,67 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> val: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>) &#123;</span><br><span class="line">                ans = val;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans==val)</span><br><span class="line">                    cnt++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
+
+<h1 id="卜算复习"><a href="#卜算复习" class="headerlink" title="卜算复习"></a>卜算复习</h1><h2 id="分治算法"><a href="#分治算法" class="headerlink" title="分治算法"></a>分治算法</h2><p>主定理：</p>
+<p><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242203933.png"></p>
+<ol>
+<li>归并排序</li>
+<li>逆序对个数</li>
+</ol>
+<p>在归并排序的基础上加上逆序对个数的计算</p>
+<img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242204522.png" style="zoom:50%;" />
+
+<img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242204523.png" style="zoom:50%;" />
+
+<p>排序的过程其实就是减少逆序对的过程，在中间记录了逆序对的个数就相当于记录了所有的逆序对个数</p>
+<ol start="3">
+<li>快速排序</li>
+</ol>
+<p>通过期望是可以得到快速排序的时间复杂度是$O(nlogn)$的</p>
+<ol start="4">
+<li>乘法问题</li>
+</ol>
+<p>Karatsuba </p>
+<p><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242204525.png"></p>
+<p>乘法问题可以对数进行数位拆分计算，可以降低复杂度。对于 n 很大时，Karatsuba 的算法效果是很明显的。但是当 n 的规模比较小时， 额外的移位和加法操作将使这个算法变慢。当使用快速傅立叶变换的技术，乘法时间 复杂度是 O(n log n) 。</p>
+<p><em>扩展除法：</em>（牛顿迭代法）</p>
+<img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242204526.png" style="zoom:50%;" />
+
+<img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202212242204527.png" style="zoom:50%;" />
+
+
+
+<ol start="5">
+<li>矩阵乘法</li>
+</ol>
+<p>Strassen 算法</p>
+<p>最原始的矩阵乘法的时间复杂度是$O(n^3)$</p>
+<img src="../pic/bu_review_6.png" style="zoom:50%;" />
+
+<ol start="6">
+<li>最近点对问题</li>
+</ol>
+<img src="../pic/bu_review_7.png" style="zoom:50%;" />
+
+<img src="../pic/bu_review_8.png" style="zoom:50%;" />
+
+<img src="../pic/bu_review_9.png" style="zoom:50%;" />
+
+<p>这里的解决方案其实就是分治，重点解决的部分是处在两个平面之间的点。算法提升的部分其实就是将每次递归中的排序换成归并排序中维持一个排序序列，合并的过程就是$O(n)$</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><ol>
+<li>矩阵链式乘法</li>
+</ol>
+<p>动态规划本质上是一个多步决策过程，每一步决策对应了多种情况，枚举所有情况观察子问题的形式就可以得到子问题的一般形式即递归表达式（是否满足最优子结构）</p>
+<ol start="2">
+<li><p>0&#x2F;1背包问题</p>
+</li>
+<li><p>序列的连配问题（有点类似编辑距离）</p>
+</li>
+<li><p>图上递归问题</p>
+</li>
+</ol>
+<p>贪心是动态规划的一个加强版本，是给定了一个特殊条件后不需要枚举的动态规划</p>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h2>
             
         </div>
         <div class="page-template-comments">

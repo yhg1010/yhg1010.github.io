@@ -9,7 +9,7 @@
     
     <title>
         
-            paper-reading02 |
+            paper-reading03.md |
         
         calcium_oxide&#39;s blogs
     </title>
@@ -150,7 +150,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">paper-reading02</span>
+            <span class="title-hover-animation">paper-reading03.md</span>
         </div>
 
         
@@ -169,8 +169,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-11-26 15:55:50</span>
-        <span class="mobile">2022-11-26 15:55</span>
+        <span class="pc">2022-12-11 14:33:51</span>
+        <span class="mobile">2022-12-11 14:33</span>
     </span>
     
     
@@ -187,22 +187,58 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
-<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
-<center>模型框架
-  
-</center>
-
-<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
-<p><img src="/../pic/paper-reading2_2.png"></p>
-<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
-<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
-<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
-<p><img src="/../pic/paper-reading2_4.png"></p>
-<p><img src="/../pic/paper-reading2_3.png"></p>
+            <h1 id="Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><a href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs" class="headerlink" title="Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"></a><strong>Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</strong></h1><p><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.06717" >论文地址<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/DingXiaoH/RepLKNet-pytorch" >代码地址<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="对一些传统认识的挑战"><a href="#对一些传统认识的挑战" class="headerlink" title="对一些传统认识的挑战"></a>对一些传统认识的挑战</h2><ol>
+<li>超大卷积不但不涨点，还会掉点？</li>
+</ol>
+<p>在现代CNNC设计加持下，kernel size越大越涨点</p>
+<ol start="2">
+<li>超大卷积效率很差？</li>
+</ol>
+<p>超大depth-wise卷积并不会增加多少FLOPs。如果再加点底层优化，速度会更快，31x31的计算密度最高可达3x3的70倍</p>
+<ol start="3">
+<li>imagenet点数很重要？</li>
+</ol>
+<p>下游任务的性能可能和imagenet关系不大</p>
+<ol start="4">
+<li>大卷积只能用在大feature map上？</li>
+</ol>
+<p>在7x7的feature map上用13x13的卷积都能涨点</p>
+<ol start="5">
+<li>超深CNN堆叠大量3x3，所以感受野很大？</li>
+</ol>
+<p>深层小kernel的有效感受野其实很小，反而少量超大的卷积核的有效感受野非常大</p>
+<ol start="6">
+<li>self-attention在下游任务中性能很好是因为self-attention本质更强？</li>
+</ol>
+<p>kernel size可能才是下游任务涨点的关键</p>
+<h2 id="提出在线代CNN中应用超大卷积核的五条准则"><a href="#提出在线代CNN中应用超大卷积核的五条准则" class="headerlink" title="提出在线代CNN中应用超大卷积核的五条准则"></a>提出在线代CNN中应用超大卷积核的五条准则</h2><ol>
+<li>用depth-wise超大卷积，最好再加底层优化</li>
+<li>加shortcut</li>
+<li>用小卷积核做重参数化</li>
+<li>要看下游任务的性能，不能只看ImageNet点数高低</li>
+<li>小feature map上也可以用大卷积，常规分辨率就能训大kernel模型</li>
+</ol>
+<h2 id="基于五条准则，提出一种架构RepLKNet"><a href="#基于五条准则，提出一种架构RepLKNet" class="headerlink" title="基于五条准则，提出一种架构RepLKNet"></a>基于五条准则，提出一种架构RepLKNet</h2><p>简单借鉴Swin Transformer的宏观架构，其中大量使用超大卷积，如27x27、31x31等。这一架构的其他部分非常简单，都是1x1卷积、Batch Norm等喜闻乐见的简单结构，不用任何attention。</p>
+<p><img src="/../pic/paper-reading03-1.png"></p>
+<h2 id="在各种下游任务上的效果"><a href="#在各种下游任务上的效果" class="headerlink" title="在各种下游任务上的效果"></a>在各种下游任务上的效果</h2><ol>
+<li>分类</li>
+</ol>
+<p>ImageNet上，与Swin-Base相当。在额外数据训练下，超大量级模型最高达到**87.8%**的正确率。超大卷积核本来不是为刷ImageNet设计的，这个点数也算是可以让人满意。</p>
+<p><img src="/../pic/paper-reading03-3.png"></p>
+<ol start="2">
+<li>语义分割</li>
+</ol>
+<p>Cityscapes语义分割上，仅用<strong>ImageNet-1K pretrain的RepLKNet-Base</strong>，甚至超过了<strong>ImageNet-22K pretrain的Swin-Large</strong>。这是<strong>跨模型量级、跨数据量级的超越</strong>。</p>
+<p><img src="/../pic/paper-reading03-4.png"></p>
+<p>ADE20K语义分割上，ImageNet-1K pretrain的模型大幅超过ResNet、ResNeSt等小kernel传统CNN。<strong>Base级别模型显著超过Swin</strong>，Large模型与Swin相当。超大量级模型达到<strong>56%的mIoU</strong>。</p>
+<p><img src="/../pic/paper-reading03-5.png"></p>
+<ol start="3">
+<li>目标检测</li>
+</ol>
+<p>COCO目标检测上，大幅超过同量级的传统模型ResNeXt-101（<strong>超了4.4的mAP</strong>），与Swin相当，在超大量级上达到<strong>55.5%的mAP</strong>。</p>
+<p><img src="/../pic/paper-reading03-6.png"></p>
 
         </div>
 
@@ -210,11 +246,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：paper-reading02</li>
+        <li>Post title：paper-reading03.md</li>
         <li>Post author：calcium_oxide</li>
-        <li>Create time：2022-11-26 15:55:50</li>
+        <li>Create time：2022-12-11 14:33:51</li>
         <li>
-            Post link：https://yhg1010.github.io/2022/11/26/paper-reading02/
+            Post link：https://yhg1010.github.io/2022/12/11/paper-reading03-md/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -233,13 +269,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/12/11/paper-reading03-md/"
+                           href="/2022/12/23/paper-reading04/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">paper-reading03.md</span>
+                                <span class="post-nav-title-item">paper-reading04</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -249,10 +285,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/11/19/weak-shot-learning/"
+                           href="/2022/11/26/paper-reading02/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">weak-shot-learning</span>
+                                <span class="post-nav-title-item">paper-reading02</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -370,7 +406,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><span class="nav-text">Per-Pixel Classification is Not All You Need for Semantic Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E8%83%8C%E6%99%AF"><span class="nav-text">任务背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="nav-text">方法介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><span class="nav-text">Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BC%A0%E7%BB%9F%E8%AE%A4%E8%AF%86%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-text">对一些传统认识的挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%87%BA%E5%9C%A8%E7%BA%BF%E4%BB%A3CNN%E4%B8%AD%E5%BA%94%E7%94%A8%E8%B6%85%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8%E7%9A%84%E4%BA%94%E6%9D%A1%E5%87%86%E5%88%99"><span class="nav-text">提出在线代CNN中应用超大卷积核的五条准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%BA%94%E6%9D%A1%E5%87%86%E5%88%99%EF%BC%8C%E6%8F%90%E5%87%BA%E4%B8%80%E7%A7%8D%E6%9E%B6%E6%9E%84RepLKNet"><span class="nav-text">基于五条准则，提出一种架构RepLKNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%90%84%E7%A7%8D%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-text">在各种下游任务上的效果</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

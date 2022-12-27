@@ -332,6 +332,16 @@
 <p>​		内部文档</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://megengine.megvii-inc.com/user-guide/install/index-internal.html</span><br></pre></td></tr></table></figure>
 
+<ol start="26">
+<li>保存本地修改文件并拉去更新远程最新分支</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git pull origin master</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+
+<ol start="27">
+<li>预训练模型权重</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/41</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -443,8 +453,56 @@ megbrain+meghair+megskull</p>
 <li><input checked="" disabled="" type="checkbox"> config文件里面backbone是哪个？</li>
 </ul>
 <h3 id="2022-12-08："><a href="#2022-12-08：" class="headerlink" title="2022.12.08："></a>2022.12.08：</h3><ul>
-<li><input disabled="" type="checkbox"> 扩展实验跑上</li>
+<li><input checked="" disabled="" type="checkbox"> 扩展实验跑上</li>
 </ul>
+<h3 id="2022-12-11："><a href="#2022-12-11：" class="headerlink" title="2022.12.11："></a>2022.12.11：</h3><p>总结一下过去一段时间做的实验：</p>
+<ol>
+<li><p>检测框去除</p>
+</li>
+<li><p>人体检测</p>
+</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 扩展数据集在人体数据集上的实验（100epoch）</li>
+</ul>
+<ol start="3">
+<li>人脸检测</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 在resnet130M上跑了两个proposal+baseline</li>
+<li><input checked="" disabled="" type="checkbox"> 在resnet100M上跑了两个proposal+baseline</li>
+<li><input checked="" disabled="" type="checkbox"> 扩展数据集上实验（100epoch）</li>
+</ul>
+<ol start="4">
+<li>宠物检测</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 在resnet130M上跑了两个proposal</li>
+<li><input checked="" disabled="" type="checkbox"> 在resnet100M上跑了两个proposal</li>
+<li><input checked="" disabled="" type="checkbox"> 生成proposal2的tracedmodule（用于模型手术）</li>
+<li><input checked="" disabled="" type="checkbox"> 在resnet100M上的proposal2宠物检测在七个BMK上的实验对比</li>
+</ul>
+<h3 id="2022-12-13"><a href="#2022-12-13" class="headerlink" title="2022.12.13:"></a>2022.12.13:</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 人脸的config传上分支</li>
+<li><input checked="" disabled="" type="checkbox"> 人体的换一个resnet260M跑一个实验看一下结果，data.yaml原数据去掉</li>
+</ul>
+<h3 id="2022-12-16："><a href="#2022-12-16：" class="headerlink" title="2022.12.16："></a>2022.12.16：</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 宠物100M models中head的numsconv置为0，看一下效果</li>
+<li><input checked="" disabled="" type="checkbox"> 人体比较security</li>
+</ul>
+<h3 id="2022-12-27"><a href="#2022-12-27" class="headerlink" title="2022.12.27:"></a>2022.12.27:</h3><ul>
+<li><input disabled="" type="checkbox"> 宠物换repvgg 110M跑一个实验</li>
+<li><input disabled="" type="checkbox"> 人体人脸上传git</li>
+<li><input disabled="" type="checkbox"> 人体人脸生成tracemodule</li>
+</ul>
+<p>目前在跑的实验：</p>
+<ol>
+<li>test1：宠物100M models中head的numsconv置为0（没训起来）重新把两个subnet去掉再跑一遍实验，效果不好（空闲）（占着六张卡），宠物暂时放一放（空闲）|人体训练数据将不符合条件的FP和无人体的数据去掉，跑一个resnet260M&#x2F;proposal1&#x2F;epoch100的实验（效果还可以，还是在权重0.3的情况下）（空闲）</li>
+<li>test3：human resnet260M&#x2F;proposal1&#x2F;epoch300看一下延长训练时长是否有效（有效果，提升三个点左右），提高FP权重（降低误检率）跑一下epoch100的结果对比一下（效果不错），继续提高FP的权重，提高到0.2跑一下epoch100实验（还有提升空间），提高了0.3再跑了一个实验（效果差了很多），筛掉不符合条件的数据后将FP权重调到0.2重新跑了一遍实验（效果没有提升），epoch提升到300跑一个实验</li>
+<li>test4：face resnet260M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不错）延长训练时长（300）再跑一遍，check一下FP数据（筛选出一批符合人脸实验的FP）（空闲）</li>
+<li>test5：face resnet130M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不行）延长训练时长（300）再跑一遍，看一下实验结果（结果不行，没学到东西）（空闲），跑一个加上筛选后的FP的resnet260M&#x2F;proposal1&#x2F;epoch100实验（效果也很好），提高一下FP权重跑一下实验（效果下降），跑了300epoch的加原权重的FP数据（效果下降），看了一下中间结果大概在200epoch的时候效果最好，（测试了一下中间200epoch时的结果还是比100轮降低了一些）将epoch调整为200在跑了一个实验（效果略有提升）（空闲）跑了宠物&#x2F;proposal1&#x2F;repvgg110M，</li>
+<li>test2：空闲</li>
+</ol>
 
         </div>
 
@@ -612,7 +670,7 @@ megbrain+meghair+megskull</p>
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Megvii%E5%AE%9E%E4%B9%A0"><span class="nav-text">Megvii实习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-text">一些常用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E8%81%8C%E5%AE%89%E6%8E%92"><span class="nav-text">入职安排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E5%BF%97"><span class="nav-text">实习日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-01%EF%BC%9A"><span class="nav-text">2022.11.01：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-02%EF%BC%9A"><span class="nav-text">2022.11.02：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-03%EF%BC%9A"><span class="nav-text">2022.11.03：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-04%EF%BC%9A"><span class="nav-text">2022.11.04：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-07"><span class="nav-text">2022.11.07:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-08%EF%BC%9A"><span class="nav-text">2022.11.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-09"><span class="nav-text">2022.11.09:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-10"><span class="nav-text">2022.11.10:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-11"><span class="nav-text">2022.11.11:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-12-2022-11-16%EF%BC%9A"><span class="nav-text">2022.11.12-2022.11.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-17%EF%BC%9A"><span class="nav-text">2022.11.17：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-18%EF%BC%9A"><span class="nav-text">2022.11.18：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-19%EF%BC%9A"><span class="nav-text">2022.11.19：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-21%EF%BC%9A"><span class="nav-text">2022.11.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-22%EF%BC%9A"><span class="nav-text">2022.11.22：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-29%EF%BC%9A"><span class="nav-text">2022.11.29：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-30"><span class="nav-text">2022.11.30:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-06"><span class="nav-text">2022.12.06:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-08%EF%BC%9A"><span class="nav-text">2022.12.08：</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Megvii%E5%AE%9E%E4%B9%A0"><span class="nav-text">Megvii实习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-text">一些常用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E8%81%8C%E5%AE%89%E6%8E%92"><span class="nav-text">入职安排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E5%BF%97"><span class="nav-text">实习日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-01%EF%BC%9A"><span class="nav-text">2022.11.01：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-02%EF%BC%9A"><span class="nav-text">2022.11.02：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-03%EF%BC%9A"><span class="nav-text">2022.11.03：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-04%EF%BC%9A"><span class="nav-text">2022.11.04：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-07"><span class="nav-text">2022.11.07:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-08%EF%BC%9A"><span class="nav-text">2022.11.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-09"><span class="nav-text">2022.11.09:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-10"><span class="nav-text">2022.11.10:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-11"><span class="nav-text">2022.11.11:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-12-2022-11-16%EF%BC%9A"><span class="nav-text">2022.11.12-2022.11.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-17%EF%BC%9A"><span class="nav-text">2022.11.17：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-18%EF%BC%9A"><span class="nav-text">2022.11.18：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-19%EF%BC%9A"><span class="nav-text">2022.11.19：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-21%EF%BC%9A"><span class="nav-text">2022.11.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-22%EF%BC%9A"><span class="nav-text">2022.11.22：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-29%EF%BC%9A"><span class="nav-text">2022.11.29：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-30"><span class="nav-text">2022.11.30:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-06"><span class="nav-text">2022.12.06:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-08%EF%BC%9A"><span class="nav-text">2022.12.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-11%EF%BC%9A"><span class="nav-text">2022.12.11：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-13"><span class="nav-text">2022.12.13:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-16%EF%BC%9A"><span class="nav-text">2022.12.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-27"><span class="nav-text">2022.12.27:</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
