@@ -342,6 +342,11 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/41</span><br></pre></td></tr></table></figure>
 
+<ol start="28">
+<li>检测模型矩阵</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/53</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -491,16 +496,16 @@ megbrain+meghair+megskull</p>
 <li><input checked="" disabled="" type="checkbox"> 人体比较security</li>
 </ul>
 <h3 id="2022-12-27"><a href="#2022-12-27" class="headerlink" title="2022.12.27:"></a>2022.12.27:</h3><ul>
-<li><input disabled="" type="checkbox"> 宠物换repvgg 110M跑一个实验</li>
-<li><input disabled="" type="checkbox"> 人体人脸上传git</li>
-<li><input disabled="" type="checkbox"> 人体人脸生成tracemodule</li>
+<li><input checked="" disabled="" type="checkbox"> 宠物换repvgg 110M跑一个实验</li>
+<li><input checked="" disabled="" type="checkbox"> 人体人脸上传git</li>
+<li><input checked="" disabled="" type="checkbox"> 人体人脸生成tracemodule</li>
 </ul>
 <p>目前在跑的实验：</p>
 <ol>
-<li>test1：宠物100M models中head的numsconv置为0（没训起来）重新把两个subnet去掉再跑一遍实验，效果不好（空闲）（占着六张卡），宠物暂时放一放（空闲）|人体训练数据将不符合条件的FP和无人体的数据去掉，跑一个resnet260M&#x2F;proposal1&#x2F;epoch100的实验（效果还可以，还是在权重0.3的情况下）（空闲）</li>
-<li>test3：human resnet260M&#x2F;proposal1&#x2F;epoch300看一下延长训练时长是否有效（有效果，提升三个点左右），提高FP权重（降低误检率）跑一下epoch100的结果对比一下（效果不错），继续提高FP的权重，提高到0.2跑一下epoch100实验（还有提升空间），提高了0.3再跑了一个实验（效果差了很多），筛掉不符合条件的数据后将FP权重调到0.2重新跑了一遍实验（效果没有提升），epoch提升到300跑一个实验</li>
-<li>test4：face resnet260M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不错）延长训练时长（300）再跑一遍，check一下FP数据（筛选出一批符合人脸实验的FP）（空闲）</li>
-<li>test5：face resnet130M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不行）延长训练时长（300）再跑一遍，看一下实验结果（结果不行，没学到东西）（空闲），跑一个加上筛选后的FP的resnet260M&#x2F;proposal1&#x2F;epoch100实验（效果也很好），提高一下FP权重跑一下实验（效果下降），跑了300epoch的加原权重的FP数据（效果下降），看了一下中间结果大概在200epoch的时候效果最好，（测试了一下中间200epoch时的结果还是比100轮降低了一些）将epoch调整为200在跑了一个实验（效果略有提升）（空闲）跑了宠物&#x2F;proposal1&#x2F;repvgg110M，</li>
+<li>test1：宠物100M models中head的numsconv置为0（没训起来）重新把两个subnet去掉再跑一遍实验，效果不好（空闲）（占着六张卡），宠物暂时放一放（空闲）|人体训练数据将不符合条件的FP和无人体的数据去掉，跑一个resnet260M&#x2F;proposal1&#x2F;epoch100的实验（效果还可以，还是在权重0.3的情况下），跑了一个resnet130M&#x2F;proposal1&#x2F;epoch100人脸实验（训崩了）（空闲）</li>
+<li>test3：human resnet260M&#x2F;proposal1&#x2F;epoch300看一下延长训练时长是否有效（有效果，提升三个点左右），提高FP权重（降低误检率）跑一下epoch100的结果对比一下（效果不错），继续提高FP的权重，提高到0.2跑一下epoch100实验（还有提升空间），提高了0.3再跑了一个实验（效果差了很多），筛掉不符合条件的数据后将FP权重调到0.2重新跑了一遍实验（效果没有提升），epoch提升到300跑一个实验（略有提升），跑一个repvgg160M看一下效果（差10个点左右）（空闲）</li>
+<li>test4：face resnet260M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不错）延长训练时长（300）再跑一遍，check一下FP数据（筛选出一批符合人脸实验的FP），跑了一个resnet130M&#x2F;proposal1&#x2F;epoch100的人体实验（掉点很多）（空闲）</li>
+<li>test5：face resnet130M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不行）延长训练时长（300）再跑一遍，看一下实验结果（结果不行，没学到东西）（空闲），跑一个加上筛选后的FP的resnet260M&#x2F;proposal1&#x2F;epoch100实验（效果也很好），提高一下FP权重跑一下实验（效果下降），跑了300epoch的加原权重的FP数据（效果下降），看了一下中间结果大概在200epoch的时候效果最好，（测试了一下中间200epoch时的结果还是比100轮降低了一些）将epoch调整为200在跑了一个实验（效果略有提升）（空闲）跑了宠物&#x2F;proposal1&#x2F;repvgg110M（低了30个点），修改了一下模型又跑一个实验（效果更差），human的FP降到最原始权重跑一个实验（效果更差）（空闲）</li>
 <li>test2：空闲</li>
 </ol>
 
@@ -584,7 +589,7 @@ megbrain+meghair+megskull</p>
               <span>2020</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">calcium_oxide</a>
         </div>
         
             <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

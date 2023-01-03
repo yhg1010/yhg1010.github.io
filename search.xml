@@ -103,7 +103,34 @@
 <li>直接根据子问题的解设计子问题的一般形式</li>
 <li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
 </ul>
-]]></content>
+<h1 id="作业复习"><a href="#作业复习" class="headerlink" title="作业复习"></a>作业复习</h1><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><ul>
+<li>两个集合的中位数</li>
+<li>左右孩子翻转</li>
+<li>越狱情况数</li>
+<li>二叉树任意两个结点的最大距离</li>
+<li>三路快排</li>
+<li>切绳子</li>
+</ul>
+<h2 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h2><ul>
+<li>抢劫金额最大</li>
+<li>丑数</li>
+<li>二叉搜索树的数目</li>
+<li>最大整除子集长度</li>
+<li>非负数组符号和为目标数的方法数（0-1背包）</li>
+<li>股票买卖</li>
+<li>回文子串的个数</li>
+<li>单词转换所需要的最少操作数</li>
+</ul>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><ul>
+<li>填充道路</li>
+<li>数组中的数字构成最小整数</li>
+<li>会议室安排</li>
+<li>删除k个数字得到的数最大</li>
+<li>是否可以到达最终的位置</li>
+<li>交换数字索引得到最大值</li>
+<li>最大极差和</li>
+</ul>
+<h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2>]]></content>
   </entry>
   <entry>
     <title>article_learning</title>
@@ -2160,6 +2187,11 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/41</span><br></pre></td></tr></table></figure>
 
+<ol start="28">
+<li>检测模型矩阵</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/53</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2309,16 +2341,16 @@ megbrain+meghair+megskull</p>
 <li><input checked="" disabled="" type="checkbox"> 人体比较security</li>
 </ul>
 <h3 id="2022-12-27"><a href="#2022-12-27" class="headerlink" title="2022.12.27:"></a>2022.12.27:</h3><ul>
-<li><input disabled="" type="checkbox"> 宠物换repvgg 110M跑一个实验</li>
-<li><input disabled="" type="checkbox"> 人体人脸上传git</li>
-<li><input disabled="" type="checkbox"> 人体人脸生成tracemodule</li>
+<li><input checked="" disabled="" type="checkbox"> 宠物换repvgg 110M跑一个实验</li>
+<li><input checked="" disabled="" type="checkbox"> 人体人脸上传git</li>
+<li><input checked="" disabled="" type="checkbox"> 人体人脸生成tracemodule</li>
 </ul>
 <p>目前在跑的实验：</p>
 <ol>
-<li>test1：宠物100M models中head的numsconv置为0（没训起来）重新把两个subnet去掉再跑一遍实验，效果不好（空闲）（占着六张卡），宠物暂时放一放（空闲）|人体训练数据将不符合条件的FP和无人体的数据去掉，跑一个resnet260M&#x2F;proposal1&#x2F;epoch100的实验（效果还可以，还是在权重0.3的情况下）（空闲）</li>
-<li>test3：human resnet260M&#x2F;proposal1&#x2F;epoch300看一下延长训练时长是否有效（有效果，提升三个点左右），提高FP权重（降低误检率）跑一下epoch100的结果对比一下（效果不错），继续提高FP的权重，提高到0.2跑一下epoch100实验（还有提升空间），提高了0.3再跑了一个实验（效果差了很多），筛掉不符合条件的数据后将FP权重调到0.2重新跑了一遍实验（效果没有提升），epoch提升到300跑一个实验</li>
-<li>test4：face resnet260M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不错）延长训练时长（300）再跑一遍，check一下FP数据（筛选出一批符合人脸实验的FP）（空闲）</li>
-<li>test5：face resnet130M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不行）延长训练时长（300）再跑一遍，看一下实验结果（结果不行，没学到东西）（空闲），跑一个加上筛选后的FP的resnet260M&#x2F;proposal1&#x2F;epoch100实验（效果也很好），提高一下FP权重跑一下实验（效果下降），跑了300epoch的加原权重的FP数据（效果下降），看了一下中间结果大概在200epoch的时候效果最好，（测试了一下中间200epoch时的结果还是比100轮降低了一些）将epoch调整为200在跑了一个实验（效果略有提升）（空闲）跑了宠物&#x2F;proposal1&#x2F;repvgg110M，</li>
+<li>test1：宠物100M models中head的numsconv置为0（没训起来）重新把两个subnet去掉再跑一遍实验，效果不好（空闲）（占着六张卡），宠物暂时放一放（空闲）|人体训练数据将不符合条件的FP和无人体的数据去掉，跑一个resnet260M&#x2F;proposal1&#x2F;epoch100的实验（效果还可以，还是在权重0.3的情况下），跑了一个resnet130M&#x2F;proposal1&#x2F;epoch100人脸实验（训崩了）（空闲）</li>
+<li>test3：human resnet260M&#x2F;proposal1&#x2F;epoch300看一下延长训练时长是否有效（有效果，提升三个点左右），提高FP权重（降低误检率）跑一下epoch100的结果对比一下（效果不错），继续提高FP的权重，提高到0.2跑一下epoch100实验（还有提升空间），提高了0.3再跑了一个实验（效果差了很多），筛掉不符合条件的数据后将FP权重调到0.2重新跑了一遍实验（效果没有提升），epoch提升到300跑一个实验（略有提升），跑一个repvgg160M看一下效果（差10个点左右）（空闲）</li>
+<li>test4：face resnet260M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不错）延长训练时长（300）再跑一遍，check一下FP数据（筛选出一批符合人脸实验的FP），跑了一个resnet130M&#x2F;proposal1&#x2F;epoch100的人体实验（掉点很多）（空闲）</li>
+<li>test5：face resnet130M&#x2F;proposal1&#x2F;epoch100（去掉所有FP）（跑完效果不行）延长训练时长（300）再跑一遍，看一下实验结果（结果不行，没学到东西）（空闲），跑一个加上筛选后的FP的resnet260M&#x2F;proposal1&#x2F;epoch100实验（效果也很好），提高一下FP权重跑一下实验（效果下降），跑了300epoch的加原权重的FP数据（效果下降），看了一下中间结果大概在200epoch的时候效果最好，（测试了一下中间200epoch时的结果还是比100轮降低了一些）将epoch调整为200在跑了一个实验（效果略有提升）（空闲）跑了宠物&#x2F;proposal1&#x2F;repvgg110M（低了30个点），修改了一下模型又跑一个实验（效果更差），human的FP降到最原始权重跑一个实验（效果更差）（空闲）</li>
 <li>test2：空闲</li>
 </ol>
 ]]></content>
