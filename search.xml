@@ -2192,6 +2192,21 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://fr-discourse.megvii-inc.com/t/topic/12860/53</span><br></pre></td></tr></table></figure>
 
+<ol start="29">
+<li>dpflow</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/843</span><br></pre></td></tr></table></figure>
+
+<ol start="30">
+<li>ads</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">http://brain-sdk.pages-git-core.megvii-inc.com/ads/</span><br></pre></td></tr></table></figure>
+
+<ol start="31">
+<li>basedet环境配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 配置megbrain环境</span><br><span class="line">pip3 install megbrain==8.16.0+cu111（版本根据要求选择）（cuda根据要求选择）</span><br><span class="line">2. 配置basedet环境</span><br><span class="line">git <span class="built_in">clone</span> git@git-core.megvii-inc.com:base-detection/basedet.git</span><br><span class="line"><span class="built_in">cd</span> basedet</span><br><span class="line">python3 -m pip install -r requirements.txt</span><br><span class="line">python3 -m pip install pre-commit</span><br><span class="line">pre-commit install</span><br><span class="line">python3 -m pip install -v -e .</span><br><span class="line">3. 如果出现跑不了的问题，大概率是megbrain版本不匹配</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -3081,6 +3096,63 @@ megbrain+meghair+megskull</p>
 </ol>
 <p>COCO目标检测上，大幅超过同量级的传统模型ResNeXt-101（<strong>超了4.4的mAP</strong>），与Swin相当，在超大量级上达到<strong>55.5%的mAP</strong>。</p>
 <p><img src="/../pic/paper-reading03-6.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>megvii-humanSEG</title>
+    <url>/2023/01/09/megvii-humanSEG/</url>
+    <content><![CDATA[<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><ol>
+<li>实例分割？</li>
+<li>95% 能分割出来人形，多人可以分割开90%（最终目标？）</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>megvii-fieldSEG</title>
+    <url>/2023/01/09/megvii-fieldSEG/</url>
+    <content><![CDATA[<h1 id="地面标定"><a href="#地面标定" class="headerlink" title="地面标定"></a>地面标定</h1><h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><ol>
+<li>miu miubd?</li>
+<li>数据集情况就是文档上的吗，有补充数据集吗</li>
+<li>只对室内场景进行分割？</li>
+<li>交付物是模型和PPL，这些也是我的任务吗</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>paper-reading05</title>
+    <url>/2023/01/09/paper-reading05/</url>
+    <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
+<p>代码地址：<a class="link"   href="https://github.com/huawei-noah/CV-Backbones" >https://github.com/huawei-noah/CV-Backbones<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>在视觉任务中，CNNs，Transformer，MLP都取得了很好的效果。CNNs利用了平移不变性和局部性使用滑动窗口提取特征。Transformer和MLP将将图像视为一系列的patches。上述的考虑都是基于规则网格或序列表示，本文尝试一种更灵活的图结构。计算机视觉的一个基本任务是识别图像中的物体，由于对象通常不是规则的方形，而以往的网络如ResNet和ViT中常用的网格或序列结构往往会造成冗余，难以处理这些不规则对象。图是一种广义的数据结构，网格和序列可以看作是图的一种特殊情况。将图像视为图形对于视觉感知来说更加灵活和有效。本文基于图像的图表示提出了vision graph neural network，首次将图神经网络用于视觉任务，同时能取得很好的效果。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="/../pic/paper-reading05_1.png"></p>
+<ol>
+<li>对图像的图表示</li>
+</ol>
+<p>对于一张图片，首先将图片划分为N个patch，然后将进行特征变换得到每一个patch对应的特征。这些特性可以看作是一组无序的节点，表示为V&#x3D;[v1,…,vN]。对于每一个节点vi找到穷最近的K个邻居N_vi，然后加入一条有向边eji从vj到vi。因此就得到了一个图结构G&#x3D;（V，E），其中E表示所有的边集合。通过将图像视为图数据，因此可以利用GCN提取其表征。</p>
+<ol start="2">
+<li>图层次的处理</li>
+</ol>
+<p>图卷积层通过聚合相邻节点的特征来实现节点之间的信息交换。具体来说，聚合运算是通过聚合邻居节点的特征来计算节点的表示。更进一步，引入了多头注意力。将聚集特征分成h个头，然后分别用不同的权重更新这些头。多头更新操作使模型能够在多个表示子空间中更新信息，有利于特征的多样性。</p>
+<ol start="3">
+<li>ViG block</li>
+</ol>
+<p>本文在图卷积前后应用线性层，将节点特征投影到同一个域，增加特征多样性。在图卷积后插入一个非线性激活函数以避免层坍塌。我们称升级后的模块为Grapher模块。为了进一步提高特征转换能力和缓解过平滑现象，在每个节点上使用前馈网络(FFN)。FFN模块是一个简单的多层感知器，有两个完全连接的层。由Grapher模块和FFN模块叠加而成的ViG块是构成网络的基本构建单元。因此构建面向视觉任务的ViG网络。与ResGCN相比，ViG随着层的深入能够保持特征多样性，学习出判别性的表征。</p>
+<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><ol>
+<li>各向同性架构</li>
+</ol>
+<p>各向同性架构意味着主体在整个网络中具有大小和形状相同的特征，如ViT和ResMLP。本文构建了三种不同模型尺寸的各向同性ViG架构，分别为ViG-ti、S和B，节点数设为N &#x3D;196。为了逐渐扩大接收场，这三种模型中随着层深的增加，邻居节点数K从9线性增加到18。头的数量默认设置为h &#x3D; 4。</p>
+<ol start="2">
+<li>金字塔架构</li>
+</ol>
+<p>金字塔架构考虑了图像的多尺度特性，即随着层越深提取空间尺寸越小的特征，如ResNet和PVT。经验证据表明，金字塔结构对视觉任务是有效的。因此，本文利用先进的设计和建立了四个版本的金字塔ViG模型。</p>
+<ol start="3">
+<li>位置编码</li>
+</ol>
+<p>为了表示节点的位置信息，在每个节点特征中添加一个位置编码向量。对于金字塔ViG，进一步使用Swin Transformer等高级设计，例如相对位置编码。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/../pic/paper-reading05_2.png"></p>
+<p><img src="/../pic/paper-reading05_3.png"></p>
+<h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
+<p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
 ]]></content>
   </entry>
 </search>
