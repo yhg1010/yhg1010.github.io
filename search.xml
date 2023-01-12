@@ -1,6 +1,407 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>algorithm_bu</title>
+    <url>/2022/08/30/algorithm_bu/</url>
+    <content><![CDATA[<h1 id="卜东波——计算机算法设计与分析"><a href="#卜东波——计算机算法设计与分析" class="headerlink" title="卜东波——计算机算法设计与分析"></a>卜东波——计算机算法设计与分析</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 建模、算法设计、分析完整流程 10学时 卜东波</span><br><span class="line">第1节 掌握从问题出发的算法建模方法</span><br><span class="line">第2节 掌握算法设计的基本思路和流程图</span><br><span class="line">第3节 掌握算法的时间复杂度和空间复杂度分析的方法</span><br><span class="line">第4节 理解GCD问题和TSP问题中不同算法的应用</span><br><span class="line">第二章 分而治之 10学时 卜东波</span><br><span class="line">第1节 掌握分而治之算法的基本思路</span><br><span class="line">第2节 掌握分而治之算法的正确证明</span><br><span class="line">第3节 掌握递归算法的时间复杂度分析</span><br><span class="line">第4节 掌握MergerSort、CountingInversion、ClosetPair、Multipliacation、FFT等使用分而治之思路算法</span><br><span class="line">第5节 掌握分而治之算法和随机化的结合，例如QuickSort、QuickSelect等</span><br><span class="line">第三章 动态规划部分 10学时 卜东波</span><br><span class="line">第1节 掌握动态规划算法的基本思路</span><br><span class="line">第2节 掌握如何定义子问题，如何发现最优子结构的性质</span><br><span class="line">第3节 掌握动态规划算法的应用实例，包括矩阵链式乘法、字符串匹配、最短路径、IntervalScheduling</span><br><span class="line">第4节 理解高级动态规划的优化方法和思路</span><br><span class="line">第四章 贪心算法 10学时 卜东波</span><br><span class="line">第1节 掌握贪心算法的思路</span><br><span class="line">第2节 掌握贪心算法中贪心规则的设计原则和方法等</span><br><span class="line">第3节 掌握动态规划和贪心算法的关系</span><br><span class="line">第4节 掌握BELLMAN_FORD算法和DIJKSTRA算法解决Single Source Shortest Paths问题</span><br><span class="line">第5节 掌握BinomialHeap、FibinacciHeap等数据结构</span><br><span class="line">第五章 线性规划及其对偶 10学时 卜东波</span><br><span class="line">第1节 掌握线性规划的不同形式</span><br><span class="line">第2节 掌握线性规划的建模思路和方法</span><br><span class="line">第3节 掌握线性规划的单纯形法、Interior Point算法等</span><br><span class="line">第4节 线性规划的Lagrangian对偶</span><br><span class="line">第六章 网络流及其应用 10学时 卜东波</span><br><span class="line">第1节 掌握最大流问题的Ford-Fulkerson算法和最大流最小割定理</span><br><span class="line">第2节 掌握Ford-Fulkerson算法和最大流最小割定理的对偶问题角度理解</span><br><span class="line">第3节 掌握最大流问题的有效算法</span><br><span class="line">第4节 掌握最大流问题的扩展</span><br></pre></td></tr></table></figure>
+
+<h2 id="lecture1"><a href="#lecture1" class="headerlink" title="lecture1"></a>lecture1</h2><h3 id="一些推荐的书"><a href="#一些推荐的书" class="headerlink" title="一些推荐的书"></a>一些推荐的书</h3><ul>
+<li>《怎样思维》</li>
+<li>《程序设计的艺术》</li>
+</ul>
+<h3 id="所有的算法可以归纳为三种"><a href="#所有的算法可以归纳为三种" class="headerlink" title="所有的算法可以归纳为三种"></a>所有的算法可以归纳为三种</h3><ul>
+<li>分而治之 | 一个大问题可以分成更小的子问题</li>
+<li>改进 | 一个原始的完整解，不断地逐步改进</li>
+<li>聪明地枚举 | 通过构建一个局部解的树来枚举所有可能的完全解</li>
+</ul>
+<h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><p>从最简单的情形做起，要分支、要归纳、要聪明地枚举、搜索要剪概率有力量</p>
+<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><hr>
+<p>分而治之：</p>
+<ul>
+<li>最简单的case</li>
+<li>复杂一点的case是否可以分解成小问题<ul>
+<li>是否能分解成子问题：<ul>
+<li>INPUT DS</li>
+<li>OUTPUT DS</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>改进：</p>
+<ul>
+<li>完整解通过一些扰动成为另一个解</li>
+</ul>
+<p><img src="/../pic/bu_lect_1.png"></p>
+<p>聪明地枚举</p>
+<ul>
+<li>剪枝</li>
+</ul>
+<h3 id="TAKE-HOME-MSG"><a href="#TAKE-HOME-MSG" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>手足无措时从最简单的case做起</li>
+<li>理性地探索</li>
+<li>精确值难求的时候，估计之</li>
+<li>找准难点，变形做相关问题</li>
+</ul>
+<h2 id="lecture5"><a href="#lecture5" class="headerlink" title="lecture5"></a>lecture5</h2><p>分治和复杂度分析</p>
+<hr>
+<h3 id="递归问题的复杂度分析"><a href="#递归问题的复杂度分析" class="headerlink" title="递归问题的复杂度分析"></a>递归问题的复杂度分析</h3><p><img src="/../pic/bu_lect5_1.png"></p>
+<p>for example:</p>
+<p><img src="/../pic/bu_lect5_2.png"></p>
+<p><img src="/../pic/bu_lect5_3.png"></p>
+<h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><p><img src="/../pic/bu_lect5_4.png"></p>
+<h3 id="TAKE-HOME-MSG-1"><a href="#TAKE-HOME-MSG-1" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>把大问题分解成小问题时，分得越匀越好（指数下降）</li>
+<li>如果子问题解无结构，可能会导致问题，千方百计引入结构</li>
+<li>先尝试baseline方法，看问题所在（逆序数个数中分治的齐缝元素比较）</li>
+</ul>
+<h3 id="quicksort"><a href="#quicksort" class="headerlink" title="quicksort"></a>quicksort</h3><p>$$<br>\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}&#x3D;logn<br>$$</p>
+<p>找出第k大的元素：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用分治来解决，时间复杂度可以达到O（N）。</span><br><span class="line">在快排的基础上还是分成两个集合，只不过区别在于快排是两个集合都要递归，分治只要递归其中一个集合。</span><br></pre></td></tr></table></figure>
+
+<p>Google对页面排序：</p>
+<p>重要的页面：常常被重要的页面引用的页面很重要（鸡生蛋，蛋生鸡问题）</p>
+<p>解决循环：</p>
+<ul>
+<li>跟着循环走，观察规律</li>
+<li>打破循环</li>
+</ul>
+<p>在子集中寻找第K大个元素（通过打破循环来找到pilot元素，从而在O（N）复杂度内实现）</p>
+<p>关键：-》找到A中第n&#x2F;4，n&#x2F;4+1，3n&#x2F;4个大的-》找A的采样中的第r&#x2F;4，3r&#x2F;4个</p>
+<p><img src="/../pic/algorithm3_1.png"></p>
+<h3 id="TAKE-HOME-MSG-2"><a href="#TAKE-HOME-MSG-2" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>解决循环问题的两个办法</li>
+<li>快排的分析</li>
+</ul>
+<h2 id="lecture5-1"><a href="#lecture5-1" class="headerlink" title="lecture5"></a>lecture5</h2><p>FFT：已知多项式的系数、求多项式的值</p>
+<p>特定的n个点：<br>$$<br>\omega^1, \omega^2…\omega^{n-1}<br>$$<br>去掉冗余，O(n^2)-&gt;O(nlogn)</p>
+<p>IFFT</p>
+<p>实际应用：计算两个多项式的乘积</p>
+<p>先用FFT计算几个点的值，然后再计算这些点的乘积，再用IFFT计算对应的多项式的系数</p>
+<h2 id="lecture6"><a href="#lecture6" class="headerlink" title="lecture6"></a>lecture6</h2><p>DP的求解过程：多步决策过程（优化问题）</p>
+<h3 id="TAKE-HOME-MSG-3"><a href="#TAKE-HOME-MSG-3" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>何时用动态规划，一定是个最优化问题</li>
+<li>解是啥？解能否用多步决策过程一步一步构造出来</li>
+</ul>
+<h2 id="lecture1011"><a href="#lecture1011" class="headerlink" title="lecture1011"></a>lecture1011</h2><ul>
+<li>矩阵相乘的最少计算数</li>
+<li>背包问题</li>
+<li>编辑距离</li>
+</ul>
+<h3 id="TAKE-HOME-MSG-4"><a href="#TAKE-HOME-MSG-4" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>每一个多决策问题都可以表示为一个DP</li>
+<li>多选一型vs二选一型决策</li>
+<li>决策顺序怎么定</li>
+</ul>
+<h2 id="lecture1025"><a href="#lecture1025" class="headerlink" title="lecture1025"></a>lecture1025</h2><h3 id="TAKE-HOME-MSG-5"><a href="#TAKE-HOME-MSG-5" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>多步决策，第一步决策，从中间开始省内存，省时间</li>
+<li>如何计算第一步决策，最优决策项？最优决策项有递归关系</li>
+<li>DP也可以用NN近似，不精确不要紧</li>
+<li>label不好算？让NN满足Bellman方程</li>
+</ul>
+<h2 id="lecture1101"><a href="#lecture1101" class="headerlink" title="lecture1101"></a>lecture1101</h2><h3 id="TAKE-HOME-MSG-6"><a href="#TAKE-HOME-MSG-6" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>直接根据子问题的解设计子问题的一般形式</li>
+<li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
+</ul>
+<h1 id="作业复习"><a href="#作业复习" class="headerlink" title="作业复习"></a>作业复习</h1><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><ul>
+<li>两个集合的中位数</li>
+<li>左右孩子翻转</li>
+<li>越狱情况数</li>
+<li>二叉树任意两个结点的最大距离</li>
+<li>三路快排</li>
+<li>切绳子</li>
+</ul>
+<h2 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h2><ul>
+<li>抢劫金额最大</li>
+<li>丑数</li>
+<li>二叉搜索树的数目</li>
+<li>最大整除子集长度</li>
+<li>非负数组符号和为目标数的方法数（0-1背包）</li>
+<li>股票买卖</li>
+<li>回文子串的个数</li>
+<li>单词转换所需要的最少操作数</li>
+</ul>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><ul>
+<li>填充道路</li>
+<li>数组中的数字构成最小整数</li>
+<li>会议室安排</li>
+<li>删除k个数字得到的数最大</li>
+<li>是否可以到达最终的位置</li>
+<li>交换数字索引得到最大值</li>
+<li>最大极差和</li>
+</ul>
+<h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2>]]></content>
+  </entry>
+  <entry>
+    <title>article_learning</title>
+    <url>/2022/09/09/article-learning/</url>
+    <content><![CDATA[<h1 id="学术写作"><a href="#学术写作" class="headerlink" title="学术写作"></a>学术写作</h1><h2 id="论文结构"><a href="#论文结构" class="headerlink" title="论文结构"></a>论文结构</h2><ul>
+<li>前置<ul>
+<li>题目（一句话文摘，反映论文特点的词语的逻辑组合，目的、方法、结果，或精髓或悬疑、具体准确简练，首字母大写，名词短语）</li>
+<li>署名</li>
+<li>摘要</li>
+<li>关键词（目的是编制索引，分配评阅人，反映学科方向，标识同行，通用性、学术性）</li>
+</ul>
+</li>
+<li>主体<ul>
+<li>引言</li>
+<li>方法</li>
+<li>结果</li>
+<li>结论</li>
+</ul>
+</li>
+<li>结尾<ul>
+<li>致谢</li>
+<li>参考文献</li>
+<li>附录</li>
+</ul>
+</li>
+</ul>
+<h2 id="总体流程"><a href="#总体流程" class="headerlink" title="总体流程"></a>总体流程</h2><ol>
+<li>整理结果</li>
+<li>筛选结果、确定卖点</li>
+<li>搭建框架（规划章节、选择标题、简单展开）</li>
+<li>撰写主体部分</li>
+<li>反复修改（重写引言）</li>
+<li>撰写其他部分</li>
+</ol>
+<hr>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>充分反映研究的亮点，拥有与论文等量的主要信息</li>
+<li>陈述问题，弱化背景、意义</li>
+<li>方法：思路和诀窍，弱化</li>
+<li>结果：是重点部分</li>
+<li>讨论：结论和价值</li>
+<li>简明扼要<ul>
+<li>侧重陈述问题与重要结果</li>
+<li>忘掉方法细节</li>
+<li>避免一般性陈述和细节性问题</li>
+</ul>
+</li>
+<li>建议使用纯文本</li>
+</ul>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
+<li>目的：让人明白你解决了一个重要问题，定位是大同行能懂</li>
+<li>核心任务：定义问题（清晰、必要）<ul>
+<li>领域背景：语境、代入</li>
+<li>领域现状：提共性需求</li>
+<li>问题凝练</li>
+<li>挑战（△）</li>
+</ul>
+</li>
+<li>思路（△）</li>
+<li>贡献（结果、结论、技术创新（△））</li>
+<li>文章结构（△）</li>
+</ul>
+<h3 id="引言清单"><a href="#引言清单" class="headerlink" title="引言清单"></a>引言清单</h3><ul>
+<li><strong>问题</strong>（重点）</li>
+<li>方法（△）</li>
+<li>结果</li>
+<li>结论</li>
+</ul>
+<h3 id="提问题的常见思路"><a href="#提问题的常见思路" class="headerlink" title="提问题的常见思路"></a>提问题的常见思路</h3><ul>
+<li>破：质疑现有工作的基本假设，釜底抽薪</li>
+<li>立：研究别人忽略的方面，提新问题</li>
+<li>补：揭示现有工作的Gap，逐步改良<ul>
+<li>前后呼应</li>
+</ul>
+</li>
+</ul>
+<h3 id="文章范例"><a href="#文章范例" class="headerlink" title="文章范例"></a>文章范例</h3>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/article_example.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h3 id="引言写作小窍门"><a href="#引言写作小窍门" class="headerlink" title="引言写作小窍门"></a>引言写作小窍门</h3><ul>
+<li>自成体系</li>
+<li>精雕细琢：评阅人重点看的部分</li>
+<li>用准确而直观的陈述（使用行业术语，避免公式）</li>
+<li>不介绍常识，不提及细节</li>
+<li>背景简洁、问题清晰</li>
+<li>客观委婉地分析现有工作</li>
+<li>有时候领域现状在introduction外自成一章</li>
+</ul>
+<hr>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>怎么做的</li>
+<li>主要表现形式<ul>
+<li>系统</li>
+<li>算法</li>
+<li>证明</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><ul>
+<li>发现了什么</li>
+<li>实验性结果：细分成两个部分<ul>
+<li>报告实验结果：客观、详细、完整</li>
+<li>点评实验数据（也可以放在讨论部分）</li>
+</ul>
+</li>
+<li>理论性结果<ul>
+<li>算法分析</li>
+<li>定理、推论</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法和结果总体规范"><a href="#方法和结果总体规范" class="headerlink" title="方法和结果总体规范"></a>方法和结果总体规范</h3><ul>
+<li>自上而下，主线清晰</li>
+<li>划分章节、有层次感</li>
+<li>图文并茂、直观明了</li>
+<li>隔离细节、重点突出<ul>
+<li>繁琐的证明或陈述之前，提供梗概或基本思路，辅助理解</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ul>
+<li>意味着什么</li>
+<li>是对整个文章的总结</li>
+<li>内容清单<ul>
+<li>目标完成情况（首尾呼应）</li>
+<li>对结果做出解释、并进行综合、推理和归纳，反映事物内在联系</li>
+<li>与其他研究结果比较，提出导致新结果的可能原因</li>
+<li>分析本次研究的不足，提出开放问题和未来研究方向</li>
+<li>讨论应用价值和影响</li>
+</ul>
+</li>
+<li>只有这里才可以有主观性的话</li>
+</ul>
+<hr>
+<h2 id="论文的沙漏模型"><a href="#论文的沙漏模型" class="headerlink" title="论文的沙漏模型"></a>论文的沙漏模型</h2><ul>
+<li>由广泛性陈述开始</li>
+<li>逐渐集中到主题</li>
+<li>以概括性结论结尾</li>
+</ul>
+<h2 id="插图"><a href="#插图" class="headerlink" title="插图"></a>插图</h2><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>目的是准确表达概念或关系</li>
+<li>建议慎用</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li>描述</li>
+<li>解释</li>
+<li>分析、验证<ul>
+<li>对不对</li>
+<li>快不快</li>
+<li>好不好</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
+<li>文本：适用于描述简单算法</li>
+<li>流程图：适用于表达算法逻辑<ul>
+<li>单独描述细节</li>
+</ul>
+</li>
+<li>伪代码</li>
+</ul>
+<img src="../pic/code1.png" style="zoom:50%;" />
+
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><ul>
+<li>目的：数据汇总</li>
+<li>组成<ul>
+<li>表格：2维，呈现数据</li>
+<li>标题</li>
+<li>注释</li>
+</ul>
+</li>
+<li>必要性（如果文字更适合未必用表格，数据量小、规律明显、冗余太多）</li>
+<li>优化（简洁、清晰（自己的结果放在最后，特殊字体）、自明（在标题&#x2F;附注中提供足够信息）、美观（同类同列，多留空白，允许缩写、三线表））</li>
+</ul>
+<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
+<li>组成<ul>
+<li>图形</li>
+<li>图例</li>
+<li>标题</li>
+</ul>
+</li>
+<li>必要性（用文字表达更合适，未必用图）</li>
+<li>优化</li>
+</ul>
+<p>图表规范：</p>
+<ul>
+<li><p>X轴是自变量</p>
+</li>
+<li><p>Y轴是函数</p>
+</li>
+<li><p>标明轴的含义</p>
+</li>
+<li><p>选择刻度</p>
+<ul>
+<li>起始刻度</li>
+<li>二级刻度</li>
+</ul>
+</li>
+<li><p>一图多线</p>
+<ul>
+<li>采用不同线型</li>
+<li>适宜黑白打印</li>
+</ul>
+</li>
+<li><p>在曲线上直接标出重要位置</p>
+</li>
+</ul>
+<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><ul>
+<li>时序、逻辑关系的示意图</li>
+<li>刻画体系结构、算法、网络等</li>
+<li>原则：抓住关键、屏蔽细节</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
+<li>展示结果</li>
+<li>增加可信度</li>
+<li>结合定量分析</li>
+</ul>
+<h3 id="图或表？"><a href="#图或表？" class="headerlink" title="图或表？"></a>图或表？</h3><ul>
+<li>表：严格数值</li>
+<li>图：变化趋势</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>尽量不使用别人的图和表（PS也不可以）</li>
+<li>不要堆砌插图</li>
+<li>只要能清楚、友好的表达，就是好方法</li>
+</ul>
+<h2 id="引证与署名"><a href="#引证与署名" class="headerlink" title="引证与署名"></a>引证与署名</h2><h3 id="引证的方式"><a href="#引证的方式" class="headerlink" title="引证的方式"></a>引证的方式</h3><ul>
+<li>主要出现在引言中，有时单独成节（related work）<ul>
+<li>问题相关、方法相关、结果相关</li>
+</ul>
+</li>
+<li>转述：用自己的话陈述被引文献中的内容<ul>
+<li>是最主要的方式</li>
+<li>注明偏差</li>
+</ul>
+</li>
+<li>直引：使用文献中的原始语句<ul>
+<li>极力避免，即使是自己以前的文章也不好</li>
+<li>直引规范：当直接引用的文字较少时，使用双引号</li>
+<li>当直引的文字太长，则不用双引号，而独立成段落，将文段左缩进5个字符</li>
+<li>无论哪种，都可以使用省略号省去部分内容</li>
+</ul>
+</li>
+<li>原则：<ul>
+<li>相关</li>
+<li>公开（未经同行评议的文献不行）</li>
+<li>全面</li>
+<li>统一</li>
+</ul>
+</li>
+</ul>
+<h3 id="some-cases"><a href="#some-cases" class="headerlink" title="some cases"></a>some cases</h3><p><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711278.png"></p>
+<p>注意事项：</p>
+<ul>
+<li>防止隐性抄袭</li>
+<li>Excluding references之惑</li>
+<li>双盲评审</li>
+<li>高度重视，经常是大坑</li>
+</ul>
+<h3 id="署名"><a href="#署名" class="headerlink" title="署名"></a>署名</h3><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711279.png" style="zoom: 33%;" />
+]]></content>
+  </entry>
+  <entry>
     <title>article</title>
     <url>/2022/10/10/article/</url>
     <content><![CDATA[<h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
@@ -573,275 +974,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>article_learning</title>
-    <url>/2022/09/09/article-learning/</url>
-    <content><![CDATA[<h1 id="学术写作"><a href="#学术写作" class="headerlink" title="学术写作"></a>学术写作</h1><h2 id="论文结构"><a href="#论文结构" class="headerlink" title="论文结构"></a>论文结构</h2><ul>
-<li>前置<ul>
-<li>题目（一句话文摘，反映论文特点的词语的逻辑组合，目的、方法、结果，或精髓或悬疑、具体准确简练，首字母大写，名词短语）</li>
-<li>署名</li>
-<li>摘要</li>
-<li>关键词（目的是编制索引，分配评阅人，反映学科方向，标识同行，通用性、学术性）</li>
-</ul>
-</li>
-<li>主体<ul>
-<li>引言</li>
-<li>方法</li>
-<li>结果</li>
-<li>结论</li>
-</ul>
-</li>
-<li>结尾<ul>
-<li>致谢</li>
-<li>参考文献</li>
-<li>附录</li>
-</ul>
-</li>
-</ul>
-<h2 id="总体流程"><a href="#总体流程" class="headerlink" title="总体流程"></a>总体流程</h2><ol>
-<li>整理结果</li>
-<li>筛选结果、确定卖点</li>
-<li>搭建框架（规划章节、选择标题、简单展开）</li>
-<li>撰写主体部分</li>
-<li>反复修改（重写引言）</li>
-<li>撰写其他部分</li>
-</ol>
-<hr>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>充分反映研究的亮点，拥有与论文等量的主要信息</li>
-<li>陈述问题，弱化背景、意义</li>
-<li>方法：思路和诀窍，弱化</li>
-<li>结果：是重点部分</li>
-<li>讨论：结论和价值</li>
-<li>简明扼要<ul>
-<li>侧重陈述问题与重要结果</li>
-<li>忘掉方法细节</li>
-<li>避免一般性陈述和细节性问题</li>
-</ul>
-</li>
-<li>建议使用纯文本</li>
-</ul>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
-<li>目的：让人明白你解决了一个重要问题，定位是大同行能懂</li>
-<li>核心任务：定义问题（清晰、必要）<ul>
-<li>领域背景：语境、代入</li>
-<li>领域现状：提共性需求</li>
-<li>问题凝练</li>
-<li>挑战（△）</li>
-</ul>
-</li>
-<li>思路（△）</li>
-<li>贡献（结果、结论、技术创新（△））</li>
-<li>文章结构（△）</li>
-</ul>
-<h3 id="引言清单"><a href="#引言清单" class="headerlink" title="引言清单"></a>引言清单</h3><ul>
-<li><strong>问题</strong>（重点）</li>
-<li>方法（△）</li>
-<li>结果</li>
-<li>结论</li>
-</ul>
-<h3 id="提问题的常见思路"><a href="#提问题的常见思路" class="headerlink" title="提问题的常见思路"></a>提问题的常见思路</h3><ul>
-<li>破：质疑现有工作的基本假设，釜底抽薪</li>
-<li>立：研究别人忽略的方面，提新问题</li>
-<li>补：揭示现有工作的Gap，逐步改良<ul>
-<li>前后呼应</li>
-</ul>
-</li>
-</ul>
-<h3 id="文章范例"><a href="#文章范例" class="headerlink" title="文章范例"></a>文章范例</h3>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/article_example.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-<h3 id="引言写作小窍门"><a href="#引言写作小窍门" class="headerlink" title="引言写作小窍门"></a>引言写作小窍门</h3><ul>
-<li>自成体系</li>
-<li>精雕细琢：评阅人重点看的部分</li>
-<li>用准确而直观的陈述（使用行业术语，避免公式）</li>
-<li>不介绍常识，不提及细节</li>
-<li>背景简洁、问题清晰</li>
-<li>客观委婉地分析现有工作</li>
-<li>有时候领域现状在introduction外自成一章</li>
-</ul>
-<hr>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>怎么做的</li>
-<li>主要表现形式<ul>
-<li>系统</li>
-<li>算法</li>
-<li>证明</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><ul>
-<li>发现了什么</li>
-<li>实验性结果：细分成两个部分<ul>
-<li>报告实验结果：客观、详细、完整</li>
-<li>点评实验数据（也可以放在讨论部分）</li>
-</ul>
-</li>
-<li>理论性结果<ul>
-<li>算法分析</li>
-<li>定理、推论</li>
-</ul>
-</li>
-</ul>
-<h3 id="方法和结果总体规范"><a href="#方法和结果总体规范" class="headerlink" title="方法和结果总体规范"></a>方法和结果总体规范</h3><ul>
-<li>自上而下，主线清晰</li>
-<li>划分章节、有层次感</li>
-<li>图文并茂、直观明了</li>
-<li>隔离细节、重点突出<ul>
-<li>繁琐的证明或陈述之前，提供梗概或基本思路，辅助理解</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ul>
-<li>意味着什么</li>
-<li>是对整个文章的总结</li>
-<li>内容清单<ul>
-<li>目标完成情况（首尾呼应）</li>
-<li>对结果做出解释、并进行综合、推理和归纳，反映事物内在联系</li>
-<li>与其他研究结果比较，提出导致新结果的可能原因</li>
-<li>分析本次研究的不足，提出开放问题和未来研究方向</li>
-<li>讨论应用价值和影响</li>
-</ul>
-</li>
-<li>只有这里才可以有主观性的话</li>
-</ul>
-<hr>
-<h2 id="论文的沙漏模型"><a href="#论文的沙漏模型" class="headerlink" title="论文的沙漏模型"></a>论文的沙漏模型</h2><ul>
-<li>由广泛性陈述开始</li>
-<li>逐渐集中到主题</li>
-<li>以概括性结论结尾</li>
-</ul>
-<h2 id="插图"><a href="#插图" class="headerlink" title="插图"></a>插图</h2><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ul>
-<li>目的是准确表达概念或关系</li>
-<li>建议慎用</li>
-</ul>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
-<li>描述</li>
-<li>解释</li>
-<li>分析、验证<ul>
-<li>对不对</li>
-<li>快不快</li>
-<li>好不好</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
-<li>文本：适用于描述简单算法</li>
-<li>流程图：适用于表达算法逻辑<ul>
-<li>单独描述细节</li>
-</ul>
-</li>
-<li>伪代码</li>
-</ul>
-<img src="../pic/code1.png" style="zoom:50%;" />
-
-<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><ul>
-<li>目的：数据汇总</li>
-<li>组成<ul>
-<li>表格：2维，呈现数据</li>
-<li>标题</li>
-<li>注释</li>
-</ul>
-</li>
-<li>必要性（如果文字更适合未必用表格，数据量小、规律明显、冗余太多）</li>
-<li>优化（简洁、清晰（自己的结果放在最后，特殊字体）、自明（在标题&#x2F;附注中提供足够信息）、美观（同类同列，多留空白，允许缩写、三线表））</li>
-</ul>
-<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
-<li>组成<ul>
-<li>图形</li>
-<li>图例</li>
-<li>标题</li>
-</ul>
-</li>
-<li>必要性（用文字表达更合适，未必用图）</li>
-<li>优化</li>
-</ul>
-<p>图表规范：</p>
-<ul>
-<li><p>X轴是自变量</p>
-</li>
-<li><p>Y轴是函数</p>
-</li>
-<li><p>标明轴的含义</p>
-</li>
-<li><p>选择刻度</p>
-<ul>
-<li>起始刻度</li>
-<li>二级刻度</li>
-</ul>
-</li>
-<li><p>一图多线</p>
-<ul>
-<li>采用不同线型</li>
-<li>适宜黑白打印</li>
-</ul>
-</li>
-<li><p>在曲线上直接标出重要位置</p>
-</li>
-</ul>
-<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><ul>
-<li>时序、逻辑关系的示意图</li>
-<li>刻画体系结构、算法、网络等</li>
-<li>原则：抓住关键、屏蔽细节</li>
-</ul>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
-<li>展示结果</li>
-<li>增加可信度</li>
-<li>结合定量分析</li>
-</ul>
-<h3 id="图或表？"><a href="#图或表？" class="headerlink" title="图或表？"></a>图或表？</h3><ul>
-<li>表：严格数值</li>
-<li>图：变化趋势</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>尽量不使用别人的图和表（PS也不可以）</li>
-<li>不要堆砌插图</li>
-<li>只要能清楚、友好的表达，就是好方法</li>
-</ul>
-<h2 id="引证与署名"><a href="#引证与署名" class="headerlink" title="引证与署名"></a>引证与署名</h2><h3 id="引证的方式"><a href="#引证的方式" class="headerlink" title="引证的方式"></a>引证的方式</h3><ul>
-<li>主要出现在引言中，有时单独成节（related work）<ul>
-<li>问题相关、方法相关、结果相关</li>
-</ul>
-</li>
-<li>转述：用自己的话陈述被引文献中的内容<ul>
-<li>是最主要的方式</li>
-<li>注明偏差</li>
-</ul>
-</li>
-<li>直引：使用文献中的原始语句<ul>
-<li>极力避免，即使是自己以前的文章也不好</li>
-<li>直引规范：当直接引用的文字较少时，使用双引号</li>
-<li>当直引的文字太长，则不用双引号，而独立成段落，将文段左缩进5个字符</li>
-<li>无论哪种，都可以使用省略号省去部分内容</li>
-</ul>
-</li>
-<li>原则：<ul>
-<li>相关</li>
-<li>公开（未经同行评议的文献不行）</li>
-<li>全面</li>
-<li>统一</li>
-</ul>
-</li>
-</ul>
-<h3 id="some-cases"><a href="#some-cases" class="headerlink" title="some cases"></a>some cases</h3><p><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711278.png"></p>
-<p>注意事项：</p>
-<ul>
-<li>防止隐性抄袭</li>
-<li>Excluding references之惑</li>
-<li>双盲评审</li>
-<li>高度重视，经常是大坑</li>
-</ul>
-<h3 id="署名"><a href="#署名" class="headerlink" title="署名"></a>署名</h3><img src="https://gitee.com/calcium-oxide/typora_pic/raw/master/typora/202210081711279.png" style="zoom: 33%;" />
-]]></content>
-  </entry>
-  <entry>
     <title>docker config</title>
     <url>/2022/05/31/docker_config/</url>
     <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
@@ -908,138 +1040,6 @@
 
 <p>执行<strong>docker build -t [镜像名称] .</strong> 完成进行制作。</p>
 <h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2>]]></content>
-  </entry>
-  <entry>
-    <title>algorithm_bu</title>
-    <url>/2022/08/30/algorithm_bu/</url>
-    <content><![CDATA[<h1 id="卜东波——计算机算法设计与分析"><a href="#卜东波——计算机算法设计与分析" class="headerlink" title="卜东波——计算机算法设计与分析"></a>卜东波——计算机算法设计与分析</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 建模、算法设计、分析完整流程 10学时 卜东波</span><br><span class="line">第1节 掌握从问题出发的算法建模方法</span><br><span class="line">第2节 掌握算法设计的基本思路和流程图</span><br><span class="line">第3节 掌握算法的时间复杂度和空间复杂度分析的方法</span><br><span class="line">第4节 理解GCD问题和TSP问题中不同算法的应用</span><br><span class="line">第二章 分而治之 10学时 卜东波</span><br><span class="line">第1节 掌握分而治之算法的基本思路</span><br><span class="line">第2节 掌握分而治之算法的正确证明</span><br><span class="line">第3节 掌握递归算法的时间复杂度分析</span><br><span class="line">第4节 掌握MergerSort、CountingInversion、ClosetPair、Multipliacation、FFT等使用分而治之思路算法</span><br><span class="line">第5节 掌握分而治之算法和随机化的结合，例如QuickSort、QuickSelect等</span><br><span class="line">第三章 动态规划部分 10学时 卜东波</span><br><span class="line">第1节 掌握动态规划算法的基本思路</span><br><span class="line">第2节 掌握如何定义子问题，如何发现最优子结构的性质</span><br><span class="line">第3节 掌握动态规划算法的应用实例，包括矩阵链式乘法、字符串匹配、最短路径、IntervalScheduling</span><br><span class="line">第4节 理解高级动态规划的优化方法和思路</span><br><span class="line">第四章 贪心算法 10学时 卜东波</span><br><span class="line">第1节 掌握贪心算法的思路</span><br><span class="line">第2节 掌握贪心算法中贪心规则的设计原则和方法等</span><br><span class="line">第3节 掌握动态规划和贪心算法的关系</span><br><span class="line">第4节 掌握BELLMAN_FORD算法和DIJKSTRA算法解决Single Source Shortest Paths问题</span><br><span class="line">第5节 掌握BinomialHeap、FibinacciHeap等数据结构</span><br><span class="line">第五章 线性规划及其对偶 10学时 卜东波</span><br><span class="line">第1节 掌握线性规划的不同形式</span><br><span class="line">第2节 掌握线性规划的建模思路和方法</span><br><span class="line">第3节 掌握线性规划的单纯形法、Interior Point算法等</span><br><span class="line">第4节 线性规划的Lagrangian对偶</span><br><span class="line">第六章 网络流及其应用 10学时 卜东波</span><br><span class="line">第1节 掌握最大流问题的Ford-Fulkerson算法和最大流最小割定理</span><br><span class="line">第2节 掌握Ford-Fulkerson算法和最大流最小割定理的对偶问题角度理解</span><br><span class="line">第3节 掌握最大流问题的有效算法</span><br><span class="line">第4节 掌握最大流问题的扩展</span><br></pre></td></tr></table></figure>
-
-<h2 id="lecture1"><a href="#lecture1" class="headerlink" title="lecture1"></a>lecture1</h2><h3 id="一些推荐的书"><a href="#一些推荐的书" class="headerlink" title="一些推荐的书"></a>一些推荐的书</h3><ul>
-<li>《怎样思维》</li>
-<li>《程序设计的艺术》</li>
-</ul>
-<h3 id="所有的算法可以归纳为三种"><a href="#所有的算法可以归纳为三种" class="headerlink" title="所有的算法可以归纳为三种"></a>所有的算法可以归纳为三种</h3><ul>
-<li>分而治之 | 一个大问题可以分成更小的子问题</li>
-<li>改进 | 一个原始的完整解，不断地逐步改进</li>
-<li>聪明地枚举 | 通过构建一个局部解的树来枚举所有可能的完全解</li>
-</ul>
-<h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><p>从最简单的情形做起，要分支、要归纳、要聪明地枚举、搜索要剪概率有力量</p>
-<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><hr>
-<p>分而治之：</p>
-<ul>
-<li>最简单的case</li>
-<li>复杂一点的case是否可以分解成小问题<ul>
-<li>是否能分解成子问题：<ul>
-<li>INPUT DS</li>
-<li>OUTPUT DS</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>改进：</p>
-<ul>
-<li>完整解通过一些扰动成为另一个解</li>
-</ul>
-<p><img src="/../pic/bu_lect_1.png"></p>
-<p>聪明地枚举</p>
-<ul>
-<li>剪枝</li>
-</ul>
-<h3 id="TAKE-HOME-MSG"><a href="#TAKE-HOME-MSG" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>手足无措时从最简单的case做起</li>
-<li>理性地探索</li>
-<li>精确值难求的时候，估计之</li>
-<li>找准难点，变形做相关问题</li>
-</ul>
-<h2 id="lecture5"><a href="#lecture5" class="headerlink" title="lecture5"></a>lecture5</h2><p>分治和复杂度分析</p>
-<hr>
-<h3 id="递归问题的复杂度分析"><a href="#递归问题的复杂度分析" class="headerlink" title="递归问题的复杂度分析"></a>递归问题的复杂度分析</h3><p><img src="/../pic/bu_lect5_1.png"></p>
-<p>for example:</p>
-<p><img src="/../pic/bu_lect5_2.png"></p>
-<p><img src="/../pic/bu_lect5_3.png"></p>
-<h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><p><img src="/../pic/bu_lect5_4.png"></p>
-<h3 id="TAKE-HOME-MSG-1"><a href="#TAKE-HOME-MSG-1" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>把大问题分解成小问题时，分得越匀越好（指数下降）</li>
-<li>如果子问题解无结构，可能会导致问题，千方百计引入结构</li>
-<li>先尝试baseline方法，看问题所在（逆序数个数中分治的齐缝元素比较）</li>
-</ul>
-<h3 id="quicksort"><a href="#quicksort" class="headerlink" title="quicksort"></a>quicksort</h3><p>$$<br>\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}&#x3D;logn<br>$$</p>
-<p>找出第k大的元素：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用分治来解决，时间复杂度可以达到O（N）。</span><br><span class="line">在快排的基础上还是分成两个集合，只不过区别在于快排是两个集合都要递归，分治只要递归其中一个集合。</span><br></pre></td></tr></table></figure>
-
-<p>Google对页面排序：</p>
-<p>重要的页面：常常被重要的页面引用的页面很重要（鸡生蛋，蛋生鸡问题）</p>
-<p>解决循环：</p>
-<ul>
-<li>跟着循环走，观察规律</li>
-<li>打破循环</li>
-</ul>
-<p>在子集中寻找第K大个元素（通过打破循环来找到pilot元素，从而在O（N）复杂度内实现）</p>
-<p>关键：-》找到A中第n&#x2F;4，n&#x2F;4+1，3n&#x2F;4个大的-》找A的采样中的第r&#x2F;4，3r&#x2F;4个</p>
-<p><img src="/../pic/algorithm3_1.png"></p>
-<h3 id="TAKE-HOME-MSG-2"><a href="#TAKE-HOME-MSG-2" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>解决循环问题的两个办法</li>
-<li>快排的分析</li>
-</ul>
-<h2 id="lecture5-1"><a href="#lecture5-1" class="headerlink" title="lecture5"></a>lecture5</h2><p>FFT：已知多项式的系数、求多项式的值</p>
-<p>特定的n个点：<br>$$<br>\omega^1, \omega^2…\omega^{n-1}<br>$$<br>去掉冗余，O(n^2)-&gt;O(nlogn)</p>
-<p>IFFT</p>
-<p>实际应用：计算两个多项式的乘积</p>
-<p>先用FFT计算几个点的值，然后再计算这些点的乘积，再用IFFT计算对应的多项式的系数</p>
-<h2 id="lecture6"><a href="#lecture6" class="headerlink" title="lecture6"></a>lecture6</h2><p>DP的求解过程：多步决策过程（优化问题）</p>
-<h3 id="TAKE-HOME-MSG-3"><a href="#TAKE-HOME-MSG-3" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>何时用动态规划，一定是个最优化问题</li>
-<li>解是啥？解能否用多步决策过程一步一步构造出来</li>
-</ul>
-<h2 id="lecture1011"><a href="#lecture1011" class="headerlink" title="lecture1011"></a>lecture1011</h2><ul>
-<li>矩阵相乘的最少计算数</li>
-<li>背包问题</li>
-<li>编辑距离</li>
-</ul>
-<h3 id="TAKE-HOME-MSG-4"><a href="#TAKE-HOME-MSG-4" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>每一个多决策问题都可以表示为一个DP</li>
-<li>多选一型vs二选一型决策</li>
-<li>决策顺序怎么定</li>
-</ul>
-<h2 id="lecture1025"><a href="#lecture1025" class="headerlink" title="lecture1025"></a>lecture1025</h2><h3 id="TAKE-HOME-MSG-5"><a href="#TAKE-HOME-MSG-5" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>多步决策，第一步决策，从中间开始省内存，省时间</li>
-<li>如何计算第一步决策，最优决策项？最优决策项有递归关系</li>
-<li>DP也可以用NN近似，不精确不要紧</li>
-<li>label不好算？让NN满足Bellman方程</li>
-</ul>
-<h2 id="lecture1101"><a href="#lecture1101" class="headerlink" title="lecture1101"></a>lecture1101</h2><h3 id="TAKE-HOME-MSG-6"><a href="#TAKE-HOME-MSG-6" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>直接根据子问题的解设计子问题的一般形式</li>
-<li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
-</ul>
-<h1 id="作业复习"><a href="#作业复习" class="headerlink" title="作业复习"></a>作业复习</h1><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><ul>
-<li>两个集合的中位数</li>
-<li>左右孩子翻转</li>
-<li>越狱情况数</li>
-<li>二叉树任意两个结点的最大距离</li>
-<li>三路快排</li>
-<li>切绳子</li>
-</ul>
-<h2 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h2><ul>
-<li>抢劫金额最大</li>
-<li>丑数</li>
-<li>二叉搜索树的数目</li>
-<li>最大整除子集长度</li>
-<li>非负数组符号和为目标数的方法数（0-1背包）</li>
-<li>股票买卖</li>
-<li>回文子串的个数</li>
-<li>单词转换所需要的最少操作数</li>
-</ul>
-<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><ul>
-<li>填充道路</li>
-<li>数组中的数字构成最小整数</li>
-<li>会议室安排</li>
-<li>删除k个数字得到的数最大</li>
-<li>是否可以到达最终的位置</li>
-<li>交换数字索引得到最大值</li>
-<li>最大极差和</li>
-</ul>
-<h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2>]]></content>
   </entry>
   <entry>
     <title>ever</title>
@@ -1320,350 +1320,6 @@
 <img src="../pic/machine3_1.png" style="zoom: 50%;" />
 
 <img src="../pic/machine3_2.png" style="zoom:50%;" />
-]]></content>
-  </entry>
-  <entry>
-    <title>matrix</title>
-    <url>/2022/11/05/matrix/</url>
-    <content><![CDATA[<h1 id="矩阵分析与应用"><a href="#矩阵分析与应用" class="headerlink" title="矩阵分析与应用"></a>矩阵分析与应用</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="/../pic/matrix_1.png"></p>
-<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="高斯消元法"><a href="#高斯消元法" class="headerlink" title="高斯消元法"></a>高斯消元法</h3><ol>
-<li>三种线性变换</li>
-</ol>
-<ul>
-<li>交换两行</li>
-<li>对某一行乘上一个非零系数</li>
-<li>对某一行加上另一行乘以一个非零系数</li>
-</ul>
-<ol start="2">
-<li>对于一个nxn的矩阵进行高斯消元法（反向替换）需要的操作数</li>
-</ol>
-<p>$\frac{n^3}{3}个乘法操作和\frac{n^3}{3}个加法操作$</p>
-<ol start="3">
-<li>Gauss-Jordan方法</li>
-</ol>
-<p>与标准的Gaussian消元法的区别：</p>
-<ul>
-<li>所有的主元都为1</li>
-<li>除了主元其他元素都为0</li>
-</ul>
-<p>复杂度和标准Gaussian消元法相同</p>
-<ol start="4">
-<li><p>部分主元法和完全主元法</p>
-<ol>
-<li>部分主元法：</li>
-</ol>
-<ul>
-<li>主元位置的元素为主元所在列的最大的一个值</li>
-</ul>
-<ol start="2">
-<li>完全主元法：</li>
-</ol>
-<ul>
-<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
-</ul>
-</li>
-<li><p>病态系统</p>
-</li>
-</ol>
-<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
-<hr>
-<ol start="6">
-<li>modified gaussian elimination</li>
-</ol>
-<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
-<ol start="7">
-<li>矩阵的秩的定义</li>
-</ol>
-<ul>
-<li>主元的个数</li>
-<li>消元后的非零行的个数</li>
-<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
-</ul>
-<ol start="8">
-<li>reduced row echelon form</li>
-</ol>
-<ul>
-<li>首先是row echelon form</li>
-<li>每一行第一个非零元素是1</li>
-<li>主元所在列除了主元其他都是0</li>
-</ul>
-<ol start="9">
-<li>basic columns可以用来表示nonbasic columns</li>
-<li>线性系统的一致性</li>
-</ol>
-<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
-<p><img src="/../pic/matrix_2.png"></p>
-<ol start="11">
-<li>Homogeneous Systems(齐次系统)</li>
-</ol>
-<p>齐次系统和非齐次系统的解的情况：</p>
-<img src="../pic/matrix_3.png" style="zoom:50%;" />
-
-
-
-<h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h3 id="矩阵加法和转置"><a href="#矩阵加法和转置" class="headerlink" title="矩阵加法和转置"></a>矩阵加法和转置</h3><img src="../pic/matrix3_1.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_3.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_9.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_10.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_15.png" style="zoom:50%;" />
-
-
-
-<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix_rank.png" style="zoom:50%;" />
-
-<ul>
-<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
-</ul>
-<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_4.png" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix5_5.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_6.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_7.png" style="zoom:50%;" />
-
-
-
-<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
-<li>Induced matrix norms</li>
-</ol>
-<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
-
-<p><img src="/../pic/matrix77_2.png"></p>
-<ol start="2">
-<li>2-Norm</li>
-</ol>
-<p><img src="/../pic/matrix77_3.jpeg"></p>
-<p><img src="/../pic/matrix77_4.jpeg"></p>
-<ol start="3">
-<li>1-norm</li>
-</ol>
-<p><img src="/../pic/matrix77_5.jpeg"></p>
-<ol start="4">
-<li>内积空间</li>
-</ol>
-<p><img src="/../pic/matrix77_6.png"></p>
-<ol start="5">
-<li>general inner product</li>
-</ol>
-<p><img src="/../pic/matrix77_6.jpeg"></p>
-<p><img src="/../pic/matrix77_7.jpeg"></p>
-<p><img src="/../pic/matrix77_8.jpeg"></p>
-<ol start="6">
-<li>正交向量</li>
-</ol>
-<p><img src="/../pic/matrix77_9.jpeg"></p>
-<p><img src="/../pic/matrix77_10.jpeg"></p>
-<ol start="7">
-<li>Gram-Schmidt Procedure</li>
-</ol>
-<p><img src="/../pic/matrix77_11.png"></p>
-<p><img src="/../pic/matrix77_12.png"></p>
-<p><img src="/../pic/matrix77_13.png"></p>
-<p><img src="/../pic/matrix77_14.png"></p>
-<ol start="8">
-<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
-</ol>
-<p><img src="/../pic/matrix77_15.png"></p>
-<p><img src="/../pic/matrix77_16.png"></p>
-<p><img src="/../pic/matrix77_17.png"></p>
-<p><img src="/../pic/matrix77_18.png"></p>
-<p><img src="/../pic/matrix77_19.png"></p>
-<ol start="9">
-<li>Orthogonal Reduction</li>
-</ol>
-<p><img src="/../pic/matrix77_20.png"></p>
-<p><img src="/../pic/matrix77_21.png"></p>
-<ol start="10">
-<li><p>DFT</p>
-</li>
-<li><p>余子空间</p>
-</li>
-</ol>
-<p><img src="/../pic/matrix77_22.png"></p>
-<p><img src="/../pic/matrix77_23.png"></p>
-<ol start="12">
-<li>RN分解</li>
-</ol>
-<p><img src="/../pic/matrix77_24.png"></p>
-<p><img src="/../pic/matrix77_25.png"></p>
-<p><img src="/../pic/matrix77_26.png"></p>
-<p><img src="/../pic/matrix77_27.png"></p>
-<p><img src="/../pic/matrix77_28.png"></p>
-<ol start="13">
-<li>正交分解</li>
-</ol>
-<p><img src="/../pic/matrix77_29.png"></p>
-<p><img src="/../pic/matrix77_30.png"></p>
-<p><img src="/../pic/matrix77_31.png"></p>
-<p><img src="/../pic/matrix77_32.png"></p>
-<ol start="14">
-<li>奇异值分解</li>
-</ol>
-<p><img src="/../pic/matrix77_33.png"></p>
-<p><img src="/../pic/matrix77_34.png"></p>
-<p><img src="/../pic/matrix77_35.png"></p>
-<p><img src="/../pic/matrix77_36.png"></p>
-<ol start="15">
-<li>正交投影</li>
-</ol>
-<p><img src="/../pic/matrix77_37.png"></p>
-<p><img src="/../pic/matrix77_38.png"></p>
-<p><img src="/../pic/matrix111.png"></p>
-<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
-<li>只有方阵才有行列式</li>
-<li>转置不影响行列式的结果</li>
-</ol>
-<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
-<ol start="3">
-<li>矩阵内积的行列式（方阵）</li>
-</ol>
-<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
-<p><img src="/../pic/matrix7_2.png"></p>
-<p><img src="/../pic/matrix7_3.png"></p>
-<p>行列式的求导</p>
-<p><img src="/../pic/matrix7_4.png"></p>
-<p><img src="/../pic/matrix7_5.png"></p>
-<ol start="4">
-<li>分块行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_6.png"></p>
-<ol start="5">
-<li>Rank-1行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_7.png"></p>
-<ol start="6">
-<li>利用cofactor计算行列式和逆</li>
-</ol>
-<p><img src="/../pic/matrix7_8.png"></p>
-<p><img src="/../pic/matrix7_9.png"></p>
-<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
-<li>关于特征值和特征向量</li>
-</ol>
-<p><img src="/../pic/matrix8_1.png"></p>
-<ol start="2">
-<li>特征式的系数</li>
-</ol>
-<p><img src="/../pic/matrix8_2.png"></p>
-<ol start="3">
-<li>对角化</li>
-</ol>
-<p><img src="/../pic/matrix8_3.png"></p>
-<ol start="4">
-<li>Multiplicty</li>
-</ol>
-<p><img src="/../pic/matrix8_4.png"></p>
-<ol start="5">
-<li>diagonalizability</li>
-</ol>
-<p><img src="/../pic/matrix8_5.png"></p>
-<ol start="6">
-<li>对角化的必要条件及谱分解</li>
-</ol>
-<p><img src="/../pic/matrix8_6.png"></p>
-<p><img src="/../pic/matrix8_7.png"></p>
-<p><img src="/../pic/matrix8_8.png"></p>
-<ol start="7">
-<li>normal matrix</li>
-</ol>
-<p><img src="/../pic/matrix8_9.png"></p>
-<p><img src="/../pic/matrix8_10.png"></p>
-<p><img src="/../pic/matrix8_11.png"></p>
-<ol start="8">
-<li>positive definite matrices</li>
-</ol>
-<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
-
-<p> 正定矩阵的定义：</p>
-<p><img src="/../pic/matrix8_13.png"></p>
-<p>半正定：</p>
-<p><img src="/../pic/matrix8_14.png"></p>
-<p>二次型:</p>
-<p><img src="/../pic/matrix8_15.png"></p>
-<p>合同变换</p>
-<p><img src="/../pic/matrix8_16.jpeg"></p>
-<h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><ul>
-<li>完备空间的证明除了互补之外还要证明唯一性</li>
-</ul>
-<p><img src="/../pic/matrix_exam.jpg"></p>
 ]]></content>
   </entry>
   <entry>
@@ -2409,27 +2065,6 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
-    <title>paper-reading02</title>
-    <url>/2022/11/26/paper-reading02/</url>
-    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
-<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
-<center>模型框架
-  
-</center>
-
-<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
-<p><img src="/../pic/paper-reading2_2.png"></p>
-<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
-<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
-<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
-<p><img src="/../pic/paper-reading2_4.png"></p>
-<p><img src="/../pic/paper-reading2_3.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>paper-reading03.md</title>
     <url>/2022/12/11/paper-reading03-md/</url>
     <content><![CDATA[<h1 id="Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><a href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs" class="headerlink" title="Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"></a><strong>Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</strong></h1><p><a class="link"   href="https://arxiv.org/abs/2203.06717" >论文地址<i class="fas fa-external-link-alt"></i></a></p>
@@ -2487,6 +2122,69 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
+    <title>paper-reading02</title>
+    <url>/2022/11/26/paper-reading02/</url>
+    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
+<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
+<center>模型框架
+  
+</center>
+
+<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
+<p><img src="/../pic/paper-reading2_2.png"></p>
+<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
+<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
+<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
+<p><img src="/../pic/paper-reading2_4.png"></p>
+<p><img src="/../pic/paper-reading2_3.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>paper-reading04</title>
+    <url>/2022/12/23/paper-reading04/</url>
+    <content><![CDATA[<h1 id="RepVGG-Making-VGG-style-ConvNets-Great-Again"><a href="#RepVGG-Making-VGG-style-ConvNets-Great-Again" class="headerlink" title="RepVGG: Making VGG-style ConvNets Great Again"></a>RepVGG: Making VGG-style ConvNets Great Again</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2101.03697" >https://arxiv.org/abs/2101.03697<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong> <a class="link"   href="https://github.com/megvii-model/RepVGG" >https://github.com/megvii-model/RepVGG<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="文章主要创新点"><a href="#文章主要创新点" class="headerlink" title="文章主要创新点"></a>文章主要创新点</h2><ul>
+<li>在VGG网络的Block块中加入了Identity和残差分支，相当于把ResNet网络中的精华应用 到VGG网络中</li>
+<li>模型推理阶段，通过Op融合策略将所有的网络层都转换为Conv3*3，便于网络的部署和加速</li>
+</ul>
+<h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><img src="../pic/paper-reading04_1.png" style="zoom:50%;" />
+
+
+
+<p>上图展示了部分RepVGG网络，图A表示的是原始的ResNet网络，该网络中包含着Conv1*1的残差结构和Identity的残差结构，正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。图B表示的是训练阶段的RepVGG网络架构，整个网络的主体结构和ResNet网络类似，两个网络中都包含残差结构。两个网络中的主要差异如下所述：（1）RepVGG网络中的残差块并没有跨层。（2）整个网络包含2种残差结构，第一种残差结构仅仅包含Conv1*1残差分支；第二种不仅包含Conv1*1的残差结构，而且包含Identity残差结构。由于残差结构具有多个分支，就相当于给网络增加了多条梯度流动的路径，训练一个这样的网络，其实类似于训练了多个网络，并将多个网络融合在一个网络中，类似于模型集成的思路，不过这种思路更加简单和高效。（3）模型的初始阶段使用了简单的残差结构，随着模型的加深，使用了复杂的残差结构，这样不仅仅能够在网络的深层获得更鲁邦的特征表示，而且可以更好的处理网络深层的梯度消失问题。图C表示的是推理阶段的RepVGG网络，该网络的结构非常简单，整个网络均是由Conv3*3+Relu堆叠而成，易于模型的推理和加速。<br>  这种架构的主要优势包括：（1）当前大多数推理引擎都对Conv3*3做了特定的加速，假如整个网络中的每一个Conv3*3都能节省3ms，如果一个网络中包含30个卷积层，那么整个网络就可以节省3*30&#x3D;90ms的时间，这还是初略的估算。（2）当推理阶段使用的网络层类别比较少时，我们愿意花费一些时间来完成这些模块的加速，因为这个工作的通用性很强，不失为一种较好的模型加速方案。（3）对于残差节点而言，需要当所有的残差分支都计算出对应的结果之后，才能获得最终的结果，这些残差分支的中间结果都会保存在设备的内存中，这样会对推理设备的内存具有较大的要求，来回的内存操作会降低整个网络的推理速度。而推理阶段首先在线下将模型转换为单分支结构，在设备推理阶段就能更好的提升设备的内存利用率，从而提升模型的推理速度。总而言之，模型推理阶段的网络结构越简单越能起到模型加速的效果。</p>
+<h2 id="模型推理阶段的重参数化过程"><a href="#模型推理阶段的重参数化过程" class="headerlink" title="模型推理阶段的重参数化过程"></a>模型推理阶段的重参数化过程</h2><img src="../pic/paper-reading04_2.png" style="zoom:50%;" />
+
+<ul>
+<li>将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</li>
+<li>将融合后的卷积层转换为Conv3*3</li>
+<li>合并残差分支中的Conv3*3</li>
+</ul>
+<h2 id="RepVGG算法实现步骤"><a href="#RepVGG算法实现步骤" class="headerlink" title="RepVGG算法实现步骤"></a>RepVGG算法实现步骤</h2><ul>
+<li>获取并划分训练数据集，并对训练集执行数据增强操作</li>
+<li>搭建RepVGG训练网络，训练分类网络，直到网络收敛为止</li>
+<li>加载训练好的网络，对该网络执行重参数化操作</li>
+<li>加载重参数化后的模型，执行模型推理</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="../pic/paper-reading04_3.png" style="zoom:50%;" />
+
+<ul>
+<li><strong>相同测试条件下，最小的模型RepVGG-A0与ResNet-18相比，各项指标都有显著的提升，RepVGG-A0网络不仅具有更少的参数量，更快的推理速度，而且获得了更高的分类精度</strong></li>
+<li><strong>与EfficientNet-B0相比，RepVGG-B1g4不仅具有更快的执行速度，而且获得了更高的分类精度，当然该模型也更大一些</strong></li>
+<li><strong>与VGG-16网络相比，RepVGG-B2在各个指标上面都有一定的性能提升</strong></li>
+</ul>
+<img src="../pic/paper-reading04_4.png" style="zoom:50%;" />
+
+<ul>
+<li><strong>与ResNet-50网络相比，RepVGG-B1g2-fast网络不仅获得较高的精度，而且在速度上也有一些优势</strong></li>
+<li><strong>与ResNet-101网络相比，RepVGG-B2-fast网络不均获得了较高的速度，各项指标上也都有所提升</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>paper-reading05</title>
     <url>/2023/01/09/paper-reading05/</url>
     <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
@@ -2521,6 +2219,19 @@ megbrain+meghair+megskull</p>
 <p><img src="/../pic/paper-reading05_3.png"></p>
 <h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
 <p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>pytorch_mmseg</title>
+    <url>/2022/10/06/pytorch-mmseg/</url>
+    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
 ]]></content>
   </entry>
   <entry>
@@ -2721,84 +2432,6 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title>paper-reading04</title>
-    <url>/2022/12/23/paper-reading04/</url>
-    <content><![CDATA[<h1 id="RepVGG-Making-VGG-style-ConvNets-Great-Again"><a href="#RepVGG-Making-VGG-style-ConvNets-Great-Again" class="headerlink" title="RepVGG: Making VGG-style ConvNets Great Again"></a>RepVGG: Making VGG-style ConvNets Great Again</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2101.03697" >https://arxiv.org/abs/2101.03697<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong> <a class="link"   href="https://github.com/megvii-model/RepVGG" >https://github.com/megvii-model/RepVGG<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="文章主要创新点"><a href="#文章主要创新点" class="headerlink" title="文章主要创新点"></a>文章主要创新点</h2><ul>
-<li>在VGG网络的Block块中加入了Identity和残差分支，相当于把ResNet网络中的精华应用 到VGG网络中</li>
-<li>模型推理阶段，通过Op融合策略将所有的网络层都转换为Conv3*3，便于网络的部署和加速</li>
-</ul>
-<h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><img src="../pic/paper-reading04_1.png" style="zoom:50%;" />
-
-
-
-<p>上图展示了部分RepVGG网络，图A表示的是原始的ResNet网络，该网络中包含着Conv1*1的残差结构和Identity的残差结构，正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。图B表示的是训练阶段的RepVGG网络架构，整个网络的主体结构和ResNet网络类似，两个网络中都包含残差结构。两个网络中的主要差异如下所述：（1）RepVGG网络中的残差块并没有跨层。（2）整个网络包含2种残差结构，第一种残差结构仅仅包含Conv1*1残差分支；第二种不仅包含Conv1*1的残差结构，而且包含Identity残差结构。由于残差结构具有多个分支，就相当于给网络增加了多条梯度流动的路径，训练一个这样的网络，其实类似于训练了多个网络，并将多个网络融合在一个网络中，类似于模型集成的思路，不过这种思路更加简单和高效。（3）模型的初始阶段使用了简单的残差结构，随着模型的加深，使用了复杂的残差结构，这样不仅仅能够在网络的深层获得更鲁邦的特征表示，而且可以更好的处理网络深层的梯度消失问题。图C表示的是推理阶段的RepVGG网络，该网络的结构非常简单，整个网络均是由Conv3*3+Relu堆叠而成，易于模型的推理和加速。<br>  这种架构的主要优势包括：（1）当前大多数推理引擎都对Conv3*3做了特定的加速，假如整个网络中的每一个Conv3*3都能节省3ms，如果一个网络中包含30个卷积层，那么整个网络就可以节省3*30&#x3D;90ms的时间，这还是初略的估算。（2）当推理阶段使用的网络层类别比较少时，我们愿意花费一些时间来完成这些模块的加速，因为这个工作的通用性很强，不失为一种较好的模型加速方案。（3）对于残差节点而言，需要当所有的残差分支都计算出对应的结果之后，才能获得最终的结果，这些残差分支的中间结果都会保存在设备的内存中，这样会对推理设备的内存具有较大的要求，来回的内存操作会降低整个网络的推理速度。而推理阶段首先在线下将模型转换为单分支结构，在设备推理阶段就能更好的提升设备的内存利用率，从而提升模型的推理速度。总而言之，模型推理阶段的网络结构越简单越能起到模型加速的效果。</p>
-<h2 id="模型推理阶段的重参数化过程"><a href="#模型推理阶段的重参数化过程" class="headerlink" title="模型推理阶段的重参数化过程"></a>模型推理阶段的重参数化过程</h2><img src="../pic/paper-reading04_2.png" style="zoom:50%;" />
-
-<ul>
-<li>将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</li>
-<li>将融合后的卷积层转换为Conv3*3</li>
-<li>合并残差分支中的Conv3*3</li>
-</ul>
-<h2 id="RepVGG算法实现步骤"><a href="#RepVGG算法实现步骤" class="headerlink" title="RepVGG算法实现步骤"></a>RepVGG算法实现步骤</h2><ul>
-<li>获取并划分训练数据集，并对训练集执行数据增强操作</li>
-<li>搭建RepVGG训练网络，训练分类网络，直到网络收敛为止</li>
-<li>加载训练好的网络，对该网络执行重参数化操作</li>
-<li>加载重参数化后的模型，执行模型推理</li>
-</ul>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="../pic/paper-reading04_3.png" style="zoom:50%;" />
-
-<ul>
-<li><strong>相同测试条件下，最小的模型RepVGG-A0与ResNet-18相比，各项指标都有显著的提升，RepVGG-A0网络不仅具有更少的参数量，更快的推理速度，而且获得了更高的分类精度</strong></li>
-<li><strong>与EfficientNet-B0相比，RepVGG-B1g4不仅具有更快的执行速度，而且获得了更高的分类精度，当然该模型也更大一些</strong></li>
-<li><strong>与VGG-16网络相比，RepVGG-B2在各个指标上面都有一定的性能提升</strong></li>
-</ul>
-<img src="../pic/paper-reading04_4.png" style="zoom:50%;" />
-
-<ul>
-<li><strong>与ResNet-50网络相比，RepVGG-B1g2-fast网络不仅获得较高的精度，而且在速度上也有一些优势</strong></li>
-<li><strong>与ResNet-101网络相比，RepVGG-B2-fast网络不均获得了较高的速度，各项指标上也都有所提升</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>roadmap</title>
-    <url>/2022/09/01/roadmap/</url>
-    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-]]></content>
-  </entry>
-  <entry>
-    <title>pytorch_mmseg</title>
-    <url>/2022/10/06/pytorch-mmseg/</url>
-    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-]]></content>
-  </entry>
-  <entry>
     <title>ucas important items</title>
     <url>/2022/08/08/ucas_items/</url>
     <content><![CDATA[<h3 id="国科大学生处联系方式："><a href="#国科大学生处联系方式：" class="headerlink" title="国科大学生处联系方式："></a>国科大学生处联系方式：</h3><ul>
@@ -2826,105 +2459,6 @@ baseline（混合损失）+baseline权重finetune</p>
 </ul>
 <h3 id="一些常用的电话"><a href="#一些常用的电话" class="headerlink" title="一些常用的电话"></a>一些常用的电话</h3><p><img src="/../pic/ucas_phone.jpg"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>vps_config.md</title>
-    <url>/2022/09/03/vps-config-md/</url>
-    <content><![CDATA[<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
-
-<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
-<p>ubuntu安装命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
-
-<p>安装时腾讯云和阿里云要开启相应的端口</p>
-<p>选择安装LNMP套件</p>
-<p>宝塔找回账号密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
-
-<p>查看账号并修改密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
-
-<p>宝塔面板特色功能：</p>
-<p><img src="/../pic/baota_config1.png"></p>
-<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
-<ul>
-<li><p>域名：calciumoxide.xyz</p>
-</li>
-<li><p>博客地址：<a class="link"   href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
-</li>
-<li><p>alist直链：alist.calciumoxide.xyz</p>
-</li>
-</ul>
-<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
-<p><img src="/../pic/cloudflare.png"></p>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
-<hr>
-<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
-
-<p><a class="link"   href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
-
-<p>update apt and install some necessary packages</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
-
-<p>add docker’s official GPG key</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
-
-<p>set up the repository</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
-
-<p>install docker engine</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<p>Verify successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
-
-<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
-<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config2.png"></p>
-<p>增加这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config3.png"></p>
-<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
-<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
-<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
-<p><img src="/../pic/aliyun_config1.jpg"></p>
-<p>按键盘上的“F12”键</p>
-<p><img src="/../pic/aliyun_config2.jpg"></p>
-<p>同时按键盘“Ctrl”+“R”两个键</p>
-<p><img src="/../pic/aliyun_config3.jpg"></p>
-<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
-<p><img src="/../pic/aliyun_config4.jpg"></p>
-<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
-<p><img src="/../pic/baidu_config1.jpg"></p>
-<p>通过<a class="link"   href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
-<p><img src="/../pic/baidu_config2.jpg"></p>
-<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
-]]></content>
-      <tags>
-        <tag>s</tag>
-      </tags>
   </entry>
   <entry>
     <title>weak-shot-classify</title>
@@ -3214,12 +2748,478 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
+    <title>vps_config.md</title>
+    <url>/2022/09/03/vps-config-md/</url>
+    <content><![CDATA[<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
+
+<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
+<p>ubuntu安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装时腾讯云和阿里云要开启相应的端口</p>
+<p>选择安装LNMP套件</p>
+<p>宝塔找回账号密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
+
+<p>查看账号并修改密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
+
+<p>宝塔面板特色功能：</p>
+<p><img src="/../pic/baota_config1.png"></p>
+<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
+<ul>
+<li><p>域名：calciumoxide.xyz</p>
+</li>
+<li><p>博客地址：<a class="link"   href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>alist直链：alist.calciumoxide.xyz</p>
+</li>
+</ul>
+<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
+<p><img src="/../pic/cloudflare.png"></p>
+<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
+
+<p><a class="link"   href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>update apt and install some necessary packages</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
+
+<p>add docker’s official GPG key</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
+
+<p>set up the repository</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>install docker engine</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<p>Verify successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
+<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config2.png"></p>
+<p>增加这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config3.png"></p>
+<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
+<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
+<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
+<p><img src="/../pic/aliyun_config1.jpg"></p>
+<p>按键盘上的“F12”键</p>
+<p><img src="/../pic/aliyun_config2.jpg"></p>
+<p>同时按键盘“Ctrl”+“R”两个键</p>
+<p><img src="/../pic/aliyun_config3.jpg"></p>
+<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
+<p><img src="/../pic/aliyun_config4.jpg"></p>
+<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
+<p><img src="/../pic/baidu_config1.jpg"></p>
+<p>通过<a class="link"   href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
+<p><img src="/../pic/baidu_config2.jpg"></p>
+<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
+]]></content>
+      <tags>
+        <tag>s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
     <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
 <h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
 <h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
 <h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>matrix</title>
+    <url>/2022/11/05/matrix/</url>
+    <content><![CDATA[<h1 id="矩阵分析与应用"><a href="#矩阵分析与应用" class="headerlink" title="矩阵分析与应用"></a>矩阵分析与应用</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="/../pic/matrix_1.png"></p>
+<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="高斯消元法"><a href="#高斯消元法" class="headerlink" title="高斯消元法"></a>高斯消元法</h3><ol>
+<li>三种线性变换</li>
+</ol>
+<ul>
+<li>交换两行</li>
+<li>对某一行乘上一个非零系数</li>
+<li>对某一行加上另一行乘以一个非零系数</li>
+</ul>
+<ol start="2">
+<li>对于一个nxn的矩阵进行高斯消元法（反向替换）需要的操作数</li>
+</ol>
+<p>$\frac{n^3}{3}个乘法操作和\frac{n^3}{3}个加法操作$</p>
+<ol start="3">
+<li>Gauss-Jordan方法</li>
+</ol>
+<p>与标准的Gaussian消元法的区别：</p>
+<ul>
+<li>所有的主元都为1</li>
+<li>除了主元其他元素都为0</li>
+</ul>
+<p>复杂度和标准Gaussian消元法相同</p>
+<ol start="4">
+<li><p>部分主元法和完全主元法</p>
+<ol>
+<li>部分主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列的最大的一个值</li>
+</ul>
+<ol start="2">
+<li>完全主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
+</ul>
+</li>
+<li><p>病态系统</p>
+</li>
+</ol>
+<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
+<hr>
+<ol start="6">
+<li>modified gaussian elimination</li>
+</ol>
+<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
+<ol start="7">
+<li>矩阵的秩的定义</li>
+</ol>
+<ul>
+<li>主元的个数</li>
+<li>消元后的非零行的个数</li>
+<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
+</ul>
+<ol start="8">
+<li>reduced row echelon form</li>
+</ol>
+<ul>
+<li>首先是row echelon form</li>
+<li>每一行第一个非零元素是1</li>
+<li>主元所在列除了主元其他都是0</li>
+</ul>
+<ol start="9">
+<li>basic columns可以用来表示nonbasic columns</li>
+<li>线性系统的一致性</li>
+</ol>
+<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
+<p><img src="/../pic/matrix_2.png"></p>
+<ol start="11">
+<li>Homogeneous Systems(齐次系统)</li>
+</ol>
+<p>齐次系统和非齐次系统的解的情况：</p>
+<img src="../pic/matrix_3.png" style="zoom:50%;" />
+
+
+
+<h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h3 id="矩阵加法和转置"><a href="#矩阵加法和转置" class="headerlink" title="矩阵加法和转置"></a>矩阵加法和转置</h3><img src="../pic/matrix3_1.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_2.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_3.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_4.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_5.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_6.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_7.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_9.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_10.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_11.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_12.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_14.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_15.png" style="zoom:50%;" />
+
+
+
+<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix_rank.png" style="zoom:50%;" />
+
+<ul>
+<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
+</ul>
+<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_4.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix5_5.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_6.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_7.png" style="zoom:50%;" />
+
+
+
+<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
+<li>Induced matrix norms</li>
+</ol>
+<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
+
+<p><img src="/../pic/matrix77_2.png"></p>
+<ol start="2">
+<li>2-Norm</li>
+</ol>
+<p><img src="/../pic/matrix77_3.jpeg"></p>
+<p><img src="/../pic/matrix77_4.jpeg"></p>
+<ol start="3">
+<li>1-norm</li>
+</ol>
+<p><img src="/../pic/matrix77_5.jpeg"></p>
+<ol start="4">
+<li>内积空间</li>
+</ol>
+<p><img src="/../pic/matrix77_6.png"></p>
+<ol start="5">
+<li>general inner product</li>
+</ol>
+<p><img src="/../pic/matrix77_6.jpeg"></p>
+<p><img src="/../pic/matrix77_7.jpeg"></p>
+<p><img src="/../pic/matrix77_8.jpeg"></p>
+<ol start="6">
+<li>正交向量</li>
+</ol>
+<p><img src="/../pic/matrix77_9.jpeg"></p>
+<p><img src="/../pic/matrix77_10.jpeg"></p>
+<ol start="7">
+<li>Gram-Schmidt Procedure</li>
+</ol>
+<p><img src="/../pic/matrix77_11.png"></p>
+<p><img src="/../pic/matrix77_12.png"></p>
+<p><img src="/../pic/matrix77_13.png"></p>
+<p><img src="/../pic/matrix77_14.png"></p>
+<ol start="8">
+<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
+</ol>
+<p><img src="/../pic/matrix77_15.png"></p>
+<p><img src="/../pic/matrix77_16.png"></p>
+<p><img src="/../pic/matrix77_17.png"></p>
+<p><img src="/../pic/matrix77_18.png"></p>
+<p><img src="/../pic/matrix77_19.png"></p>
+<ol start="9">
+<li>Orthogonal Reduction</li>
+</ol>
+<p><img src="/../pic/matrix77_20.png"></p>
+<p><img src="/../pic/matrix77_21.png"></p>
+<ol start="10">
+<li><p>DFT</p>
+</li>
+<li><p>余子空间</p>
+</li>
+</ol>
+<p><img src="/../pic/matrix77_22.png"></p>
+<p><img src="/../pic/matrix77_23.png"></p>
+<ol start="12">
+<li>RN分解</li>
+</ol>
+<p><img src="/../pic/matrix77_24.png"></p>
+<p><img src="/../pic/matrix77_25.png"></p>
+<p><img src="/../pic/matrix77_26.png"></p>
+<p><img src="/../pic/matrix77_27.png"></p>
+<p><img src="/../pic/matrix77_28.png"></p>
+<ol start="13">
+<li>正交分解</li>
+</ol>
+<p><img src="/../pic/matrix77_29.png"></p>
+<p><img src="/../pic/matrix77_30.png"></p>
+<p><img src="/../pic/matrix77_31.png"></p>
+<p><img src="/../pic/matrix77_32.png"></p>
+<ol start="14">
+<li>奇异值分解</li>
+</ol>
+<p><img src="/../pic/matrix77_33.png"></p>
+<p><img src="/../pic/matrix77_34.png"></p>
+<p><img src="/../pic/matrix77_35.png"></p>
+<p><img src="/../pic/matrix77_36.png"></p>
+<ol start="15">
+<li>正交投影</li>
+</ol>
+<p><img src="/../pic/matrix77_37.png"></p>
+<p><img src="/../pic/matrix77_38.png"></p>
+<p><img src="/../pic/matrix111.png"></p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
+<li>只有方阵才有行列式</li>
+<li>转置不影响行列式的结果</li>
+</ol>
+<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
+<ol start="3">
+<li>矩阵内积的行列式（方阵）</li>
+</ol>
+<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
+<p><img src="/../pic/matrix7_2.png"></p>
+<p><img src="/../pic/matrix7_3.png"></p>
+<p>行列式的求导</p>
+<p><img src="/../pic/matrix7_4.png"></p>
+<p><img src="/../pic/matrix7_5.png"></p>
+<ol start="4">
+<li>分块行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_6.png"></p>
+<ol start="5">
+<li>Rank-1行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_7.png"></p>
+<ol start="6">
+<li>利用cofactor计算行列式和逆</li>
+</ol>
+<p><img src="/../pic/matrix7_8.png"></p>
+<p><img src="/../pic/matrix7_9.png"></p>
+<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
+<li>关于特征值和特征向量</li>
+</ol>
+<p><img src="/../pic/matrix8_1.png"></p>
+<ol start="2">
+<li>特征式的系数</li>
+</ol>
+<p><img src="/../pic/matrix8_2.png"></p>
+<ol start="3">
+<li>对角化</li>
+</ol>
+<p><img src="/../pic/matrix8_3.png"></p>
+<ol start="4">
+<li>Multiplicty</li>
+</ol>
+<p><img src="/../pic/matrix8_4.png"></p>
+<ol start="5">
+<li>diagonalizability</li>
+</ol>
+<p><img src="/../pic/matrix8_5.png"></p>
+<ol start="6">
+<li>对角化的必要条件及谱分解</li>
+</ol>
+<p><img src="/../pic/matrix8_6.png"></p>
+<p><img src="/../pic/matrix8_7.png"></p>
+<p><img src="/../pic/matrix8_8.png"></p>
+<ol start="7">
+<li>normal matrix</li>
+</ol>
+<p><img src="/../pic/matrix8_9.png"></p>
+<p><img src="/../pic/matrix8_10.png"></p>
+<p><img src="/../pic/matrix8_11.png"></p>
+<ol start="8">
+<li>positive definite matrices</li>
+</ol>
+<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
+
+<p> 正定矩阵的定义：</p>
+<p><img src="/../pic/matrix8_13.png"></p>
+<p>半正定：</p>
+<p><img src="/../pic/matrix8_14.png"></p>
+<p>二次型:</p>
+<p><img src="/../pic/matrix8_15.png"></p>
+<p>合同变换</p>
+<p><img src="/../pic/matrix8_16.jpeg"></p>
+<h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><ul>
+<li>完备空间的证明除了互补之外还要证明唯一性</li>
+</ul>
+<p><img src="/../pic/matrix_exam.jpg"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>roadmap</title>
+    <url>/2022/09/01/roadmap/</url>
+    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
 ]]></content>
   </entry>
 </search>
