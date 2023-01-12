@@ -2207,6 +2207,14 @@ baseline（混合损失）+baseline权重finetune</p>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 配置megbrain环境</span><br><span class="line">pip3 install megbrain==8.16.0+cu111（版本根据要求选择）（cuda根据要求选择）</span><br><span class="line">2. 配置basedet环境</span><br><span class="line">git <span class="built_in">clone</span> git@git-core.megvii-inc.com:base-detection/basedet.git</span><br><span class="line"><span class="built_in">cd</span> basedet</span><br><span class="line">python3 -m pip install -r requirements.txt</span><br><span class="line">python3 -m pip install pre-commit</span><br><span class="line">pre-commit install</span><br><span class="line">python3 -m pip install -v -e .</span><br><span class="line">3. 如果出现跑不了的问题，大概率是megbrain版本不匹配</span><br></pre></td></tr></table></figure>
 
+<ol start="32">
+<li>info格式数据处理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://livelove.megvii-inc.com/t/topic/4274</span><br></pre></td></tr></table></figure>
+
+<p>np4数据处理</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/3877</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -2395,10 +2403,19 @@ megbrain+meghair+megskull</p>
 <th align="center">test1（8）</th>
 <th align="center">test2（6）</th>
 <th align="center">test3（6）</th>
-<th align="center">test4（3）</th>
+<th align="center">test4（0）</th>
+<th align="center">test5（8）</th>
 </tr>
 </thead>
 <tbody><tr>
+<td align="center">地面分割实验</td>
+<td align="center">人体分割数据dpflow</td>
+<td align="center">人体分割实验</td>
+<td align="center">地面分割数据dpflow</td>
+<td align="center">空闲</td>
+</tr>
+<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -2406,11 +2423,6 @@ megbrain+meghair+megskull</p>
 </tr>
 <tr>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -3150,7 +3162,7 @@ megbrain+meghair+megskull</p>
   <entry>
     <title>megvii-humanSEG</title>
     <url>/2023/01/09/megvii-humanSEG/</url>
-    <content><![CDATA[<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><ol>
+    <content><![CDATA[<h1 id="人体分割"><a href="#人体分割" class="headerlink" title="人体分割"></a>人体分割</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
 <li>实例分割？</li>
 <li>95% 能分割出来人形，多人可以分割开90%（最终目标？）</li>
 </ol>
@@ -3159,13 +3171,13 @@ megbrain+meghair+megskull</p>
   <entry>
     <title>megvii-fieldSEG</title>
     <url>/2023/01/09/megvii-fieldSEG/</url>
-    <content><![CDATA[<h1 id="地面标定"><a href="#地面标定" class="headerlink" title="地面标定"></a>地面标定</h1><h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><ol>
+    <content><![CDATA[<h1 id="地面标定"><a href="#地面标定" class="headerlink" title="地面标定"></a>地面标定</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
 <li>miu miubd?</li>
 <li>数据集情况就是文档上的吗，有补充数据集吗</li>
 <li>只对室内场景进行分割？</li>
 <li>交付物是模型和PPL，这些也是我的任务吗</li>
 </ol>
-]]></content>
+<h2 id="dpflow"><a href="#dpflow" class="headerlink" title="dpflow"></a>dpflow</h2>]]></content>
   </entry>
   <entry>
     <title>paper-reading05</title>
@@ -3203,5 +3215,11 @@ megbrain+meghair+megskull</p>
 <h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
 <p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>weak-shot-classify</title>
+    <url>/2023/01/12/weak-shot-classify/</url>
+    <content><![CDATA[<h1 id="weak-shot-learning–classify"><a href="#weak-shot-learning–classify" class="headerlink" title="weak-shot learning–classify"></a>weak-shot learning–classify</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在弱样本图像分类任务中，base训练样本具有干净的图像标签，但是novel训练样本的标签中中则包含噪声，因为novel训练样本通常是用类别作为查询从网页上爬取的数据。</p>
+<h2 id="Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification"><a href="#Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification" class="headerlink" title="Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification"></a>Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification</h2><h2 id="Weak-shot-Fine-grained-Classification-via-Similarity-Transfer"><a href="#Weak-shot-Fine-grained-Classification-via-Similarity-Transfer" class="headerlink" title="Weak-shot Fine-grained Classification via Similarity Transfer"></a>Weak-shot Fine-grained Classification via Similarity Transfer</h2>]]></content>
   </entry>
 </search>

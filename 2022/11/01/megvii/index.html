@@ -362,6 +362,14 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 配置megbrain环境</span><br><span class="line">pip3 install megbrain==8.16.0+cu111（版本根据要求选择）（cuda根据要求选择）</span><br><span class="line">2. 配置basedet环境</span><br><span class="line">git <span class="built_in">clone</span> git@git-core.megvii-inc.com:base-detection/basedet.git</span><br><span class="line"><span class="built_in">cd</span> basedet</span><br><span class="line">python3 -m pip install -r requirements.txt</span><br><span class="line">python3 -m pip install pre-commit</span><br><span class="line">pre-commit install</span><br><span class="line">python3 -m pip install -v -e .</span><br><span class="line">3. 如果出现跑不了的问题，大概率是megbrain版本不匹配</span><br></pre></td></tr></table></figure>
 
+<ol start="32">
+<li>info格式数据处理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://livelove.megvii-inc.com/t/topic/4274</span><br></pre></td></tr></table></figure>
+
+<p>np4数据处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/3877</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -550,10 +558,19 @@ megbrain+meghair+megskull</p>
 <th align="center">test1（8）</th>
 <th align="center">test2（6）</th>
 <th align="center">test3（6）</th>
-<th align="center">test4（3）</th>
+<th align="center">test4（0）</th>
+<th align="center">test5（8）</th>
 </tr>
 </thead>
 <tbody><tr>
+<td align="center">地面分割实验</td>
+<td align="center">人体分割数据dpflow</td>
+<td align="center">人体分割实验</td>
+<td align="center">地面分割数据dpflow</td>
+<td align="center">空闲</td>
+</tr>
+<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -561,11 +578,6 @@ megbrain+meghair+megskull</p>
 </tr>
 <tr>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
