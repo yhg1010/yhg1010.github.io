@@ -402,454 +402,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>article</title>
-    <url>/2022/10/10/article/</url>
-    <content><![CDATA[<h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
-<h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>ImageNet数据集提出推动了计算机视觉各个任务、各个领域的发展，但是农业领域发展比较缓慢，主要是由于农业领域缺少相关的数据集。</p>
-<p>在农业视觉识别领域一个大的方向是航空图像语义分割，因为解决这个问题可以带来巨大的经济价值。对航空图像进行语义分割可以更好地监测土地的状况，发掘播种器的土地潜力，但是相比与传统的语义分割任务，遥感图像语义分割同样存在很多问题。土地状况模式往往是多样的、不规则的，类别之间尺度差异大，遥感图像往往尺寸很大，缺少精细的细节例如纹理等，对于端到端的分割会需要很大的算力以及内存消耗。</p>
-<p>Agriculture-Vision数据集相比其他数据集有以下优点：</p>
-<ul>
-<li>分辨率很高，10cm&#x2F;pixel</li>
-<li>除了RGB三通道外还有NIR通道</li>
-<li>包括多个关于农业异常情况的具有挑战性的标注</li>
-<li>来自专家严格把控的图像标注</li>
-<li>标注的尺寸和形状的巨大变化</li>
-</ul>
-<p>本篇文章的贡献：</p>
-<ul>
-<li>提出了Agriculture-Vision数据集</li>
-<li>在数据集上做了扩展实验，提出了一个baseline</li>
-</ul>
-<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><p>主要提及了计算机视觉领域内一些比较出名的数据集，介绍了一些航空遥感图像数据集。讨论了在遥感图像数据集上的一些任务，对遥感图像进行一些谱分析，通过一些地理颜色获得一些地理信息，介绍了一些之前的在遥感图像上的相关工作。</p>
-<h3 id="Agriculture-Vision-dataset"><a href="#Agriculture-Vision-dataset" class="headerlink" title="Agriculture-Vision dataset"></a>Agriculture-Vision dataset</h3><p>关于如何构建Agriculture-Vision数据集，包括图像获取、预处理、模式标注以及最终图像采样生成。</p>
-<h4 id="图像获取"><a href="#图像获取" class="headerlink" title="图像获取"></a>图像获取</h4><h4 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h4><p><img src="/../pic/article1010_1.png"></p>
-<h4 id="图像标注"><a href="#图像标注" class="headerlink" title="图像标注"></a>图像标注</h4><h4 id="图像采样生成"><a href="#图像采样生成" class="headerlink" title="图像采样生成"></a>图像采样生成</h4><h3 id="数据集统计数据"><a href="#数据集统计数据" class="headerlink" title="数据集统计数据"></a>数据集统计数据</h3><p>即使下游数据和预训练数据只有微弱的关联，迁移学习仍然是最佳选择</p>
-<h2 id="ConvNeXt"><a href="#ConvNeXt" class="headerlink" title="ConvNeXt"></a>ConvNeXt</h2><p><a class="link"   href="https://zhuanlan.zhihu.com/p/459163188" >convnext详解<i class="fas fa-external-link-alt"></i></a></p>
-<p>改进：</p>
-<ol>
-<li>Macro design</li>
-</ol>
-<ul>
-<li>改变每个layer的block的数量比例，改成1：1：3：1，对于更大的模型，采用1：1：9：1</li>
-<li>Stem patch化。用一个stride等于4的4x4卷积来进行stem，使得滑动窗口不再相交，每次只处理一个patch的信息</li>
-</ul>
-<ol start="2">
-<li>ResNeXt-ify</li>
-</ol>
-<p>depthwise conv</p>
-<ol start="3">
-<li>反瓶颈结构</li>
-<li>大卷积核</li>
-<li>微观设计</li>
-</ol>
-<h2 id="swin-transformer"><a href="#swin-transformer" class="headerlink" title="swin-transformer"></a>swin-transformer</h2><p><img src="/../pic/article1011_1.png"></p>
-<h2 id="vision-transformer"><a href="#vision-transformer" class="headerlink" title="vision transformer"></a>vision transformer</h2><p>&#x3D;&#x3D;ViT原论文中最核心的结论是，当拥有足够多的数据进行预训练的时候，ViT的表现就会超过CNN，突破transformer缺少归纳偏置的限制，可以在下游任务中获得较好的迁移效果&#x3D;&#x3D;。</p>
-<p>但是当训练数据比较少时ViT通常要比大小相当的resnet要差一些，因为缺少CNN的归纳偏置，即一种先验知识，提前做好的假设。CNN具有两种归纳偏置，一种是局部性，即图片上相邻的区域具有相似的特征；一种是平移不变形， f(g(x))&#x3D;g(f(x)) ，其中g代表卷积操作，f代表平移操作。当CNN具有以上两种归纳偏置，就有了很多先验信息，需要相对少的数据就可以学习一个比较好的模型。</p>
-<p>模型结构：</p>
-<p><img src="/../pic/article1011_5.webp"></p>
-<h2 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h2><p>反卷积上采样</p>
-<p>跳层连接可以融合浅层和深层的特征</p>
-<h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><p>间隙补零进行反卷积上采样</p>
-<h1 id="面试八股"><a href="#面试八股" class="headerlink" title="面试八股"></a>面试八股</h1><ol>
-<li>卷积、BN、relu、dropout的顺序？</li>
-</ol>
-<p>一般而言，卷积之后进行BN为激活层提供一个合适的分布，接着进行relu激活，最后进行dropout</p>
-<ol start="2">
-<li>1x1卷积的作用</li>
-</ol>
-<ul>
-<li>调整维度</li>
-<li>减少参数</li>
-<li>对不同维度的特征进行融合</li>
-</ul>
-<ol start="3">
-<li>self attention</li>
-</ol>
-<p>Self-attention可以输入一个sequence,输出一个sequence，每个输出都考虑了整个sequence的信息，且输出可以同时计算（大大提升了计算效率），所有计算都可以用矩阵进行，适合GPU加速</p>
-<p>Self attention公式：</p>
-<img src="../pic/article1011_3.png" style="zoom:50%;" />
-
-<p>为什么要除以根号d_k?</p>
-<ul>
-<li>使得q*k的结果满足期望为0，方差为1的分布，类似于归一化</li>
-<li>防止softmax值过大，梯度趋于0</li>
-</ul>
-<p>位置编码：</p>
-<p>self-attention中的位置编码是手动设置的：</p>
-<p><img src="/../pic/article1011_4.png"></p>
-<p>其中为什么选择正余弦函数作为编码函数，因为正余弦函数随相位的变化是和二进制编码的变化频率相似的，可以间接来表示位置。</p>
-<ol start="4">
-<li>Multi-head self attention</li>
-</ol>
-<img src="../pic/article1011_2.png" style="zoom:50%;" />
-
-<p>为什么需要multi-head？有可能是不同的query(head)关注的点不同，比如有的query想看的是全局的信息，有的query想看的是局部的信息，因此使用multi-head可以获取更多类型，更全面的信息</p>
-<ol start="5">
-<li>熵、交叉熵、交叉熵损失</li>
-</ol>
-<p>随着估计的概率分布偏离实际&#x2F;期望的概率分布，交叉熵增加，反之亦然。因此，我们可以说，最小化交叉熵将使我们更接近实际&#x2F;期望的分布，这就是我们想要的。这就是为什么我们尝试降低交叉熵，以使我们的预测概率分布最终接近实际分布的原因。</p>
-<p>交叉熵损失：</p>
-<img src="../pic/article1011_6.png" style="zoom:50%;" />
-
-<ol start="6">
-<li>模型参数量计算</li>
-</ol>
-<p><img src="/../pic/article1025_1.png"></p>
-<h1 id="一些预想的问题"><a href="#一些预想的问题" class="headerlink" title="一些预想的问题"></a>一些预想的问题</h1><ol>
-<li>为什么baseline会选择convnext&#x2F;swin-transformer？</li>
-<li>lovasz损失？</li>
-</ol>
-<p>采用lovasz extension这个数学工具将离散的Jaccard loss变光滑，从而可以直接求导。</p>
-<ol start="3">
-<li>Dice loss?</li>
-</ol>
-<img src="../pic/article1011_7.png" style="zoom:50%;" />
-
-<ol start="4">
-<li>常见的损失函数？</li>
-</ol>
-<ul>
-<li><p>Focal loss</p>
-<ul>
-<li>多了一个调制因子，降低易分样本的损失贡献</li>
-</ul>
-</li>
-<li><p>Lovasz loss</p>
-<ul>
-<li>Lovasz loss基于子模损失(submodular losses)的凸Lovasz扩展，对神经网络的mean IoU损失进行优化</li>
-<li>对Jaccard loss的lovasz extension</li>
-</ul>
-<img src="../pic/article1020_2.png" style="zoom:50%;" />
-</li>
-<li><p>dice loss</p>
-<ul>
-<li>缺点是可能导致训练不稳定</li>
-</ul>
-</li>
-<li><p>Crossentropy loss</p>
-</li>
-</ul>
-<ol start="5">
-<li>FCN上采样的方式？</li>
-</ol>
-<ul>
-<li>双线性插值</li>
-<li>反卷积上采样</li>
-</ul>
-<p><img src="/../pic/article1020_1.png"></p>
-<ol start="6">
-<li>deeplab系列</li>
-</ol>
-<ul>
-<li>deeplab v1：<ul>
-<li>vgg</li>
-<li>atrous convolution</li>
-<li>CRF</li>
-</ul>
-</li>
-<li>deeplab v2<ul>
-<li>resnet</li>
-<li>ASPP</li>
-<li>CRF</li>
-</ul>
-</li>
-<li>deeplab v3<ul>
-<li>串联不同膨胀率的空洞卷积或者并行不同膨胀率的空洞卷积</li>
-<li>Modified ASPP</li>
-<li>移除CRF</li>
-</ul>
-</li>
-<li>deeplab v3+</li>
-</ul>
-<ol start="7">
-<li>降采样对于分割的意义</li>
-</ol>
-<ul>
-<li>降低过拟合风险</li>
-<li>减少参数量</li>
-<li>增加对输入微小改变的鲁棒性</li>
-</ul>
-<ol start="8">
-<li>unet和FCN的区别</li>
-</ol>
-<ul>
-<li>FCN特征融合是逐点相加，UNet是通道维度上拼接融合</li>
-</ul>
-<ol start="9">
-<li>unet的缺点</li>
-</ol>
-<ul>
-<li>主要是直接对浅层特征和深层特征进行跳层连接可能会导致语义gap</li>
-<li>针对这个缺点，unet++的出发点就是reduce&#x2F;bridge这个gap</li>
-</ul>
-<ol start="10">
-<li>梯度消失 梯度爆炸</li>
-</ol>
-<ul>
-<li>梯度连乘导致</li>
-<li>BN、正则化、dropout、梯度裁切、激活函数</li>
-</ul>
-<ol start="11">
-<li>dropout</li>
-</ol>
-<ul>
-<li>解决过拟合问题</li>
-</ul>
-<ol start="12">
-<li>BN LN</li>
-</ol>
-<ul>
-<li>BN是在通道维度上进行归一化</li>
-<li>LN是在batch维度上进行归一化</li>
-</ul>
-<ol start="13">
-<li>空洞卷积</li>
-</ol>
-<ul>
-<li>优点是可以任意扩大感受野且不需要引入额外的参数</li>
-<li>缺点是局部信息的丢失以及远距离获取的信息没有相关性</li>
-</ul>
-<ol start="14">
-<li>深度分离卷积</li>
-</ol>
-<p>可以减少计算损失和参数数量同时保持相似的性能，在特征图的每个深度维度应用一个filter，本文在每个深度维度应用一个空洞卷积</p>
-<p>深度分离卷积操作分两步，假设原来是3x3卷积，深度分离卷积就是先用M个3x3卷积核一对一卷积输入的M个特征图，不求和，生成M个结果，然后用N个1x1卷积核正常卷积前面生成的M个结果，求和，最后生成N个结果</p>
-<ol start="15">
-<li>卷积的底层实现（im2col）</li>
-</ol>
-<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>比赛内容：对八种农业异常模式进行分割</p>
-<p>比赛数据集：Agriculture-Vision，九万多张遥感图像，NRGB四通道，512x512</p>
-<p>比赛结果：一共有83个参加队伍，最终排名第9</p>
-<p>Baseline: convnext+upernet，损失函数：交叉熵（mIoU:44.10）</p>
-<p>Batchsize:8</p>
-<p>GPU:8x3090</p>
-<p>模型参数量：82M</p>
-<p>根据Agriculture-Vision数据集的长尾、类别不均衡、边界难以分割等特点提出了混合损失、损失加权fine-tune、细化分割OCR模块和专家网络四个改进点:</p>
-<ul>
-<li>提出混合损失，结合交叉熵损失和lovasz损失作为最终的损失函数（比例1：0.4）（mIoU:46.57），之前在paddle文档上看到单独使用lovasz loss不一定有用，需要和交叉熵加权结合使用</li>
-<li>解码头增加OCR模块，在语义分割任务中，上下文的信息对于像素级别的分类起着重要的作用，通过提取上下文信息可以更好地利用空间信息进行像素级分类。（mIoU:47.57）</li>
-<li>损失加权finetune，Agriculture-Vision数据集存在长尾的特点，不同类别之间的数据量差异很大，对于少数类别的分割效果比较差。改进策略：根据训练数据中各个类别样本的比例进行类别加权，最终的类别权重和类别频度成负相关。（48.53）</li>
-<li>专家网络，在convnext网络之外增加一个unet，对少数类样本(planter skip and standing water)进行单独训练，再和convnext分割结果进行融合。</li>
-</ul>
-<h2 id="ocr"><a href="#ocr" class="headerlink" title="ocr"></a>ocr</h2><p>UPerNet 输出的中间分割结果和骨干网络生成的最后一个层级特征输入到 OCR 模块中进行细化处理。根据中间的分割结果和骨干网络最深层的特征表示计算出 K 组向量，即物体区域表示(Object Region Representations)，其中每一个向 量对应一个语义类别的特征表示。计算网络最深层输出像素特征表示(pixel representations)与计算得到的物体区域表示之间的关系矩阵，然后根据每个 像素和物体区域表示在关系矩阵中的数值将物体区域表示进行加权求和得到最 终的物体上下文特征表示(Object Contextual Representations)，将物体上 下文特征表示和骨干网络最深层特征进行拼接后作为上下文信息增强的特征表 示(Augmented Representations)，基于增强后的特征表示预测每个像素的语义类别。</p>
-<h1 id="语言八股"><a href="#语言八股" class="headerlink" title="语言八股"></a>语言八股</h1><h2 id="python（python基础和pytorch）"><a href="#python（python基础和pytorch）" class="headerlink" title="python（python基础和pytorch）"></a>python（python基础和pytorch）</h2><ol>
-<li>python浅拷贝和深拷贝</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">对于不可变对象，由于python是采用引用计数的特性，所以浅拷贝和深拷贝的作用一致。</span><br><span class="line">对于可变对象，由于浅拷贝拷贝的可变对象的引用，所以原变量的可变对象改变时会影响到浅拷贝的对象，对于深拷贝则不会收到影响。</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>python是动态强类型（由于是动态语言，所以很多问题只有在运行的时候才能发现）</li>
-<li>什么是duck type?</li>
-</ol>
-<p>duck type更关注对象的行为，只要实现了接口就行，而不在乎是什么类型</p>
-<ol start="4">
-<li>什么是monkey patch?</li>
-</ol>
-<p>monkey patch就是运行时替换对象，本质上是对象的重新赋值</p>
-<ol start="5">
-<li>py3和py2的区别？</li>
-</ol>
-<ul>
-<li>print在py3中是函数，在py2中是关键字</li>
-<li>py3的range()返回一个可迭代对象，py2的 range()返回一个列表</li>
-<li>py3的除法返回float，py2的除法返回int</li>
-<li>py3默认编码是utf-8，py2默认编码是ascii</li>
-<li>py3的str是unicode字符串，而py2的str是bytes</li>
-</ul>
-<ol start="6">
-<li>map(function, iter)</li>
-<li>生成器</li>
-</ol>
-<p>生成器类似于返回值为数组的一个函数，这个函数可以接受参数，可以被调用，但是，不同于一般的函数会一次性返回包括了所有数值的数组，生成器一次只能产生一个值，这样消耗的内存数量将大大减小，而且允许调用函数可以很快的处理前几个返回值，因此生成器看起来像是一个函数，但是表现得却像是迭代器</p>
-<p>生成器本质上就是根据一个给定的规则可以不断推算出之后出现的元素，可以通过next()函数不断得到下一个元素，同时生成器本身是一个可迭代对象，遇到yield则返回</p>
-<p>send()和next()的区别就在于send可传递参数给yield表达式，这时候传递的参数就会作为yield表达式的值，而yield的参数是返回给调用者的值，也就是说send可以强行修改上一个yield表达式值</p>
-<p>send()和next()都有返回值，他们的返回值是当前迭代遇到的yield的时候，yield后面表达式的值，其实就是当前迭代yield后面的参数</p>
-<ol start="8">
-<li>迭代器</li>
-</ol>
-<p><strong>一个实现了iter方法的对象是可迭代的，一个实现next方法并且是可迭代的对象是迭代器</strong></p>
-<p><a class="link"   href="https://www.cnblogs.com/wj-1314/p/8490822.html" >生成器和迭代器<i class="fas fa-external-link-alt"></i></a></p>
-<ol start="9">
-<li>内置数据类型的底层结构</li>
-</ol>
-<p>dict的底层结构是哈希表，list的底层结构是可变数组，存的是对象的指针，tuple的底层结构是顺序表，set的底层结构是哈希表，其中key为元素，val都为空</p>
-<ol start="10">
-<li>装饰器</li>
-</ol>
-<p>装饰器是一个接收函数作为参数的闭包函数，可以在不修改函数源代码的情况下给函数增加功能</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fucB</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test1&quot;</span>)</span><br><span class="line">        func()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test3&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@fucB</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test2&quot;</span>)</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
-
-<ol start="11">
-<li>@<strong>staticmethod</strong></li>
-</ol>
-<p><strong>这时将对象方法转化成静态方法，可以被类直接调用</strong></p>
-<ol start="12">
-<li><strong>@classmethod</strong></li>
-</ol>
-<p>将对象方法转化成类方法，并注意类方法函数参数写法上需要加上cls作为参数，但调用的时候不用加参数</p>
-<ol start="13">
-<li>@property</li>
-</ol>
-<p>可以使类方法转化成属性，直接通过方法名来访问方法</p>
-<h2 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h2><ol>
-<li>智能指针（动态内存管理）</li>
-</ol>
-<p>动态内存管理常常会出现两种问题：</p>
-<ul>
-<li>忘记释放内存，造成内存泄漏</li>
-<li>尚有指针使用内存的情况下就释放了内存，就会产生引用非法内存的指针</li>
-</ul>
-<p>标准库提供的两种智能指针的区别在于管理底层指针的方法不同，shared_ptr允许多个指针指向同一个对象，unique_ptr则“独占”所指向的对象。标准库还定义了一种名为weak_ptr的伴随类，它是一种弱引用，指向shared_ptr所管理的对象，这三种智能指针都定义在memory头文件中。</p>
-<p><a class="link"   href="https://blog.csdn.net/flowing_wind/article/details/81301001" >智能指针<i class="fas fa-external-link-alt"></i></a></p>
-<ol start="2">
-<li>多态（接口重用）</li>
-</ol>
-<p>多态是指同一对象收到不同的消息时或不同对象收到相同消息时产生不同的实现动作</p>
-<ul>
-<li>编译时多态（静态多态）：通过重载函数实现</li>
-<li>运行时多态（动态多态）：通过虚函数实现</li>
-</ul>
-<p>参数相同，有virtual关键字的是多态重写</p>
-<p>根据指针或者引用指向哪种类型的对象来决定调用哪个虚函数，从而决定具体的实现动作</p>
-<h1 id="机器学习八股"><a href="#机器学习八股" class="headerlink" title="机器学习八股"></a>机器学习八股</h1><ol>
-<li><p>SVM</p>
-</li>
-<li><p>随机森林、决策树</p>
-</li>
-<li><p>1 决策树</p>
-</li>
-</ol>
-<ul>
-<li>信息增益</li>
-</ul>
-<p><img src="/../pic/article1025_3.png"></p>
-<ul>
-<li>信息增益率</li>
-</ul>
-<p><img src="/../pic/article1025_4.png"></p>
-<ul>
-<li>基尼系数</li>
-</ul>
-<p><img src="/../pic/article1025_2.png"></p>
-<ol start="2">
-<li>2 随机森林</li>
-</ol>
-<p>随机森林属于bagging集成方法（CART决策树）</p>
-<p><strong>随机森林中的树一般会比较深，以尽可能地降低偏差，由于随机性，随机森林对于降低模型方法效果显著；而GBDT树的深度会比较浅，通过减少模型复杂度来降低方差</strong></p>
-<ol start="3">
-<li>聚类如果不清楚有多少类，有什么办法</li>
-</ol>
-<ul>
-<li>肘方法</li>
-</ul>
-<p>肘方法就是随机初始化多个k值对应的kmeans，计算聚类误差，选取下降转折点对应的k值作为最佳聚类数</p>
-<ul>
-<li>轮廓系数法</li>
-</ul>
-<p>轮廓系数法的本质就是类间距离越大越好，类内距离越小越好</p>
-<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="旷视面试"><a href="#旷视面试" class="headerlink" title="旷视面试"></a>旷视面试</h2><ol>
-<li>手写iou,nms</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iou</span>(<span class="params">box1, box2</span>):</span><br><span class="line">    x1 = <span class="built_in">max</span>(box1[<span class="number">0</span>], box2[<span class="number">0</span>])</span><br><span class="line">    y1 = <span class="built_in">max</span>(box1[<span class="number">1</span>], box2[<span class="number">1</span>])</span><br><span class="line">    x2 = <span class="built_in">min</span>(box1[<span class="number">2</span>], box2[<span class="number">2</span>])</span><br><span class="line">    y2 = <span class="built_in">min</span>(box1[<span class="number">3</span>], box2[<span class="number">3</span>])</span><br><span class="line">    h = <span class="built_in">max</span>(<span class="number">0</span>, x2-x1)</span><br><span class="line">    w = <span class="built_in">max</span>(<span class="number">0</span>, y2-y1)</span><br><span class="line">    area1 = (box1[<span class="number">2</span>]-box1[<span class="number">0</span>])*(box1[<span class="number">3</span>]-box1[<span class="number">1</span>])</span><br><span class="line">    area2 = (box2[<span class="number">2</span>]-box2[<span class="number">0</span>])*(box2[<span class="number">3</span>]-box2[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> (w*h)/(area1+area2-w*h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nms</span>(<span class="params">boxes, thres</span>):</span><br><span class="line">    x1 = boxes[:, <span class="number">0</span>]</span><br><span class="line">    y1 = boxes[:, <span class="number">1</span>]</span><br><span class="line">    x2 = boxes[:, <span class="number">2</span>]</span><br><span class="line">    y2 = boxes[:, <span class="number">3</span>]</span><br><span class="line">    scores = boxes[:, <span class="number">4</span>]</span><br><span class="line">    orders = scores.argsort()[::-<span class="number">1</span>]</span><br><span class="line">    keep = []</span><br><span class="line">    areas = (x2-x1)*(y2-y1)</span><br><span class="line">    <span class="keyword">while</span>(orders.size()&gt;<span class="number">0</span>):</span><br><span class="line">        index1 = orders[<span class="number">0</span>]</span><br><span class="line">        keep.append(index1)</span><br><span class="line">        xx1 = np.maximum(x1[index1], x1[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[index1], y1[orders[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[index1], x2[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[index1], y2[orders[<span class="number">1</span>:]])</span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2-xx1+<span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2-yy1+<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">iter</span> = w*h</span><br><span class="line">        ious = <span class="built_in">iter</span>/areas[index1]+areas[orders[<span class="number">1</span>:]]-<span class="built_in">iter</span></span><br><span class="line">        ids = np.where(ious&lt;=thres)[<span class="number">0</span>]</span><br><span class="line">        orders = orders[ids+<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>跳台阶</li>
-<li>跳台阶进阶</li>
-<li>缓解过拟合的方法</li>
-<li>C++多态</li>
-<li>dropout</li>
-<li>BN</li>
-</ol>
-<h2 id="京东面试"><a href="#京东面试" class="headerlink" title="京东面试"></a>京东面试</h2><ol>
-<li><p>动态规划的转移方程</p>
-</li>
-<li><p>resnet的神经元的细节，数学表达</p>
-<ol>
-<li>shortcut</li>
-<li>F(x)+x</li>
-</ol>
-</li>
-<li><p>聚类算法</p>
-<ol>
-<li><p>kmeans过程</p>
-</li>
-<li><p>kmeans有哪些缺点</p>
-<ol>
-<li>k值难以估计</li>
-</ol>
-<p>一开始确定一个合适的k值，通过一次kmeans聚类得到k个聚类中心，根据k个聚类中心之间的距离情况合并距离近的类别，直到达到阈值收敛</p>
-<ol start="2">
-<li>对噪声和离群点敏感</li>
-</ol>
-<p>去除离群点后再进行聚类</p>
-<ol start="3">
-<li>对初始聚类中心敏感</li>
-</ol>
-<p>已经选取了若干聚类中心，距离这些聚类中心越远的点越有可能被选为新的聚类中心</p>
-<ol start="4">
-<li>假定簇是圆</li>
-</ol>
-</li>
-<li><p>其他的一些聚类算法（密度）</p>
-</li>
-</ol>
-</li>
-<li><p>SVM</p>
-<ol>
-<li>过程</li>
-<li>除了软间隔之外，线性不可分怎么解决</li>
-<li>软间隔中对偶问题怎<ol>
-<li>拉格朗日乘子法</li>
-</ol>
-</li>
-<li>对偶问题转换需要满足的条件<ol>
-<li>KKT条件</li>
-</ol>
-</li>
-<li>KKT条件<ol>
-<li>拉格朗日函数取极值的的一个必要条件</li>
-<li>拉格朗日系数约束</li>
-<li>不等式约束</li>
-<li>互补松弛条件</li>
-<li>原约束</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>解决过拟合的一些方法</p>
-</li>
-<li><p>transformer</p>
-<ol>
-<li>模型过程</li>
-<li>讲一下注意力机制</li>
-</ol>
-</li>
-<li><p>项目内容</p>
-</li>
-<li><p>两道算法</p>
-<ol>
-<li>一个数组里面有一个数出现的次数大于等于数组长度的一半，找出这个数（空间复杂度O（1），时间复杂度O（n））</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> val: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>) &#123;</span><br><span class="line">                ans = val;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans==val)</span><br><span class="line">                    cnt++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>全排列</li>
-</ol>
-</li>
-</ol>
-<h2 id="蔚来"><a href="#蔚来" class="headerlink" title="蔚来"></a>蔚来</h2><ol>
-<li>attention和全连接的区别</li>
-<li>Vision transformer的位置编码具体实现</li>
-<li>注意力机制</li>
-<li>注意力机制为什么要除以d</li>
-<li>最新的前沿进展</li>
-<li>为什么注意力机制要生成q,k,v，单独一个不行吗</li>
-<li>项目中数据均衡是怎么做的</li>
-<li>算法题：马走遍所有的点有几种不同的途径</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>deeplearning</title>
     <url>/2022/09/02/deeplearning/</url>
     <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
@@ -1059,17 +611,17 @@
 ]]></content>
   </entry>
   <entry>
-    <title>git</title>
-    <url>/2022/09/09/git/</url>
-    <content><![CDATA[<p><a class="link"   href="https://git-scm.com/book/en/v2" >git文档<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>go学习笔记</title>
     <url>/2022/06/23/go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="go简要教程"><a href="#go简要教程" class="headerlink" title="go简要教程"></a>go简要教程</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb" >go简要教程<i class="fas fa-external-link-alt"></i></a></p>
 <h1 id="go生态拓展介绍"><a href="#go生态拓展介绍" class="headerlink" title="go生态拓展介绍"></a>go生态拓展介绍</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb/zwukev?inner=mgqJ1" >go生态扩展<i class="fas fa-external-link-alt"></i></a></p>
 <h1 id="go中的反射机制"><a href="#go中的反射机制" class="headerlink" title="go中的反射机制"></a>go中的反射机制</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb/cwur9v" >go中的反射机制<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2022/09/09/git/</url>
+    <content><![CDATA[<p><a class="link"   href="https://git-scm.com/book/en/v2" >git文档<i class="fas fa-external-link-alt"></i></a></p>
 ]]></content>
   </entry>
   <entry>
@@ -1320,6 +872,350 @@
 <img src="../pic/machine3_1.png" style="zoom: 50%;" />
 
 <img src="../pic/machine3_2.png" style="zoom:50%;" />
+]]></content>
+  </entry>
+  <entry>
+    <title>matrix</title>
+    <url>/2022/11/05/matrix/</url>
+    <content><![CDATA[<h1 id="矩阵分析与应用"><a href="#矩阵分析与应用" class="headerlink" title="矩阵分析与应用"></a>矩阵分析与应用</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="/../pic/matrix_1.png"></p>
+<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="高斯消元法"><a href="#高斯消元法" class="headerlink" title="高斯消元法"></a>高斯消元法</h3><ol>
+<li>三种线性变换</li>
+</ol>
+<ul>
+<li>交换两行</li>
+<li>对某一行乘上一个非零系数</li>
+<li>对某一行加上另一行乘以一个非零系数</li>
+</ul>
+<ol start="2">
+<li>对于一个nxn的矩阵进行高斯消元法（反向替换）需要的操作数</li>
+</ol>
+<p>$\frac{n^3}{3}个乘法操作和\frac{n^3}{3}个加法操作$</p>
+<ol start="3">
+<li>Gauss-Jordan方法</li>
+</ol>
+<p>与标准的Gaussian消元法的区别：</p>
+<ul>
+<li>所有的主元都为1</li>
+<li>除了主元其他元素都为0</li>
+</ul>
+<p>复杂度和标准Gaussian消元法相同</p>
+<ol start="4">
+<li><p>部分主元法和完全主元法</p>
+<ol>
+<li>部分主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列的最大的一个值</li>
+</ul>
+<ol start="2">
+<li>完全主元法：</li>
+</ol>
+<ul>
+<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
+</ul>
+</li>
+<li><p>病态系统</p>
+</li>
+</ol>
+<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
+<hr>
+<ol start="6">
+<li>modified gaussian elimination</li>
+</ol>
+<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
+<ol start="7">
+<li>矩阵的秩的定义</li>
+</ol>
+<ul>
+<li>主元的个数</li>
+<li>消元后的非零行的个数</li>
+<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
+</ul>
+<ol start="8">
+<li>reduced row echelon form</li>
+</ol>
+<ul>
+<li>首先是row echelon form</li>
+<li>每一行第一个非零元素是1</li>
+<li>主元所在列除了主元其他都是0</li>
+</ul>
+<ol start="9">
+<li>basic columns可以用来表示nonbasic columns</li>
+<li>线性系统的一致性</li>
+</ol>
+<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
+<p><img src="/../pic/matrix_2.png"></p>
+<ol start="11">
+<li>Homogeneous Systems(齐次系统)</li>
+</ol>
+<p>齐次系统和非齐次系统的解的情况：</p>
+<img src="../pic/matrix_3.png" style="zoom:50%;" />
+
+
+
+<h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h3 id="矩阵加法和转置"><a href="#矩阵加法和转置" class="headerlink" title="矩阵加法和转置"></a>矩阵加法和转置</h3><img src="../pic/matrix3_1.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_2.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_3.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_4.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_5.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_6.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_7.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_9.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_10.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix3_11.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_12.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_14.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix3_15.png" style="zoom:50%;" />
+
+
+
+<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix_rank.png" style="zoom:50%;" />
+
+<ul>
+<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
+</ul>
+<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
+
+<img src="../pic/matrix5_4.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/matrix5_5.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_6.png" style="zoom:50%;" />
+
+<img src="../pic/matrix5_7.png" style="zoom:50%;" />
+
+
+
+<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
+<li>Induced matrix norms</li>
+</ol>
+<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
+
+<p><img src="/../pic/matrix77_2.png"></p>
+<ol start="2">
+<li>2-Norm</li>
+</ol>
+<p><img src="/../pic/matrix77_3.jpeg"></p>
+<p><img src="/../pic/matrix77_4.jpeg"></p>
+<ol start="3">
+<li>1-norm</li>
+</ol>
+<p><img src="/../pic/matrix77_5.jpeg"></p>
+<ol start="4">
+<li>内积空间</li>
+</ol>
+<p><img src="/../pic/matrix77_6.png"></p>
+<ol start="5">
+<li>general inner product</li>
+</ol>
+<p><img src="/../pic/matrix77_6.jpeg"></p>
+<p><img src="/../pic/matrix77_7.jpeg"></p>
+<p><img src="/../pic/matrix77_8.jpeg"></p>
+<ol start="6">
+<li>正交向量</li>
+</ol>
+<p><img src="/../pic/matrix77_9.jpeg"></p>
+<p><img src="/../pic/matrix77_10.jpeg"></p>
+<ol start="7">
+<li>Gram-Schmidt Procedure</li>
+</ol>
+<p><img src="/../pic/matrix77_11.png"></p>
+<p><img src="/../pic/matrix77_12.png"></p>
+<p><img src="/../pic/matrix77_13.png"></p>
+<p><img src="/../pic/matrix77_14.png"></p>
+<ol start="8">
+<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
+</ol>
+<p><img src="/../pic/matrix77_15.png"></p>
+<p><img src="/../pic/matrix77_16.png"></p>
+<p><img src="/../pic/matrix77_17.png"></p>
+<p><img src="/../pic/matrix77_18.png"></p>
+<p><img src="/../pic/matrix77_19.png"></p>
+<ol start="9">
+<li>Orthogonal Reduction</li>
+</ol>
+<p><img src="/../pic/matrix77_20.png"></p>
+<p><img src="/../pic/matrix77_21.png"></p>
+<ol start="10">
+<li><p>DFT</p>
+</li>
+<li><p>余子空间</p>
+</li>
+</ol>
+<p><img src="/../pic/matrix77_22.png"></p>
+<p><img src="/../pic/matrix77_23.png"></p>
+<ol start="12">
+<li>RN分解</li>
+</ol>
+<p><img src="/../pic/matrix77_24.png"></p>
+<p><img src="/../pic/matrix77_25.png"></p>
+<p><img src="/../pic/matrix77_26.png"></p>
+<p><img src="/../pic/matrix77_27.png"></p>
+<p><img src="/../pic/matrix77_28.png"></p>
+<ol start="13">
+<li>正交分解</li>
+</ol>
+<p><img src="/../pic/matrix77_29.png"></p>
+<p><img src="/../pic/matrix77_30.png"></p>
+<p><img src="/../pic/matrix77_31.png"></p>
+<p><img src="/../pic/matrix77_32.png"></p>
+<ol start="14">
+<li>奇异值分解</li>
+</ol>
+<p><img src="/../pic/matrix77_33.png"></p>
+<p><img src="/../pic/matrix77_34.png"></p>
+<p><img src="/../pic/matrix77_35.png"></p>
+<p><img src="/../pic/matrix77_36.png"></p>
+<ol start="15">
+<li>正交投影</li>
+</ol>
+<p><img src="/../pic/matrix77_37.png"></p>
+<p><img src="/../pic/matrix77_38.png"></p>
+<p><img src="/../pic/matrix111.png"></p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
+<li>只有方阵才有行列式</li>
+<li>转置不影响行列式的结果</li>
+</ol>
+<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
+<ol start="3">
+<li>矩阵内积的行列式（方阵）</li>
+</ol>
+<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
+<p><img src="/../pic/matrix7_2.png"></p>
+<p><img src="/../pic/matrix7_3.png"></p>
+<p>行列式的求导</p>
+<p><img src="/../pic/matrix7_4.png"></p>
+<p><img src="/../pic/matrix7_5.png"></p>
+<ol start="4">
+<li>分块行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_6.png"></p>
+<ol start="5">
+<li>Rank-1行列式</li>
+</ol>
+<p><img src="/../pic/matrix7_7.png"></p>
+<ol start="6">
+<li>利用cofactor计算行列式和逆</li>
+</ol>
+<p><img src="/../pic/matrix7_8.png"></p>
+<p><img src="/../pic/matrix7_9.png"></p>
+<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
+<li>关于特征值和特征向量</li>
+</ol>
+<p><img src="/../pic/matrix8_1.png"></p>
+<ol start="2">
+<li>特征式的系数</li>
+</ol>
+<p><img src="/../pic/matrix8_2.png"></p>
+<ol start="3">
+<li>对角化</li>
+</ol>
+<p><img src="/../pic/matrix8_3.png"></p>
+<ol start="4">
+<li>Multiplicty</li>
+</ol>
+<p><img src="/../pic/matrix8_4.png"></p>
+<ol start="5">
+<li>diagonalizability</li>
+</ol>
+<p><img src="/../pic/matrix8_5.png"></p>
+<ol start="6">
+<li>对角化的必要条件及谱分解</li>
+</ol>
+<p><img src="/../pic/matrix8_6.png"></p>
+<p><img src="/../pic/matrix8_7.png"></p>
+<p><img src="/../pic/matrix8_8.png"></p>
+<ol start="7">
+<li>normal matrix</li>
+</ol>
+<p><img src="/../pic/matrix8_9.png"></p>
+<p><img src="/../pic/matrix8_10.png"></p>
+<p><img src="/../pic/matrix8_11.png"></p>
+<ol start="8">
+<li>positive definite matrices</li>
+</ol>
+<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
+
+<p> 正定矩阵的定义：</p>
+<p><img src="/../pic/matrix8_13.png"></p>
+<p>半正定：</p>
+<p><img src="/../pic/matrix8_14.png"></p>
+<p>二次型:</p>
+<p><img src="/../pic/matrix8_15.png"></p>
+<p>合同变换</p>
+<p><img src="/../pic/matrix8_16.jpeg"></p>
+<h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><ul>
+<li>完备空间的证明除了互补之外还要证明唯一性</li>
+</ul>
+<p><img src="/../pic/matrix_exam.jpg"></p>
 ]]></content>
   </entry>
   <entry>
@@ -2065,6 +1961,27 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
+    <title>paper-reading02</title>
+    <url>/2022/11/26/paper-reading02/</url>
+    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
+<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
+<center>模型框架
+  
+</center>
+
+<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
+<p><img src="/../pic/paper-reading2_2.png"></p>
+<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
+<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
+<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
+<p><img src="/../pic/paper-reading2_4.png"></p>
+<p><img src="/../pic/paper-reading2_3.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>paper-reading03.md</title>
     <url>/2022/12/11/paper-reading03-md/</url>
     <content><![CDATA[<h1 id="Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><a href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs" class="headerlink" title="Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"></a><strong>Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</strong></h1><p><a class="link"   href="https://arxiv.org/abs/2203.06717" >论文地址<i class="fas fa-external-link-alt"></i></a></p>
@@ -2122,27 +2039,6 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
-    <title>paper-reading02</title>
-    <url>/2022/11/26/paper-reading02/</url>
-    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
-<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
-<center>模型框架
-  
-</center>
-
-<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
-<p><img src="/../pic/paper-reading2_2.png"></p>
-<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
-<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
-<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
-<p><img src="/../pic/paper-reading2_4.png"></p>
-<p><img src="/../pic/paper-reading2_3.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>paper-reading04</title>
     <url>/2022/12/23/paper-reading04/</url>
     <content><![CDATA[<h1 id="RepVGG-Making-VGG-style-ConvNets-Great-Again"><a href="#RepVGG-Making-VGG-style-ConvNets-Great-Again" class="headerlink" title="RepVGG: Making VGG-style ConvNets Great Again"></a>RepVGG: Making VGG-style ConvNets Great Again</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2101.03697" >https://arxiv.org/abs/2101.03697<i class="fas fa-external-link-alt"></i></a></p>
@@ -2182,56 +2078,6 @@ megbrain+meghair+megskull</p>
 <li><strong>与ResNet-50网络相比，RepVGG-B1g2-fast网络不仅获得较高的精度，而且在速度上也有一些优势</strong></li>
 <li><strong>与ResNet-101网络相比，RepVGG-B2-fast网络不均获得了较高的速度，各项指标上也都有所提升</strong></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>paper-reading05</title>
-    <url>/2023/01/09/paper-reading05/</url>
-    <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
-<p>代码地址：<a class="link"   href="https://github.com/huawei-noah/CV-Backbones" >https://github.com/huawei-noah/CV-Backbones<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>在视觉任务中，CNNs，Transformer，MLP都取得了很好的效果。CNNs利用了平移不变性和局部性使用滑动窗口提取特征。Transformer和MLP将将图像视为一系列的patches。上述的考虑都是基于规则网格或序列表示，本文尝试一种更灵活的图结构。计算机视觉的一个基本任务是识别图像中的物体，由于对象通常不是规则的方形，而以往的网络如ResNet和ViT中常用的网格或序列结构往往会造成冗余，难以处理这些不规则对象。图是一种广义的数据结构，网格和序列可以看作是图的一种特殊情况。将图像视为图形对于视觉感知来说更加灵活和有效。本文基于图像的图表示提出了vision graph neural network，首次将图神经网络用于视觉任务，同时能取得很好的效果。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="/../pic/paper-reading05_1.png"></p>
-<ol>
-<li>对图像的图表示</li>
-</ol>
-<p>对于一张图片，首先将图片划分为N个patch，然后将进行特征变换得到每一个patch对应的特征。这些特性可以看作是一组无序的节点，表示为V&#x3D;[v1,…,vN]。对于每一个节点vi找到穷最近的K个邻居N_vi，然后加入一条有向边eji从vj到vi。因此就得到了一个图结构G&#x3D;（V，E），其中E表示所有的边集合。通过将图像视为图数据，因此可以利用GCN提取其表征。</p>
-<ol start="2">
-<li>图层次的处理</li>
-</ol>
-<p>图卷积层通过聚合相邻节点的特征来实现节点之间的信息交换。具体来说，聚合运算是通过聚合邻居节点的特征来计算节点的表示。更进一步，引入了多头注意力。将聚集特征分成h个头，然后分别用不同的权重更新这些头。多头更新操作使模型能够在多个表示子空间中更新信息，有利于特征的多样性。</p>
-<ol start="3">
-<li>ViG block</li>
-</ol>
-<p>本文在图卷积前后应用线性层，将节点特征投影到同一个域，增加特征多样性。在图卷积后插入一个非线性激活函数以避免层坍塌。我们称升级后的模块为Grapher模块。为了进一步提高特征转换能力和缓解过平滑现象，在每个节点上使用前馈网络(FFN)。FFN模块是一个简单的多层感知器，有两个完全连接的层。由Grapher模块和FFN模块叠加而成的ViG块是构成网络的基本构建单元。因此构建面向视觉任务的ViG网络。与ResGCN相比，ViG随着层的深入能够保持特征多样性，学习出判别性的表征。</p>
-<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><ol>
-<li>各向同性架构</li>
-</ol>
-<p>各向同性架构意味着主体在整个网络中具有大小和形状相同的特征，如ViT和ResMLP。本文构建了三种不同模型尺寸的各向同性ViG架构，分别为ViG-ti、S和B，节点数设为N &#x3D;196。为了逐渐扩大接收场，这三种模型中随着层深的增加，邻居节点数K从9线性增加到18。头的数量默认设置为h &#x3D; 4。</p>
-<ol start="2">
-<li>金字塔架构</li>
-</ol>
-<p>金字塔架构考虑了图像的多尺度特性，即随着层越深提取空间尺寸越小的特征，如ResNet和PVT。经验证据表明，金字塔结构对视觉任务是有效的。因此，本文利用先进的设计和建立了四个版本的金字塔ViG模型。</p>
-<ol start="3">
-<li>位置编码</li>
-</ol>
-<p>为了表示节点的位置信息，在每个节点特征中添加一个位置编码向量。对于金字塔ViG，进一步使用Swin Transformer等高级设计，例如相对位置编码。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/../pic/paper-reading05_2.png"></p>
-<p><img src="/../pic/paper-reading05_3.png"></p>
-<h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
-<p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>pytorch_mmseg</title>
-    <url>/2022/10/06/pytorch-mmseg/</url>
-    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
 ]]></content>
   </entry>
   <entry>
@@ -2432,6 +2278,42 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
+    <title>pytorch_mmseg</title>
+    <url>/2022/10/06/pytorch-mmseg/</url>
+    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>roadmap</title>
+    <url>/2022/09/01/roadmap/</url>
+    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>ucas important items</title>
     <url>/2022/08/08/ucas_items/</url>
     <content><![CDATA[<h3 id="国科大学生处联系方式："><a href="#国科大学生处联系方式：" class="headerlink" title="国科大学生处联系方式："></a>国科大学生处联系方式：</h3><ul>
@@ -2459,6 +2341,105 @@ baseline（混合损失）+baseline权重finetune</p>
 </ul>
 <h3 id="一些常用的电话"><a href="#一些常用的电话" class="headerlink" title="一些常用的电话"></a>一些常用的电话</h3><p><img src="/../pic/ucas_phone.jpg"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>vps_config.md</title>
+    <url>/2022/09/03/vps-config-md/</url>
+    <content><![CDATA[<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
+
+<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
+<p>ubuntu安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装时腾讯云和阿里云要开启相应的端口</p>
+<p>选择安装LNMP套件</p>
+<p>宝塔找回账号密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
+
+<p>查看账号并修改密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
+
+<p>宝塔面板特色功能：</p>
+<p><img src="/../pic/baota_config1.png"></p>
+<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
+<ul>
+<li><p>域名：calciumoxide.xyz</p>
+</li>
+<li><p>博客地址：<a class="link"   href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>alist直链：alist.calciumoxide.xyz</p>
+</li>
+</ul>
+<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
+<p><img src="/../pic/cloudflare.png"></p>
+<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
+
+<p><a class="link"   href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>update apt and install some necessary packages</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
+
+<p>add docker’s official GPG key</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
+
+<p>set up the repository</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>install docker engine</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<p>Verify successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
+<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config2.png"></p>
+<p>增加这部分内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../pic/alist_config3.png"></p>
+<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
+<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
+<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
+<p><img src="/../pic/aliyun_config1.jpg"></p>
+<p>按键盘上的“F12”键</p>
+<p><img src="/../pic/aliyun_config2.jpg"></p>
+<p>同时按键盘“Ctrl”+“R”两个键</p>
+<p><img src="/../pic/aliyun_config3.jpg"></p>
+<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
+<p><img src="/../pic/aliyun_config4.jpg"></p>
+<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
+<p><img src="/../pic/baidu_config1.jpg"></p>
+<p>通过<a class="link"   href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
+<p><img src="/../pic/baidu_config2.jpg"></p>
+<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
+]]></content>
+      <tags>
+        <tag>s</tag>
+      </tags>
   </entry>
   <entry>
     <title>weak-shot-classify</title>
@@ -2748,105 +2729,6 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title>vps_config.md</title>
-    <url>/2022/09/03/vps-config-md/</url>
-    <content><![CDATA[<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a class="link"   href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=8&id=lhins-71h8c8dg" >控制台<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   href="https://cloud.tencent.com/product/lighthouse?fromSource=gwzcw.1293314.1293314.1293314&cps_key=923faf881f7f4f42d8bb30f7a5c32918" >腾讯云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   href="https://cn.aliyun.com/product/swas?from_alibabacloud=&source=5176.11533457&userCode=fxujv7w7" >阿里云轻量服务器<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>生成公钥：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>远程服务器包含&#x2F;root&#x2F;.ssh文件夹，进入本地的&#x2F;root&#x2F;.ssh文件夹，其中有一个id_rsa.pub文件需要复制到远程服务器中，使用命令实现:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id root@ip</span><br></pre></td></tr></table></figure>
-
-<h2 id="宝塔"><a href="#宝塔" class="headerlink" title="宝塔"></a>宝塔</h2><p>服务器可视化面板</p>
-<p>ubuntu安装命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
-
-<p>安装时腾讯云和阿里云要开启相应的端口</p>
-<p>选择安装LNMP套件</p>
-<p>宝塔找回账号密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/bt default</span><br></pre></td></tr></table></figure>
-
-<p>查看账号并修改密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/server/panel &amp;&amp; python tools.py panel testpasswd</span><br></pre></td></tr></table></figure>
-
-<p>宝塔面板特色功能：</p>
-<p><img src="/../pic/baota_config1.png"></p>
-<h2 id="namesilo"><a href="#namesilo" class="headerlink" title="namesilo"></a>namesilo</h2><p>DNS解析</p>
-<ul>
-<li><p>域名：calciumoxide.xyz</p>
-</li>
-<li><p>博客地址：<a class="link"   href="http://www.calciumoxide.xyz/" >www.calciumoxide.xyz<i class="fas fa-external-link-alt"></i></a></p>
-</li>
-<li><p>alist直链：alist.calciumoxide.xyz</p>
-</li>
-</ul>
-<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>CDN服务</p>
-<p><img src="/../pic/cloudflare.png"></p>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a class="link"   href="https://docs.docker.com/engine/install/ubuntu/" >https://docs.docker.com/engine/install/ubuntu/<i class="fas fa-external-link-alt"></i></a></p>
-<hr>
-<h2 id="alist配置"><a href="#alist配置" class="headerlink" title="alist配置"></a>alist配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">网盘直链是通过第三方平台调用云盘接口，达到快速访问网盘资源的效果。</span><br><span class="line"></span><br><span class="line">与传统网盘相比，下载大型文件无需下载客户端、去掉了官方网盘文件分享页面、最大的亮点是不限制上传和下载速度（取决于用户本地带宽），网盘直链技术能为个人站长省一大笔服务器带宽费用。</span><br></pre></td></tr></table></figure>
-
-<p><a class="link"   href="https://alist-doc.nn.ci/docs/intro" >alist文档<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="docker-engine安装"><a href="#docker-engine安装" class="headerlink" title="docker engine安装"></a>docker engine安装</h3><p>uninstall old version</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
-
-<p>update apt and install some necessary packages</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br></pre></td></tr></table></figure>
-
-<p>add docker’s official GPG key</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br></pre></td></tr></table></figure>
-
-<p>set up the repository</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
-
-<p>install docker engine</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<p>Verify successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker compose安装"></a>docker compose安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<h3 id="alist安装"><a href="#alist安装" class="headerlink" title="alist安装"></a>alist安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always -v /home/ubuntu/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker logs alist </span><br></pre></td></tr></table></figure>
-
-<h3 id="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"><a href="#遇到访问不了的情况，在服务商和宝塔面板开放对应的端口" class="headerlink" title="遇到访问不了的情况，在服务商和宝塔面板开放对应的端口"></a>遇到访问不了的情况，在服务商和宝塔面板开放对应的端口</h3><h3 id="在cloudflare中配置DNS"><a href="#在cloudflare中配置DNS" class="headerlink" title="在cloudflare中配置DNS"></a>在cloudflare中配置DNS</h3><p><a class="link"   href="https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns" >https://dash.cloudflare.com/1895bf79eea29350124b3fadea071320/calciumoxide.xyz/dns<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="在宝塔页面增加站点"><a href="#在宝塔页面增加站点" class="headerlink" title="在宝塔页面增加站点"></a>在宝塔页面增加站点</h3><p><img src="/../pic/alist_config1.png"></p>
-<h3 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h3><p>注释掉配置文件中的这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log off; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config2.png"></p>
-<p>增加这部分内容：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244/;</span><br><span class="line">    rewrite ^/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests 1;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/../pic/alist_config3.png"></p>
-<h3 id="访问alist"><a href="#访问alist" class="headerlink" title="访问alist"></a>访问alist</h3><p>输入域名即可访问alist，输入docker logs alist里面的密码可以正常登录后台</p>
-<h3 id="添加本地存储"><a href="#添加本地存储" class="headerlink" title="添加本地存储"></a>添加本地存储</h3><p>路径可以填写<code>/opt/alist/data/</code>，这样的话，就对应VPS上的<code>/root/data/docker_data/alist</code>这个安装目录了。</p>
-<h3 id="更新alist"><a href="#更新alist" class="headerlink" title="更新alist"></a>更新alist</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop alist  <span class="comment">#停止alist容器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f alist  <span class="comment">#删除alist容器，因为之前映射到了本地，所以数据不会被删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -r /root/data/docker_data/alist /root/data/docker_data/alist.bak  <span class="comment">#可选，如果不放心，可以备份一下数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker pull xhofe/alist:latest  <span class="comment">#拉取最新的alist镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -d --restart=always -v /root/data/docker_data/alist:/opt/alist/data -p 5244:5244 --name=<span class="string">&quot;alist&quot;</span> xhofe/alist:latest    <span class="comment">#运行安装命令，注意-v挂载的路径与原来相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="阿里云盘配置"><a href="#阿里云盘配置" class="headerlink" title="阿里云盘配置"></a>阿里云盘配置</h3><p>可以浏览器再加一个窗口页面，搜索“阿里云盘网页版”，然后相应扫码登陆或者账号密码登陆</p>
-<p><img src="/../pic/aliyun_config1.jpg"></p>
-<p>按键盘上的“F12”键</p>
-<p><img src="/../pic/aliyun_config2.jpg"></p>
-<p>同时按键盘“Ctrl”+“R”两个键</p>
-<p><img src="/../pic/aliyun_config3.jpg"></p>
-<p>上方依次找到点击“应用”&gt; 左边“本地存储空间”下面的网页&gt; 右边“token”&gt; 下方找到“refresh_token”，点击复制后面一串文字，这个一串文字就是刚才阿里云盘的刷新令牌，切换回刚才网页粘贴填上即可，然后点击下方保存</p>
-<p><img src="/../pic/aliyun_config4.jpg"></p>
-<h3 id="百度网盘配置"><a href="#百度网盘配置" class="headerlink" title="百度网盘配置"></a>百度网盘配置</h3><p>（电脑上必须先装有百度网盘的客户端，而且打开运行),客户端id和密钥就是根据电脑百度网盘客户端的自动识别出来的</p>
-<p><img src="/../pic/baidu_config1.jpg"></p>
-<p>通过<a class="link"   href="https://tool.nn.ci/baidu/callback" >refresh_token获取<i class="fas fa-external-link-alt"></i></a>获取refresh_token</p>
-<p><img src="/../pic/baidu_config2.jpg"></p>
-<h2 id="检测ping"><a href="#检测ping" class="headerlink" title="检测ping"></a>检测ping</h2><p><a class="link"   href="https://ping.chinaz.com/" >https://ping.chinaz.com/<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="ipv6-ss-config"><a href="#ipv6-ss-config" class="headerlink" title="ipv6 ss config"></a>ipv6 ss config</h2><p><img src="/../pic/ipv6_ss_config.png"></p>
-]]></content>
-      <tags>
-        <tag>s</tag>
-      </tags>
-  </entry>
-  <entry>
     <title></title>
     <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
     <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
@@ -2856,370 +2738,488 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title>matrix</title>
-    <url>/2022/11/05/matrix/</url>
-    <content><![CDATA[<h1 id="矩阵分析与应用"><a href="#矩阵分析与应用" class="headerlink" title="矩阵分析与应用"></a>矩阵分析与应用</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="/../pic/matrix_1.png"></p>
-<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="高斯消元法"><a href="#高斯消元法" class="headerlink" title="高斯消元法"></a>高斯消元法</h3><ol>
-<li>三种线性变换</li>
-</ol>
-<ul>
-<li>交换两行</li>
-<li>对某一行乘上一个非零系数</li>
-<li>对某一行加上另一行乘以一个非零系数</li>
-</ul>
-<ol start="2">
-<li>对于一个nxn的矩阵进行高斯消元法（反向替换）需要的操作数</li>
-</ol>
-<p>$\frac{n^3}{3}个乘法操作和\frac{n^3}{3}个加法操作$</p>
-<ol start="3">
-<li>Gauss-Jordan方法</li>
-</ol>
-<p>与标准的Gaussian消元法的区别：</p>
-<ul>
-<li>所有的主元都为1</li>
-<li>除了主元其他元素都为0</li>
-</ul>
-<p>复杂度和标准Gaussian消元法相同</p>
-<ol start="4">
-<li><p>部分主元法和完全主元法</p>
+    <title>paper-reading05</title>
+    <url>/2023/01/09/paper-reading05/</url>
+    <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
+<p>代码地址：<a class="link"   href="https://github.com/huawei-noah/CV-Backbones" >https://github.com/huawei-noah/CV-Backbones<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>在视觉任务中，CNNs，Transformer，MLP都取得了很好的效果。CNNs利用了平移不变性和局部性使用滑动窗口提取特征。Transformer和MLP将将图像视为一系列的patches。上述的考虑都是基于规则网格或序列表示，本文尝试一种更灵活的图结构。计算机视觉的一个基本任务是识别图像中的物体，由于对象通常不是规则的方形，而以往的网络如ResNet和ViT中常用的网格或序列结构往往会造成冗余，难以处理这些不规则对象。图是一种广义的数据结构，网格和序列可以看作是图的一种特殊情况。将图像视为图形对于视觉感知来说更加灵活和有效。本文基于图像的图表示提出了vision graph neural network，首次将图神经网络用于视觉任务，同时能取得很好的效果。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="/../pic/paper-reading05_1.png"></p>
 <ol>
-<li>部分主元法：</li>
+<li>对图像的图表示</li>
 </ol>
-<ul>
-<li>主元位置的元素为主元所在列的最大的一个值</li>
-</ul>
+<p>对于一张图片，首先将图片划分为N个patch，然后将进行特征变换得到每一个patch对应的特征。这些特性可以看作是一组无序的节点，表示为V&#x3D;[v1,…,vN]。对于每一个节点vi找到穷最近的K个邻居N_vi，然后加入一条有向边eji从vj到vi。因此就得到了一个图结构G&#x3D;（V，E），其中E表示所有的边集合。通过将图像视为图数据，因此可以利用GCN提取其表征。</p>
 <ol start="2">
-<li>完全主元法：</li>
+<li>图层次的处理</li>
 </ol>
-<ul>
-<li>主元位置的元素为主元所在列和行所包围的下半部分的最大的一个值</li>
-</ul>
-</li>
-<li><p>病态系统</p>
-</li>
+<p>图卷积层通过聚合相邻节点的特征来实现节点之间的信息交换。具体来说，聚合运算是通过聚合邻居节点的特征来计算节点的表示。更进一步，引入了多头注意力。将聚集特征分成h个头，然后分别用不同的权重更新这些头。多头更新操作使模型能够在多个表示子空间中更新信息，有利于特征的多样性。</p>
+<ol start="3">
+<li>ViG block</li>
 </ol>
-<p>一点扰动对整个系统的解会造成很大的影响，可视化的结果就是两条线几乎平行</p>
-<hr>
-<ol start="6">
-<li>modified gaussian elimination</li>
+<p>本文在图卷积前后应用线性层，将节点特征投影到同一个域，增加特征多样性。在图卷积后插入一个非线性激活函数以避免层坍塌。我们称升级后的模块为Grapher模块。为了进一步提高特征转换能力和缓解过平滑现象，在每个节点上使用前馈网络(FFN)。FFN模块是一个简单的多层感知器，有两个完全连接的层。由Grapher模块和FFN模块叠加而成的ViG块是构成网络的基本构建单元。因此构建面向视觉任务的ViG网络。与ResGCN相比，ViG随着层的深入能够保持特征多样性，学习出判别性的表征。</p>
+<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><ol>
+<li>各向同性架构</li>
 </ol>
-<p>主元位置不再是对角线上的位置，而是从左到右第一个不为0的元素，必要情况下可以进行行交换，最终形态是某一行以及下面的所有行都为0</p>
-<ol start="7">
-<li>矩阵的秩的定义</li>
-</ol>
-<ul>
-<li>主元的个数</li>
-<li>消元后的非零行的个数</li>
-<li>Basic columns的个数（Basic columns指的是包含主元的列，注意的是Basic columns是原始矩阵中的列，不是消元后的列）</li>
-</ul>
-<ol start="8">
-<li>reduced row echelon form</li>
-</ol>
-<ul>
-<li>首先是row echelon form</li>
-<li>每一行第一个非零元素是1</li>
-<li>主元所在列除了主元其他都是0</li>
-</ul>
-<ol start="9">
-<li>basic columns可以用来表示nonbasic columns</li>
-<li>线性系统的一致性</li>
-</ol>
-<p>只要有一个解，则称这个线性系统是consistent，否则是inconsistent</p>
-<p><img src="/../pic/matrix_2.png"></p>
-<ol start="11">
-<li>Homogeneous Systems(齐次系统)</li>
-</ol>
-<p>齐次系统和非齐次系统的解的情况：</p>
-<img src="../pic/matrix_3.png" style="zoom:50%;" />
-
-
-
-<h2 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h2><h3 id="矩阵加法和转置"><a href="#矩阵加法和转置" class="headerlink" title="矩阵加法和转置"></a>矩阵加法和转置</h3><img src="../pic/matrix3_1.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_3.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_9.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_10.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix3_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix3_15.png" style="zoom:50%;" />
-
-
-
-<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><img src="../pic/matrix4_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_2.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_4.jpg" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix4_5.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_6.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_7.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_8.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_9.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_10.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_11.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_12.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_13.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_14.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_15.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_16.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix4_17.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix_rank.png" style="zoom:50%;" />
-
-<ul>
-<li>rank(A) &#x3D; the size of the largest nonzero minor of A</li>
-</ul>
-<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><img src="../pic/matrix5_1.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_2.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_3.jpg" style="zoom:50%;" />
-
-<img src="../pic/matrix5_4.png" style="zoom:50%;" />
-
-
-
-<img src="../pic/matrix5_5.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_6.png" style="zoom:50%;" />
-
-<img src="../pic/matrix5_7.png" style="zoom:50%;" />
-
-
-
-<h2 id="模和内积"><a href="#模和内积" class="headerlink" title="模和内积"></a>模和内积</h2><ol>
-<li>Induced matrix norms</li>
-</ol>
-<img src="../pic/matrix77_1.jpeg" style="zoom:50%;" />
-
-<p><img src="/../pic/matrix77_2.png"></p>
+<p>各向同性架构意味着主体在整个网络中具有大小和形状相同的特征，如ViT和ResMLP。本文构建了三种不同模型尺寸的各向同性ViG架构，分别为ViG-ti、S和B，节点数设为N &#x3D;196。为了逐渐扩大接收场，这三种模型中随着层深的增加，邻居节点数K从9线性增加到18。头的数量默认设置为h &#x3D; 4。</p>
 <ol start="2">
-<li>2-Norm</li>
+<li>金字塔架构</li>
 </ol>
-<p><img src="/../pic/matrix77_3.jpeg"></p>
-<p><img src="/../pic/matrix77_4.jpeg"></p>
+<p>金字塔架构考虑了图像的多尺度特性，即随着层越深提取空间尺寸越小的特征，如ResNet和PVT。经验证据表明，金字塔结构对视觉任务是有效的。因此，本文利用先进的设计和建立了四个版本的金字塔ViG模型。</p>
 <ol start="3">
-<li>1-norm</li>
+<li>位置编码</li>
 </ol>
-<p><img src="/../pic/matrix77_5.jpeg"></p>
-<ol start="4">
-<li>内积空间</li>
-</ol>
-<p><img src="/../pic/matrix77_6.png"></p>
-<ol start="5">
-<li>general inner product</li>
-</ol>
-<p><img src="/../pic/matrix77_6.jpeg"></p>
-<p><img src="/../pic/matrix77_7.jpeg"></p>
-<p><img src="/../pic/matrix77_8.jpeg"></p>
-<ol start="6">
-<li>正交向量</li>
-</ol>
-<p><img src="/../pic/matrix77_9.jpeg"></p>
-<p><img src="/../pic/matrix77_10.jpeg"></p>
-<ol start="7">
-<li>Gram-Schmidt Procedure</li>
-</ol>
-<p><img src="/../pic/matrix77_11.png"></p>
-<p><img src="/../pic/matrix77_12.png"></p>
-<p><img src="/../pic/matrix77_13.png"></p>
-<p><img src="/../pic/matrix77_14.png"></p>
-<ol start="8">
-<li>Unitary and Orthogonal Matrices（酉矩阵）</li>
-</ol>
-<p><img src="/../pic/matrix77_15.png"></p>
-<p><img src="/../pic/matrix77_16.png"></p>
-<p><img src="/../pic/matrix77_17.png"></p>
-<p><img src="/../pic/matrix77_18.png"></p>
-<p><img src="/../pic/matrix77_19.png"></p>
-<ol start="9">
-<li>Orthogonal Reduction</li>
-</ol>
-<p><img src="/../pic/matrix77_20.png"></p>
-<p><img src="/../pic/matrix77_21.png"></p>
-<ol start="10">
-<li><p>DFT</p>
-</li>
-<li><p>余子空间</p>
-</li>
-</ol>
-<p><img src="/../pic/matrix77_22.png"></p>
-<p><img src="/../pic/matrix77_23.png"></p>
-<ol start="12">
-<li>RN分解</li>
-</ol>
-<p><img src="/../pic/matrix77_24.png"></p>
-<p><img src="/../pic/matrix77_25.png"></p>
-<p><img src="/../pic/matrix77_26.png"></p>
-<p><img src="/../pic/matrix77_27.png"></p>
-<p><img src="/../pic/matrix77_28.png"></p>
-<ol start="13">
-<li>正交分解</li>
-</ol>
-<p><img src="/../pic/matrix77_29.png"></p>
-<p><img src="/../pic/matrix77_30.png"></p>
-<p><img src="/../pic/matrix77_31.png"></p>
-<p><img src="/../pic/matrix77_32.png"></p>
-<ol start="14">
-<li>奇异值分解</li>
-</ol>
-<p><img src="/../pic/matrix77_33.png"></p>
-<p><img src="/../pic/matrix77_34.png"></p>
-<p><img src="/../pic/matrix77_35.png"></p>
-<p><img src="/../pic/matrix77_36.png"></p>
-<ol start="15">
-<li>正交投影</li>
-</ol>
-<p><img src="/../pic/matrix77_37.png"></p>
-<p><img src="/../pic/matrix77_38.png"></p>
-<p><img src="/../pic/matrix111.png"></p>
-<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ol>
-<li>只有方阵才有行列式</li>
-<li>转置不影响行列式的结果</li>
-</ol>
-<p><img src="/../pic/matrix7_1.png"><br>$$<br>det(PA) &#x3D; det(P)det(A),无论P是哪个元素变换<br>$$</p>
-<ol start="3">
-<li>矩阵内积的行列式（方阵）</li>
-</ol>
-<p>$$<br>det(AB) &#x3D; det(A) det(B)\<br>det\left(<br>\begin{array}{cc}<br>A &amp;B\<br>0 &amp;D<br>\end{array}<br>\right) &#x3D; det(A)det(D)<br>$$</p>
-<p><img src="/../pic/matrix7_2.png"></p>
-<p><img src="/../pic/matrix7_3.png"></p>
-<p>行列式的求导</p>
-<p><img src="/../pic/matrix7_4.png"></p>
-<p><img src="/../pic/matrix7_5.png"></p>
-<ol start="4">
-<li>分块行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_6.png"></p>
-<ol start="5">
-<li>Rank-1行列式</li>
-</ol>
-<p><img src="/../pic/matrix7_7.png"></p>
-<ol start="6">
-<li>利用cofactor计算行列式和逆</li>
-</ol>
-<p><img src="/../pic/matrix7_8.png"></p>
-<p><img src="/../pic/matrix7_9.png"></p>
-<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><ol>
-<li>关于特征值和特征向量</li>
-</ol>
-<p><img src="/../pic/matrix8_1.png"></p>
-<ol start="2">
-<li>特征式的系数</li>
-</ol>
-<p><img src="/../pic/matrix8_2.png"></p>
-<ol start="3">
-<li>对角化</li>
-</ol>
-<p><img src="/../pic/matrix8_3.png"></p>
-<ol start="4">
-<li>Multiplicty</li>
-</ol>
-<p><img src="/../pic/matrix8_4.png"></p>
-<ol start="5">
-<li>diagonalizability</li>
-</ol>
-<p><img src="/../pic/matrix8_5.png"></p>
-<ol start="6">
-<li>对角化的必要条件及谱分解</li>
-</ol>
-<p><img src="/../pic/matrix8_6.png"></p>
-<p><img src="/../pic/matrix8_7.png"></p>
-<p><img src="/../pic/matrix8_8.png"></p>
-<ol start="7">
-<li>normal matrix</li>
-</ol>
-<p><img src="/../pic/matrix8_9.png"></p>
-<p><img src="/../pic/matrix8_10.png"></p>
-<p><img src="/../pic/matrix8_11.png"></p>
-<ol start="8">
-<li>positive definite matrices</li>
-</ol>
-<img src="../pic/matrix8_12.jpeg" style="zoom:50%;" />
-
-<p> 正定矩阵的定义：</p>
-<p><img src="/../pic/matrix8_13.png"></p>
-<p>半正定：</p>
-<p><img src="/../pic/matrix8_14.png"></p>
-<p>二次型:</p>
-<p><img src="/../pic/matrix8_15.png"></p>
-<p>合同变换</p>
-<p><img src="/../pic/matrix8_16.jpeg"></p>
-<h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><ul>
-<li>完备空间的证明除了互补之外还要证明唯一性</li>
-</ul>
-<p><img src="/../pic/matrix_exam.jpg"></p>
+<p>为了表示节点的位置信息，在每个节点特征中添加一个位置编码向量。对于金字塔ViG，进一步使用Swin Transformer等高级设计，例如相对位置编码。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/../pic/paper-reading05_2.png"></p>
+<p><img src="/../pic/paper-reading05_3.png"></p>
+<h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
+<p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
 ]]></content>
   </entry>
   <entry>
-    <title>roadmap</title>
-    <url>/2022/09/01/roadmap/</url>
-    <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
+    <title>article</title>
+    <url>/2022/10/10/article/</url>
+    <content><![CDATA[<h1 id="简历论文准备"><a href="#简历论文准备" class="headerlink" title="简历论文准备"></a>简历论文准备</h1><h2 id="Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis"><a href="#Agriculture-Vision-A-Large-Aerial-Image-Database-for-Agricultural-Pattern-Analysis" class="headerlink" title="Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis"></a>Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern Analysis</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><p>为了推动农业领域视觉的发展，提出了agriculture-vision数据集，数据集包括94, 986张遥感图像，RGB+NIR四通道，分辨率10cm&#x2F;pixel，一共标注了九种模式。</p>
+<h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>ImageNet数据集提出推动了计算机视觉各个任务、各个领域的发展，但是农业领域发展比较缓慢，主要是由于农业领域缺少相关的数据集。</p>
+<p>在农业视觉识别领域一个大的方向是航空图像语义分割，因为解决这个问题可以带来巨大的经济价值。对航空图像进行语义分割可以更好地监测土地的状况，发掘播种器的土地潜力，但是相比与传统的语义分割任务，遥感图像语义分割同样存在很多问题。土地状况模式往往是多样的、不规则的，类别之间尺度差异大，遥感图像往往尺寸很大，缺少精细的细节例如纹理等，对于端到端的分割会需要很大的算力以及内存消耗。</p>
+<p>Agriculture-Vision数据集相比其他数据集有以下优点：</p>
+<ul>
+<li>分辨率很高，10cm&#x2F;pixel</li>
+<li>除了RGB三通道外还有NIR通道</li>
+<li>包括多个关于农业异常情况的具有挑战性的标注</li>
+<li>来自专家严格把控的图像标注</li>
+<li>标注的尺寸和形状的巨大变化</li>
+</ul>
+<p>本篇文章的贡献：</p>
+<ul>
+<li>提出了Agriculture-Vision数据集</li>
+<li>在数据集上做了扩展实验，提出了一个baseline</li>
+</ul>
+<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><p>主要提及了计算机视觉领域内一些比较出名的数据集，介绍了一些航空遥感图像数据集。讨论了在遥感图像数据集上的一些任务，对遥感图像进行一些谱分析，通过一些地理颜色获得一些地理信息，介绍了一些之前的在遥感图像上的相关工作。</p>
+<h3 id="Agriculture-Vision-dataset"><a href="#Agriculture-Vision-dataset" class="headerlink" title="Agriculture-Vision dataset"></a>Agriculture-Vision dataset</h3><p>关于如何构建Agriculture-Vision数据集，包括图像获取、预处理、模式标注以及最终图像采样生成。</p>
+<h4 id="图像获取"><a href="#图像获取" class="headerlink" title="图像获取"></a>图像获取</h4><h4 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h4><p><img src="/../pic/article1010_1.png"></p>
+<h4 id="图像标注"><a href="#图像标注" class="headerlink" title="图像标注"></a>图像标注</h4><h4 id="图像采样生成"><a href="#图像采样生成" class="headerlink" title="图像采样生成"></a>图像采样生成</h4><h3 id="数据集统计数据"><a href="#数据集统计数据" class="headerlink" title="数据集统计数据"></a>数据集统计数据</h3><p>即使下游数据和预训练数据只有微弱的关联，迁移学习仍然是最佳选择</p>
+<h2 id="ConvNeXt"><a href="#ConvNeXt" class="headerlink" title="ConvNeXt"></a>ConvNeXt</h2><p><a class="link"   href="https://zhuanlan.zhihu.com/p/459163188" >convnext详解<i class="fas fa-external-link-alt"></i></a></p>
+<p>改进：</p>
+<ol>
+<li>Macro design</li>
+</ol>
+<ul>
+<li>改变每个layer的block的数量比例，改成1：1：3：1，对于更大的模型，采用1：1：9：1</li>
+<li>Stem patch化。用一个stride等于4的4x4卷积来进行stem，使得滑动窗口不再相交，每次只处理一个patch的信息</li>
+</ul>
+<ol start="2">
+<li>ResNeXt-ify</li>
+</ol>
+<p>depthwise conv</p>
+<ol start="3">
+<li>反瓶颈结构</li>
+<li>大卷积核</li>
+<li>微观设计</li>
+</ol>
+<h2 id="swin-transformer"><a href="#swin-transformer" class="headerlink" title="swin-transformer"></a>swin-transformer</h2><p><img src="/../pic/article1011_1.png"></p>
+<h2 id="vision-transformer"><a href="#vision-transformer" class="headerlink" title="vision transformer"></a>vision transformer</h2><p>&#x3D;&#x3D;ViT原论文中最核心的结论是，当拥有足够多的数据进行预训练的时候，ViT的表现就会超过CNN，突破transformer缺少归纳偏置的限制，可以在下游任务中获得较好的迁移效果&#x3D;&#x3D;。</p>
+<p>但是当训练数据比较少时ViT通常要比大小相当的resnet要差一些，因为缺少CNN的归纳偏置，即一种先验知识，提前做好的假设。CNN具有两种归纳偏置，一种是局部性，即图片上相邻的区域具有相似的特征；一种是平移不变形， f(g(x))&#x3D;g(f(x)) ，其中g代表卷积操作，f代表平移操作。当CNN具有以上两种归纳偏置，就有了很多先验信息，需要相对少的数据就可以学习一个比较好的模型。</p>
+<p>模型结构：</p>
+<p><img src="/../pic/article1011_5.webp"></p>
+<h2 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h2><p>反卷积上采样</p>
+<p>跳层连接可以融合浅层和深层的特征</p>
+<h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><p>间隙补零进行反卷积上采样</p>
+<h1 id="面试八股"><a href="#面试八股" class="headerlink" title="面试八股"></a>面试八股</h1><ol>
+<li>卷积、BN、relu、dropout的顺序？</li>
+</ol>
+<p>一般而言，卷积之后进行BN为激活层提供一个合适的分布，接着进行relu激活，最后进行dropout</p>
+<ol start="2">
+<li>1x1卷积的作用</li>
+</ol>
+<ul>
+<li>调整维度</li>
+<li>减少参数</li>
+<li>对不同维度的特征进行融合</li>
+</ul>
+<ol start="3">
+<li>self attention</li>
+</ol>
+<p>Self-attention可以输入一个sequence,输出一个sequence，每个输出都考虑了整个sequence的信息，且输出可以同时计算（大大提升了计算效率），所有计算都可以用矩阵进行，适合GPU加速</p>
+<p>Self attention公式：</p>
+<img src="../pic/article1011_3.png" style="zoom:50%;" />
 
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20backend.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+<p>为什么要除以根号d_k?</p>
+<ul>
+<li>使得q*k的结果满足期望为0，方差为1的分布，类似于归一化</li>
+<li>防止softmax值过大，梯度趋于0</li>
+</ul>
+<p>位置编码：</p>
+<p>self-attention中的位置编码是手动设置的：</p>
+<p><img src="/../pic/article1011_4.png"></p>
+<p>其中为什么选择正余弦函数作为编码函数，因为正余弦函数随相位的变化是和二进制编码的变化频率相似的，可以间接来表示位置。</p>
+<ol start="4">
+<li>Multi-head self attention</li>
+</ol>
+<img src="../pic/article1011_2.png" style="zoom:50%;" />
 
+<p>为什么需要multi-head？有可能是不同的query(head)关注的点不同，比如有的query想看的是全局的信息，有的query想看的是局部的信息，因此使用multi-head可以获取更多类型，更全面的信息</p>
+<ol start="5">
+<li>熵、交叉熵、交叉熵损失</li>
+</ol>
+<p>随着估计的概率分布偏离实际&#x2F;期望的概率分布，交叉熵增加，反之亦然。因此，我们可以说，最小化交叉熵将使我们更接近实际&#x2F;期望的分布，这就是我们想要的。这就是为什么我们尝试降低交叉熵，以使我们的预测概率分布最终接近实际分布的原因。</p>
+<p>交叉熵损失：</p>
+<img src="../pic/article1011_6.png" style="zoom:50%;" />
 
+<ol start="6">
+<li>模型参数量计算</li>
+</ol>
+<p><img src="/../pic/article1025_1.png"></p>
+<h1 id="一些预想的问题"><a href="#一些预想的问题" class="headerlink" title="一些预想的问题"></a>一些预想的问题</h1><ol>
+<li>为什么baseline会选择convnext&#x2F;swin-transformer？</li>
+<li>lovasz损失？</li>
+</ol>
+<p>采用lovasz extension这个数学工具将离散的Jaccard loss变光滑，从而可以直接求导。</p>
+<ol start="3">
+<li>Dice loss?</li>
+</ol>
+<img src="../pic/article1011_7.png" style="zoom:50%;" />
 
+<ol start="4">
+<li>常见的损失函数？</li>
+</ol>
+<ul>
+<li><p>Focal loss</p>
+<ul>
+<li>多了一个调制因子，降低易分样本的损失贡献</li>
+</ul>
+</li>
+<li><p>Lovasz loss</p>
+<ul>
+<li>Lovasz loss基于子模损失(submodular losses)的凸Lovasz扩展，对神经网络的mean IoU损失进行优化</li>
+<li>对Jaccard loss的lovasz extension</li>
+</ul>
+<img src="../pic/article1020_2.png" style="zoom:50%;" />
+</li>
+<li><p>dice loss</p>
+<ul>
+<li>缺点是可能导致训练不稳定</li>
+</ul>
+</li>
+<li><p>Crossentropy loss</p>
+</li>
+</ul>
+<ol start="5">
+<li>FCN上采样的方式？</li>
+</ol>
+<ul>
+<li>双线性插值</li>
+<li>反卷积上采样</li>
+</ul>
+<p><img src="/../pic/article1020_1.png"></p>
+<ol start="6">
+<li>deeplab系列</li>
+</ol>
+<ul>
+<li>deeplab v1：<ul>
+<li>vgg</li>
+<li>atrous convolution</li>
+<li>CRF</li>
+</ul>
+</li>
+<li>deeplab v2<ul>
+<li>resnet</li>
+<li>ASPP</li>
+<li>CRF</li>
+</ul>
+</li>
+<li>deeplab v3<ul>
+<li>串联不同膨胀率的空洞卷积或者并行不同膨胀率的空洞卷积</li>
+<li>Modified ASPP</li>
+<li>移除CRF</li>
+</ul>
+</li>
+<li>deeplab v3+</li>
+</ul>
+<ol start="7">
+<li>降采样对于分割的意义</li>
+</ol>
+<ul>
+<li>降低过拟合风险</li>
+<li>减少参数量</li>
+<li>增加对输入微小改变的鲁棒性</li>
+</ul>
+<ol start="8">
+<li>unet和FCN的区别</li>
+</ol>
+<ul>
+<li>FCN特征融合是逐点相加，UNet是通道维度上拼接融合</li>
+</ul>
+<ol start="9">
+<li>unet的缺点</li>
+</ol>
+<ul>
+<li>主要是直接对浅层特征和深层特征进行跳层连接可能会导致语义gap</li>
+<li>针对这个缺点，unet++的出发点就是reduce&#x2F;bridge这个gap</li>
+</ul>
+<ol start="10">
+<li>梯度消失 梯度爆炸</li>
+</ol>
+<ul>
+<li>梯度连乘导致</li>
+<li>BN、正则化、dropout、梯度裁切、激活函数</li>
+</ul>
+<ol start="11">
+<li>dropout</li>
+</ol>
+<ul>
+<li>解决过拟合问题</li>
+</ul>
+<ol start="12">
+<li>BN LN</li>
+</ol>
+<ul>
+<li>BN是在通道维度上进行归一化</li>
+<li>LN是在batch维度上进行归一化</li>
+</ul>
+<ol start="13">
+<li>空洞卷积</li>
+</ol>
+<ul>
+<li>优点是可以任意扩大感受野且不需要引入额外的参数</li>
+<li>缺点是局部信息的丢失以及远距离获取的信息没有相关性</li>
+</ul>
+<ol start="14">
+<li>深度分离卷积</li>
+</ol>
+<p>可以减少计算损失和参数数量同时保持相似的性能，在特征图的每个深度维度应用一个filter，本文在每个深度维度应用一个空洞卷积</p>
+<p>深度分离卷积操作分两步，假设原来是3x3卷积，深度分离卷积就是先用M个3x3卷积核一对一卷积输入的M个特征图，不求和，生成M个结果，然后用N个1x1卷积核正常卷积前面生成的M个结果，求和，最后生成N个结果</p>
+<ol start="15">
+<li>卷积的底层实现（im2col）</li>
+</ol>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>比赛内容：对八种农业异常模式进行分割</p>
+<p>比赛数据集：Agriculture-Vision，九万多张遥感图像，NRGB四通道，512x512</p>
+<p>比赛结果：一共有83个参加队伍，最终排名第9</p>
+<p>Baseline: convnext+upernet，损失函数：交叉熵（mIoU:44.10）</p>
+<p>Batchsize:8</p>
+<p>GPU:8x3090</p>
+<p>模型参数量：82M</p>
+<p>根据Agriculture-Vision数据集的长尾、类别不均衡、边界难以分割等特点提出了混合损失、损失加权fine-tune、细化分割OCR模块和专家网络四个改进点:</p>
+<ul>
+<li>提出混合损失，结合交叉熵损失和lovasz损失作为最终的损失函数（比例1：0.4）（mIoU:46.57），之前在paddle文档上看到单独使用lovasz loss不一定有用，需要和交叉熵加权结合使用</li>
+<li>解码头增加OCR模块，在语义分割任务中，上下文的信息对于像素级别的分类起着重要的作用，通过提取上下文信息可以更好地利用空间信息进行像素级分类。（mIoU:47.57）</li>
+<li>损失加权finetune，Agriculture-Vision数据集存在长尾的特点，不同类别之间的数据量差异很大，对于少数类别的分割效果比较差。改进策略：根据训练数据中各个类别样本的比例进行类别加权，最终的类别权重和类别频度成负相关。（48.53）</li>
+<li>专家网络，在convnext网络之外增加一个unet，对少数类样本(planter skip and standing water)进行单独训练，再和convnext分割结果进行融合。</li>
+</ul>
+<h2 id="ocr"><a href="#ocr" class="headerlink" title="ocr"></a>ocr</h2><p>UPerNet 输出的中间分割结果和骨干网络生成的最后一个层级特征输入到 OCR 模块中进行细化处理。根据中间的分割结果和骨干网络最深层的特征表示计算出 K 组向量，即物体区域表示(Object Region Representations)，其中每一个向 量对应一个语义类别的特征表示。计算网络最深层输出像素特征表示(pixel representations)与计算得到的物体区域表示之间的关系矩阵，然后根据每个 像素和物体区域表示在关系矩阵中的数值将物体区域表示进行加权求和得到最 终的物体上下文特征表示(Object Contextual Representations)，将物体上 下文特征表示和骨干网络最深层特征进行拼接后作为上下文信息增强的特征表 示(Augmented Representations)，基于增强后的特征表示预测每个像素的语义类别。</p>
+<h1 id="语言八股"><a href="#语言八股" class="headerlink" title="语言八股"></a>语言八股</h1><h2 id="python（python基础和pytorch）"><a href="#python（python基础和pytorch）" class="headerlink" title="python（python基础和pytorch）"></a>python（python基础和pytorch）</h2><ol>
+<li>python浅拷贝和深拷贝</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">对于不可变对象，由于python是采用引用计数的特性，所以浅拷贝和深拷贝的作用一致。</span><br><span class="line">对于可变对象，由于浅拷贝拷贝的可变对象的引用，所以原变量的可变对象改变时会影响到浅拷贝的对象，对于深拷贝则不会收到影响。</span><br></pre></td></tr></table></figure>
 
-<h1 id="roadmap-of-go"><a href="#roadmap-of-go" class="headerlink" title="roadmap of go"></a>roadmap of go</h1>
+<ol start="2">
+<li>python是动态强类型（由于是动态语言，所以很多问题只有在运行的时候才能发现）</li>
+<li>什么是duck type?</li>
+</ol>
+<p>duck type更关注对象的行为，只要实现了接口就行，而不在乎是什么类型</p>
+<ol start="4">
+<li>什么是monkey patch?</li>
+</ol>
+<p>monkey patch就是运行时替换对象，本质上是对象的重新赋值</p>
+<ol start="5">
+<li>py3和py2的区别？</li>
+</ol>
+<ul>
+<li>print在py3中是函数，在py2中是关键字</li>
+<li>py3的range()返回一个可迭代对象，py2的 range()返回一个列表</li>
+<li>py3的除法返回float，py2的除法返回int</li>
+<li>py3默认编码是utf-8，py2默认编码是ascii</li>
+<li>py3的str是unicode字符串，而py2的str是bytes</li>
+</ul>
+<ol start="6">
+<li>map(function, iter)</li>
+<li>生成器</li>
+</ol>
+<p>生成器类似于返回值为数组的一个函数，这个函数可以接受参数，可以被调用，但是，不同于一般的函数会一次性返回包括了所有数值的数组，生成器一次只能产生一个值，这样消耗的内存数量将大大减小，而且允许调用函数可以很快的处理前几个返回值，因此生成器看起来像是一个函数，但是表现得却像是迭代器</p>
+<p>生成器本质上就是根据一个给定的规则可以不断推算出之后出现的元素，可以通过next()函数不断得到下一个元素，同时生成器本身是一个可迭代对象，遇到yield则返回</p>
+<p>send()和next()的区别就在于send可传递参数给yield表达式，这时候传递的参数就会作为yield表达式的值，而yield的参数是返回给调用者的值，也就是说send可以强行修改上一个yield表达式值</p>
+<p>send()和next()都有返回值，他们的返回值是当前迭代遇到的yield的时候，yield后面表达式的值，其实就是当前迭代yield后面的参数</p>
+<ol start="8">
+<li>迭代器</li>
+</ol>
+<p><strong>一个实现了iter方法的对象是可迭代的，一个实现next方法并且是可迭代的对象是迭代器</strong></p>
+<p><a class="link"   href="https://www.cnblogs.com/wj-1314/p/8490822.html" >生成器和迭代器<i class="fas fa-external-link-alt"></i></a></p>
+<ol start="9">
+<li>内置数据类型的底层结构</li>
+</ol>
+<p>dict的底层结构是哈希表，list的底层结构是可变数组，存的是对象的指针，tuple的底层结构是顺序表，set的底层结构是哈希表，其中key为元素，val都为空</p>
+<ol start="10">
+<li>装饰器</li>
+</ol>
+<p>装饰器是一个接收函数作为参数的闭包函数，可以在不修改函数源代码的情况下给函数增加功能</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fucB</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test1&quot;</span>)</span><br><span class="line">        func()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test3&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@fucB</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test2&quot;</span>)</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
 
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/roadmap%20of%20go.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+<ol start="11">
+<li>@<strong>staticmethod</strong></li>
+</ol>
+<p><strong>这时将对象方法转化成静态方法，可以被类直接调用</strong></p>
+<ol start="12">
+<li><strong>@classmethod</strong></li>
+</ol>
+<p>将对象方法转化成类方法，并注意类方法函数参数写法上需要加上cls作为参数，但调用的时候不用加参数</p>
+<ol start="13">
+<li>@property</li>
+</ol>
+<p>可以使类方法转化成属性，直接通过方法名来访问方法</p>
+<h2 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h2><ol>
+<li>智能指针（动态内存管理）</li>
+</ol>
+<p>动态内存管理常常会出现两种问题：</p>
+<ul>
+<li>忘记释放内存，造成内存泄漏</li>
+<li>尚有指针使用内存的情况下就释放了内存，就会产生引用非法内存的指针</li>
+</ul>
+<p>标准库提供的两种智能指针的区别在于管理底层指针的方法不同，shared_ptr允许多个指针指向同一个对象，unique_ptr则“独占”所指向的对象。标准库还定义了一种名为weak_ptr的伴随类，它是一种弱引用，指向shared_ptr所管理的对象，这三种智能指针都定义在memory头文件中。</p>
+<p><a class="link"   href="https://blog.csdn.net/flowing_wind/article/details/81301001" >智能指针<i class="fas fa-external-link-alt"></i></a></p>
+<ol start="2">
+<li>多态（接口重用）</li>
+</ol>
+<p>多态是指同一对象收到不同的消息时或不同对象收到相同消息时产生不同的实现动作</p>
+<ul>
+<li>编译时多态（静态多态）：通过重载函数实现</li>
+<li>运行时多态（动态多态）：通过虚函数实现</li>
+</ul>
+<p>参数相同，有virtual关键字的是多态重写</p>
+<p>根据指针或者引用指向哪种类型的对象来决定调用哪个虚函数，从而决定具体的实现动作</p>
+<h1 id="机器学习八股"><a href="#机器学习八股" class="headerlink" title="机器学习八股"></a>机器学习八股</h1><ol>
+<li><p>SVM</p>
+</li>
+<li><p>随机森林、决策树</p>
+</li>
+<li><p>1 决策树</p>
+</li>
+</ol>
+<ul>
+<li>信息增益</li>
+</ul>
+<p><img src="/../pic/article1025_3.png"></p>
+<ul>
+<li>信息增益率</li>
+</ul>
+<p><img src="/../pic/article1025_4.png"></p>
+<ul>
+<li>基尼系数</li>
+</ul>
+<p><img src="/../pic/article1025_2.png"></p>
+<ol start="2">
+<li>2 随机森林</li>
+</ol>
+<p>随机森林属于bagging集成方法（CART决策树）</p>
+<p><strong>随机森林中的树一般会比较深，以尽可能地降低偏差，由于随机性，随机森林对于降低模型方法效果显著；而GBDT树的深度会比较浅，通过减少模型复杂度来降低方差</strong></p>
+<ol start="3">
+<li>聚类如果不清楚有多少类，有什么办法</li>
+</ol>
+<ul>
+<li>肘方法</li>
+</ul>
+<p>肘方法就是随机初始化多个k值对应的kmeans，计算聚类误差，选取下降转折点对应的k值作为最佳聚类数</p>
+<ul>
+<li>轮廓系数法</li>
+</ul>
+<p>轮廓系数法的本质就是类间距离越大越好，类内距离越小越好</p>
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="旷视面试"><a href="#旷视面试" class="headerlink" title="旷视面试"></a>旷视面试</h2><ol>
+<li>手写iou,nms</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iou</span>(<span class="params">box1, box2</span>):</span><br><span class="line">    x1 = <span class="built_in">max</span>(box1[<span class="number">0</span>], box2[<span class="number">0</span>])</span><br><span class="line">    y1 = <span class="built_in">max</span>(box1[<span class="number">1</span>], box2[<span class="number">1</span>])</span><br><span class="line">    x2 = <span class="built_in">min</span>(box1[<span class="number">2</span>], box2[<span class="number">2</span>])</span><br><span class="line">    y2 = <span class="built_in">min</span>(box1[<span class="number">3</span>], box2[<span class="number">3</span>])</span><br><span class="line">    h = <span class="built_in">max</span>(<span class="number">0</span>, x2-x1)</span><br><span class="line">    w = <span class="built_in">max</span>(<span class="number">0</span>, y2-y1)</span><br><span class="line">    area1 = (box1[<span class="number">2</span>]-box1[<span class="number">0</span>])*(box1[<span class="number">3</span>]-box1[<span class="number">1</span>])</span><br><span class="line">    area2 = (box2[<span class="number">2</span>]-box2[<span class="number">0</span>])*(box2[<span class="number">3</span>]-box2[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> (w*h)/(area1+area2-w*h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nms</span>(<span class="params">boxes, thres</span>):</span><br><span class="line">    x1 = boxes[:, <span class="number">0</span>]</span><br><span class="line">    y1 = boxes[:, <span class="number">1</span>]</span><br><span class="line">    x2 = boxes[:, <span class="number">2</span>]</span><br><span class="line">    y2 = boxes[:, <span class="number">3</span>]</span><br><span class="line">    scores = boxes[:, <span class="number">4</span>]</span><br><span class="line">    orders = scores.argsort()[::-<span class="number">1</span>]</span><br><span class="line">    keep = []</span><br><span class="line">    areas = (x2-x1)*(y2-y1)</span><br><span class="line">    <span class="keyword">while</span>(orders.size()&gt;<span class="number">0</span>):</span><br><span class="line">        index1 = orders[<span class="number">0</span>]</span><br><span class="line">        keep.append(index1)</span><br><span class="line">        xx1 = np.maximum(x1[index1], x1[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[index1], y1[orders[<span class="number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[index1], x2[orders[<span class="number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[index1], y2[orders[<span class="number">1</span>:]])</span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2-xx1+<span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2-yy1+<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">iter</span> = w*h</span><br><span class="line">        ious = <span class="built_in">iter</span>/areas[index1]+areas[orders[<span class="number">1</span>:]]-<span class="built_in">iter</span></span><br><span class="line">        ids = np.where(ious&lt;=thres)[<span class="number">0</span>]</span><br><span class="line">        orders = orders[ids+<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>跳台阶</li>
+<li>跳台阶进阶</li>
+<li>缓解过拟合的方法</li>
+<li>C++多态</li>
+<li>dropout</li>
+<li>BN</li>
+</ol>
+<h2 id="京东面试"><a href="#京东面试" class="headerlink" title="京东面试"></a>京东面试</h2><ol>
+<li><p>动态规划的转移方程</p>
+</li>
+<li><p>resnet的神经元的细节，数学表达</p>
+<ol>
+<li>shortcut</li>
+<li>F(x)+x</li>
+</ol>
+</li>
+<li><p>聚类算法</p>
+<ol>
+<li><p>kmeans过程</p>
+</li>
+<li><p>kmeans有哪些缺点</p>
+<ol>
+<li>k值难以估计</li>
+</ol>
+<p>一开始确定一个合适的k值，通过一次kmeans聚类得到k个聚类中心，根据k个聚类中心之间的距离情况合并距离近的类别，直到达到阈值收敛</p>
+<ol start="2">
+<li>对噪声和离群点敏感</li>
+</ol>
+<p>去除离群点后再进行聚类</p>
+<ol start="3">
+<li>对初始聚类中心敏感</li>
+</ol>
+<p>已经选取了若干聚类中心，距离这些聚类中心越远的点越有可能被选为新的聚类中心</p>
+<ol start="4">
+<li>假定簇是圆</li>
+</ol>
+</li>
+<li><p>其他的一些聚类算法（密度）</p>
+</li>
+</ol>
+</li>
+<li><p>SVM</p>
+<ol>
+<li>过程</li>
+<li>除了软间隔之外，线性不可分怎么解决</li>
+<li>软间隔中对偶问题怎<ol>
+<li>拉格朗日乘子法</li>
+</ol>
+</li>
+<li>对偶问题转换需要满足的条件<ol>
+<li>KKT条件</li>
+</ol>
+</li>
+<li>KKT条件<ol>
+<li>拉格朗日函数取极值的的一个必要条件</li>
+<li>拉格朗日系数约束</li>
+<li>不等式约束</li>
+<li>互补松弛条件</li>
+<li>原约束</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>解决过拟合的一些方法</p>
+</li>
+<li><p>transformer</p>
+<ol>
+<li>模型过程</li>
+<li>讲一下注意力机制</li>
+</ol>
+</li>
+<li><p>项目内容</p>
+</li>
+<li><p>两道算法</p>
+<ol>
+<li>一个数组里面有一个数出现的次数大于等于数组长度的一半，找出这个数（空间复杂度O（1），时间复杂度O（n））</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> val: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>) &#123;</span><br><span class="line">                ans = val;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans==val)</span><br><span class="line">                    cnt++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-
+<ol start="2">
+<li>全排列</li>
+</ol>
+</li>
+</ol>
+<h2 id="蔚来"><a href="#蔚来" class="headerlink" title="蔚来"></a>蔚来</h2><ol>
+<li>attention和全连接的区别</li>
+<li>Vision transformer的位置编码具体实现</li>
+<li>注意力机制</li>
+<li>注意力机制为什么要除以d</li>
+<li>最新的前沿进展</li>
+<li>为什么注意力机制要生成q,k,v，单独一个不行吗</li>
+<li>项目中数据均衡是怎么做的</li>
+<li>算法题：马走遍所有的点有几种不同的途径</li>
+</ol>
 ]]></content>
   </entry>
 </search>
