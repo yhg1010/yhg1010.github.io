@@ -370,6 +370,11 @@
 <p>np4数据处理</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/3877</span><br></pre></td></tr></table></figure>
 
+<ol start="33">
+<li>axion-torch文档</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://discourse.brainpp.cn/t/topic/38814</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="入职安排"><a href="#入职安排" class="headerlink" title="入职安排"></a>入职安排</h2><ul>
@@ -557,7 +562,7 @@ megbrain+meghair+megskull</p>
 <tr>
 <th align="center">test1（8）</th>
 <th align="center">test2（6）</th>
-<th align="center">test3（6）</th>
+<th align="center">test3（8）</th>
 <th align="center">test4（0）</th>
 <th align="center">test5（8）</th>
 </tr>
@@ -570,20 +575,35 @@ megbrain+meghair+megskull</p>
 <td align="center">空闲</td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">地面分割finetune</td>
+<td align="center">空闲</td>
+<td align="center">空闲</td>
+<td align="center">地面分割供数据</td>
 <td align="center"></td>
 </tr>
 <tr>
+<td align="center">地面分割int4-&gt;float32</td>
 <td align="center"></td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">地面分割供数据</td>
 <td align="center"></td>
 </tr>
 </tbody></table>
+<h3 id="2023-01-15："><a href="#2023-01-15：" class="headerlink" title="2023.01.15："></a>2023.01.15：</h3><p>人体分割流程走完，点也对上了，有几个问题：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 对分是什么意思（模型ads前后的输出相似度对比、模型和板上的指标对比）</li>
+<li><input checked="" disabled="" type="checkbox"> 需要适配的平台有哪些</li>
+<li><input checked="" disabled="" type="checkbox"> 适配前和适配后的分割指标看哪个 </li>
+<li><input checked="" disabled="" type="checkbox"> 除了分割指标外还要看哪些指标，重点是哪些（miu、miubd）</li>
+<li><input checked="" disabled="" type="checkbox"> 计算量和参数量</li>
+<li><input checked="" disabled="" type="checkbox"> 板上推理时间怎么计算（专门的工具计算）</li>
+</ul>
+<hr>
+<h3 id="2023-02-06："><a href="#2023-02-06：" class="headerlink" title="2023.02.06："></a>2023.02.06：</h3><p>baseseg相关参考文档：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=332404042" >关键点检测论文梳理<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://git-core.megvii-inc.com/FaceTeam/snapx/basekps" >basekps<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=351930521" >kps数据集汇总<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmsegmentation" >mmseg<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -751,7 +771,7 @@ megbrain+meghair+megskull</p>
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Megvii%E5%AE%9E%E4%B9%A0"><span class="nav-text">Megvii实习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-text">一些常用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E8%81%8C%E5%AE%89%E6%8E%92"><span class="nav-text">入职安排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E5%BF%97"><span class="nav-text">实习日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-01%EF%BC%9A"><span class="nav-text">2022.11.01：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-02%EF%BC%9A"><span class="nav-text">2022.11.02：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-03%EF%BC%9A"><span class="nav-text">2022.11.03：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-04%EF%BC%9A"><span class="nav-text">2022.11.04：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-07"><span class="nav-text">2022.11.07:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-08%EF%BC%9A"><span class="nav-text">2022.11.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-09"><span class="nav-text">2022.11.09:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-10"><span class="nav-text">2022.11.10:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-11"><span class="nav-text">2022.11.11:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-12-2022-11-16%EF%BC%9A"><span class="nav-text">2022.11.12-2022.11.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-17%EF%BC%9A"><span class="nav-text">2022.11.17：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-18%EF%BC%9A"><span class="nav-text">2022.11.18：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-19%EF%BC%9A"><span class="nav-text">2022.11.19：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-21%EF%BC%9A"><span class="nav-text">2022.11.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-22%EF%BC%9A"><span class="nav-text">2022.11.22：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-29%EF%BC%9A"><span class="nav-text">2022.11.29：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-30"><span class="nav-text">2022.11.30:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-06"><span class="nav-text">2022.12.06:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-08%EF%BC%9A"><span class="nav-text">2022.12.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-11%EF%BC%9A"><span class="nav-text">2022.12.11：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-13"><span class="nav-text">2022.12.13:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-16%EF%BC%9A"><span class="nav-text">2022.12.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-27"><span class="nav-text">2022.12.27:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-01-09"><span class="nav-text">2023.01.09:</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Megvii%E5%AE%9E%E4%B9%A0"><span class="nav-text">Megvii实习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-text">一些常用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E8%81%8C%E5%AE%89%E6%8E%92"><span class="nav-text">入职安排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E5%BF%97"><span class="nav-text">实习日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-01%EF%BC%9A"><span class="nav-text">2022.11.01：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-02%EF%BC%9A"><span class="nav-text">2022.11.02：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-03%EF%BC%9A"><span class="nav-text">2022.11.03：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-04%EF%BC%9A"><span class="nav-text">2022.11.04：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-07"><span class="nav-text">2022.11.07:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-08%EF%BC%9A"><span class="nav-text">2022.11.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-09"><span class="nav-text">2022.11.09:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-10"><span class="nav-text">2022.11.10:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-11"><span class="nav-text">2022.11.11:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-12-2022-11-16%EF%BC%9A"><span class="nav-text">2022.11.12-2022.11.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-17%EF%BC%9A"><span class="nav-text">2022.11.17：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-18%EF%BC%9A"><span class="nav-text">2022.11.18：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-19%EF%BC%9A"><span class="nav-text">2022.11.19：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-21%EF%BC%9A"><span class="nav-text">2022.11.21：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-22%EF%BC%9A"><span class="nav-text">2022.11.22：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-29%EF%BC%9A"><span class="nav-text">2022.11.29：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-11-30"><span class="nav-text">2022.11.30:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-06"><span class="nav-text">2022.12.06:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-08%EF%BC%9A"><span class="nav-text">2022.12.08：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-11%EF%BC%9A"><span class="nav-text">2022.12.11：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-13"><span class="nav-text">2022.12.13:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-16%EF%BC%9A"><span class="nav-text">2022.12.16：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022-12-27"><span class="nav-text">2022.12.27:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-01-09"><span class="nav-text">2023.01.09:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-01-15%EF%BC%9A"><span class="nav-text">2023.01.15：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-02-06%EF%BC%9A"><span class="nav-text">2023.02.06：</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

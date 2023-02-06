@@ -188,7 +188,92 @@
 
         <div class="article-content markdown-body">
             <h1 id="weak-shot-learning–classify"><a href="#weak-shot-learning–classify" class="headerlink" title="weak-shot learning–classify"></a>weak-shot learning–classify</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在弱样本图像分类任务中，base训练样本具有干净的图像标签，但是novel训练样本的标签中中则包含噪声，因为novel训练样本通常是用类别作为查询从网页上爬取的数据。</p>
-<h2 id="Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification"><a href="#Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification" class="headerlink" title="Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification"></a>Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification</h2><h2 id="Weak-shot-Fine-grained-Classification-via-Similarity-Transfer"><a href="#Weak-shot-Fine-grained-Classification-via-Similarity-Transfer" class="headerlink" title="Weak-shot Fine-grained Classification via Similarity Transfer"></a>Weak-shot Fine-grained Classification via Similarity Transfer</h2>
+<h2 id="Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification"><a href="#Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification" class="headerlink" title="Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification"></a>Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification</h2><h3 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h3><p>细粒度图像分类的目标是区分不同子类别之间的细微差别，但是会面临巨大的细粒度类别的注释成本。现有的工作主要是两个方向：1. 利用免费可用的网络图像。2. 只注释一部分细粒度类别并将知识转移到其他细粒度类别。本文提出了联合利用网络图像和辅助标记类别来预测与任何良好标记的训练样本无关的测试样本。</p>
+<p>其中ZSL假设有一部分完全标注的训练样本，需要识别测试集的细粒度样本，测试集的样本与训练集没有交集，训练集和测试集之间的差别通过全部样本的语义信息来进行调和。</p>
+<p>本文提出了一种新的学习场景，结合了网络监督学习和ZSL。给定一组细粒度的测试类别，这些类别与任何标记良好的训练图像都没有关联，可以抓取测试类别的网络图像作为弱监督形式，同时利用完全标注的其他细粒度类别。从另一个角度来看，当给定属于一个类别的所有细粒度类别的整个集合时，只需要标记几个细粒度类别，然后可以借助网络数据预测所有剩余的细粒度类别。</p>
+<p>本文提出的方法相较于ZSL多了网络数据的加入，相较于WSL多了完全标注的数据的知识迁移。</p>
+<h3 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h3><img src="../pic/wsl-c_1.png" style="zoom: 67%;" />
+
+<p>从图中可以看出，整个网络的过程是：</p>
+<ul>
+<li>根据测试类别的名字从网络中爬取相应的网络图像</li>
+<li>对所有图像提取深度视觉特征</li>
+<li>基于所有类别的类别名使用语言模型来提取这些类别的语义表示</li>
+<li>根据提取的视觉特征和语义表示来预测测试集的预测结果</li>
+</ul>
+<p>这里的weak-shot体现在两个方面：</p>
+<ul>
+<li>根据试类别从网上爬取了具有噪声的网络训练数据</li>
+<li>使用所有类别的语义信息</li>
+</ul>
+<h3 id="知识迁移"><a href="#知识迁移" class="headerlink" title="知识迁移"></a>知识迁移</h3><p>通过两阶段实现从全监督类别到弱监督类别的迁移，学习两个视觉-语义字典：</p>
+<p>第一阶段学习全监督类别字典：</p>
+<p><img src="/../pic/wsl-c_2.png"></p>
+<p>第二阶段，最小化测试类别和训练类别字典之间的范数距离来使两个字典尽可能接近，同时使用核范数来使测试数据的语义表示尽可能低秩（来自同一类别的图像数据的语义表示相似）：</p>
+<p><img src="/../pic/wsl-c_3.png"></p>
+<p>进一步使用具有噪声的网络数据，第二阶段的目标函数可以进行扩展：</p>
+<p><img src="/../pic/wsl-c_4.png"></p>
+<p>扩展的第一项是为了解决网络数据和测试数据之间域分布不匹配的问题（MMD），第二项是用group-lasso正则来压缩网络数据的标签噪声。</p>
+<p><img src="/../pic/wsl-c_5.png"></p>
+<h3 id="目标函数优化"><a href="#目标函数优化" class="headerlink" title="目标函数优化"></a>目标函数优化</h3><p>利用增广拉格朗日乘子来对目标函数进行优化（目标函数优化问题可以借鉴这篇文章）</p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/../pic/wsl-c_6.png"></p>
+<p><img src="/../pic/wsl-c_7.png"></p>
+<p>结果：</p>
+<p><img src="/../pic/wsl-c_8.png"></p>
+<p><img src="/../pic/wsl-c_9.png"></p>
+<p>网络数据对实验结果的贡献与网络数据的噪声有很大的联系，噪声越多，实验结果越差。</p>
+<h2 id="Weak-shot-Fine-grained-Classification-via-Similarity-Transfer"><a href="#Weak-shot-Fine-grained-Classification-via-Similarity-Transfer" class="headerlink" title="Weak-shot Fine-grained Classification via Similarity Transfer"></a>Weak-shot Fine-grained Classification via Similarity Transfer</h2><h3 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h3><p>细粒度图像分类需要大量完全标注的样本，成本很大。本文提出利用相似度来对网络数据降噪实现利用网络数据来对novel样本进行WSL。</p>
+<h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><ul>
+<li>提出使用迁移相似度来对网络数据进行降噪</li>
+<li>提出两种使用迁移相似度的方法来解决标签噪声问题：权重采样和图正则</li>
+<li>在相似度网络中应用对抗损失来改善相似度迁移的效果</li>
+</ul>
+<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><ol>
+<li>few shot learning</li>
+</ol>
+<p>分为三种类别：</p>
+<ul>
+<li>基于优化的方法在大量学习任务上优化分类器</li>
+<li>基于内存的方法应用存储架够来存储关键训练数据或者直接编码快速自适应算法</li>
+<li>基于度量的方法使用特征空间中的相似度度量来学习深度表示并且以最近邻方式来分类测试数据</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>训练过程包括两阶段：在base训练集上学习相似度网络、在novel训练集上学习分类器</p>
+<h4 id="在base训练集上学习simnet"><a href="#在base训练集上学习simnet" class="headerlink" title="在base训练集上学习simnet"></a>在base训练集上学习simnet</h4><p><img src="/../pic/wsl-c_10.png"></p>
+<p><img src="/../pic/wsl-c_11.png"></p>
+<p><img src="/../pic/wsl-c_12.png"></p>
+<p>输入mini-batch base类别数据，通过backbone提取出特征值之后进行两两配对concat之后构成一组特征对，接入一层全连接层提取出relation feature，由二值标签分类损失进行监督训练一个相似度网络。</p>
+<p>对抗损失：</p>
+<p>为了降低base类别和novel类别之间的域差别，提出加入对抗损失，鉴别器接收relation features并且识别是否来自base类别还是novel类别，simnet作为生成器来生成relation features不仅要迷惑鉴别器还要改善relation分类</p>
+<h4 id="在novel训练集上学习分类器"><a href="#在novel训练集上学习分类器" class="headerlink" title="在novel训练集上学习分类器"></a>在novel训练集上学习分类器</h4><p>为了解决标签噪声的问题，提出两种方法：</p>
+<ol>
+<li>采样加权</li>
+</ol>
+<p><img src="/../pic/wsl-c_13.png"></p>
+<p><img src="/../pic/wsl-c_14.png"></p>
+<p><img src="/../pic/wsl-c_15.png"></p>
+<ol start="2">
+<li>图正则</li>
+</ol>
+<p>图正则可以维持一个合理的特征图架构并且促进特征学习</p>
+<p><img src="/../pic/wsl-c_16.png"></p>
+<p>完整的目标函数：</p>
+<p><img src="/../pic/wsl-c_17.png"></p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>backbone采用resnet50</p>
+<p>数据集情况如下：</p>
+<p><img src="/../pic/wsl-c_18.png"></p>
+<p>消融实验：</p>
+<p><img src="/../pic/wsl-c_19.png"></p>
+<p>相似度迁移的证明：</p>
+<p><img src="/../pic/wsl-c_20.png"></p>
+<p>成对相似度的优势：</p>
+<p><img src="/../pic/wsl-c_21.png"></p>
+<p>base训练集大小的影响：</p>
+<p><img src="/../pic/wsl-c_22.png"></p>
+<p>与之前方法的比较（网络监督学习和迁移学习）：</p>
+<p><img src="/../pic/wsl-c_23.png"></p>
+<p><img src="/../pic/wsl-c_24.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/../pic/wsl-c_25.png"></p>
+
         </div>
 
         
@@ -340,7 +425,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#weak-shot-learning%E2%80%93classify"><span class="nav-text">weak-shot learning–classify</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification"><span class="nav-text">Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weak-shot-Fine-grained-Classification-via-Similarity-Transfer"><span class="nav-text">Weak-shot Fine-grained Classification via Similarity Transfer</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#weak-shot-learning%E2%80%93classify"><span class="nav-text">weak-shot learning–classify</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webly-Supervised-Learning-Meets-Zero-shot-Learning-A-Hybrid-Approach-for-Fine-grained-Classification"><span class="nav-text">Webly Supervised Learning Meets Zero-shot Learning: A Hybrid Approach for Fine-grained Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E5%87%BA%E5%8F%91%E7%82%B9"><span class="nav-text">论文出发点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84"><span class="nav-text">网络架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E8%BF%81%E7%A7%BB"><span class="nav-text">知识迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96"><span class="nav-text">目标函数优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weak-shot-Fine-grained-Classification-via-Similarity-Transfer"><span class="nav-text">Weak-shot Fine-grained Classification via Similarity Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-1"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A1%E7%8C%AE"><span class="nav-text">贡献</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8base%E8%AE%AD%E7%BB%83%E9%9B%86%E4%B8%8A%E5%AD%A6%E4%B9%A0simnet"><span class="nav-text">在base训练集上学习simnet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8novel%E8%AE%AD%E7%BB%83%E9%9B%86%E4%B8%8A%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-text">在novel训练集上学习分类器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
