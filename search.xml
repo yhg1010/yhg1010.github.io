@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>algorithm_bu</title>
+    <url>/2022/08/30/algorithm_bu/</url>
+    <content><![CDATA[<h1 id="卜东波——计算机算法设计与分析"><a href="#卜东波——计算机算法设计与分析" class="headerlink" title="卜东波——计算机算法设计与分析"></a>卜东波——计算机算法设计与分析</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 建模、算法设计、分析完整流程 10学时 卜东波</span><br><span class="line">第1节 掌握从问题出发的算法建模方法</span><br><span class="line">第2节 掌握算法设计的基本思路和流程图</span><br><span class="line">第3节 掌握算法的时间复杂度和空间复杂度分析的方法</span><br><span class="line">第4节 理解GCD问题和TSP问题中不同算法的应用</span><br><span class="line">第二章 分而治之 10学时 卜东波</span><br><span class="line">第1节 掌握分而治之算法的基本思路</span><br><span class="line">第2节 掌握分而治之算法的正确证明</span><br><span class="line">第3节 掌握递归算法的时间复杂度分析</span><br><span class="line">第4节 掌握MergerSort、CountingInversion、ClosetPair、Multipliacation、FFT等使用分而治之思路算法</span><br><span class="line">第5节 掌握分而治之算法和随机化的结合，例如QuickSort、QuickSelect等</span><br><span class="line">第三章 动态规划部分 10学时 卜东波</span><br><span class="line">第1节 掌握动态规划算法的基本思路</span><br><span class="line">第2节 掌握如何定义子问题，如何发现最优子结构的性质</span><br><span class="line">第3节 掌握动态规划算法的应用实例，包括矩阵链式乘法、字符串匹配、最短路径、IntervalScheduling</span><br><span class="line">第4节 理解高级动态规划的优化方法和思路</span><br><span class="line">第四章 贪心算法 10学时 卜东波</span><br><span class="line">第1节 掌握贪心算法的思路</span><br><span class="line">第2节 掌握贪心算法中贪心规则的设计原则和方法等</span><br><span class="line">第3节 掌握动态规划和贪心算法的关系</span><br><span class="line">第4节 掌握BELLMAN_FORD算法和DIJKSTRA算法解决Single Source Shortest Paths问题</span><br><span class="line">第5节 掌握BinomialHeap、FibinacciHeap等数据结构</span><br><span class="line">第五章 线性规划及其对偶 10学时 卜东波</span><br><span class="line">第1节 掌握线性规划的不同形式</span><br><span class="line">第2节 掌握线性规划的建模思路和方法</span><br><span class="line">第3节 掌握线性规划的单纯形法、Interior Point算法等</span><br><span class="line">第4节 线性规划的Lagrangian对偶</span><br><span class="line">第六章 网络流及其应用 10学时 卜东波</span><br><span class="line">第1节 掌握最大流问题的Ford-Fulkerson算法和最大流最小割定理</span><br><span class="line">第2节 掌握Ford-Fulkerson算法和最大流最小割定理的对偶问题角度理解</span><br><span class="line">第3节 掌握最大流问题的有效算法</span><br><span class="line">第4节 掌握最大流问题的扩展</span><br></pre></td></tr></table></figure>
+
+<h2 id="lecture1"><a href="#lecture1" class="headerlink" title="lecture1"></a>lecture1</h2><h3 id="一些推荐的书"><a href="#一些推荐的书" class="headerlink" title="一些推荐的书"></a>一些推荐的书</h3><ul>
+<li>《怎样思维》</li>
+<li>《程序设计的艺术》</li>
+</ul>
+<h3 id="所有的算法可以归纳为三种"><a href="#所有的算法可以归纳为三种" class="headerlink" title="所有的算法可以归纳为三种"></a>所有的算法可以归纳为三种</h3><ul>
+<li>分而治之 | 一个大问题可以分成更小的子问题</li>
+<li>改进 | 一个原始的完整解，不断地逐步改进</li>
+<li>聪明地枚举 | 通过构建一个局部解的树来枚举所有可能的完全解</li>
+</ul>
+<h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><p>从最简单的情形做起，要分支、要归纳、要聪明地枚举、搜索要剪概率有力量</p>
+<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><hr>
+<p>分而治之：</p>
+<ul>
+<li>最简单的case</li>
+<li>复杂一点的case是否可以分解成小问题<ul>
+<li>是否能分解成子问题：<ul>
+<li>INPUT DS</li>
+<li>OUTPUT DS</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>改进：</p>
+<ul>
+<li>完整解通过一些扰动成为另一个解</li>
+</ul>
+<p><img src="/../pic/bu_lect_1.png"></p>
+<p>聪明地枚举</p>
+<ul>
+<li>剪枝</li>
+</ul>
+<h3 id="TAKE-HOME-MSG"><a href="#TAKE-HOME-MSG" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>手足无措时从最简单的case做起</li>
+<li>理性地探索</li>
+<li>精确值难求的时候，估计之</li>
+<li>找准难点，变形做相关问题</li>
+</ul>
+<h2 id="lecture5"><a href="#lecture5" class="headerlink" title="lecture5"></a>lecture5</h2><p>分治和复杂度分析</p>
+<hr>
+<h3 id="递归问题的复杂度分析"><a href="#递归问题的复杂度分析" class="headerlink" title="递归问题的复杂度分析"></a>递归问题的复杂度分析</h3><p><img src="/../pic/bu_lect5_1.png"></p>
+<p>for example:</p>
+<p><img src="/../pic/bu_lect5_2.png"></p>
+<p><img src="/../pic/bu_lect5_3.png"></p>
+<h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><p><img src="/../pic/bu_lect5_4.png"></p>
+<h3 id="TAKE-HOME-MSG-1"><a href="#TAKE-HOME-MSG-1" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>把大问题分解成小问题时，分得越匀越好（指数下降）</li>
+<li>如果子问题解无结构，可能会导致问题，千方百计引入结构</li>
+<li>先尝试baseline方法，看问题所在（逆序数个数中分治的齐缝元素比较）</li>
+</ul>
+<h3 id="quicksort"><a href="#quicksort" class="headerlink" title="quicksort"></a>quicksort</h3><p>$$<br>\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}&#x3D;logn<br>$$</p>
+<p>找出第k大的元素：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用分治来解决，时间复杂度可以达到O（N）。</span><br><span class="line">在快排的基础上还是分成两个集合，只不过区别在于快排是两个集合都要递归，分治只要递归其中一个集合。</span><br></pre></td></tr></table></figure>
+
+<p>Google对页面排序：</p>
+<p>重要的页面：常常被重要的页面引用的页面很重要（鸡生蛋，蛋生鸡问题）</p>
+<p>解决循环：</p>
+<ul>
+<li>跟着循环走，观察规律</li>
+<li>打破循环</li>
+</ul>
+<p>在子集中寻找第K大个元素（通过打破循环来找到pilot元素，从而在O（N）复杂度内实现）</p>
+<p>关键：-》找到A中第n&#x2F;4，n&#x2F;4+1，3n&#x2F;4个大的-》找A的采样中的第r&#x2F;4，3r&#x2F;4个</p>
+<p><img src="/../pic/algorithm3_1.png"></p>
+<h3 id="TAKE-HOME-MSG-2"><a href="#TAKE-HOME-MSG-2" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>解决循环问题的两个办法</li>
+<li>快排的分析</li>
+</ul>
+<h2 id="lecture5-1"><a href="#lecture5-1" class="headerlink" title="lecture5"></a>lecture5</h2><p>FFT：已知多项式的系数、求多项式的值</p>
+<p>特定的n个点：<br>$$<br>\omega^1, \omega^2…\omega^{n-1}<br>$$<br>去掉冗余，O(n^2)-&gt;O(nlogn)</p>
+<p>IFFT</p>
+<p>实际应用：计算两个多项式的乘积</p>
+<p>先用FFT计算几个点的值，然后再计算这些点的乘积，再用IFFT计算对应的多项式的系数</p>
+<h2 id="lecture6"><a href="#lecture6" class="headerlink" title="lecture6"></a>lecture6</h2><p>DP的求解过程：多步决策过程（优化问题）</p>
+<h3 id="TAKE-HOME-MSG-3"><a href="#TAKE-HOME-MSG-3" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>何时用动态规划，一定是个最优化问题</li>
+<li>解是啥？解能否用多步决策过程一步一步构造出来</li>
+</ul>
+<h2 id="lecture1011"><a href="#lecture1011" class="headerlink" title="lecture1011"></a>lecture1011</h2><ul>
+<li>矩阵相乘的最少计算数</li>
+<li>背包问题</li>
+<li>编辑距离</li>
+</ul>
+<h3 id="TAKE-HOME-MSG-4"><a href="#TAKE-HOME-MSG-4" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>每一个多决策问题都可以表示为一个DP</li>
+<li>多选一型vs二选一型决策</li>
+<li>决策顺序怎么定</li>
+</ul>
+<h2 id="lecture1025"><a href="#lecture1025" class="headerlink" title="lecture1025"></a>lecture1025</h2><h3 id="TAKE-HOME-MSG-5"><a href="#TAKE-HOME-MSG-5" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>多步决策，第一步决策，从中间开始省内存，省时间</li>
+<li>如何计算第一步决策，最优决策项？最优决策项有递归关系</li>
+<li>DP也可以用NN近似，不精确不要紧</li>
+<li>label不好算？让NN满足Bellman方程</li>
+</ul>
+<h2 id="lecture1101"><a href="#lecture1101" class="headerlink" title="lecture1101"></a>lecture1101</h2><h3 id="TAKE-HOME-MSG-6"><a href="#TAKE-HOME-MSG-6" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
+<li>直接根据子问题的解设计子问题的一般形式</li>
+<li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
+</ul>
+<h1 id="作业复习"><a href="#作业复习" class="headerlink" title="作业复习"></a>作业复习</h1><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><ul>
+<li>两个集合的中位数</li>
+<li>左右孩子翻转</li>
+<li>越狱情况数</li>
+<li>二叉树任意两个结点的最大距离</li>
+<li>三路快排</li>
+<li>切绳子</li>
+</ul>
+<h2 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h2><ul>
+<li>抢劫金额最大</li>
+<li>丑数</li>
+<li>二叉搜索树的数目</li>
+<li>最大整除子集长度</li>
+<li>非负数组符号和为目标数的方法数（0-1背包）</li>
+<li>股票买卖</li>
+<li>回文子串的个数</li>
+<li>单词转换所需要的最少操作数</li>
+</ul>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><ul>
+<li>填充道路</li>
+<li>数组中的数字构成最小整数</li>
+<li>会议室安排</li>
+<li>删除k个数字得到的数最大</li>
+<li>是否可以到达最终的位置</li>
+<li>交换数字索引得到最大值</li>
+<li>最大极差和</li>
+</ul>
+<h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2>]]></content>
+  </entry>
+  <entry>
     <title>article_learning</title>
     <url>/2022/09/09/article-learning/</url>
     <content><![CDATA[<h1 id="学术写作"><a href="#学术写作" class="headerlink" title="学术写作"></a>学术写作</h1><h2 id="论文结构"><a href="#论文结构" class="headerlink" title="论文结构"></a>论文结构</h2><ul>
@@ -270,136 +402,219 @@
 ]]></content>
   </entry>
   <entry>
-    <title>algorithm_bu</title>
-    <url>/2022/08/30/algorithm_bu/</url>
-    <content><![CDATA[<h1 id="卜东波——计算机算法设计与分析"><a href="#卜东波——计算机算法设计与分析" class="headerlink" title="卜东波——计算机算法设计与分析"></a>卜东波——计算机算法设计与分析</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 建模、算法设计、分析完整流程 10学时 卜东波</span><br><span class="line">第1节 掌握从问题出发的算法建模方法</span><br><span class="line">第2节 掌握算法设计的基本思路和流程图</span><br><span class="line">第3节 掌握算法的时间复杂度和空间复杂度分析的方法</span><br><span class="line">第4节 理解GCD问题和TSP问题中不同算法的应用</span><br><span class="line">第二章 分而治之 10学时 卜东波</span><br><span class="line">第1节 掌握分而治之算法的基本思路</span><br><span class="line">第2节 掌握分而治之算法的正确证明</span><br><span class="line">第3节 掌握递归算法的时间复杂度分析</span><br><span class="line">第4节 掌握MergerSort、CountingInversion、ClosetPair、Multipliacation、FFT等使用分而治之思路算法</span><br><span class="line">第5节 掌握分而治之算法和随机化的结合，例如QuickSort、QuickSelect等</span><br><span class="line">第三章 动态规划部分 10学时 卜东波</span><br><span class="line">第1节 掌握动态规划算法的基本思路</span><br><span class="line">第2节 掌握如何定义子问题，如何发现最优子结构的性质</span><br><span class="line">第3节 掌握动态规划算法的应用实例，包括矩阵链式乘法、字符串匹配、最短路径、IntervalScheduling</span><br><span class="line">第4节 理解高级动态规划的优化方法和思路</span><br><span class="line">第四章 贪心算法 10学时 卜东波</span><br><span class="line">第1节 掌握贪心算法的思路</span><br><span class="line">第2节 掌握贪心算法中贪心规则的设计原则和方法等</span><br><span class="line">第3节 掌握动态规划和贪心算法的关系</span><br><span class="line">第4节 掌握BELLMAN_FORD算法和DIJKSTRA算法解决Single Source Shortest Paths问题</span><br><span class="line">第5节 掌握BinomialHeap、FibinacciHeap等数据结构</span><br><span class="line">第五章 线性规划及其对偶 10学时 卜东波</span><br><span class="line">第1节 掌握线性规划的不同形式</span><br><span class="line">第2节 掌握线性规划的建模思路和方法</span><br><span class="line">第3节 掌握线性规划的单纯形法、Interior Point算法等</span><br><span class="line">第4节 线性规划的Lagrangian对偶</span><br><span class="line">第六章 网络流及其应用 10学时 卜东波</span><br><span class="line">第1节 掌握最大流问题的Ford-Fulkerson算法和最大流最小割定理</span><br><span class="line">第2节 掌握Ford-Fulkerson算法和最大流最小割定理的对偶问题角度理解</span><br><span class="line">第3节 掌握最大流问题的有效算法</span><br><span class="line">第4节 掌握最大流问题的扩展</span><br></pre></td></tr></table></figure>
+    <title>ever</title>
+    <url>/2022/11/07/ever/</url>
+    <content><![CDATA[<h1 id="告别过去，直面未来"><a href="#告别过去，直面未来" class="headerlink" title="告别过去，直面未来"></a>告别过去，直面未来</h1><p>又到了十一月份，距离上次更新不知不觉已经过去了一年，在这一年的时间里发生了太多的事情，有很多值得纪念，也有一些曾经值得纪念，未来可能只能永远封存在过去的记忆里了。一直想写一篇博客来记录一下这些事情，但是因为种种原因一直搁浅，直到一个星期前我不得不和过去三年的回忆做一个告别，酝酿了一周的时间，就以此为契机记录一下并且作为结点好好地和过去告一个别吧。</p>
+<p>去年的十一月六号北京下了2021年的第一场雪，就是EDG夺冠的那天，印象很深刻。因为要去实习加上学校封校，我和J、T三个人从学校搬出来住进西二旗地铁站附近的一个民居，收拾安顿好已经到了晚上，我们找了一家湘菜馆饱餐了一顿，店里很冷清只有我们仨，J点了她最喜欢的炒花蛤，我们一边吃一边聊着，期待着校外的自由实习生活，快吃完的时候门外开始飘起了雪花，雪花很大在路灯下显得尤为明显，我们兴奋地出门拿起手机拍北京的初雪，刚好在我们出校的第一天，太巧了。那天晚上我和J躺在床上辗转反侧，J比较认床所以我们一直断断续续地聊天，碰巧看到手机上的EDG决赛，我和J便点开了直播。那天晚上不知有多少人一直熬到了夺冠，虽然周围很安静，但朋友圈各种庆祝的图片视频让我们仿佛回到了华电，周围洋溢着呐喊和激动。</p>
+<p>之后是维持了两个月的社畜生活，每天早上十点跟着西二旗的人流涌入写字楼，晚上拖着疲惫的身子穿过一辆又一辆载着互联网打工人的出租和J结伴回到十平的房间，每天过的是精神的充实和身体的劳累。很幸运遇到了一个很友善很优秀的mentor，虽然平时工作不管我但是每天的吃饭时间总会和我天南海北的聊，给我了一些未来方向的建议，虽然只是短暂地相处了两个多月，但是感觉就像照顾了我很长时间的大姐姐，离职的那天她在微信上跟我说等我下次回来请我吃手抓羊肉，我想着很快就可以再见了，但是之后拖了又拖也都过去一年时间了。</p>
+<p>实习的时间很短主要是因为导师催着来所里做毕设，最后妥协一周四天在公司，三天在所里。所以在实习的最后一段时间我基本上每天都是两点一线，有时线的一端在公司有时是在所里，之后实在是坚持不下去决定离职。一直到过年前的一个星期每天基本都是在所里，听上去好像很努力，但其实很多时间都会和师兄、同门一起玩桌游和打球，每天过的都很充实，白天看论文跑实验晚上和师兄同门玩桌游，但是大部分晚上其实还是和J待在一起，穿过冷清的校园回到各自的宿舍，学校里的大部分人都回家了，空荡荡的校园失去了往日的活力，冬日的寒冷显得更加萧瑟，这也是我最后一段时间完整的住在学校了。</p>
+<p>过年后一个星期我就回了所，当然这也是我们组的安排。所里的宿舍安排在中科一招，我的宿舍在北边一栋楼的一层，很破也很小，窗外是一堵墙，所以即使外面是晴空万里屋内也是阴暗一片。返京的第一周所里人很少，每天在所里就是看论文找找毕设的思路，年后的北京天气还是很冷，学院南路的行道树空空荡荡，天空常是灰暗的。J担心学校封校影响面试所以想在校外短租一段时间，我在链家、豆瓣等一些平台找了一段时间，联系了几家约了周末的时间去看房。印象最深的是天通苑的一家，刚下地铁便被一个大妈叫住，大妈骑着一个电动三轮，后面的车厢里摆了几个小板凳，“上车吧”大妈手一挥就准备开车，和大妈在一起的还有几个大爷大妈，同样是电动三轮的配置，不知道还有多少北漂在辛苦地找一个落脚之地。天通苑是一个很大的社区，光地铁站就有三站。大妈开着三轮七拐八绕来到一个角落边楼，熟练地推开不起眼的小门从消防通道领着我上了二楼，一层楼大概有三四户人家，大妈开了其中一个密码门带着我依次介绍。“这里你应该提前也了解过，房租不高，所以环境可能差点。”我来之前已经做了心理准备，但没想到还是吃了一惊，一个一百多平的房子被隔断成十个小房间，狭窄的过道像迷宫一样绕来绕去，一共有两个卫生间堆满了洗漱用品、盆、脏衣服，过道上方拉了一道线，晾着未干的衣服。厨房是开放的，堆满了锅碗瓢盆，垃圾桶里面厨余垃圾快要漫出，发出一股恶臭。房间是朝北的，一扇小窗漏进一些光线，可以闻到房间里有霉味，我跟大妈说回去考虑一下便匆匆离去。回去的地铁上我看着拖着疲惫身子的乘客，想到还有无数在这个陌生的城市里辛苦打拼的人们，早起贪黑真的只是寻求一个落脚之地，目前的自己却无法改变太多，无依无靠的漂着，内心充满了心酸和无奈。</p>
+<p>J回京之后三周时间找到了工作，我和她一起把行李从天通苑搬到公司提供的房子。人真的是很能适应环境的动物，很快也就适应了短时间内的奔波和漂泊。公司提供的房子很大，虽然是合租，但也只有三个人。唯一的缺点可能就是地点在房山，离计算所地铁需要一个半小时。在安顿好新的住处后，J送我到地铁站，我回头让她先走，分别的情绪总是那么令人厌恶，坐上地铁望着窗外飞快移动的一景一物，我知道从此之后见面真的会很难了。毕业前的时间过得很快，我在工作日主要是忙自己的毕设以及为J提供一下毕设的帮助，只有周末的时间才有机会到房山去。有一次和J在房山逛街说了一句“这里和我家好像啊，以后就在这买房吧，离你公司也近。”，房山给人的感觉确实就像一个小城一样，人与人之间好像都没那么多隔阂，走在街上没有高楼大厦，偶尔还能看到一排排摆地摊的大爷大妈，闲适又悠闲。</p>
+<p>和J比较严重的一次吵架就是在五月份，因为毕设的一些问题吵了很久，和解的时候已经到了第二天凌晨五点，我挂了电话坐在科一招的院子里看着远处的天空蒙蒙亮，“问题总是能解决的”，我摇摇晃晃地回到宿舍沉睡过去。其实我心里一直清楚我和J之间有一些问题，但我总很自信问题都能轻松解决，对异地的情况也没有很担心，两年半的时间给了我底气。之后北京疫情变得很严重，我们在宿舍隔离了差不多一个月的时间，房山和海淀是最严重的两个地方，去房山的地铁和出租都被掐断了，我和J的联系只剩下了微信。在解封的前一天我洗着衣服了解到房山电子围栏应该解除了，立马收拾电脑和充电器叫了一辆出租飞奔到房山去。疫情让很多人的联系变得割裂，我和J可能还算比较好的情况，困难真的是可以解决的。</p>
+<p>因为学车时间要过期，所以我知道能回家之后权衡了一下还是决定回家学车。一个月的时间拿到驾照后我又立马回到北京，因为研一在雁栖湖集中教学，所以会和J经历差不多半年的异地，趁开学前这一段时间和J再享受一段没有距离间隔的时光。所里在七月末八月初有差不多十天的高温假，我和J趁这段时间又搬了一次家，换了一个单人公寓。这十天可能是我对未来理想生活的一个缩影，早上做一顿简单的早饭，我和J一起去工作，下班之后买一些菜和水果，做一顿丰盛的晚餐，一遍看电视一遍聊一些工作的琐事。吃完一起去散步消食，回家路上再买好明天的早餐牛奶，周末一起去逛街，一起做家务。我享受每一天在一起的日子，又担心时间的流逝来到分别的一天，因为离开学的时间越来越近了。</p>
+<p>去雁栖湖的那天中午，学校派了一辆大巴接送去雁栖湖，50人的大巴被人和行李塞得满满当当。我望着窗外的小雨，心想这次真的得分开很久了。雁栖湖的日子很快乐，在上课之余经常会和同门、室友玩桌游和打球，但有时候真的会很遗憾，如果J也在身边就好了。J部门发生了变动，工作比往日要多了一倍，经常会遇到很多棘手的问题，我因为不熟悉业务以及异地等各种原因没法帮上忙，我们也经常因此而发生一些争执。所幸的是在国庆期间学校允许申请出校，我带着一箱的行李坐上学校的班车满怀期待地往房山去。隔了很久之后的第一次见面，J有一些憔悴，因为加班等缘故黑眼圈也比较严重，我在她下班前简单收拾了一下屋子，想着能做的可能也就是帮她生活上的一些忙了。国庆期间我们做了很多饭，照着视频做了泡椒凤爪、皮蛋豆腐、青椒炒肉、炸鸡翅…每一次开饭前我都要拍一张照，想的是等以后我们结婚那天要把这些都做成视频在婚礼现场循环播放，这些都是只属于我们的点滴回忆。</p>
+<p>后来J身边出现了一个能够帮她解决问题的同事Z，我既高兴又有一点担心，高兴的是终于有人可以帮她了，担心的是异地的我们需要面临更多挑战了。之后J经常加班到很晚，下班也会和Z一起吃饭，有时候会聊很久的天，J告诉我是聊工作问题，我很相信她。我因为一些工作上的选择问题跟J发生过一些争执，J认为我不理解她，我很无奈但问题还是产生了。再后来有一天晚上八点我给J发了消息没回，我打了很多个电话都是无人接听，我很慌很担心，脑子里预想了很多场景，决定要是十二点前没有回复我就报警。十一点多J回复了，她说她喝醉了明天再聊。我当时五味杂陈，高兴的是她安全无事，生气的是她这么晚喝醉了却没有回复。我很冲动，在微信上发了很多质问的话，当晚没有结果，我想了一晚上辗转反侧。第二天她跟我道了歉但我没有接收，晚上我们聊了一会J第一次跟我提了分手，我说我们都冷静几天，冷静了几天之后我想通了很多问题，这三年来吵架的根本原因我也都想清楚了，但是一切都晚了，时间停在了三年零二天，十月的最后一天永远结束了。</p>
+<p>那天我的几个同门知道我分手了，纷纷来我宿舍安慰我，当时是十一点半，我说我们喝点吧，H从宿舍拿了一瓶白酒，Y从宿舍拿了面包和豆奶，P从宿舍拿了锅、鸡蛋、泡面和一瓶啤酒。我室友帮忙收拾桌子，大家烧了一壶水，把能凑到的食物排满一桌，一人一个纸杯子，都倒了白酒。我沉浸在悲伤之中，昨天也喝了很多酒，但当时是为Y脱单高兴，没想到今天又喝了酒，却是截然相反的心境。兄弟们你一言我一语劝我想开点，以后还有更好的在等着我，我不说话心里想的都是过去三年。就这么一边吃一边喝，我渐渐不省人事，明明昨天我们四个人喝了两瓶白酒都没醉，今天五个人喝一瓶都已经头晕目眩了，奇怪！我们一直喝到一点多，套间里的同学都已经睡觉，我们聊了很多，我也敞开心扉收不住话。结束之后我摇摇晃晃地躺到床上，那天晚上我做了一个很长的梦，梦里放一场三年的电影。</p>
+<p>第二天早上迷迷糊糊地起床，脑子很晕胃也很不舒服，在厕所里忍不住还是吐了，匆匆办了入职就又睡了过去。过了一周的时间J把我的东西整理好了寄给我，我把房子钥匙寄给她，走出快递站的时候我知道这次真的永远回不来了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>docker config</title>
+    <url>/2022/05/31/docker_config/</url>
+    <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Docker Engine中配置：</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://itobyt5q.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="lecture1"><a href="#lecture1" class="headerlink" title="lecture1"></a>lecture1</h2><h3 id="一些推荐的书"><a href="#一些推荐的书" class="headerlink" title="一些推荐的书"></a>一些推荐的书</h3><ul>
-<li>《怎样思维》</li>
-<li>《程序设计的艺术》</li>
+<p>常用的docker指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment">#删除镜像</span></span><br><span class="line">docker image <span class="built_in">rm</span> [镜像<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#查看容器</span></span><br><span class="line">docker container <span class="built_in">ls</span> --all</span><br><span class="line"><span class="comment">#查看运行着的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment">#停止容器运行</span></span><br><span class="line">docker <span class="built_in">kill</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#启动容器</span></span><br><span class="line">docker start [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#删除容器</span></span><br><span class="line">docker <span class="built_in">rm</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#进入运行着的容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it [容器<span class="built_in">id</span>] bash</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h3><ul>
+<li>拉取官方镜像</li>
 </ul>
-<h3 id="所有的算法可以归纳为三种"><a href="#所有的算法可以归纳为三种" class="headerlink" title="所有的算法可以归纳为三种"></a>所有的算法可以归纳为三种</h3><ul>
-<li>分而治之 | 一个大问题可以分成更小的子问题</li>
-<li>改进 | 一个原始的完整解，不断地逐步改进</li>
-<li>聪明地枚举 | 通过构建一个局部解的树来枚举所有可能的完全解</li>
-</ul>
-<h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><p>从最简单的情形做起，要分支、要归纳、要聪明地枚举、搜索要剪概率有力量</p>
-<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><hr>
-<p>分而治之：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull mysql:8.0.0</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>最简单的case</li>
-<li>复杂一点的case是否可以分解成小问题<ul>
-<li>是否能分解成子问题：<ul>
-<li>INPUT DS</li>
-<li>OUTPUT DS</li>
+<li>运行容器</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>改进：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -v /home/docker/mysql/data:/var/lib/mysql --name mysql mysql:8.0.0</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>完整解通过一些扰动成为另一个解</li>
+<li>检查容器是否运行成功</li>
 </ul>
-<p><img src="/../pic/bu_lect_1.png"></p>
-<p>聪明地枚举</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>剪枝</li>
+<li>进入容器</li>
 </ul>
-<h3 id="TAKE-HOME-MSG"><a href="#TAKE-HOME-MSG" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>手足无措时从最简单的case做起</li>
-<li>理性地探索</li>
-<li>精确值难求的时候，估计之</li>
-<li>找准难点，变形做相关问题</li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql bash</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em>如果容器运行正常，但无法访问到mysql：</em></p>
+<ol>
+<li>防火墙阻拦</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开放端口：</span></span><br><span class="line">$ systemctl status firewalld</span><br><span class="line">$ firewall-cmd  --zone=public --add-port=3306/tcp -permanent</span><br><span class="line">$ firewall-cmd  --reload</span><br><span class="line"><span class="comment"># 关闭防火墙：</span></span><br><span class="line">$ sudo systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>未开启mysql远程访问权限</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Mysql为了安全考虑，初始的时候并没有开启Root用户（解释：mysql的root用户和我们云服务器的root用户是两个不同的，分开的）的远程访问权限，Root（解释：这里是指mysql的root用户，而不是云服务器的root用户）只能本地localhost，127.0.0.1访问</span><br><span class="line"></span><br><span class="line"># mysql使用mysql数据库中的user表来管理权限，修改user表就可以修改权限（只有root账号可以修改）</span><br><span class="line"> </span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">| 192.168.1.1            | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; grant all privileges  on *.* to root@&#x27;%&#x27; identified by &quot;password&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| 192.168.1.1            | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| %                       | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>python代码测试mysql是否配置成功</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line"> host=<span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line"> user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line"> password=<span class="string">&#x27;Jiangshu123&#x27;</span>,</span><br><span class="line"> database=<span class="string">&#x27;customer&#x27;</span>,</span><br><span class="line"> port=<span class="number">8083</span>,</span><br><span class="line"> charset=<span class="string">&#x27;utf8&#x27;</span>,</span><br><span class="line"> autocommit = <span class="literal">False</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line"></span><br><span class="line">cur = conn.cursor()</span><br><span class="line">cur.execute(<span class="string">&quot;show databases&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(cur.fetchall())</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Vue前端项目打包"><a href="#Vue前端项目打包" class="headerlink" title="Vue前端项目打包"></a>Vue前端项目打包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">一般情况下执行npm run build进行打包</span><br><span class="line">特殊情况下执行npm run build:prod才能正常打包</span><br><span class="line"></span><br><span class="line">此外还有一个问题，打包完成添加到SprringBoot项目启动运行，静态文件抛404，最后发现还需要对vue.config.js修改。</span><br><span class="line">添加 publicPath: <span class="string">&#x27;./&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>前端项目打包后保存在dist目录下，然后将dist目录下的所有文件目录拷贝到spring-boot后端项目的<strong>resourse&gt;static</strong>目录下。</p>
+<p>以上配置完成之后先在本地运行，然后通过maven进行打包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">maven下的Lifecycle下的package</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./img/img1.png"></p>
+<h3 id="镜像制作"><a href="#镜像制作" class="headerlink" title="镜像制作"></a>镜像制作</h3><p>得到打包后的jar包之后就可以制作镜像，首先在jar包相同的目录下新建Dockerfile文件，加入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Docker image for springboot file run</span></span><br><span class="line"><span class="comment"># VERSION 0.0.1</span></span><br><span class="line"><span class="comment"># Author: jeremy</span></span><br><span class="line"><span class="comment"># 基础镜像使用java</span></span><br><span class="line">FROM java:8</span><br><span class="line"><span class="comment"># 作者</span></span><br><span class="line">MAINTAINER jeremy &lt;jeremyCoding@163.com&gt;</span><br><span class="line"><span class="comment"># VOLUME 指定了临时文件目录为/tmp。</span></span><br><span class="line"><span class="comment"># 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp</span></span><br><span class="line">VOLUME /tmp</span><br><span class="line"><span class="comment"># 将jar包添加到容器中并更名为app.jar</span></span><br><span class="line">ADD demo-01.jar app.jar</span><br><span class="line"><span class="comment"># 运行jar包</span></span><br><span class="line">RUN bash -c <span class="string">&#x27;touch /app.jar&#x27;</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-Djava.security.egd=file:/dev/./urandom&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>执行<strong>docker build -t [镜像名称] .</strong> 完成进行制作。</p>
+<h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2>]]></content>
+  </entry>
+  <entry>
+    <title>deeplearning</title>
+    <url>/2022/09/02/deeplearning/</url>
+    <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
+
+<h2 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h2><h3 id="人工智能发展历程"><a href="#人工智能发展历程" class="headerlink" title="人工智能发展历程"></a>人工智能发展历程</h3><p><img src="/../pic/deeplearning1.png"></p>
+<h3 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h3><h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><p>搜索问题的元素包括：</p>
+<ul>
+<li>状态空间</li>
+<li>初始状态和目标测试</li>
+<li>后继函数</li>
 </ul>
-<h2 id="lecture5"><a href="#lecture5" class="headerlink" title="lecture5"></a>lecture5</h2><p>分治和复杂度分析</p>
+<p>目标就是得到后继函数（从初始状态到目标状态的每一步行动）</p>
+<p>考虑搜索算法的两个出发点：</p>
+<ul>
+<li>完备性</li>
+<li>一致性</li>
+</ul>
+<h3 id="路径搜索"><a href="#路径搜索" class="headerlink" title="路径搜索"></a>路径搜索</h3><h4 id="无信息搜索"><a href="#无信息搜索" class="headerlink" title="无信息搜索"></a>无信息搜索</h4><p>无信息搜索指的是除了问题定义中提供的状态信息外没有其他附加信息，有信息搜索知道一个非目标状态是否比其他状态更有希望接近目标</p>
+<p>搜索：</p>
+<ul>
+<li>扩展出潜在的行动</li>
+<li>维护所考虑的行动的边缘节点</li>
+<li>试图扩展尽可能少的树节点</li>
+</ul>
+<p>重要的点：</p>
+<ul>
+<li>边缘节点</li>
+<li>扩展新的结点</li>
+<li>探索的策略</li>
+</ul>
+<p>考虑的主要问题是选取哪些边缘节点来进行探索</p>
+<p>搜索算法的特性：</p>
+<ul>
+<li>完备性（当有解时保证能找到一个解）</li>
+<li>最优性（保证能找到最优解）</li>
+<li>时间复杂度</li>
+<li>空间复杂度</li>
+</ul>
 <hr>
-<h3 id="递归问题的复杂度分析"><a href="#递归问题的复杂度分析" class="headerlink" title="递归问题的复杂度分析"></a>递归问题的复杂度分析</h3><p><img src="/../pic/bu_lect5_1.png"></p>
-<p>for example:</p>
-<p><img src="/../pic/bu_lect5_2.png"></p>
-<p><img src="/../pic/bu_lect5_3.png"></p>
-<h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><p><img src="/../pic/bu_lect5_4.png"></p>
-<h3 id="TAKE-HOME-MSG-1"><a href="#TAKE-HOME-MSG-1" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>把大问题分解成小问题时，分得越匀越好（指数下降）</li>
-<li>如果子问题解无结构，可能会导致问题，千方百计引入结构</li>
-<li>先尝试baseline方法，看问题所在（逆序数个数中分治的齐缝元素比较）</li>
-</ul>
-<h3 id="quicksort"><a href="#quicksort" class="headerlink" title="quicksort"></a>quicksort</h3><p>$$<br>\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}&#x3D;logn<br>$$</p>
-<p>找出第k大的元素：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用分治来解决，时间复杂度可以达到O（N）。</span><br><span class="line">在快排的基础上还是分成两个集合，只不过区别在于快排是两个集合都要递归，分治只要递归其中一个集合。</span><br></pre></td></tr></table></figure>
-
-<p>Google对页面排序：</p>
-<p>重要的页面：常常被重要的页面引用的页面很重要（鸡生蛋，蛋生鸡问题）</p>
-<p>解决循环：</p>
+<p>状态空间图</p>
+<h5 id="树搜索"><a href="#树搜索" class="headerlink" title="树搜索"></a>树搜索</h5><p>不同搜索算法的区别在于对于边缘的处理策略</p>
 <ul>
-<li>跟着循环走，观察规律</li>
-<li>打破循环</li>
+<li><p>DFS</p>
+</li>
+<li><p>BFS</p>
+</li>
+<li><p>迭代深入搜索</p>
+<ul>
+<li>迭代深度的DFS，结合了DFS和BFS的优点</li>
+<li>对DFS进行深度限制，搜索完限制深度后必须开始新的搜索路径</li>
 </ul>
-<p>在子集中寻找第K大个元素（通过打破循环来找到pilot元素，从而在O（N）复杂度内实现）</p>
-<p>关键：-》找到A中第n&#x2F;4，n&#x2F;4+1，3n&#x2F;4个大的-》找A的采样中的第r&#x2F;4，3r&#x2F;4个</p>
-<p><img src="/../pic/algorithm3_1.png"></p>
-<h3 id="TAKE-HOME-MSG-2"><a href="#TAKE-HOME-MSG-2" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>解决循环问题的两个办法</li>
-<li>快排的分析</li>
+</li>
+<li><p>代价一致搜索</p>
+<ul>
+<li>在BFS基础上进行扩展</li>
+<li>基本原理：<strong>一致代价搜索总是扩展路径消耗最小的节点N。N点的路径消耗等于前一节点N-1的路径消耗加上N-1到N节点的路径消耗</strong></li>
+<li>UCS是完备的（不存在零代价），是最优的</li>
 </ul>
-<h2 id="lecture5-1"><a href="#lecture5-1" class="headerlink" title="lecture5"></a>lecture5</h2><p>FFT：已知多项式的系数、求多项式的值</p>
-<p>特定的n个点：<br>$$<br>\omega^1, \omega^2…\omega^{n-1}<br>$$<br>去掉冗余，O(n^2)-&gt;O(nlogn)</p>
-<p>IFFT</p>
-<p>实际应用：计算两个多项式的乘积</p>
-<p>先用FFT计算几个点的值，然后再计算这些点的乘积，再用IFFT计算对应的多项式的系数</p>
-<h2 id="lecture6"><a href="#lecture6" class="headerlink" title="lecture6"></a>lecture6</h2><p>DP的求解过程：多步决策过程（优化问题）</p>
-<h3 id="TAKE-HOME-MSG-3"><a href="#TAKE-HOME-MSG-3" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>何时用动态规划，一定是个最优化问题</li>
-<li>解是啥？解能否用多步决策过程一步一步构造出来</li>
+</li>
 </ul>
-<h2 id="lecture1011"><a href="#lecture1011" class="headerlink" title="lecture1011"></a>lecture1011</h2><ul>
-<li>矩阵相乘的最少计算数</li>
-<li>背包问题</li>
-<li>编辑距离</li>
+<p>Example:</p>
+<img src="../pic/deeplearning2_1.png" style="zoom:25%;" />
+
+<p>Solution:</p>
+<p><img src="/../pic/deeplearning2_2.png"></p>
+<h5 id="图搜索"><a href="#图搜索" class="headerlink" title="图搜索"></a>图搜索</h5><ul>
+<li>A*图搜索</li>
 </ul>
-<h3 id="TAKE-HOME-MSG-4"><a href="#TAKE-HOME-MSG-4" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>每一个多决策问题都可以表示为一个DP</li>
-<li>多选一型vs二选一型决策</li>
-<li>决策顺序怎么定</li>
+<h4 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h4><p>启发策略：</p>
+<ul>
+<li>估计一个状态到目标距离的函数</li>
+<li>问题给予算法的额外信息，为特定搜索问题而设计</li>
 </ul>
-<h2 id="lecture1025"><a href="#lecture1025" class="headerlink" title="lecture1025"></a>lecture1025</h2><h3 id="TAKE-HOME-MSG-5"><a href="#TAKE-HOME-MSG-5" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>多步决策，第一步决策，从中间开始省内存，省时间</li>
-<li>如何计算第一步决策，最优决策项？最优决策项有递归关系</li>
-<li>DP也可以用NN近似，不精确不要紧</li>
-<li>label不好算？让NN满足Bellman方程</li>
+<p>启发式函数：</p>
+<p>h(n)&#x3D;节点n到目标节点的最小代价路径的代价估计值</p>
+<p>启发式搜索：</p>
+<p>采用了启发式函数的搜索策略</p>
+<hr>
+<ul>
+<li>贪婪搜索<ul>
+<li>扩展距离目标最近的结点</li>
+<li>启发式：对每个状态估计到最近目标的距离（h(n)）</li>
 </ul>
-<h2 id="lecture1101"><a href="#lecture1101" class="headerlink" title="lecture1101"></a>lecture1101</h2><h3 id="TAKE-HOME-MSG-6"><a href="#TAKE-HOME-MSG-6" class="headerlink" title="TAKE-HOME MSG"></a>TAKE-HOME MSG</h3><ul>
-<li>直接根据子问题的解设计子问题的一般形式</li>
-<li>有时候失败：1.循环依赖（加变量分解成更细的子问题） 2.子问题之间根本没有递归关系</li>
+</li>
+<li>A*搜索<ul>
+<li>启发式：同时结合了g(n)（到达此结点已经花费的代价）和h(n)</li>
 </ul>
-<h1 id="作业复习"><a href="#作业复习" class="headerlink" title="作业复习"></a>作业复习</h1><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><ul>
-<li>两个集合的中位数</li>
-<li>左右孩子翻转</li>
-<li>越狱情况数</li>
-<li>二叉树任意两个结点的最大距离</li>
-<li>三路快排</li>
-<li>切绳子</li>
+</li>
 </ul>
-<h2 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h2><ul>
-<li>抢劫金额最大</li>
-<li>丑数</li>
-<li>二叉搜索树的数目</li>
-<li>最大整除子集长度</li>
-<li>非负数组符号和为目标数的方法数（0-1背包）</li>
-<li>股票买卖</li>
-<li>回文子串的个数</li>
-<li>单词转换所需要的最少操作数</li>
+<h4 id="局部搜索"><a href="#局部搜索" class="headerlink" title="局部搜索"></a>局部搜索</h4><p>不关心路径，从单个当前结点出发，通常只移动到他的邻近状态，一般情况下不保留搜索路径</p>
+<p>有两个优点：</p>
+<ul>
+<li>通常只用常数级内存</li>
+<li>通常能在系统化算法不适用的很大或无限的状态空间中找到合理的解</li>
 </ul>
-<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><ul>
-<li>填充道路</li>
-<li>数组中的数字构成最小整数</li>
-<li>会议室安排</li>
-<li>删除k个数字得到的数最大</li>
-<li>是否可以到达最终的位置</li>
-<li>交换数字索引得到最大值</li>
-<li>最大极差和</li>
+<p><strong>如果存在解，最优的局部搜索算法总能找到全局最大&#x2F;最小值</strong></p>
+<ul>
+<li>爬山法搜索</li>
+<li>模拟退火搜索</li>
+<li>遗传算法</li>
 </ul>
-<h2 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h2><h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2>]]></content>
+<hr>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="人工神经网络和深度学习基础"><a href="#人工神经网络和深度学习基础" class="headerlink" title="人工神经网络和深度学习基础"></a>人工神经网络和深度学习基础</h3><ol>
+<li>人工神经网络部分–多层感知机，BP算法</li>
+</ol>
+<p><img src="/../pic/deeplearning3_1.png"></p>
+<ol start="2">
+<li>深度学习</li>
+</ol>
+<ul>
+<li>深度神经网络</li>
+<li>自编码器</li>
+<li>栈式自编码器</li>
+<li>深度置信网络（DBN）</li>
+<li>深度玻尔兹曼机（DBM）</li>
+</ul>
+<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><ul>
+<li>dropout</li>
+<li>局部对比归一</li>
+<li>Inception</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2022/09/09/git/</url>
+    <content><![CDATA[<p><a class="link"   href="https://git-scm.com/book/en/v2" >git文档<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
   </entry>
   <entry>
     <title>article</title>
@@ -850,221 +1065,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>deeplearning</title>
-    <url>/2022/09/02/deeplearning/</url>
-    <content><![CDATA[<h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 人工智能概述 9学时 沈华伟</span><br><span class="line">第1节 人工智能发展历程</span><br><span class="line">第2节 人工智能基础</span><br><span class="line">第3节 搜索问题</span><br><span class="line">第二章 深度学习 15学时 吴高巍</span><br><span class="line">第1节 人工神经网络和深度学习基础</span><br><span class="line">第2节 序列数据的深度学习模型</span><br><span class="line">第3节 图像数据的深度学习模型</span><br><span class="line">第4节 深度学习模型的训练方法</span><br><span class="line">第5节 图神经网络</span><br><span class="line">第三章 知识计算 15学时 罗平</span><br><span class="line">第1节 命题逻辑的语义推论</span><br><span class="line">第2节 命题逻辑的形式推演</span><br><span class="line">第3节 谓词逻辑</span><br><span class="line">第4节 模糊知识表达和推理</span><br><span class="line">第5节 知识表示学习</span><br><span class="line">第四章 群体智能 15学时 沈华伟</span><br><span class="line">第1节 演化计算</span><br><span class="line">第2节 强化学习I</span><br><span class="line">第3节 强化学习II</span><br><span class="line">第4节 博弈论I</span><br><span class="line">第5节 博弈论应用</span><br><span class="line">第五章 答疑和考试 6学时 沈华伟</span><br><span class="line">第1节 课题答疑</span><br><span class="line">第2节 闭卷笔试</span><br></pre></td></tr></table></figure>
-
-<h2 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h2><h3 id="人工智能发展历程"><a href="#人工智能发展历程" class="headerlink" title="人工智能发展历程"></a>人工智能发展历程</h3><p><img src="/../pic/deeplearning1.png"></p>
-<h3 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h3><h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><p>搜索问题的元素包括：</p>
-<ul>
-<li>状态空间</li>
-<li>初始状态和目标测试</li>
-<li>后继函数</li>
-</ul>
-<p>目标就是得到后继函数（从初始状态到目标状态的每一步行动）</p>
-<p>考虑搜索算法的两个出发点：</p>
-<ul>
-<li>完备性</li>
-<li>一致性</li>
-</ul>
-<h3 id="路径搜索"><a href="#路径搜索" class="headerlink" title="路径搜索"></a>路径搜索</h3><h4 id="无信息搜索"><a href="#无信息搜索" class="headerlink" title="无信息搜索"></a>无信息搜索</h4><p>无信息搜索指的是除了问题定义中提供的状态信息外没有其他附加信息，有信息搜索知道一个非目标状态是否比其他状态更有希望接近目标</p>
-<p>搜索：</p>
-<ul>
-<li>扩展出潜在的行动</li>
-<li>维护所考虑的行动的边缘节点</li>
-<li>试图扩展尽可能少的树节点</li>
-</ul>
-<p>重要的点：</p>
-<ul>
-<li>边缘节点</li>
-<li>扩展新的结点</li>
-<li>探索的策略</li>
-</ul>
-<p>考虑的主要问题是选取哪些边缘节点来进行探索</p>
-<p>搜索算法的特性：</p>
-<ul>
-<li>完备性（当有解时保证能找到一个解）</li>
-<li>最优性（保证能找到最优解）</li>
-<li>时间复杂度</li>
-<li>空间复杂度</li>
-</ul>
-<hr>
-<p>状态空间图</p>
-<h5 id="树搜索"><a href="#树搜索" class="headerlink" title="树搜索"></a>树搜索</h5><p>不同搜索算法的区别在于对于边缘的处理策略</p>
-<ul>
-<li><p>DFS</p>
-</li>
-<li><p>BFS</p>
-</li>
-<li><p>迭代深入搜索</p>
-<ul>
-<li>迭代深度的DFS，结合了DFS和BFS的优点</li>
-<li>对DFS进行深度限制，搜索完限制深度后必须开始新的搜索路径</li>
-</ul>
-</li>
-<li><p>代价一致搜索</p>
-<ul>
-<li>在BFS基础上进行扩展</li>
-<li>基本原理：<strong>一致代价搜索总是扩展路径消耗最小的节点N。N点的路径消耗等于前一节点N-1的路径消耗加上N-1到N节点的路径消耗</strong></li>
-<li>UCS是完备的（不存在零代价），是最优的</li>
-</ul>
-</li>
-</ul>
-<p>Example:</p>
-<img src="../pic/deeplearning2_1.png" style="zoom:25%;" />
-
-<p>Solution:</p>
-<p><img src="/../pic/deeplearning2_2.png"></p>
-<h5 id="图搜索"><a href="#图搜索" class="headerlink" title="图搜索"></a>图搜索</h5><ul>
-<li>A*图搜索</li>
-</ul>
-<h4 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h4><p>启发策略：</p>
-<ul>
-<li>估计一个状态到目标距离的函数</li>
-<li>问题给予算法的额外信息，为特定搜索问题而设计</li>
-</ul>
-<p>启发式函数：</p>
-<p>h(n)&#x3D;节点n到目标节点的最小代价路径的代价估计值</p>
-<p>启发式搜索：</p>
-<p>采用了启发式函数的搜索策略</p>
-<hr>
-<ul>
-<li>贪婪搜索<ul>
-<li>扩展距离目标最近的结点</li>
-<li>启发式：对每个状态估计到最近目标的距离（h(n)）</li>
-</ul>
-</li>
-<li>A*搜索<ul>
-<li>启发式：同时结合了g(n)（到达此结点已经花费的代价）和h(n)</li>
-</ul>
-</li>
-</ul>
-<h4 id="局部搜索"><a href="#局部搜索" class="headerlink" title="局部搜索"></a>局部搜索</h4><p>不关心路径，从单个当前结点出发，通常只移动到他的邻近状态，一般情况下不保留搜索路径</p>
-<p>有两个优点：</p>
-<ul>
-<li>通常只用常数级内存</li>
-<li>通常能在系统化算法不适用的很大或无限的状态空间中找到合理的解</li>
-</ul>
-<p><strong>如果存在解，最优的局部搜索算法总能找到全局最大&#x2F;最小值</strong></p>
-<ul>
-<li>爬山法搜索</li>
-<li>模拟退火搜索</li>
-<li>遗传算法</li>
-</ul>
-<hr>
-<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="人工神经网络和深度学习基础"><a href="#人工神经网络和深度学习基础" class="headerlink" title="人工神经网络和深度学习基础"></a>人工神经网络和深度学习基础</h3><ol>
-<li>人工神经网络部分–多层感知机，BP算法</li>
-</ol>
-<p><img src="/../pic/deeplearning3_1.png"></p>
-<ol start="2">
-<li>深度学习</li>
-</ol>
-<ul>
-<li>深度神经网络</li>
-<li>自编码器</li>
-<li>栈式自编码器</li>
-<li>深度置信网络（DBN）</li>
-<li>深度玻尔兹曼机（DBM）</li>
-</ul>
-<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><ul>
-<li>dropout</li>
-<li>局部对比归一</li>
-<li>Inception</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>docker config</title>
-    <url>/2022/05/31/docker_config/</url>
-    <content><![CDATA[<h1 id="docker基础内容"><a href="#docker基础内容" class="headerlink" title="docker基础内容"></a>docker基础内容</h1><h2 id="docker镜像制作"><a href="#docker镜像制作" class="headerlink" title="docker镜像制作"></a>docker镜像制作</h2><p>为了加速镜像拉取等操作，一般要配置国内的镜像加速器，这里选择阿里云镜像加速器</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Docker Engine中配置：</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://itobyt5q.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>常用的docker指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment">#删除镜像</span></span><br><span class="line">docker image <span class="built_in">rm</span> [镜像<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#查看容器</span></span><br><span class="line">docker container <span class="built_in">ls</span> --all</span><br><span class="line"><span class="comment">#查看运行着的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment">#停止容器运行</span></span><br><span class="line">docker <span class="built_in">kill</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#启动容器</span></span><br><span class="line">docker start [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#删除容器</span></span><br><span class="line">docker <span class="built_in">rm</span> [容器<span class="built_in">id</span>]</span><br><span class="line"><span class="comment">#进入运行着的容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it [容器<span class="built_in">id</span>] bash</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h3><ul>
-<li>拉取官方镜像</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull mysql:8.0.0</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行容器</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -v /home/docker/mysql/data:/var/lib/mysql --name mysql mysql:8.0.0</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>检查容器是否运行成功</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>进入容器</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql bash</span><br></pre></td></tr></table></figure>
-
-
-
-<p><em>如果容器运行正常，但无法访问到mysql：</em></p>
-<ol>
-<li>防火墙阻拦</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开放端口：</span></span><br><span class="line">$ systemctl status firewalld</span><br><span class="line">$ firewall-cmd  --zone=public --add-port=3306/tcp -permanent</span><br><span class="line">$ firewall-cmd  --reload</span><br><span class="line"><span class="comment"># 关闭防火墙：</span></span><br><span class="line">$ sudo systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>未开启mysql远程访问权限</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Mysql为了安全考虑，初始的时候并没有开启Root用户（解释：mysql的root用户和我们云服务器的root用户是两个不同的，分开的）的远程访问权限，Root（解释：这里是指mysql的root用户，而不是云服务器的root用户）只能本地localhost，127.0.0.1访问</span><br><span class="line"></span><br><span class="line"># mysql使用mysql数据库中的user表来管理权限，修改user表就可以修改权限（只有root账号可以修改）</span><br><span class="line"> </span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">| 192.168.1.1            | root     | *A731AEBFB621E354CD41BAF207D884A609E81F5E      |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; grant all privileges  on *.* to root@&#x27;%&#x27; identified by &quot;password&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"> </span><br><span class="line">mysql&gt; select host,user,password from user;</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| host                    | user      | password                                                                 |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">| localhost              | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| 192.168.1.1            | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">| %                       | root      | *A731AEBFB621E354CD41BAF207D884A609E81F5E     |</span><br><span class="line">+--------------+------+-------------------------------------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>python代码测试mysql是否配置成功</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line"> host=<span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line"> user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line"> password=<span class="string">&#x27;Jiangshu123&#x27;</span>,</span><br><span class="line"> database=<span class="string">&#x27;customer&#x27;</span>,</span><br><span class="line"> port=<span class="number">8083</span>,</span><br><span class="line"> charset=<span class="string">&#x27;utf8&#x27;</span>,</span><br><span class="line"> autocommit = <span class="literal">False</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line"></span><br><span class="line">cur = conn.cursor()</span><br><span class="line">cur.execute(<span class="string">&quot;show databases&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(cur.fetchall())</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="Vue前端项目打包"><a href="#Vue前端项目打包" class="headerlink" title="Vue前端项目打包"></a>Vue前端项目打包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">一般情况下执行npm run build进行打包</span><br><span class="line">特殊情况下执行npm run build:prod才能正常打包</span><br><span class="line"></span><br><span class="line">此外还有一个问题，打包完成添加到SprringBoot项目启动运行，静态文件抛404，最后发现还需要对vue.config.js修改。</span><br><span class="line">添加 publicPath: <span class="string">&#x27;./&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>前端项目打包后保存在dist目录下，然后将dist目录下的所有文件目录拷贝到spring-boot后端项目的<strong>resourse&gt;static</strong>目录下。</p>
-<p>以上配置完成之后先在本地运行，然后通过maven进行打包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">maven下的Lifecycle下的package</span><br></pre></td></tr></table></figure>
-
-<p><img src="/./img/img1.png"></p>
-<h3 id="镜像制作"><a href="#镜像制作" class="headerlink" title="镜像制作"></a>镜像制作</h3><p>得到打包后的jar包之后就可以制作镜像，首先在jar包相同的目录下新建Dockerfile文件，加入以下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Docker image for springboot file run</span></span><br><span class="line"><span class="comment"># VERSION 0.0.1</span></span><br><span class="line"><span class="comment"># Author: jeremy</span></span><br><span class="line"><span class="comment"># 基础镜像使用java</span></span><br><span class="line">FROM java:8</span><br><span class="line"><span class="comment"># 作者</span></span><br><span class="line">MAINTAINER jeremy &lt;jeremyCoding@163.com&gt;</span><br><span class="line"><span class="comment"># VOLUME 指定了临时文件目录为/tmp。</span></span><br><span class="line"><span class="comment"># 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp</span></span><br><span class="line">VOLUME /tmp</span><br><span class="line"><span class="comment"># 将jar包添加到容器中并更名为app.jar</span></span><br><span class="line">ADD demo-01.jar app.jar</span><br><span class="line"><span class="comment"># 运行jar包</span></span><br><span class="line">RUN bash -c <span class="string">&#x27;touch /app.jar&#x27;</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-Djava.security.egd=file:/dev/./urandom&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p>执行<strong>docker build -t [镜像名称] .</strong> 完成进行制作。</p>
-<h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2>]]></content>
-  </entry>
-  <entry>
-    <title>ever</title>
-    <url>/2022/11/07/ever/</url>
-    <content><![CDATA[<h1 id="告别过去，直面未来"><a href="#告别过去，直面未来" class="headerlink" title="告别过去，直面未来"></a>告别过去，直面未来</h1><p>又到了十一月份，距离上次更新不知不觉已经过去了一年，在这一年的时间里发生了太多的事情，有很多值得纪念，也有一些曾经值得纪念，未来可能只能永远封存在过去的记忆里了。一直想写一篇博客来记录一下这些事情，但是因为种种原因一直搁浅，直到一个星期前我不得不和过去三年的回忆做一个告别，酝酿了一周的时间，就以此为契机记录一下并且作为结点好好地和过去告一个别吧。</p>
-<p>去年的十一月六号北京下了2021年的第一场雪，就是EDG夺冠的那天，印象很深刻。因为要去实习加上学校封校，我和J、T三个人从学校搬出来住进西二旗地铁站附近的一个民居，收拾安顿好已经到了晚上，我们找了一家湘菜馆饱餐了一顿，店里很冷清只有我们仨，J点了她最喜欢的炒花蛤，我们一边吃一边聊着，期待着校外的自由实习生活，快吃完的时候门外开始飘起了雪花，雪花很大在路灯下显得尤为明显，我们兴奋地出门拿起手机拍北京的初雪，刚好在我们出校的第一天，太巧了。那天晚上我和J躺在床上辗转反侧，J比较认床所以我们一直断断续续地聊天，碰巧看到手机上的EDG决赛，我和J便点开了直播。那天晚上不知有多少人一直熬到了夺冠，虽然周围很安静，但朋友圈各种庆祝的图片视频让我们仿佛回到了华电，周围洋溢着呐喊和激动。</p>
-<p>之后是维持了两个月的社畜生活，每天早上十点跟着西二旗的人流涌入写字楼，晚上拖着疲惫的身子穿过一辆又一辆载着互联网打工人的出租和J结伴回到十平的房间，每天过的是精神的充实和身体的劳累。很幸运遇到了一个很友善很优秀的mentor，虽然平时工作不管我但是每天的吃饭时间总会和我天南海北的聊，给我了一些未来方向的建议，虽然只是短暂地相处了两个多月，但是感觉就像照顾了我很长时间的大姐姐，离职的那天她在微信上跟我说等我下次回来请我吃手抓羊肉，我想着很快就可以再见了，但是之后拖了又拖也都过去一年时间了。</p>
-<p>实习的时间很短主要是因为导师催着来所里做毕设，最后妥协一周四天在公司，三天在所里。所以在实习的最后一段时间我基本上每天都是两点一线，有时线的一端在公司有时是在所里，之后实在是坚持不下去决定离职。一直到过年前的一个星期每天基本都是在所里，听上去好像很努力，但其实很多时间都会和师兄、同门一起玩桌游和打球，每天过的都很充实，白天看论文跑实验晚上和师兄同门玩桌游，但是大部分晚上其实还是和J待在一起，穿过冷清的校园回到各自的宿舍，学校里的大部分人都回家了，空荡荡的校园失去了往日的活力，冬日的寒冷显得更加萧瑟，这也是我最后一段时间完整的住在学校了。</p>
-<p>过年后一个星期我就回了所，当然这也是我们组的安排。所里的宿舍安排在中科一招，我的宿舍在北边一栋楼的一层，很破也很小，窗外是一堵墙，所以即使外面是晴空万里屋内也是阴暗一片。返京的第一周所里人很少，每天在所里就是看论文找找毕设的思路，年后的北京天气还是很冷，学院南路的行道树空空荡荡，天空常是灰暗的。J担心学校封校影响面试所以想在校外短租一段时间，我在链家、豆瓣等一些平台找了一段时间，联系了几家约了周末的时间去看房。印象最深的是天通苑的一家，刚下地铁便被一个大妈叫住，大妈骑着一个电动三轮，后面的车厢里摆了几个小板凳，“上车吧”大妈手一挥就准备开车，和大妈在一起的还有几个大爷大妈，同样是电动三轮的配置，不知道还有多少北漂在辛苦地找一个落脚之地。天通苑是一个很大的社区，光地铁站就有三站。大妈开着三轮七拐八绕来到一个角落边楼，熟练地推开不起眼的小门从消防通道领着我上了二楼，一层楼大概有三四户人家，大妈开了其中一个密码门带着我依次介绍。“这里你应该提前也了解过，房租不高，所以环境可能差点。”我来之前已经做了心理准备，但没想到还是吃了一惊，一个一百多平的房子被隔断成十个小房间，狭窄的过道像迷宫一样绕来绕去，一共有两个卫生间堆满了洗漱用品、盆、脏衣服，过道上方拉了一道线，晾着未干的衣服。厨房是开放的，堆满了锅碗瓢盆，垃圾桶里面厨余垃圾快要漫出，发出一股恶臭。房间是朝北的，一扇小窗漏进一些光线，可以闻到房间里有霉味，我跟大妈说回去考虑一下便匆匆离去。回去的地铁上我看着拖着疲惫身子的乘客，想到还有无数在这个陌生的城市里辛苦打拼的人们，早起贪黑真的只是寻求一个落脚之地，目前的自己却无法改变太多，无依无靠的漂着，内心充满了心酸和无奈。</p>
-<p>J回京之后三周时间找到了工作，我和她一起把行李从天通苑搬到公司提供的房子。人真的是很能适应环境的动物，很快也就适应了短时间内的奔波和漂泊。公司提供的房子很大，虽然是合租，但也只有三个人。唯一的缺点可能就是地点在房山，离计算所地铁需要一个半小时。在安顿好新的住处后，J送我到地铁站，我回头让她先走，分别的情绪总是那么令人厌恶，坐上地铁望着窗外飞快移动的一景一物，我知道从此之后见面真的会很难了。毕业前的时间过得很快，我在工作日主要是忙自己的毕设以及为J提供一下毕设的帮助，只有周末的时间才有机会到房山去。有一次和J在房山逛街说了一句“这里和我家好像啊，以后就在这买房吧，离你公司也近。”，房山给人的感觉确实就像一个小城一样，人与人之间好像都没那么多隔阂，走在街上没有高楼大厦，偶尔还能看到一排排摆地摊的大爷大妈，闲适又悠闲。</p>
-<p>和J比较严重的一次吵架就是在五月份，因为毕设的一些问题吵了很久，和解的时候已经到了第二天凌晨五点，我挂了电话坐在科一招的院子里看着远处的天空蒙蒙亮，“问题总是能解决的”，我摇摇晃晃地回到宿舍沉睡过去。其实我心里一直清楚我和J之间有一些问题，但我总很自信问题都能轻松解决，对异地的情况也没有很担心，两年半的时间给了我底气。之后北京疫情变得很严重，我们在宿舍隔离了差不多一个月的时间，房山和海淀是最严重的两个地方，去房山的地铁和出租都被掐断了，我和J的联系只剩下了微信。在解封的前一天我洗着衣服了解到房山电子围栏应该解除了，立马收拾电脑和充电器叫了一辆出租飞奔到房山去。疫情让很多人的联系变得割裂，我和J可能还算比较好的情况，困难真的是可以解决的。</p>
-<p>因为学车时间要过期，所以我知道能回家之后权衡了一下还是决定回家学车。一个月的时间拿到驾照后我又立马回到北京，因为研一在雁栖湖集中教学，所以会和J经历差不多半年的异地，趁开学前这一段时间和J再享受一段没有距离间隔的时光。所里在七月末八月初有差不多十天的高温假，我和J趁这段时间又搬了一次家，换了一个单人公寓。这十天可能是我对未来理想生活的一个缩影，早上做一顿简单的早饭，我和J一起去工作，下班之后买一些菜和水果，做一顿丰盛的晚餐，一遍看电视一遍聊一些工作的琐事。吃完一起去散步消食，回家路上再买好明天的早餐牛奶，周末一起去逛街，一起做家务。我享受每一天在一起的日子，又担心时间的流逝来到分别的一天，因为离开学的时间越来越近了。</p>
-<p>去雁栖湖的那天中午，学校派了一辆大巴接送去雁栖湖，50人的大巴被人和行李塞得满满当当。我望着窗外的小雨，心想这次真的得分开很久了。雁栖湖的日子很快乐，在上课之余经常会和同门、室友玩桌游和打球，但有时候真的会很遗憾，如果J也在身边就好了。J部门发生了变动，工作比往日要多了一倍，经常会遇到很多棘手的问题，我因为不熟悉业务以及异地等各种原因没法帮上忙，我们也经常因此而发生一些争执。所幸的是在国庆期间学校允许申请出校，我带着一箱的行李坐上学校的班车满怀期待地往房山去。隔了很久之后的第一次见面，J有一些憔悴，因为加班等缘故黑眼圈也比较严重，我在她下班前简单收拾了一下屋子，想着能做的可能也就是帮她生活上的一些忙了。国庆期间我们做了很多饭，照着视频做了泡椒凤爪、皮蛋豆腐、青椒炒肉、炸鸡翅…每一次开饭前我都要拍一张照，想的是等以后我们结婚那天要把这些都做成视频在婚礼现场循环播放，这些都是只属于我们的点滴回忆。</p>
-<p>后来J身边出现了一个能够帮她解决问题的同事Z，我既高兴又有一点担心，高兴的是终于有人可以帮她了，担心的是异地的我们需要面临更多挑战了。之后J经常加班到很晚，下班也会和Z一起吃饭，有时候会聊很久的天，J告诉我是聊工作问题，我很相信她。我因为一些工作上的选择问题跟J发生过一些争执，J认为我不理解她，我很无奈但问题还是产生了。再后来有一天晚上八点我给J发了消息没回，我打了很多个电话都是无人接听，我很慌很担心，脑子里预想了很多场景，决定要是十二点前没有回复我就报警。十一点多J回复了，她说她喝醉了明天再聊。我当时五味杂陈，高兴的是她安全无事，生气的是她这么晚喝醉了却没有回复。我很冲动，在微信上发了很多质问的话，当晚没有结果，我想了一晚上辗转反侧。第二天她跟我道了歉但我没有接收，晚上我们聊了一会J第一次跟我提了分手，我说我们都冷静几天，冷静了几天之后我想通了很多问题，这三年来吵架的根本原因我也都想清楚了，但是一切都晚了，时间停在了三年零二天，十月的最后一天永远结束了。</p>
-<p>那天我的几个同门知道我分手了，纷纷来我宿舍安慰我，当时是十一点半，我说我们喝点吧，H从宿舍拿了一瓶白酒，Y从宿舍拿了面包和豆奶，P从宿舍拿了锅、鸡蛋、泡面和一瓶啤酒。我室友帮忙收拾桌子，大家烧了一壶水，把能凑到的食物排满一桌，一人一个纸杯子，都倒了白酒。我沉浸在悲伤之中，昨天也喝了很多酒，但当时是为Y脱单高兴，没想到今天又喝了酒，却是截然相反的心境。兄弟们你一言我一语劝我想开点，以后还有更好的在等着我，我不说话心里想的都是过去三年。就这么一边吃一边喝，我渐渐不省人事，明明昨天我们四个人喝了两瓶白酒都没醉，今天五个人喝一瓶都已经头晕目眩了，奇怪！我们一直喝到一点多，套间里的同学都已经睡觉，我们聊了很多，我也敞开心扉收不住话。结束之后我摇摇晃晃地躺到床上，那天晚上我做了一个很长的梦，梦里放一场三年的电影。</p>
-<p>第二天早上迷迷糊糊地起床，脑子很晕胃也很不舒服，在厕所里忍不住还是吐了，匆匆办了入职就又睡了过去。过了一周的时间J把我的东西整理好了寄给我，我把房子钥匙寄给她，走出快递站的时候我知道这次真的永远回不来了。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>git</title>
-    <url>/2022/09/09/git/</url>
-    <content><![CDATA[<p><a class="link"   href="https://git-scm.com/book/en/v2" >git文档<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>go学习笔记</title>
     <url>/2022/06/23/go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="go简要教程"><a href="#go简要教程" class="headerlink" title="go简要教程"></a>go简要教程</h1><p><a class="link"   href="https://www.yuque.com/aceld/mo95lb" >go简要教程<i class="fas fa-external-link-alt"></i></a></p>
@@ -1262,64 +1262,23 @@
 ]]></content>
   </entry>
   <entry>
-    <title>machinelearning.md</title>
-    <url>/2022/09/02/machinelearning-md/</url>
-    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p>机器学习：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 绪论 3学时</span><br><span class="line">第1节 机器学习研究背景</span><br><span class="line">第2节 机器学习研究的问题</span><br><span class="line">第3节 课程主要内容</span><br><span class="line">第4节 课程安排</span><br><span class="line">第二章 贝叶斯方法 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 贝叶斯决策论</span><br><span class="line">第3节 贝叶斯分类器</span><br><span class="line">第4节 贝叶斯学习与参数估计问题</span><br><span class="line">第三章 线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 基础知识</span><br><span class="line">第3节 感知机</span><br><span class="line">第4节 Fisher鉴别</span><br><span class="line">第5节 Logistic回归</span><br><span class="line">第四章 非线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 决策树</span><br><span class="line">第3节 集成学习</span><br><span class="line">第4节 最近邻方法</span><br><span class="line">第5节 支持向量机与核函数</span><br><span class="line">第五章 回归分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 最小二乘估计</span><br><span class="line">第3节 最大似然估计</span><br><span class="line">第4节 扩展的非线性模型</span><br><span class="line">第5节 误差分析</span><br><span class="line">第六章 聚类分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 序贯方法</span><br><span class="line">第3节 层次聚类</span><br><span class="line">第4节 K均值聚类</span><br><span class="line">第七章 特征降维 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 特征降维</span><br><span class="line">第八章 信息论模型 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 熵、最大熵</span><br><span class="line">第3节 互信息</span><br><span class="line">第4节 信息论优化模型</span><br><span class="line">第九章 概率图模型 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 有向图模型：贝叶斯网络</span><br><span class="line">第3节 无向图模型：马尔可夫随机场</span><br><span class="line">第4节 学习与推断</span><br><span class="line">第5节 隐马尔可夫模型</span><br><span class="line">第十章 神经网络与深度学习 12学时</span><br><span class="line">第1节 前馈网络</span><br><span class="line">第2节 卷积网络</span><br><span class="line">第3节 Recurrent网络</span><br><span class="line">第4节 神经网络与深度学习前沿概述</span><br></pre></td></tr></table></figure>
-
-<p>模式识别与机器学习：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 概述 3学时 黄庆明</span><br><span class="line">第1节 课程主要内容和规划</span><br><span class="line">第2节 模式识别的基本概念</span><br><span class="line">第3节 模式识别简史和应用</span><br><span class="line">第4节 模式识别的方法</span><br><span class="line">第5节 模式识别系统</span><br><span class="line">第6节 相关数学基础</span><br><span class="line">第二章 统计判别 3学时 黄庆明</span><br><span class="line">第1节 贝叶斯判别准则</span><br><span class="line">第2节 最小风险判别</span><br><span class="line">第3节 正态分布模式的贝叶斯分类器</span><br><span class="line">第4节 均值向量和协方差矩阵的参数估计</span><br><span class="line">第三章 判别函数 6学时 黄庆明</span><br><span class="line">第1节 线性判别函数</span><br><span class="line">第2节 广义线性判别函数</span><br><span class="line">第3节 分段线性判别函数</span><br><span class="line">第4节 模式空间和权空间</span><br><span class="line">第5节 Fisher线性判别</span><br><span class="line">第6节 感知器算法</span><br><span class="line">第7节 多模式分类</span><br><span class="line">第8节 迭代训练算法</span><br><span class="line">第9节 势函数法</span><br><span class="line">第10节 决策树</span><br><span class="line">第四章 特征选择和提取 3学时 黄庆明</span><br><span class="line">第1节 模式类别可分性</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 K-L变换</span><br><span class="line">第五章 统计学习理论基础 3学时 常虹</span><br><span class="line">第1节 机器学习简史和应用</span><br><span class="line">第2节 机器学习任务分类</span><br><span class="line">第3节 参数学习</span><br><span class="line">第4节 过拟合</span><br><span class="line">第5节 偏差方差分析</span><br><span class="line">第6节 正则化方法和泛化理论分析</span><br><span class="line">第六章 监督学习 3学时 常虹</span><br><span class="line">第1节 线性回归模型</span><br><span class="line">第2节 判别式分类模型和逻辑回归</span><br><span class="line">第3节 生成式分类模型和贝叶斯模型</span><br><span class="line">第七章 支持向量机 6学时 常虹</span><br><span class="line">第1节 支持向量机基础理论</span><br><span class="line">第2节 拉格朗日乘子法和对偶问题</span><br><span class="line">第3节 线性支持向量机</span><br><span class="line">第4节 软间隔的支持向量机</span><br><span class="line">第5节 核方法支持向量机</span><br><span class="line">第6节 支持向量回归</span><br><span class="line">第7节 SMO求解方法</span><br><span class="line">第八章 聚类 3学时 郭嘉丰</span><br><span class="line">第1节 无监督学习与有监督学习对比</span><br><span class="line">第2节 距离计算</span><br><span class="line">第3节 聚类算法的评价方法</span><br><span class="line">第4节 经典聚类方法</span><br><span class="line">第九章 降维 3学时</span><br><span class="line">第1节 维度的选择和抽取</span><br><span class="line">第2节 线性降维</span><br><span class="line">第3节 非线性降维和流形模型</span><br><span class="line">第十章 半监督学习 3学时 郭嘉丰</span><br><span class="line">第1节 自我训练</span><br><span class="line">第2节 多视角学习</span><br><span class="line">第3节 生成模型</span><br><span class="line">第4节 S3VMs</span><br><span class="line">第5节 基于图的算法</span><br><span class="line">第6节 半监督聚类</span><br><span class="line">第十一章 概率图模型 3学时 郭嘉丰</span><br><span class="line">第1节 有向概率图模型</span><br><span class="line">第2节 无向概率图模型</span><br><span class="line">第3节 学习和推断</span><br><span class="line">第4节 典型的概率图模型</span><br><span class="line">第十二章 集成学习 3学时 山世光</span><br><span class="line">第1节 机器学习中的哲学思想</span><br><span class="line">第2节 分类器设计中的重采样技术</span><br><span class="line">第3节 模型性能评估</span><br><span class="line">第十三章 深度学习及应用 12学时 山世光</span><br><span class="line">第1节 人工神经网络的生物原型</span><br><span class="line">第2节 生物视觉系统简介</span><br><span class="line">第3节 卷积神经网络CNN源起与概述</span><br><span class="line">第4节 典型卷积神经网络结构</span><br><span class="line">第5节 循环神经网络</span><br><span class="line">第6节 反向传播算法介绍</span><br><span class="line">第7节 深度模型训练技巧</span><br><span class="line">第8节 深度模型应用</span><br><span class="line">第9节 深度学习未来发展趋势</span><br><span class="line">第十四章 课程复习 3学时 常虹</span><br><span class="line">第1节 课程复习</span><br><span class="line">第十五章 期末考试 3学时 郭嘉丰</span><br><span class="line">第1节 期末考试</span><br></pre></td></tr></table></figure>
-
-<h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><p><img src="/../pic/machine_list.png"></p>
-<h3 id="课程时间"><a href="#课程时间" class="headerlink" title="课程时间"></a>课程时间</h3><p><img src="/../pic/machine_time.png"></p>
-<h2 id="第二章-贝叶斯学习"><a href="#第二章-贝叶斯学习" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><p><img src="/../pic/machine2_1.png"></p>
-<ul>
-<li>似然：关于样本的分布</li>
-<li>先验：关于类别的分布</li>
-<li>后验：类别关于样本的分布</li>
-</ul>
-<p><img src="/../pic/machine2_3.png"></p>
-<p><img src="/../pic/machine2_2.png"></p>
-<h3 id="MLE和MAP"><a href="#MLE和MAP" class="headerlink" title="MLE和MAP"></a>MLE和MAP</h3><p>概率和统计：</p>
-<ul>
-<li>概率是已知模型和参数的情况下预测结果的方差、均值等情况</li>
-<li>统计是已知结果预测模型和参数</li>
-</ul>
-<p>MLE是最大似然估计，在已知结果的情况下估计参数使得似然函数达到最大</p>
-<p>MAP是最大后验概率估计，在MLE的基础上加入了先验概率的『惩罚』</p>
-<hr>
-<p>多维正态分布概率密度</p>
-<p><img src="/../pic/machine_gaosi.png"></p>
-<h3 id="贝叶斯学习与参数估计问题"><a href="#贝叶斯学习与参数估计问题" class="headerlink" title="贝叶斯学习与参数估计问题"></a>贝叶斯学习与参数估计问题</h3><p>在不同分布下的ML、MAP参数估计</p>
-<h2 id="第三章-线性分类"><a href="#第三章-线性分类" class="headerlink" title="第三章 线性分类"></a>第三章 线性分类</h2><p>常用的统计量：</p>
-<img src="../pic/machine3_3.png" style="zoom:50%;" />
-
-
-
-<img src="../pic/machine3_4.png" style="zoom:50%;" />
-
-
-
-<h1 id="模式识别与机器学习"><a href="#模式识别与机器学习" class="headerlink" title="模式识别与机器学习"></a>模式识别与机器学习</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h2 id="第二章-贝叶斯学习-1"><a href="#第二章-贝叶斯学习-1" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><h2 id="第三章-判别函数"><a href="#第三章-判别函数" class="headerlink" title="第三章 判别函数"></a>第三章 判别函数</h2><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ol>
-<li>多类情况1和多类情况2的比较：</li>
+    <title>megvii-fieldSEG</title>
+    <url>/2023/01/09/megvii-fieldSEG/</url>
+    <content><![CDATA[<h1 id="地面标定"><a href="#地面标定" class="headerlink" title="地面标定"></a>地面标定</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
+<li>miu miubd?</li>
+<li>数据集情况就是文档上的吗，有补充数据集吗</li>
+<li>只对室内场景进行分割？</li>
+<li>交付物是模型和PPL，这些也是我的任务吗</li>
 </ol>
-<p>M类进行分类，多类情况1需要M类判别函数，多类情况2需要M(M-1)&#x2F;2类判别函数</p>
-<h3 id="广义线性判别函数"><a href="#广义线性判别函数" class="headerlink" title="广义线性判别函数"></a>广义线性判别函数</h3><p>判别函数将每个常数项、一次项、二次项…都作为一个维度，将低维映射到高维</p>
-<h3 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h3><ul>
-<li>最小距离分类（类别中心点连线的中垂线）</li>
-</ul>
-<h3 id="模式空间和权空间"><a href="#模式空间和权空间" class="headerlink" title="模式空间和权空间"></a>模式空间和权空间</h3><h3 id="Fisher线性判别"><a href="#Fisher线性判别" class="headerlink" title="Fisher线性判别"></a>Fisher线性判别</h3><p>如何根据实际情况找到一条最好的、最易于分类的投影线就是Fisher线性判别方法要解决的基本问题</p>
-<p>最重要的是投影线的方向，大小不是很重要</p>
-<p>一些参数：</p>
-<ul>
-<li>样本均值</li>
-<li>样本类内离散度矩阵和总样本类内离散度矩阵</li>
-<li>样本类间离散度矩阵</li>
-</ul>
-<p>Fisher准则函数：</p>
-<img src="../pic/machine3_1.png" style="zoom: 50%;" />
-
-<img src="../pic/machine3_2.png" style="zoom:50%;" />
+<h2 id="dpflow"><a href="#dpflow" class="headerlink" title="dpflow"></a>dpflow</h2>]]></content>
+  </entry>
+  <entry>
+    <title>megvii-humanSEG</title>
+    <url>/2023/01/09/megvii-humanSEG/</url>
+    <content><![CDATA[<h1 id="人体分割"><a href="#人体分割" class="headerlink" title="人体分割"></a>人体分割</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
+<li>实例分割？</li>
+<li>95% 能分割出来人形，多人可以分割开90%（最终目标？）</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -1667,24 +1626,65 @@
 ]]></content>
   </entry>
   <entry>
-    <title>megvii-humanSEG</title>
-    <url>/2023/01/09/megvii-humanSEG/</url>
-    <content><![CDATA[<h1 id="人体分割"><a href="#人体分割" class="headerlink" title="人体分割"></a>人体分割</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
-<li>实例分割？</li>
-<li>95% 能分割出来人形，多人可以分割开90%（最终目标？）</li>
+    <title>machinelearning.md</title>
+    <url>/2022/09/02/machinelearning-md/</url>
+    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p>机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 绪论 3学时</span><br><span class="line">第1节 机器学习研究背景</span><br><span class="line">第2节 机器学习研究的问题</span><br><span class="line">第3节 课程主要内容</span><br><span class="line">第4节 课程安排</span><br><span class="line">第二章 贝叶斯方法 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 贝叶斯决策论</span><br><span class="line">第3节 贝叶斯分类器</span><br><span class="line">第4节 贝叶斯学习与参数估计问题</span><br><span class="line">第三章 线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 基础知识</span><br><span class="line">第3节 感知机</span><br><span class="line">第4节 Fisher鉴别</span><br><span class="line">第5节 Logistic回归</span><br><span class="line">第四章 非线性分类 9学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 决策树</span><br><span class="line">第3节 集成学习</span><br><span class="line">第4节 最近邻方法</span><br><span class="line">第5节 支持向量机与核函数</span><br><span class="line">第五章 回归分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 最小二乘估计</span><br><span class="line">第3节 最大似然估计</span><br><span class="line">第4节 扩展的非线性模型</span><br><span class="line">第5节 误差分析</span><br><span class="line">第六章 聚类分析 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 序贯方法</span><br><span class="line">第3节 层次聚类</span><br><span class="line">第4节 K均值聚类</span><br><span class="line">第七章 特征降维 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 特征降维</span><br><span class="line">第八章 信息论模型 3学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 熵、最大熵</span><br><span class="line">第3节 互信息</span><br><span class="line">第4节 信息论优化模型</span><br><span class="line">第九章 概率图模型 6学时</span><br><span class="line">第1节 概述</span><br><span class="line">第2节 有向图模型：贝叶斯网络</span><br><span class="line">第3节 无向图模型：马尔可夫随机场</span><br><span class="line">第4节 学习与推断</span><br><span class="line">第5节 隐马尔可夫模型</span><br><span class="line">第十章 神经网络与深度学习 12学时</span><br><span class="line">第1节 前馈网络</span><br><span class="line">第2节 卷积网络</span><br><span class="line">第3节 Recurrent网络</span><br><span class="line">第4节 神经网络与深度学习前沿概述</span><br></pre></td></tr></table></figure>
+
+<p>模式识别与机器学习：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">第一章 概述 3学时 黄庆明</span><br><span class="line">第1节 课程主要内容和规划</span><br><span class="line">第2节 模式识别的基本概念</span><br><span class="line">第3节 模式识别简史和应用</span><br><span class="line">第4节 模式识别的方法</span><br><span class="line">第5节 模式识别系统</span><br><span class="line">第6节 相关数学基础</span><br><span class="line">第二章 统计判别 3学时 黄庆明</span><br><span class="line">第1节 贝叶斯判别准则</span><br><span class="line">第2节 最小风险判别</span><br><span class="line">第3节 正态分布模式的贝叶斯分类器</span><br><span class="line">第4节 均值向量和协方差矩阵的参数估计</span><br><span class="line">第三章 判别函数 6学时 黄庆明</span><br><span class="line">第1节 线性判别函数</span><br><span class="line">第2节 广义线性判别函数</span><br><span class="line">第3节 分段线性判别函数</span><br><span class="line">第4节 模式空间和权空间</span><br><span class="line">第5节 Fisher线性判别</span><br><span class="line">第6节 感知器算法</span><br><span class="line">第7节 多模式分类</span><br><span class="line">第8节 迭代训练算法</span><br><span class="line">第9节 势函数法</span><br><span class="line">第10节 决策树</span><br><span class="line">第四章 特征选择和提取 3学时 黄庆明</span><br><span class="line">第1节 模式类别可分性</span><br><span class="line">第2节 特征选择</span><br><span class="line">第3节 K-L变换</span><br><span class="line">第五章 统计学习理论基础 3学时 常虹</span><br><span class="line">第1节 机器学习简史和应用</span><br><span class="line">第2节 机器学习任务分类</span><br><span class="line">第3节 参数学习</span><br><span class="line">第4节 过拟合</span><br><span class="line">第5节 偏差方差分析</span><br><span class="line">第6节 正则化方法和泛化理论分析</span><br><span class="line">第六章 监督学习 3学时 常虹</span><br><span class="line">第1节 线性回归模型</span><br><span class="line">第2节 判别式分类模型和逻辑回归</span><br><span class="line">第3节 生成式分类模型和贝叶斯模型</span><br><span class="line">第七章 支持向量机 6学时 常虹</span><br><span class="line">第1节 支持向量机基础理论</span><br><span class="line">第2节 拉格朗日乘子法和对偶问题</span><br><span class="line">第3节 线性支持向量机</span><br><span class="line">第4节 软间隔的支持向量机</span><br><span class="line">第5节 核方法支持向量机</span><br><span class="line">第6节 支持向量回归</span><br><span class="line">第7节 SMO求解方法</span><br><span class="line">第八章 聚类 3学时 郭嘉丰</span><br><span class="line">第1节 无监督学习与有监督学习对比</span><br><span class="line">第2节 距离计算</span><br><span class="line">第3节 聚类算法的评价方法</span><br><span class="line">第4节 经典聚类方法</span><br><span class="line">第九章 降维 3学时</span><br><span class="line">第1节 维度的选择和抽取</span><br><span class="line">第2节 线性降维</span><br><span class="line">第3节 非线性降维和流形模型</span><br><span class="line">第十章 半监督学习 3学时 郭嘉丰</span><br><span class="line">第1节 自我训练</span><br><span class="line">第2节 多视角学习</span><br><span class="line">第3节 生成模型</span><br><span class="line">第4节 S3VMs</span><br><span class="line">第5节 基于图的算法</span><br><span class="line">第6节 半监督聚类</span><br><span class="line">第十一章 概率图模型 3学时 郭嘉丰</span><br><span class="line">第1节 有向概率图模型</span><br><span class="line">第2节 无向概率图模型</span><br><span class="line">第3节 学习和推断</span><br><span class="line">第4节 典型的概率图模型</span><br><span class="line">第十二章 集成学习 3学时 山世光</span><br><span class="line">第1节 机器学习中的哲学思想</span><br><span class="line">第2节 分类器设计中的重采样技术</span><br><span class="line">第3节 模型性能评估</span><br><span class="line">第十三章 深度学习及应用 12学时 山世光</span><br><span class="line">第1节 人工神经网络的生物原型</span><br><span class="line">第2节 生物视觉系统简介</span><br><span class="line">第3节 卷积神经网络CNN源起与概述</span><br><span class="line">第4节 典型卷积神经网络结构</span><br><span class="line">第5节 循环神经网络</span><br><span class="line">第6节 反向传播算法介绍</span><br><span class="line">第7节 深度模型训练技巧</span><br><span class="line">第8节 深度模型应用</span><br><span class="line">第9节 深度学习未来发展趋势</span><br><span class="line">第十四章 课程复习 3学时 常虹</span><br><span class="line">第1节 课程复习</span><br><span class="line">第十五章 期末考试 3学时 郭嘉丰</span><br><span class="line">第1节 期末考试</span><br></pre></td></tr></table></figure>
+
+<h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><p><img src="/../pic/machine_list.png"></p>
+<h3 id="课程时间"><a href="#课程时间" class="headerlink" title="课程时间"></a>课程时间</h3><p><img src="/../pic/machine_time.png"></p>
+<h2 id="第二章-贝叶斯学习"><a href="#第二章-贝叶斯学习" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><p><img src="/../pic/machine2_1.png"></p>
+<ul>
+<li>似然：关于样本的分布</li>
+<li>先验：关于类别的分布</li>
+<li>后验：类别关于样本的分布</li>
+</ul>
+<p><img src="/../pic/machine2_3.png"></p>
+<p><img src="/../pic/machine2_2.png"></p>
+<h3 id="MLE和MAP"><a href="#MLE和MAP" class="headerlink" title="MLE和MAP"></a>MLE和MAP</h3><p>概率和统计：</p>
+<ul>
+<li>概率是已知模型和参数的情况下预测结果的方差、均值等情况</li>
+<li>统计是已知结果预测模型和参数</li>
+</ul>
+<p>MLE是最大似然估计，在已知结果的情况下估计参数使得似然函数达到最大</p>
+<p>MAP是最大后验概率估计，在MLE的基础上加入了先验概率的『惩罚』</p>
+<hr>
+<p>多维正态分布概率密度</p>
+<p><img src="/../pic/machine_gaosi.png"></p>
+<h3 id="贝叶斯学习与参数估计问题"><a href="#贝叶斯学习与参数估计问题" class="headerlink" title="贝叶斯学习与参数估计问题"></a>贝叶斯学习与参数估计问题</h3><p>在不同分布下的ML、MAP参数估计</p>
+<h2 id="第三章-线性分类"><a href="#第三章-线性分类" class="headerlink" title="第三章 线性分类"></a>第三章 线性分类</h2><p>常用的统计量：</p>
+<img src="../pic/machine3_3.png" style="zoom:50%;" />
+
+
+
+<img src="../pic/machine3_4.png" style="zoom:50%;" />
+
+
+
+<h1 id="模式识别与机器学习"><a href="#模式识别与机器学习" class="headerlink" title="模式识别与机器学习"></a>模式识别与机器学习</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h2 id="第二章-贝叶斯学习-1"><a href="#第二章-贝叶斯学习-1" class="headerlink" title="第二章 贝叶斯学习"></a>第二章 贝叶斯学习</h2><h2 id="第三章-判别函数"><a href="#第三章-判别函数" class="headerlink" title="第三章 判别函数"></a>第三章 判别函数</h2><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ol>
+<li>多类情况1和多类情况2的比较：</li>
 </ol>
+<p>M类进行分类，多类情况1需要M类判别函数，多类情况2需要M(M-1)&#x2F;2类判别函数</p>
+<h3 id="广义线性判别函数"><a href="#广义线性判别函数" class="headerlink" title="广义线性判别函数"></a>广义线性判别函数</h3><p>判别函数将每个常数项、一次项、二次项…都作为一个维度，将低维映射到高维</p>
+<h3 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h3><ul>
+<li>最小距离分类（类别中心点连线的中垂线）</li>
+</ul>
+<h3 id="模式空间和权空间"><a href="#模式空间和权空间" class="headerlink" title="模式空间和权空间"></a>模式空间和权空间</h3><h3 id="Fisher线性判别"><a href="#Fisher线性判别" class="headerlink" title="Fisher线性判别"></a>Fisher线性判别</h3><p>如何根据实际情况找到一条最好的、最易于分类的投影线就是Fisher线性判别方法要解决的基本问题</p>
+<p>最重要的是投影线的方向，大小不是很重要</p>
+<p>一些参数：</p>
+<ul>
+<li>样本均值</li>
+<li>样本类内离散度矩阵和总样本类内离散度矩阵</li>
+<li>样本类间离散度矩阵</li>
+</ul>
+<p>Fisher准则函数：</p>
+<img src="../pic/machine3_1.png" style="zoom: 50%;" />
+
+<img src="../pic/machine3_2.png" style="zoom:50%;" />
 ]]></content>
-  </entry>
-  <entry>
-    <title>megvii-fieldSEG</title>
-    <url>/2023/01/09/megvii-fieldSEG/</url>
-    <content><![CDATA[<h1 id="地面标定"><a href="#地面标定" class="headerlink" title="地面标定"></a>地面标定</h1><h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ol>
-<li>miu miubd?</li>
-<li>数据集情况就是文档上的吗，有补充数据集吗</li>
-<li>只对室内场景进行分割？</li>
-<li>交付物是模型和PPL，这些也是我的任务吗</li>
-</ol>
-<h2 id="dpflow"><a href="#dpflow" class="headerlink" title="dpflow"></a>dpflow</h2>]]></content>
   </entry>
   <entry>
     <title>megvii</title>
@@ -2109,12 +2109,6 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
-    <title>nginx_config</title>
-    <url>/2022/09/07/nginx-config/</url>
-    <content><![CDATA[<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><p><a class="link"   href="https://zhuanlan.zhihu.com/p/451825018" >nginx配置<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>multi-ml</title>
     <url>/2022/10/06/multi-ml/</url>
     <content><![CDATA[<h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><ol>
@@ -2265,6 +2259,33 @@ megbrain+meghair+megskull</p>
 <h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><hr>
 <h2 id="生成式对抗"><a href="#生成式对抗" class="headerlink" title="生成式对抗"></a>生成式对抗</h2><hr>
 <h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2>]]></content>
+  </entry>
+  <entry>
+    <title>paper-reading02</title>
+    <url>/2022/11/26/paper-reading02/</url>
+    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
+<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
+<center>模型框架
+  
+</center>
+
+<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
+<p><img src="/../pic/paper-reading2_2.png"></p>
+<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
+<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
+<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
+<p><img src="/../pic/paper-reading2_4.png"></p>
+<p><img src="/../pic/paper-reading2_3.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>nginx_config</title>
+    <url>/2022/09/07/nginx-config/</url>
+    <content><![CDATA[<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><p><a class="link"   href="https://zhuanlan.zhihu.com/p/451825018" >nginx配置<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
   </entry>
   <entry>
     <title>network</title>
@@ -2429,69 +2450,6 @@ megbrain+meghair+megskull</p>
 <h3 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h3><h4 id="域内路由协议RIP-OSPF"><a href="#域内路由协议RIP-OSPF" class="headerlink" title="域内路由协议RIP OSPF"></a>域内路由协议RIP OSPF</h4><h4 id="域间路由协议BGP"><a href="#域间路由协议BGP" class="headerlink" title="域间路由协议BGP"></a>域间路由协议BGP</h4><h2 id="考虑主机移动的路由机制"><a href="#考虑主机移动的路由机制" class="headerlink" title="考虑主机移动的路由机制"></a>考虑主机移动的路由机制</h2>]]></content>
   </entry>
   <entry>
-    <title>paper-reading04</title>
-    <url>/2022/12/23/paper-reading04/</url>
-    <content><![CDATA[<h1 id="RepVGG-Making-VGG-style-ConvNets-Great-Again"><a href="#RepVGG-Making-VGG-style-ConvNets-Great-Again" class="headerlink" title="RepVGG: Making VGG-style ConvNets Great Again"></a>RepVGG: Making VGG-style ConvNets Great Again</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2101.03697" >https://arxiv.org/abs/2101.03697<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong> <a class="link"   href="https://github.com/megvii-model/RepVGG" >https://github.com/megvii-model/RepVGG<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="文章主要创新点"><a href="#文章主要创新点" class="headerlink" title="文章主要创新点"></a>文章主要创新点</h2><ul>
-<li>在VGG网络的Block块中加入了Identity和残差分支，相当于把ResNet网络中的精华应用 到VGG网络中</li>
-<li>模型推理阶段，通过Op融合策略将所有的网络层都转换为Conv3*3，便于网络的部署和加速</li>
-</ul>
-<h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><img src="../pic/paper-reading04_1.png" style="zoom:50%;" />
-
-
-
-<p>上图展示了部分RepVGG网络，图A表示的是原始的ResNet网络，该网络中包含着Conv1*1的残差结构和Identity的残差结构，正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。图B表示的是训练阶段的RepVGG网络架构，整个网络的主体结构和ResNet网络类似，两个网络中都包含残差结构。两个网络中的主要差异如下所述：（1）RepVGG网络中的残差块并没有跨层。（2）整个网络包含2种残差结构，第一种残差结构仅仅包含Conv1*1残差分支；第二种不仅包含Conv1*1的残差结构，而且包含Identity残差结构。由于残差结构具有多个分支，就相当于给网络增加了多条梯度流动的路径，训练一个这样的网络，其实类似于训练了多个网络，并将多个网络融合在一个网络中，类似于模型集成的思路，不过这种思路更加简单和高效。（3）模型的初始阶段使用了简单的残差结构，随着模型的加深，使用了复杂的残差结构，这样不仅仅能够在网络的深层获得更鲁邦的特征表示，而且可以更好的处理网络深层的梯度消失问题。图C表示的是推理阶段的RepVGG网络，该网络的结构非常简单，整个网络均是由Conv3*3+Relu堆叠而成，易于模型的推理和加速。<br>  这种架构的主要优势包括：（1）当前大多数推理引擎都对Conv3*3做了特定的加速，假如整个网络中的每一个Conv3*3都能节省3ms，如果一个网络中包含30个卷积层，那么整个网络就可以节省3*30&#x3D;90ms的时间，这还是初略的估算。（2）当推理阶段使用的网络层类别比较少时，我们愿意花费一些时间来完成这些模块的加速，因为这个工作的通用性很强，不失为一种较好的模型加速方案。（3）对于残差节点而言，需要当所有的残差分支都计算出对应的结果之后，才能获得最终的结果，这些残差分支的中间结果都会保存在设备的内存中，这样会对推理设备的内存具有较大的要求，来回的内存操作会降低整个网络的推理速度。而推理阶段首先在线下将模型转换为单分支结构，在设备推理阶段就能更好的提升设备的内存利用率，从而提升模型的推理速度。总而言之，模型推理阶段的网络结构越简单越能起到模型加速的效果。</p>
-<h2 id="模型推理阶段的重参数化过程"><a href="#模型推理阶段的重参数化过程" class="headerlink" title="模型推理阶段的重参数化过程"></a>模型推理阶段的重参数化过程</h2><img src="../pic/paper-reading04_2.png" style="zoom:50%;" />
-
-<ul>
-<li>将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</li>
-<li>将融合后的卷积层转换为Conv3*3</li>
-<li>合并残差分支中的Conv3*3</li>
-</ul>
-<h2 id="RepVGG算法实现步骤"><a href="#RepVGG算法实现步骤" class="headerlink" title="RepVGG算法实现步骤"></a>RepVGG算法实现步骤</h2><ul>
-<li>获取并划分训练数据集，并对训练集执行数据增强操作</li>
-<li>搭建RepVGG训练网络，训练分类网络，直到网络收敛为止</li>
-<li>加载训练好的网络，对该网络执行重参数化操作</li>
-<li>加载重参数化后的模型，执行模型推理</li>
-</ul>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="../pic/paper-reading04_3.png" style="zoom:50%;" />
-
-<ul>
-<li><strong>相同测试条件下，最小的模型RepVGG-A0与ResNet-18相比，各项指标都有显著的提升，RepVGG-A0网络不仅具有更少的参数量，更快的推理速度，而且获得了更高的分类精度</strong></li>
-<li><strong>与EfficientNet-B0相比，RepVGG-B1g4不仅具有更快的执行速度，而且获得了更高的分类精度，当然该模型也更大一些</strong></li>
-<li><strong>与VGG-16网络相比，RepVGG-B2在各个指标上面都有一定的性能提升</strong></li>
-</ul>
-<img src="../pic/paper-reading04_4.png" style="zoom:50%;" />
-
-<ul>
-<li><strong>与ResNet-50网络相比，RepVGG-B1g2-fast网络不仅获得较高的精度，而且在速度上也有一些优势</strong></li>
-<li><strong>与ResNet-101网络相比，RepVGG-B2-fast网络不均获得了较高的速度，各项指标上也都有所提升</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>paper-reading02</title>
-    <url>/2022/11/26/paper-reading02/</url>
-    <content><![CDATA[<h1 id="Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation"><a href="#Per-Pixel-Classification-is-Not-All-You-Need-for-Semantic-Segmentation" class="headerlink" title="Per-Pixel Classification is Not All You Need for Semantic Segmentation"></a>Per-Pixel Classification is Not All You Need for Semantic Segmentation</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2107.06278" >https://arxiv.org/abs/2107.06278<i class="fas fa-external-link-alt"></i></a></p>
-<p><strong>代码地址：</strong><a class="link"   href="https://github.com/facebookresearch/MaskFormer" >https://github.com/facebookresearch/MaskFormer<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>mask prediction通过一系列二值mask来对像素进行预测分类，不仅可以解决实例分割任务还可以解决语义分割任务，实现了语义分割和实例分割任务的统一。因此本文尝试提出一种统一的框架来同时解决语义分割和实例分割任务。</p>
-<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/../pic/paper-reading2_1.png"></p>
-<center>模型框架
-  
-</center>
-
-<p>提出了一个maskformer框架，将语义分割任务划分成proposal segmentation和proposal classification子任务，通过一个backbone生成高维特征向量，接上两个分支，一个分支就是常见的分割decoder，得到输入图像的每个像素的特征表示。另一个分支接上一个transformer decoder，根据输入的N个query得到得到N个mask的特征表示，利用gt的类别进行监督生成N个mask的类别表示，实现proposal classification子任务，通过N个mask的特征表示和第一个分支生成的逐像素特征表示进行内积得到逐像素的mask表示，实现proposal segmentation子任务。通过这两个子任务得到的结果进行内积得到逐像素的分类，实现语义分割任务。由于同一种类别可能存在在不同的proposal中，所以可以转化为实例分割任务。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>实验数据集包括ADE20K和COCO，在两个数据集上都达到了SOTA（55.6 mIoU on ADE20K，52.7 PQ on COCO）。</p>
-<p><img src="/../pic/paper-reading2_2.png"></p>
-<p>PerPixelBaseline使用了MaskFormer的逐像素分类部分，直接输出逐像素的score。</p>
-<p>PerPixelBaseline+在PerPixelBaseline基础上加上了transformer模块和mask embedding的MLP模块。</p>
-<p>MaskFormer和PerPixelBaseline+的区别就是一个是采用逐像素分类的方式，另一个是采用mask classification分类的方式。</p>
-<p><img src="/../pic/paper-reading2_4.png"></p>
-<p><img src="/../pic/paper-reading2_3.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>paper-reading03.md</title>
     <url>/2022/12/11/paper-reading03-md/</url>
     <content><![CDATA[<h1 id="Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs"><a href="#Scaling-Up-Your-Kernels-to-31x31-Revisiting-Large-Kernel-Design-in-CNNs" class="headerlink" title="Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"></a><strong>Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs</strong></h1><p><a class="link"   href="https://arxiv.org/abs/2203.06717" >论文地址<i class="fas fa-external-link-alt"></i></a></p>
@@ -2549,40 +2507,45 @@ megbrain+meghair+megskull</p>
 ]]></content>
   </entry>
   <entry>
-    <title>paper-reading05</title>
-    <url>/2023/01/09/paper-reading05/</url>
-    <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
-<p>代码地址：<a class="link"   href="https://github.com/huawei-noah/CV-Backbones" >https://github.com/huawei-noah/CV-Backbones<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>在视觉任务中，CNNs，Transformer，MLP都取得了很好的效果。CNNs利用了平移不变性和局部性使用滑动窗口提取特征。Transformer和MLP将将图像视为一系列的patches。上述的考虑都是基于规则网格或序列表示，本文尝试一种更灵活的图结构。计算机视觉的一个基本任务是识别图像中的物体，由于对象通常不是规则的方形，而以往的网络如ResNet和ViT中常用的网格或序列结构往往会造成冗余，难以处理这些不规则对象。图是一种广义的数据结构，网格和序列可以看作是图的一种特殊情况。将图像视为图形对于视觉感知来说更加灵活和有效。本文基于图像的图表示提出了vision graph neural network，首次将图神经网络用于视觉任务，同时能取得很好的效果。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="/../pic/paper-reading05_1.png"></p>
-<ol>
-<li>对图像的图表示</li>
-</ol>
-<p>对于一张图片，首先将图片划分为N个patch，然后将进行特征变换得到每一个patch对应的特征。这些特性可以看作是一组无序的节点，表示为V&#x3D;[v1,…,vN]。对于每一个节点vi找到穷最近的K个邻居N_vi，然后加入一条有向边eji从vj到vi。因此就得到了一个图结构G&#x3D;（V，E），其中E表示所有的边集合。通过将图像视为图数据，因此可以利用GCN提取其表征。</p>
-<ol start="2">
-<li>图层次的处理</li>
-</ol>
-<p>图卷积层通过聚合相邻节点的特征来实现节点之间的信息交换。具体来说，聚合运算是通过聚合邻居节点的特征来计算节点的表示。更进一步，引入了多头注意力。将聚集特征分成h个头，然后分别用不同的权重更新这些头。多头更新操作使模型能够在多个表示子空间中更新信息，有利于特征的多样性。</p>
-<ol start="3">
-<li>ViG block</li>
-</ol>
-<p>本文在图卷积前后应用线性层，将节点特征投影到同一个域，增加特征多样性。在图卷积后插入一个非线性激活函数以避免层坍塌。我们称升级后的模块为Grapher模块。为了进一步提高特征转换能力和缓解过平滑现象，在每个节点上使用前馈网络(FFN)。FFN模块是一个简单的多层感知器，有两个完全连接的层。由Grapher模块和FFN模块叠加而成的ViG块是构成网络的基本构建单元。因此构建面向视觉任务的ViG网络。与ResGCN相比，ViG随着层的深入能够保持特征多样性，学习出判别性的表征。</p>
-<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><ol>
-<li>各向同性架构</li>
-</ol>
-<p>各向同性架构意味着主体在整个网络中具有大小和形状相同的特征，如ViT和ResMLP。本文构建了三种不同模型尺寸的各向同性ViG架构，分别为ViG-ti、S和B，节点数设为N &#x3D;196。为了逐渐扩大接收场，这三种模型中随着层深的增加，邻居节点数K从9线性增加到18。头的数量默认设置为h &#x3D; 4。</p>
-<ol start="2">
-<li>金字塔架构</li>
-</ol>
-<p>金字塔架构考虑了图像的多尺度特性，即随着层越深提取空间尺寸越小的特征，如ResNet和PVT。经验证据表明，金字塔结构对视觉任务是有效的。因此，本文利用先进的设计和建立了四个版本的金字塔ViG模型。</p>
-<ol start="3">
-<li>位置编码</li>
-</ol>
-<p>为了表示节点的位置信息，在每个节点特征中添加一个位置编码向量。对于金字塔ViG，进一步使用Swin Transformer等高级设计，例如相对位置编码。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/../pic/paper-reading05_2.png"></p>
-<p><img src="/../pic/paper-reading05_3.png"></p>
-<h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
-<p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
+    <title>paper-reading04</title>
+    <url>/2022/12/23/paper-reading04/</url>
+    <content><![CDATA[<h1 id="RepVGG-Making-VGG-style-ConvNets-Great-Again"><a href="#RepVGG-Making-VGG-style-ConvNets-Great-Again" class="headerlink" title="RepVGG: Making VGG-style ConvNets Great Again"></a>RepVGG: Making VGG-style ConvNets Great Again</h1><p><strong>论文地址：</strong><a class="link"   href="https://arxiv.org/abs/2101.03697" >https://arxiv.org/abs/2101.03697<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>代码地址：</strong> <a class="link"   href="https://github.com/megvii-model/RepVGG" >https://github.com/megvii-model/RepVGG<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="文章主要创新点"><a href="#文章主要创新点" class="headerlink" title="文章主要创新点"></a>文章主要创新点</h2><ul>
+<li>在VGG网络的Block块中加入了Identity和残差分支，相当于把ResNet网络中的精华应用 到VGG网络中</li>
+<li>模型推理阶段，通过Op融合策略将所有的网络层都转换为Conv3*3，便于网络的部署和加速</li>
+</ul>
+<h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><img src="../pic/paper-reading04_1.png" style="zoom:50%;" />
+
+
+
+<p>上图展示了部分RepVGG网络，图A表示的是原始的ResNet网络，该网络中包含着Conv1*1的残差结构和Identity的残差结构，正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。图B表示的是训练阶段的RepVGG网络架构，整个网络的主体结构和ResNet网络类似，两个网络中都包含残差结构。两个网络中的主要差异如下所述：（1）RepVGG网络中的残差块并没有跨层。（2）整个网络包含2种残差结构，第一种残差结构仅仅包含Conv1*1残差分支；第二种不仅包含Conv1*1的残差结构，而且包含Identity残差结构。由于残差结构具有多个分支，就相当于给网络增加了多条梯度流动的路径，训练一个这样的网络，其实类似于训练了多个网络，并将多个网络融合在一个网络中，类似于模型集成的思路，不过这种思路更加简单和高效。（3）模型的初始阶段使用了简单的残差结构，随着模型的加深，使用了复杂的残差结构，这样不仅仅能够在网络的深层获得更鲁邦的特征表示，而且可以更好的处理网络深层的梯度消失问题。图C表示的是推理阶段的RepVGG网络，该网络的结构非常简单，整个网络均是由Conv3*3+Relu堆叠而成，易于模型的推理和加速。<br>  这种架构的主要优势包括：（1）当前大多数推理引擎都对Conv3*3做了特定的加速，假如整个网络中的每一个Conv3*3都能节省3ms，如果一个网络中包含30个卷积层，那么整个网络就可以节省3*30&#x3D;90ms的时间，这还是初略的估算。（2）当推理阶段使用的网络层类别比较少时，我们愿意花费一些时间来完成这些模块的加速，因为这个工作的通用性很强，不失为一种较好的模型加速方案。（3）对于残差节点而言，需要当所有的残差分支都计算出对应的结果之后，才能获得最终的结果，这些残差分支的中间结果都会保存在设备的内存中，这样会对推理设备的内存具有较大的要求，来回的内存操作会降低整个网络的推理速度。而推理阶段首先在线下将模型转换为单分支结构，在设备推理阶段就能更好的提升设备的内存利用率，从而提升模型的推理速度。总而言之，模型推理阶段的网络结构越简单越能起到模型加速的效果。</p>
+<h2 id="模型推理阶段的重参数化过程"><a href="#模型推理阶段的重参数化过程" class="headerlink" title="模型推理阶段的重参数化过程"></a>模型推理阶段的重参数化过程</h2><img src="../pic/paper-reading04_2.png" style="zoom:50%;" />
+
+<ul>
+<li>将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</li>
+<li>将融合后的卷积层转换为Conv3*3</li>
+<li>合并残差分支中的Conv3*3</li>
+</ul>
+<h2 id="RepVGG算法实现步骤"><a href="#RepVGG算法实现步骤" class="headerlink" title="RepVGG算法实现步骤"></a>RepVGG算法实现步骤</h2><ul>
+<li>获取并划分训练数据集，并对训练集执行数据增强操作</li>
+<li>搭建RepVGG训练网络，训练分类网络，直到网络收敛为止</li>
+<li>加载训练好的网络，对该网络执行重参数化操作</li>
+<li>加载重参数化后的模型，执行模型推理</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="../pic/paper-reading04_3.png" style="zoom:50%;" />
+
+<ul>
+<li><strong>相同测试条件下，最小的模型RepVGG-A0与ResNet-18相比，各项指标都有显著的提升，RepVGG-A0网络不仅具有更少的参数量，更快的推理速度，而且获得了更高的分类精度</strong></li>
+<li><strong>与EfficientNet-B0相比，RepVGG-B1g4不仅具有更快的执行速度，而且获得了更高的分类精度，当然该模型也更大一些</strong></li>
+<li><strong>与VGG-16网络相比，RepVGG-B2在各个指标上面都有一定的性能提升</strong></li>
+</ul>
+<img src="../pic/paper-reading04_4.png" style="zoom:50%;" />
+
+<ul>
+<li><strong>与ResNet-50网络相比，RepVGG-B1g2-fast网络不仅获得较高的精度，而且在速度上也有一些优势</strong></li>
+<li><strong>与ResNet-101网络相比，RepVGG-B2-fast网络不均获得了较高的速度，各项指标上也都有所提升</strong></li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -2783,19 +2746,6 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
-    <title>pytorch_mmseg</title>
-    <url>/2022/10/06/pytorch-mmseg/</url>
-    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
-
-	<div class="row">
-    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-]]></content>
-  </entry>
-  <entry>
     <title>roadmap</title>
     <url>/2022/09/01/roadmap/</url>
     <content><![CDATA[<h1 id="roadmap-of-backend"><a href="#roadmap-of-backend" class="headerlink" title="roadmap of backend"></a>roadmap of backend</h1>
@@ -2816,6 +2766,128 @@ baseline（混合损失）+baseline权重finetune</p>
 
 
 
+]]></content>
+  </entry>
+  <entry>
+    <title>paper-reading05</title>
+    <url>/2023/01/09/paper-reading05/</url>
+    <content><![CDATA[<h1 id="Vision-GNN-An-Image-is-Worth-Graph-of-Nodes"><a href="#Vision-GNN-An-Image-is-Worth-Graph-of-Nodes" class="headerlink" title="Vision GNN: An Image is Worth Graph of Nodes"></a>Vision GNN: An Image is Worth Graph of Nodes</h1><p>论文地址：<a class="link"   href="https://arxiv.org/abs/2206.00272v2" >https://arxiv.org/abs/2206.00272v2<i class="fas fa-external-link-alt"></i></a></p>
+<p>代码地址：<a class="link"   href="https://github.com/huawei-noah/CV-Backbones" >https://github.com/huawei-noah/CV-Backbones<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>在视觉任务中，CNNs，Transformer，MLP都取得了很好的效果。CNNs利用了平移不变性和局部性使用滑动窗口提取特征。Transformer和MLP将将图像视为一系列的patches。上述的考虑都是基于规则网格或序列表示，本文尝试一种更灵活的图结构。计算机视觉的一个基本任务是识别图像中的物体，由于对象通常不是规则的方形，而以往的网络如ResNet和ViT中常用的网格或序列结构往往会造成冗余，难以处理这些不规则对象。图是一种广义的数据结构，网格和序列可以看作是图的一种特殊情况。将图像视为图形对于视觉感知来说更加灵活和有效。本文基于图像的图表示提出了vision graph neural network，首次将图神经网络用于视觉任务，同时能取得很好的效果。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><img src="/../pic/paper-reading05_1.png"></p>
+<ol>
+<li>对图像的图表示</li>
+</ol>
+<p>对于一张图片，首先将图片划分为N个patch，然后将进行特征变换得到每一个patch对应的特征。这些特性可以看作是一组无序的节点，表示为V&#x3D;[v1,…,vN]。对于每一个节点vi找到穷最近的K个邻居N_vi，然后加入一条有向边eji从vj到vi。因此就得到了一个图结构G&#x3D;（V，E），其中E表示所有的边集合。通过将图像视为图数据，因此可以利用GCN提取其表征。</p>
+<ol start="2">
+<li>图层次的处理</li>
+</ol>
+<p>图卷积层通过聚合相邻节点的特征来实现节点之间的信息交换。具体来说，聚合运算是通过聚合邻居节点的特征来计算节点的表示。更进一步，引入了多头注意力。将聚集特征分成h个头，然后分别用不同的权重更新这些头。多头更新操作使模型能够在多个表示子空间中更新信息，有利于特征的多样性。</p>
+<ol start="3">
+<li>ViG block</li>
+</ol>
+<p>本文在图卷积前后应用线性层，将节点特征投影到同一个域，增加特征多样性。在图卷积后插入一个非线性激活函数以避免层坍塌。我们称升级后的模块为Grapher模块。为了进一步提高特征转换能力和缓解过平滑现象，在每个节点上使用前馈网络(FFN)。FFN模块是一个简单的多层感知器，有两个完全连接的层。由Grapher模块和FFN模块叠加而成的ViG块是构成网络的基本构建单元。因此构建面向视觉任务的ViG网络。与ResGCN相比，ViG随着层的深入能够保持特征多样性，学习出判别性的表征。</p>
+<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><ol>
+<li>各向同性架构</li>
+</ol>
+<p>各向同性架构意味着主体在整个网络中具有大小和形状相同的特征，如ViT和ResMLP。本文构建了三种不同模型尺寸的各向同性ViG架构，分别为ViG-ti、S和B，节点数设为N &#x3D;196。为了逐渐扩大接收场，这三种模型中随着层深的增加，邻居节点数K从9线性增加到18。头的数量默认设置为h &#x3D; 4。</p>
+<ol start="2">
+<li>金字塔架构</li>
+</ol>
+<p>金字塔架构考虑了图像的多尺度特性，即随着层越深提取空间尺寸越小的特征，如ResNet和PVT。经验证据表明，金字塔结构对视觉任务是有效的。因此，本文利用先进的设计和建立了四个版本的金字塔ViG模型。</p>
+<ol start="3">
+<li>位置编码</li>
+</ol>
+<p>为了表示节点的位置信息，在每个节点特征中添加一个位置编码向量。对于金字塔ViG，进一步使用Swin Transformer等高级设计，例如相对位置编码。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/../pic/paper-reading05_2.png"></p>
+<p><img src="/../pic/paper-reading05_3.png"></p>
+<h2 id="可视化结果"><a href="#可视化结果" class="headerlink" title="可视化结果"></a>可视化结果</h2><p><img src="/../pic/paper-reading05_4.png"></p>
+<p>可以观察到，提出的模型可以选择与内容相关的节点作为一阶邻居。<strong>在浅层中，倾向于根据颜色、纹理等低级和局部特征来选择邻居节点。在深层，中心节点的邻居语义性更强，属于同一类别。</strong>因此VIG网络可以通过其内容和语义表示将节点逐渐连接起来，帮助更好地识别对象。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>sematic-seg-review</title>
+    <url>/2023/02/07/sematic-seg-review/</url>
+    <content><![CDATA[<h1 id="语义分割论文综述"><a href="#语义分割论文综述" class="headerlink" title="语义分割论文综述"></a>语义分割论文综述</h1><h2 id="前置常用理论和技巧"><a href="#前置常用理论和技巧" class="headerlink" title="前置常用理论和技巧"></a>前置常用理论和技巧</h2><ol>
+<li>超像素</li>
+</ol>
+<ul>
+<li>Turbopixel</li>
+<li>SLIC</li>
+</ul>
+<ol start="2">
+<li>CRF</li>
+</ol>
+<img src="../pic/CRF.png" style="zoom:50%;" />
+
+
+
+<ol start="3">
+<li>hard-pixel-aware</li>
+</ol>
+<img src="../pic/hard-pixel-aware.png" style="zoom:50%;" />
+
+
+
+<h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><p><img src="/../pic/ss-method-sum.png"></p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p><img src="/../pic/datasets.png"></p>
+<h2 id="语义分割论文分类"><a href="#语义分割论文分类" class="headerlink" title="语义分割论文分类"></a>语义分割论文分类</h2><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>FCN提出全卷积神经网络进行语义分割, <a class="link"   href="https://arxiv.org/abs/1411.4038%EF%BC%8C%E4%BB%8E%E6%AD%A4%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E8%BF%9B%E5%85%A5%E4%BA%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%97%B6%E4%BB%A3%E3%80%82" >https://arxiv.org/abs/1411.4038，从此语义分割进入了深度学习的时代。<i class="fas fa-external-link-alt"></i></a></p>
+<p>此后语义分割主要围绕着<strong>有效的上下文信息，高分辨率特征表示，引入额外信息(边界)，超高分辨率分割</strong>等角度展开。</p>
+<p>目前比较火的是使用<strong>transformer</strong>进行语义分割的研究。</p>
+<h4 id="有效上下文信息"><a href="#有效上下文信息" class="headerlink" title="有效上下文信息"></a>有效上下文信息</h4><ol>
+<li><p><strong>空间上下文</strong></p>
+<ul>
+<li><p>金字塔结构，Pyramid Scene Parsing Network(PSPNet)</p>
+</li>
+<li><p>Deeplab系列，使用ASPP结构和空洞卷机，包括V1，V2，V3，plus</p>
+</li>
+</ul>
+</li>
+<li><p><strong>相关上下文</strong></p>
+<ul>
+<li>Dual Attention Network for Scene Segmentation(DANet)。自注意机制position attention + channel attention</li>
+<li>Object-Contextual Representations for Semantic Segmentation(OCRNet)。像素所属类别的特征对像素进行增强</li>
+<li>CCNet: Criss-Cross Attention for Semantic Segmentation(CCNet)。降低attention计算量</li>
+<li>Context Encoding for Semantic Segmentation(EncNet)。使用传统视觉中残差编码来建模上下文</li>
+<li>Disentangled Non-Local Neural Networks。attention解耦为pairwise term和unary term分别进行学习</li>
+</ul>
+</li>
+<li><p><strong>空间+相关上下文</strong></p>
+<ul>
+<li>Adaptive Pyramid Context Network for semantic Segementation，结合金字塔更改attention的采样位置</li>
+</ul>
+</li>
+</ol>
+<h4 id="高分辨率特征表示"><a href="#高分辨率特征表示" class="headerlink" title="高分辨率特征表示"></a>高分辨率特征表示</h4><ol>
+<li>Deep High-Resolution Representation Learning for Visual Recognition(HRNet)，维持高分辨率分支</li>
+<li>Encoder-Decoder恢复原始分辨率<ul>
+<li>SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation，记录池化的索引，在decoder部分直接使用索引还原</li>
+<li>Semantic Flow for Fast and Accurate Scene Parsing(SFNet)。使用光流进行不同阶段特征融合。</li>
+<li>GFF: Gated Fully Fusion for Semantic Segmentation，使用soft gate机制取控制不同阶段的特征融合。</li>
+</ul>
+</li>
+</ol>
+<h4 id="引入额外信息-边界"><a href="#引入额外信息-边界" class="headerlink" title="引入额外信息(边界)"></a>引入额外信息(边界)</h4><ol>
+<li>Gated-SCNN: Gated Shape CNNs for Semantic Segmentation，引入额外的分支监督语义边缘</li>
+<li>SegFix: Model-Agnostic Boundary Refinement for Segmentation，通用的边界区域后处理模块</li>
+<li>hard-pixel-aware：<ul>
+<li>Loss Max-Pooling for Semantic Image Segmentation</li>
+<li><em>Not All Pixels Are Equal</em>: Difficulty-Aware Semantic Segmentation via Deep Layer Cascade</li>
+</ul>
+</li>
+</ol>
+<h4 id="超高分辨率分割"><a href="#超高分辨率分割" class="headerlink" title="超高分辨率分割"></a>超高分辨率分割</h4><ol>
+<li>Collaborative Global-Local Networks for Memory-Efficient Segmentation of Ultra-High Resolution Images。将原图下采样和crop分别输入到网络中</li>
+</ol>
+<h3 id="skip-connection"><a href="#skip-connection" class="headerlink" title="skip connection"></a>skip connection</h3><ol>
+<li>unet</li>
+<li>unet++</li>
+</ol>
+<h4 id="语义分割transformer结构"><a href="#语义分割transformer结构" class="headerlink" title="语义分割transformer结构"></a>语义分割transformer结构</h4><ol>
+<li>Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers，VIT结构应用在语义分割上；</li>
+<li>SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers，在transformer中引入多尺度特征；</li>
+<li>Per-Pixel Classification is Not All You Need for Semantic Segmentation，在transformer中使用聚类思想进行语义分割。</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -2945,6 +3017,19 @@ baseline（混合损失）+baseline权重finetune</p>
       <tags>
         <tag>s</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>pytorch_mmseg</title>
+    <url>/2022/10/06/pytorch-mmseg/</url>
+    <content><![CDATA[<h1 id="pytorch-mmseg配置"><a href="#pytorch-mmseg配置" class="headerlink" title="pytorch-mmseg配置"></a>pytorch-mmseg配置</h1>
+
+	<div class="row">
+    <embed src="https://yhg1010.github.io/file/pytorch_mmcv.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+]]></content>
   </entry>
   <entry>
     <title>weak-shot-classify</title>
@@ -3285,6 +3370,15 @@ baseline（混合损失）+baseline权重finetune</p>
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
+    <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
+<h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
+<h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
+<h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>动手学深度学习1</title>
     <url>/2022/08/30/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01/</url>
     <content><![CDATA[<h1 id="线性神经网络"><a href="#线性神经网络" class="headerlink" title="线性神经网络"></a>线性神经网络</h1><h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>$$<br>log \frac{1}{P (j)} &#x3D; − log P(j)<br>$$</p>
@@ -3316,15 +3410,6 @@ baseline（混合损失）+baseline权重finetune</p>
 <p>$$<br>tanh(x)&#x3D;\frac{1-e^{-2x}}{1+e^{-2x}}<br>$$</p>
 <p>$$<br>y&#x3D;tanh(x) \<br>y^{‘} &#x3D; 1-y^2<br>$$</p>
 <p>梯度裁剪可以快速修复梯度爆炸：<br>$$<br>g &lt;&#x3D;min(1,\frac{\theta}{||g||})g<br>$$</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/06/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0--%E9%81%93%E5%BE%B7%E7%BB%8F/</url>
-    <content><![CDATA[<h1 id="道德经"><a href="#道德经" class="headerlink" title="道德经"></a>道德经</h1><h2 id="天地之始，万物之母"><a href="#天地之始，万物之母" class="headerlink" title="天地之始，万物之母"></a>天地之始，万物之母</h2><h3 id="道可道，非常道；名可名，非常名。"><a href="#道可道，非常道；名可名，非常名。" class="headerlink" title="道可道，非常道；名可名，非常名。"></a>道可道，非常道；名可名，非常名。</h3><p>所谓的道，本质就是对天地万物的规律性认识。道主宰天地万物，存在于天地万物形成之前的『无』中，又主宰并化生天地万物。</p>
-<h2 id="为而不恃，功成弗居"><a href="#为而不恃，功成弗居" class="headerlink" title="为而不恃，功成弗居"></a>为而不恃，功成弗居</h2><h3 id="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"><a href="#故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。" class="headerlink" title="故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。"></a>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随，恒也。</h3><p>世间万物都是相辅相成的，没有绝对，只有相对。事物都是有两面性，一面走到尽头，就转化为另一面，所谓物极必反。掌握事物规律，顺势而为才能实现无为而无所不为。</p>
-<h3 id="为而不恃，功成而弗居"><a href="#为而不恃，功成而弗居" class="headerlink" title="为而不恃，功成而弗居"></a>为而不恃，功成而弗居</h3><h2 id="圣人之治，无为而治"><a href="#圣人之治，无为而治" class="headerlink" title="圣人之治，无为而治"></a>圣人之治，无为而治</h2><h2 id="挫锐解纷，和光同尘"><a href="#挫锐解纷，和光同尘" class="headerlink" title="挫锐解纷，和光同尘"></a>挫锐解纷，和光同尘</h2><h3 id="挫其锐，解其纷，和其光，同其尘"><a href="#挫其锐，解其纷，和其光，同其尘" class="headerlink" title="挫其锐，解其纷，和其光，同其尘"></a>挫其锐，解其纷，和其光，同其尘</h3><p>真正的道，都是没有锋芒，没有纷扰，上和光下同尘、与万物和谐一体共生共存的，它因此圆润谦卑，也因此深奥莫测，真正的智慧就在这里。</p>
-<h2 id="多言数穷，不如守中"><a href="#多言数穷，不如守中" class="headerlink" title="多言数穷，不如守中"></a>多言数穷，不如守中</h2><h3 id="虚而不屈，动而愈出。多言数穷，不如守中。"><a href="#虚而不屈，动而愈出。多言数穷，不如守中。" class="headerlink" title="虚而不屈，动而愈出。多言数穷，不如守中。"></a>虚而不屈，动而愈出。多言数穷，不如守中。</h3><p>作为个人，如果想保持不竭的生命激情和力量，就该法天效地，保持心中的虚静辽阔，充实内心，少说多做，这样才能保持无穷元气，拥有智慧和源源不尽的生命力量。言多必失，言多必败！</p>
 ]]></content>
   </entry>
 </search>
